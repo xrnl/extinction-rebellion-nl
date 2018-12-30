@@ -10492,7 +10492,7 @@ a.text-dark:focus {
 
 @font-face {
   font-family: "FucXed";
-  src: url("/fonts/fucxedcaps-webfont.woff2") format("woff2"), url("/fonts/fucxedcaps-webfont.woff") format("woff"), url("/fonts/fucxedcaps-webfont.otf") format("otf");
+  src: url(/fonts/fucxedcaps-webfont.woff2?dcf82756513ec4d8da4e6b60942d1991) format("woff2"), url(/fonts/fucxedcaps-webfont.woff?88bb30ecebb2b820d71165c6af29c321) format("woff"), url(/fonts/fucxedcaps-webfont.otf?aaef2f58521658e45038c46833e443fe) format("otf");
   font-weight: normal;
   font-style: normal;
 }
