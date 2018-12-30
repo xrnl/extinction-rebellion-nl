@@ -1,0 +1,87 @@
+
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+
+
+
+@font-face {
+    font-family: 'FucXed';
+    src: url('/fonts/fucxedcaps-webfont.woff2') format('woff2'),url('/fonts/fucxedcaps-webfont.woff') format('woff'),url('/fonts/fucxedcaps-webfont.otf') format('otf');
+    font-weight: normal;
+    font-style: normal
+}
+
+body {
+    background-color: #3aaa37;
+    font-family: FucXed, Arial, Helvetica, sans-serif;
+}
+
+input[type=text], textarea, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.block {
+    border-radius: 5px;
+    text-align: left;
+    max-width: 800px;
+    background-color: #f2f2f2;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+header {
+    background-color: black;
+
+}
+header h1 {
+    color: #3aaa37;
+    font-size: 5em;
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+    padding: 0;
+}
+
+p, ul {
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
+    }
+}
