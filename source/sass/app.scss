@@ -1,5 +1,6 @@
-
 @import "variables";
+
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -11,7 +12,7 @@
 
 
 body {
-    background-color: #3aaa37;
+    background-color: $green;
     font-family: FucXed, Arial, Helvetica, sans-serif;
 }
 
@@ -27,7 +28,7 @@ input[type=text], textarea, select {
 
 input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: $green;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -37,14 +38,14 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: $green;
 }
 
 .block {
     border-radius: 5px;
     text-align: left;
     max-width: 800px;
-    background-color: #f2f2f2;
+    background-color: $gray-200;
 }
 
 .row {
@@ -56,16 +57,38 @@ img {
 }
 
 header {
-    background-color: black;
+    background-color: $green;
 
 }
 header h1 {
-    color: #3aaa37;
+    color: $white;
     font-size: 5em;
     width: 100%;
     text-align: center;
     margin: 10px;
     padding: 0;
+}
+
+.logo {
+
+    position: relative;
+    display: block;
+    width: 240px;
+
+    span {
+        position: absolute;
+        background-color: #f0ed77;
+        padding: 4px 3px 2px 4px;
+        font-size: 15px;
+        bottom: -10;
+        right: -12px;
+        line-height: 1;
+        transform: rotate(1deg);
+    }
+
+    img {
+        width: 100%;
+    }
 }
 
 p, ul {
