@@ -96,10 +96,16 @@ p, ul {
     font-size: 2em;
 }
 
+h1, h2, h3, h4, h5 {
+    text-transform: uppercase;
+}
+
 ul {
-    padding: 0;
-    margin: 0;
+    //padding: 0;
+    //margin: 0;
     li {
-        list-style: none;
+        //list-style: none;
+        text-transform: inherit;
+        font-size: inherit;
     }
 }
