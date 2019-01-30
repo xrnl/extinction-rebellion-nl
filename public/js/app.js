@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./source/js/app.js":
+/*!**************************!*\
+  !*** ./source/js/app.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+console.log("Hi!");
+alert("Hey!");
+
+/***/ }),
+
 /***/ "./source/sass/app.scss":
 /*!******************************!*\
   !*** ./source/sass/app.scss ***!
@@ -104,8 +116,8 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-!(function webpackMissingModule() { var e = new Error("Cannot find module '/Users/daanmeijer/sites/extinction-rebellion-nl/source/js/app.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-module.exports = __webpack_require__(/*! /Users/daanmeijer/sites/extinction-rebellion-nl/source/sass/app.scss */"./source/sass/app.scss");
+__webpack_require__(/*! /home/daan/sites/xr.daan/source/js/app.js */"./source/js/app.js");
+module.exports = __webpack_require__(/*! /home/daan/sites/xr.daan/source/sass/app.scss */"./source/sass/app.scss");
 
 
 /***/ })
