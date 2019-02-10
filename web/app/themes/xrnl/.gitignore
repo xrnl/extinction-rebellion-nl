@@ -4,5 +4,4 @@ npm-debug.log
 yarn-error.log
 .idea
 .DS_Store
-dist
-fonts
+./dist
