@@ -1,0 +1,50 @@
+
+label {
+  display: block;
+}
+
+input {
+  display: block;
+}
+
+
+
+.btn-black {
+  background-color: $black;
+  color: $white;
+}
+
+form {
+  padding: 25px 0;
+  margin-bottom: 0!important;
+  .btn {
+    border-radius: 10px;
+  }
+}
+
+
+input[type=text], textarea, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: $green;
+  color: $white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: $green;
+}
+

@@ -1,0 +1,101 @@
+@import "variables";
+@import "fucxed";
+
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+@import "list";
+@import "form";
+
+
+
+.bg-green{
+    background-color: $green;
+}
+
+.bg-black {
+    background-color: $black;
+    color: $white;
+}
+
+body {
+    background-color: $white;
+    font-family: Heebo, Arial, Helvetica, sans-serif;
+}
+
+.block {
+    border-radius: 5px;
+    text-align: left;
+    max-width: 800px;
+    background-color: $gray-200;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+header {
+    background-color: $green;
+    padding: 10px;
+
+}
+header h1 {
+    color: $white;
+    font-size: 5em;
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+    padding: 0;
+}
+
+.text-green {
+    color: $green;
+}
+
+.logo {
+
+    position: relative;
+    display: block;
+    width: 240px;
+
+    span {
+        position: absolute;
+        background-color: #f0ed77;
+        padding: 4px 3px 2px 4px;
+        font-size: 15px;
+        bottom: -10;
+        right: -12px;
+        line-height: 1;
+        transform: rotate(1deg);
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+h1, h2, h3, h4, h5 {
+    text-transform: uppercase;
+    font-family: FucXed, Arial, Helvetica, sans-serif;
+}
+
+ul {
+    //padding: 0;
+    //margin: 0;
+    li {
+        //list-style: none;
+        text-transform: inherit;
+        font-size: inherit;
+    }
+}
+
+footer {
+    padding: 15px;
+}
