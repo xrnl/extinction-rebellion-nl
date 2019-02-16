@@ -25,3 +25,5 @@ wp-cli.local.yml
 .idea
 .DS_Store
 web
+
+**/.DS_Store
