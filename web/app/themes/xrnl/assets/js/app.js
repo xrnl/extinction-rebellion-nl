@@ -1,3 +1,5 @@
+var bootstrap = require('bootstrap');
+
 (function($){
 
     // Find all YouTube videos

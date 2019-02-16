@@ -8,8 +8,17 @@
 
 @import "list";
 @import "form";
+@import "menu";
 
+body > header {
+    position: relative;
+}
 
+nav.navbar {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
 
 .bg-green{
     background-color: $green;

@@ -39,3 +39,10 @@ add_filter('acf/settings/load_json', function( $paths ) {
 add_action('wp_enqueue_scripts', function(){
     wp_enqueue_script('xrnl', get_theme_file_uri("dist/js/app.js"), ['jquery']);
 });
+
+
+add_action('init', function() {
+    register_nav_menu('primary', 'Main menu');
+});
+
+require_once(__DIR__. '/class-wp-bootstrap-navwalker.php');
