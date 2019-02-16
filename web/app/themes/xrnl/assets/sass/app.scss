@@ -94,3 +94,11 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.container-media {
+    padding: 1em 0;
+    iframe {
+        width: 100%;
+    }
+}
+

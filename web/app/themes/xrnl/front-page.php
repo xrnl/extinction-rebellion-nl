@@ -158,7 +158,6 @@ EOF;
             <?PHP
             while (have_rows('more_info')) {
                 the_row();
-                $index++;
                 ?>
                 <div class="col-md-4 col-12">
                     <img src="<?PHP the_sub_field('image'); ?>"/>
@@ -170,6 +169,32 @@ EOF;
                 <?PHP
             }
             ?>
+        </div>
+    </div>
+    <?PHP
+}
+
+if(have_rows('media')) { ?>
+    <div class="bg-green">
+        <div class="container container-media">
+            <div class="row">
+                <h2 class="col-12">Media</h2>
+            </div>
+            <div class="row">
+                <?PHP
+                while (have_rows('media')) {
+                    the_row();
+                    $url = get_sub_field('url');
+                    if(preg_match('/(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"\'>]+)/', $url, $matches)){
+                        ?>
+                        <div class="col-12 col-md-6">
+                            <?PHP echo $url; ?>
+                        </div>
+                        <?PHP
+                    }
+                }
+                ?>
+            </div>
         </div>
     </div>
     <?PHP
