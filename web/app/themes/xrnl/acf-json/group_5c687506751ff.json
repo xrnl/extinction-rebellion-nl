@@ -23,8 +23,8 @@
             "sub_fields": [
                 {
                     "key": "field_5c687637f42c7",
-                    "label": "Url",
-                    "name": "url",
+                    "label": "Embed code",
+                    "name": "embed_code",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -60,5 +60,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1550352042
+    "modified": 1550352344
 }

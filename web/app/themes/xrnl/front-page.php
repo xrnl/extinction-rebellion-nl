@@ -7,9 +7,6 @@ get_header();
 the_post();
 ?>
 <div class="container">
-<?PHP
-
-    ?>
 
     <div class="row">
         <div class="col-12">
@@ -184,11 +181,11 @@ if(have_rows('media')) { ?>
                 <?PHP
                 while (have_rows('media')) {
                     the_row();
-                    $url = get_sub_field('url');
-                    if(preg_match('/(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"\'>]+)/', $url, $matches)){
+                    $embed = get_sub_field('embed_code');
+                    if(preg_match('/(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"\'>]+)/', $embed, $matches)){
                         ?>
                         <div class="col-12 col-md-6">
-                            <?PHP echo $url; ?>
+                            <?PHP echo $embed; ?>
                         </div>
                         <?PHP
                     }
