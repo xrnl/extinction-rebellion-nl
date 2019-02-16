@@ -149,18 +149,19 @@ EOF;
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <h2 class="col-12">Meer <span class="text-green">informatie</span></h2>
-    </div>
-    <div class="row">
-        <?PHP
-            while ( have_rows('more_info') ){
+<?PHP if(have_rows('more_info')) { ?>
+    <div class="container">
+        <div class="row">
+            <h2 class="col-12">Meer <span class="text-green">informatie</span></h2>
+        </div>
+        <div class="row">
+            <?PHP
+            while (have_rows('more_info')) {
                 the_row();
                 $index++;
                 ?>
                 <div class="col-md-4 col-12">
-                    <img src="<?PHP the_sub_field('image'); ?>" />
+                    <img src="<?PHP the_sub_field('image'); ?>"/>
                     <h3>
                         <?PHP the_sub_field('title'); ?>
                     </h3>
@@ -168,12 +169,10 @@ EOF;
                 </div>
                 <?PHP
             }
-        ?>
+            ?>
+        </div>
     </div>
-</div>
-
-
-<?PHP
-
+    <?PHP
+}
 
 get_footer();
