@@ -30,16 +30,29 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
+    },
+
+    {
+      "packagist.org": false
     }
+
   ],
   "require": {
     "php": ">=7.1",
-    "composer/installers": "^1.4",
+    "composer/installers": "~1.0.12",
+
     "vlucas/phpdotenv": "^3.0.0",
     "oscarotero/env": "^1.1.0",
-    "roots/wordpress": "5.0.3",
+
+    "johnpbloch/wordpress": "^4.8.1",
+    "oscarotero/env": "^1.0",
+
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
+
+    "ggamel/wp-sync-db": "dev-master",
+    "wp-sync-db/wp-sync-db-media-files": "dev-master",
+
     "wpackagist-plugin/classic-editor": "^1.4"
   },
   "require-dev": {
@@ -60,6 +73,11 @@
     ],
     "test": [
       "phpcs"
+    ],
+    "post-install-cmd": [
+      "cd web/app/themes/xrnl; npm install",
+      "cd web/app/themes/xrnl; npm run production"
     ]
+
   }
 }

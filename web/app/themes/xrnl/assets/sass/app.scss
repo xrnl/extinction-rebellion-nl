@@ -1,5 +1,4 @@
 @import "variables";
-@import "fucxed";
 
 
 
@@ -23,7 +22,7 @@
 
 body {
     background-color: $white;
-    font-family: Heebo, Arial, Helvetica, sans-serif;
+    font-family: 'Crimson Text', serif;
 }
 
 .block {
@@ -83,7 +82,7 @@ header h1 {
 
 h1, h2, h3, h4, h5 {
     text-transform: uppercase;
-    font-family: FucXed, Arial, Helvetica, sans-serif;
+    font-family: FucXed, Montserrat, sans-serif;
 }
 
 ul {
