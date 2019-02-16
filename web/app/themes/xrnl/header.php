@@ -16,8 +16,7 @@
     <header class="container-fluid">
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="logo">
-                <img src="<?PHP echo get_theme_file_uri("dist/images/extinctionrebellion-logo_240.png"); ?>">
-                <span>NEDERLAND</span>
+                <?PHP the_custom_logo(); ?>
             </div>
         </div>
     </header>
