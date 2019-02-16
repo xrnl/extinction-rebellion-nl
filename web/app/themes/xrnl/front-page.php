@@ -30,13 +30,10 @@ the_post();
             <h2>ONZE <span class="text-green">EISEN</span>:</h2>
             <ol>
                 <?PHP
-                $index = 0;
                 while ( have_rows('demands') ){
                     the_row();
-                    $index++;
                     ?>
                     <li>
-                        <span><?PHP echo $index; ?></span>
                         <?PHP the_sub_field('demand'); ?>
                     </li>
                     <?PHP
