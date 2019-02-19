@@ -23,6 +23,7 @@ wp-cli.local.yml
 
 .idea
 .DS_Store
-web
 
 **/.DS_Store
+!/web/app/themes/xrnl/.gitignore
+node_modules
