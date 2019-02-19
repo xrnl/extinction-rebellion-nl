@@ -55,10 +55,11 @@ the_post();
         <?PHP
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $body = <<<EOF
-Name: {$_POST['name']}
+Name: {$_POST['firstname']} {$_POST['lastname']}
 Email: {$_POST['email']}
-Message:
-{$_POST['message']}
+Postcode: {$_POST['postcode']}
+Phone: {$_POST['phone']}
+Newsletter: {$_POST['newsletter']}
 EOF;
 
             mail('xr-nl-contact@protonmail.com', 'contact form from XR-NL', $body);
@@ -112,7 +113,7 @@ EOF;
                 </p>
 
                 <div class="form-check">
-                    <input type="radio" name="gdpr" value="ok" class="form-check-input" id="gdpr-yes" />
+                    <input type="radio" name="gdpr" value="ok" class="form-check-input" id="gdpr-yes" required aria-required="true" />
                     <label class="form-check-label" for="gdpr-yes">I agree</label>
                 </div>
 
