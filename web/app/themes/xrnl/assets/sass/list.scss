@@ -1,21 +1,24 @@
 
-ol {
-  list-style: none;
-  counter-reset: xr-counter;
+main {
 
-  li{
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 25px;
-    counter-increment: xr-counter;
+  ol {
+    list-style: none;
+    counter-reset: xr-counter;
 
-    &::before {
-      content: counter(xr-counter);
-      line-height: 40px;
-      font-size: 50px;
-      font-weight: bold;
-      position: absolute;
-      left:-15px;
+    li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 25px;
+      counter-increment: xr-counter;
+
+      &::before {
+        content: counter(xr-counter);
+        line-height: 40px;
+        font-size: 50px;
+        font-weight: bold;
+        position: absolute;
+        left: -15px;
+      }
     }
   }
 }

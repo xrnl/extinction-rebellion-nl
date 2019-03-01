@@ -14,14 +14,14 @@
 
 
     <header class="container-fluid">
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="logo">
-                <?PHP the_custom_logo(); ?>
-            </div>
-        </div>
 
-        <nav class="navbar navbar-light" role="navigation">
-            <div class="container">
+        <div class="col-xs-12">
+
+            <nav class="navbar navbar-light" role="navigation">
+                <a href="/" class="navbar-brand logo">
+                    <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full'); ?>
+                </a>
+    <!--            <div class="container">-->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -31,13 +31,14 @@
                     'container'       => 'div',
                     'container_class' => 'collapse navbar-collapse',
                     'container_id'    => 'main-nav',
-                    'menu_class'      => 'navbar-nav mr-auto',
+                    'menu_class'      => 'navbar-nav mr-auto mt-2 mt-lg-0',
                     'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
                     'walker'          => new WP_Bootstrap_Navwalker(),
                 ] ); ?>
 
-            </div>
-        </nav>
+    <!--            </div>-->
+            </nav>
+        </div>
     </header>
 
     <main>
