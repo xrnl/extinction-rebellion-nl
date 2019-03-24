@@ -11,7 +11,7 @@ the_post();
     <div class="row">
         <div class="col-12">
             <h1>
-                <h2><?PHP _e('WIE IS DE <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?></h1>
+                <h2><?PHP _e('WHO IS <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?></h1>
         </div>
     </div>
 
@@ -28,7 +28,7 @@ the_post();
 
     <div class="row">
         <div class="col-12">
-            <h2><?PHP _e('ONZE <span class="text-green">EISEN</span>:', 'theme-xrnl'); ?></h2>
+            <h2><?PHP _e('OUR <span class="text-green">DEMANDS</span>:', 'theme-xrnl'); ?></h2>
             <ol>
                 <?PHP
                 while ( have_rows('demands') ){
@@ -50,7 +50,7 @@ the_post();
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2><?PHP _e('DOE MEE AAN DE REBELLION', 'theme-xrnl'); ?></h2>
+                <h2><?PHP _e('JOIN THE REBELLION', 'theme-xrnl'); ?></h2>
             </div>
         </div>
         <?PHP
@@ -153,7 +153,7 @@ EOF;
 <?PHP if(have_rows('more_info')) { ?>
     <div class="container">
         <div class="row">
-            <h2 class="col-12">Meer <span class="text-green">informatie</span></h2>
+            <h2 class="col-12"><?PHP _e('More <span class="text-green">information</span>', 'theme-xrnl'); ?></h2>
         </div>
         <div class="row">
             <?PHP
@@ -179,7 +179,7 @@ if(have_rows('media')) { ?>
     <div class="bg-green">
         <div class="container container-media">
             <div class="row">
-                <h2 class="col-12">Media</h2>
+                <h2 class="col-12"><?PHP _e('Media', 'theme-xrnl'); ?></h2>
             </div>
             <div class="row">
                 <?PHP
