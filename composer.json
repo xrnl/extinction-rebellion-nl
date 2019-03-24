@@ -55,7 +55,8 @@
     "wpackagist-plugin/classic-editor": "^1.4",
     "wpackagist-plugin/events-manager": "^5.9",
     "wpackagist-plugin/wp-action-network": "^1.1",
-    "ggamel/wp-sync-db": "dev-master"
+    "ggamel/wp-sync-db": "dev-master",
+    "wpackagist-plugin/events-manager-wpml": "1.2"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.0.2",

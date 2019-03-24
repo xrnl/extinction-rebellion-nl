@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02e0ea24a1fabe4d1a9f21116f05a3d5",
+    "content-hash": "9993a2e31180207850344952509da0a6",
     "packages": [
         {
             "name": "composer/installers",
@@ -648,6 +648,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/events-manager/"
+        },
+        {
+            "name": "wpackagist-plugin/events-manager-wpml",
+            "version": "1.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/events-manager-wpml/",
+                "reference": "tags/1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/events-manager-wpml.1.2.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/events-manager-wpml/"
         },
         {
             "name": "wpackagist-plugin/wp-action-network",
