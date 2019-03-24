@@ -10,7 +10,8 @@ the_post();
 
     <div class="row">
         <div class="col-12">
-            <h1>WIE IS DE <span class="text-green">EXTINCTION REBELLION</span>?</h1>
+            <h1>
+                <h2><?PHP _e('WIE IS DE <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?></h1>
         </div>
     </div>
 
@@ -27,7 +28,7 @@ the_post();
 
     <div class="row">
         <div class="col-12">
-            <h2>ONZE <span class="text-green">EISEN</span>:</h2>
+            <h2><?PHP _e('ONZE <span class="text-green">EISEN</span>:', 'theme-xrnl'); ?></h2>
             <ol>
                 <?PHP
                 while ( have_rows('demands') ){
@@ -49,10 +50,13 @@ the_post();
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>DOE MEE AAN DE REBELLION</h2>
+                <h2><?PHP _e('DOE MEE AAN DE REBELLION', 'theme-xrnl'); ?></h2>
             </div>
         </div>
         <?PHP
+
+            the_field('signup_form_code');
+            /*
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $body = <<<EOF
 Name: {$_POST['firstname']} {$_POST['lastname']}
@@ -140,7 +144,9 @@ EOF;
             </div>
 
         </form>
-        <?PHP } ?>
+        <?PHP }
+            */
+        ?>
     </div>
 </div>
 
