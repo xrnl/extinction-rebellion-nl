@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9993a2e31180207850344952509da0a6",
+    "content-hash": "aebb83dc955f4a64c918a61acadb0599",
     "packages": [
         {
             "name": "composer/installers",
@@ -666,6 +666,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/events-manager-wpml/"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "10.0.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/10.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.10.0.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         },
         {
             "name": "wpackagist-plugin/wp-action-network",
