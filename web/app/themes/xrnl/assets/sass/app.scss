@@ -48,7 +48,7 @@ body {
 header {
     background-color: $green;
     padding: 10px;
-    height: 172px;
+    //height: 172px;
 
 }
 header h1 {
@@ -133,4 +133,62 @@ img {
 
 .navbar-toggle.collapsed .icon:before {
     content: '\f00d';
+}
+
+
+/* Desktop nav added by Jeppe Bijker */
+
+#desktop-nav {
+    display: none;
+}
+
+@media screen and (min-width: 801px) {
+    header {
+        height: auto !important;
+    }
+
+    .navbar {
+        flex-wrap: nowrap;
+    }
+
+    .navbar-brand.logo {
+        min-width: 200px;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    #desktop-nav {
+        display: block;
+
+        .navbar-nav {
+            flex-direction: row;
+            flex-wrap: wrap;
+            /*align-content: space-between;*/
+        }
+
+        li {
+            text-align: center;
+            line-height: 1em;
+            width: 200px;
+            /*background-color: rgba(255, 255, 255, 0.1);*/
+            padding: 8px 5px;
+        }
+
+        a.nav-link {
+            display: inline;
+            text-align: center;
+
+            /*text-decoration: underline;*/
+            text-transform: uppercase;
+            font-family: FucXed, Montserrat, sans-serif;
+            /*font-size: 44px;*/
+        }
+
+        a.nav-link:hover {
+            text-decoration: underline;
+        }
+
+    }
 }
