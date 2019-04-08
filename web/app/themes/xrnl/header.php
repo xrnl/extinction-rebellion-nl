@@ -21,7 +21,19 @@
                 <a href="/" class="navbar-brand logo">
                     <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full'); ?>
                 </a>
-    <!--            <div class="container">-->
+
+
+                <?php wp_nav_menu( [
+                    'theme_location' => 'primary',
+                    'depth'	          => 2,
+                    'container'       => 'div',
+                    'container_class' => '',
+                    'container_id'    => 'desktop-nav',
+                    'menu_class'      => 'navbar-nav mr-auto mt-2 mt-lg-0',
+                    'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                    'walker'          => new WP_Bootstrap_Navwalker(),
+                ] ); ?>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,7 +48,6 @@
                     'walker'          => new WP_Bootstrap_Navwalker(),
                 ] ); ?>
 
-    <!--            </div>-->
             </nav>
         </div>
     </header>
