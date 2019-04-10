@@ -192,3 +192,100 @@ img {
 
     }
 }
+
+
+
+.hide {
+    display: none;
+}
+
+p {
+    font-size: 14pt;
+}
+.btn {
+    background-color: #000;
+    border-radius: 0;
+    color: #fff;
+    font-family: "FucXed", sans-serif;
+    text-transform: uppercase;
+}
+.btn:hover {
+    background-color: #404040;
+    color: #fff;
+}
+
+/* Header */
+.social-nav--head {
+    min-width: 100px;
+    text-align: center;
+    /* 	background:red; */
+}
+.social-nav--head ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.social-nav--head li {
+    display: inline-block;
+}
+.social-nav--head ul a {
+    color: #fff;
+    display: block;
+    text-align: center;
+    border-radius: 13px;
+    background-color: #000;
+    width: 26px;
+    height: 26px;
+    padding-top: 5px;
+}
+
+/* Front page Blocks */
+.blocks .padding {
+    padding: 0 40px;
+    text-align: center;
+}
+.blocks a:hover {
+    text-decoration: none;
+    color: #fff !important;
+}
+.blocks i {
+    color: #000;
+}
+.block_1 {
+    background-color: #ffc113;
+}
+.block_2 {
+    background-color: #71d0f1;
+}
+.block_2 img {
+    max-height: 120px;
+    margin-top: 40px;
+}
+.block_3 {
+    background-color: #21a73d;
+}
+.block_3 i {
+    margin-top: 40px;
+    font-size: 90px;
+}
+.demands h1 {
+    text-align: center;
+}
+.demands li {
+    font-size: 14pt;
+}
+
+/* Form */
+#can_embed_form h4 {
+    display: none;
+}
+.can_embed.form #can_embed_form_inner>h2 {
+    border: none !important;
+}
+.can_button, #can_embed_form input[type=submit], #can_embed_form .button, #donate_auto_modal input[type=submit], #donate_auto_modal .button {
+    background-color: #000 !important;
+    font-size: 16pt !important;
+    color: #fff;
+    font-family: "FucXed", sans-serif;
+    text-transform: uppercase;
+}

@@ -25,10 +25,30 @@ the_post();
             <?PHP the_post_thumbnail(); ?>
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-12">
-            <h2><?PHP _e('OUR <span class="text-green">DEMANDS</span>:', 'theme-xrnl'); ?></h2>
+<div class="row blocks">
+	<div class="col-12 col-md-6 block_1">
+		<div class="padding">
+		<?php the_field('blok'); ?>
+		</div>
+	</div>
+	<div class="col-6 col-md-3 block_2">
+		<div class="padding">
+		<?php the_field('blok_2'); ?>
+		</div>
+	</div>
+	<div class="col-6 col-md-3 block_3">
+		<div class="padding">
+		<?php the_field('blok_3'); ?>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 demands">
+            <h1><?PHP _e('OUR <span class="text-green">DEMANDS</span>', 'theme-xrnl'); ?></h1>
             <ol>
                 <?PHP
                 while ( have_rows('demands') ){

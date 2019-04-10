@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="<?PHP echo get_theme_file_uri("dist/fonts/fucxed.css"); ?>" />
     <link rel="stylesheet" href="<?PHP echo get_theme_file_uri("dist/css/app.css".date("?Ymd")); ?>" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <?PHP wp_head(); ?>
 </head>
 <body>
@@ -22,7 +23,6 @@
                     <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full'); ?>
                 </a>
 
-
                 <?php wp_nav_menu( [
                     'theme_location' => 'primary',
                     'depth'	          => 2,
@@ -33,6 +33,18 @@
                     'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
                     'walker'          => new WP_Bootstrap_Navwalker(),
                 ] ); ?>
+
+				<div class="social-nav social-nav--head">
+					<ul>
+						<li><a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" class="facebook" aria-label="facebook"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="https://twitter.com/nlrebellion" class="twitter" target="_blank" aria-label="twitter"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/extinctionrebellion/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab fa-instagram"></i></a></li>
+					</ul>
+				</div>
+
+				<div class="donate donate--head">
+					<a href="/donate" class="btn btn--primary-dark"><?php _e('donate'); ?></a>
+				</div>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
