@@ -1,0 +1,26 @@
+.display-posts-listing {
+  .listing-item {
+    //position: relative;
+    //padding-right:
+
+    .image {
+      display: block;
+      float: right;
+      height: 150px;
+      width: 150px;
+      text-align: center;
+    }
+    display: block;
+    padding-bottom: 20px;
+    overflow: auto;
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+.wp-caption {
+  img {
+    max-width: calc(100vw - 30px);
+  }
+}
