@@ -6,6 +6,24 @@ get_header();
 
 the_post();
 ?>
+
+<div class="masthead">
+	<?php if(ICL_LANGUAGE_CODE === "nl"): ?>
+		<h1>
+			<span class="first">Kom in</span>
+			<span class="second">opstand</span>
+			<span class="third">voor het</span>
+			<span class="fourth">leven</span>
+		</h1>
+	<?php else: ?>
+		<h1>
+			<span class="fourth">Rebel</span>
+			<span class="first">for life</span>
+		</h1>
+	<?php endif; ?>
+	<img src="https://extinctionrebellion.nl/np_down_2032285_ffffff/" class="arrow" />
+</div>
+
 <div class="container">
 
     <div class="row">
@@ -28,21 +46,27 @@ the_post();
 </div>
 
 <div class="row blocks">
-	<div class="col-12 col-md-6 block_1">
+	<a href="/irw" class="block col-12 col-md-6 block_1">
 		<div class="padding">
-		<?php the_field('blok'); ?>
+<h1>Het volledige programma van de internationale rebellie</h1>
 		</div>
-	</div>
-	<div class="col-6 col-md-3 block_2">
+	</a>
+	<a href="/wie-wij-zijn/" class="block col-6 col-md-3 block_2">
 		<div class="padding">
-		<?php the_field('blok_2'); ?>
+			<img src="https://extinctionrebellion.nl/app/uploads/2019/04/XR-symbol.svg" class="non-hover" />
+			<h1 style="display: none;" class="hover">
+				Wie zijn wij
+			</h1>
 		</div>
-	</div>
-	<div class="col-6 col-md-3 block_3">
+	</a>
+	<a href="/local/" class="block col-6 col-md-3 block_3">
 		<div class="padding">
-		<?php the_field('blok_3'); ?>
+<i class="fas fa-map-marked-alt non-hover"></i>
+			<h1 style="display: none;" class="hover">
+				Lokale Groepen
+			</h1>
 		</div>
-	</div>
+	</a>
 </div>
 
 <div class="container">
