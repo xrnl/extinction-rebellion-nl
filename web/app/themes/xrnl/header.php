@@ -79,22 +79,5 @@
             </nav>
         </div>
     </header>
-
-	<?php
-	$current_page = sanitize_post( $GLOBALS['wp_the_query']->get_queried_object() );
-	// Get the page slug
-	$slug = $current_page->post_name;
-	if ($slug !== "irw"):
-	?>
-	<div id="ir-banner__container">
-	  <a id="ir-banner__link" href="/irw/">
-		<div id="ir-banner__content">
-			<img src="https://extinctionrebellion.nl/ir_world_icon" alt="world-icon">
-			<span><?php _e("International Rebellion  –  April 15th  –  Find Out More"); ?></span>
-			<img src="https://extinctionrebellion.nl/ir_arrow_icon" alt="arrow-icon">
-		</div>
-	  </a>
-	</div>
-	<?php endif; ?>
 	
     <main>
