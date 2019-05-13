@@ -20,7 +20,7 @@
         <div class="col-xs-12">
 
             <nav class="navbar navbar-light" role="navigation">
-                <a href="/" class="navbar-brand logo">
+                <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/" class="navbar-brand logo">
                     <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full'); ?>
                 </a>
 

@@ -24,46 +24,25 @@ the_post();
 	<img src="https://extinctionrebellion.nl/np_down_2032285_ffffff/" class="arrow" />
 </div>
 
-<div class="container">
-
-    <div class="row">
-        <div class="col-12">
-            <h1>
-                <h2><?PHP _e('WHO IS <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?></h1>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-sm-12 col-lg-6">
-            <?PHP the_content(); ?>
-        </div>
-
-        <div class="col-12 col-lg-6">
-            <?PHP the_post_thumbnail(); ?>
-        </div>
-    </div>
-</div>
-
 <div class="row blocks">
-	<a href="/irw" class="block col-12 col-md-6 block_1">
+	<a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="block col-12 col-md-6 block_1">
 		<div class="padding">
-<h1>Het volledige programma van de internationale rebellie</h1>
+            <h1><?php echo (ICL_LANGUAGE_CODE === "nl") ? "Bekijk de Extinction Rebellion Talk" : "Watch de Extinction Rebellion Talk"; ?></h1>
 		</div>
 	</a>
-	<a href="/wie-wij-zijn/" class="block col-6 col-md-3 block_2">
+	<a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/wie-wij-zijn/" class="block col-6 col-md-3 block_2">
 		<div class="padding">
 			<img src="https://extinctionrebellion.nl/app/uploads/2019/04/XR-symbol.svg" class="non-hover" />
 			<h1 style="display: none;" class="hover">
-				Wie zijn wij
+				<?php echo (ICL_LANGUAGE_CODE === "nl") ? "Wie zijn wij" : "Who we are"; ?>
 			</h1>
 		</div>
 	</a>
-	<a href="/local/" class="block col-6 col-md-3 block_3">
+	<a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/local/" class="block col-6 col-md-3 block_3">
 		<div class="padding">
 <i class="fas fa-map-marked-alt non-hover"></i>
 			<h1 style="display: none;" class="hover">
-				Lokale Groepen
+				<?php echo (ICL_LANGUAGE_CODE === "nl") ? "Lokale Groepen" : "Local Groups"; ?>
 			</h1>
 		</div>
 	</a>
@@ -218,6 +197,31 @@ EOF;
     </div>
     <?PHP
 }
+?>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+            <h1>
+                <h2><?PHP _e('WHO IS <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?></h1>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <?PHP the_content(); ?>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <?PHP the_post_thumbnail(); ?>
+        </div>
+    </div>
+</div>
+
+<?PHP
 
 if(have_rows('media')) { ?>
     <div class="bg-green">
