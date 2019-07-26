@@ -41,7 +41,7 @@
                     'walker'          => new WP_Bootstrap_Navwalker(),
                 ] ); ?>
 
-                <ul class="list-unstyled d-flex mt-3 mb-0 mt-xl-0">
+                <ul class="list-unstyled d-flex my-3 my-xl-0">
                     <li class="mx-3 mx-lg-2">
                         <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" class="facebook" aria-label="facebook"><i class="fab fa-2x text-black fa-facebook-f"></i></a></li>
                     <li class="mx-3 mx-lg-2">
