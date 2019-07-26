@@ -7,7 +7,7 @@ get_header();
 
 ?>
 
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-12">
     <?PHP
 while(have_posts()){

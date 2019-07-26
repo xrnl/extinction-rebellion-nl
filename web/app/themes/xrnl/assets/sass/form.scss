@@ -3,10 +3,6 @@ label {
   display: block;
 }
 
-input {
-  display: block;
-}
-
 
 
 .btn-black {
@@ -48,3 +44,17 @@ input[type=submit]:hover {
   background-color: $green;
 }
 
+/* Form */
+#can_embed_form h4 {
+	display: none;
+}
+.can_embed.form #can_embed_form_inner>h2 {
+	border: none !important;
+}
+.can_button, #can_embed_form input[type=submit], #can_embed_form .button, #donate_auto_modal input[type=submit], #donate_auto_modal .button {
+	background-color: #000 !important;
+	font-size: 16pt !important;
+	color: #fff;
+	font-family: "FucXed", sans-serif;
+	text-transform: uppercase;
+}

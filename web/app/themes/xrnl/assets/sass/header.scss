@@ -1,0 +1,31 @@
+
+.navbar {
+  padding-bottom: 0;
+
+  .language-menu {
+    .nav-item .nav-link {
+      font-size: 1rem;
+      font-weight: 100;
+    }
+  }
+
+  .nav-item {
+    margin: 0 0.5rem;
+
+    &:hover .nav-link,
+    &.active .nav-link {
+      color: $white;
+      border-bottom: 5px solid $black;
+    }
+
+    .nav-link {
+      border-bottom: 5px solid $green;
+      font-family: $brand-font;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      @include media-breakpoint-up(xl) {
+        padding: 1.4rem 0.5rem;
+      }
+    }
+  }
+}

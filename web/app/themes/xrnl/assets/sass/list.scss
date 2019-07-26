@@ -7,8 +7,8 @@ main {
 
     li {
       position: relative;
-      padding-left: 25px;
-      margin-bottom: 25px;
+      // padding-left: 25px;
+      // margin-bottom: 25px;
       counter-increment: xr-counter;
 
       &::before {
