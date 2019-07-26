@@ -1,4 +1,4 @@
-            <footer class="bg-black">
+            <footer class="bg-black text-white">
 				<div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -23,7 +23,7 @@
 						] ); ?>
                     </div>
 					<div class="col-md-4 align-right">
-					
+
 					<?php wp_nav_menu( [
 						'theme_location' => 'language',
 						'container'       => 'div',
@@ -32,7 +32,7 @@
 						'menu_class'      => 'hide-mobile',
 						'walker'          => new WP_Bootstrap_Navwalker(),
 					] ); ?>
-						
+
 						<div class="donate donate--footer">
 							<a href="/donate" class="btn btn--primary-dark"><?php _e('donate'); ?></a>
 						</div>
