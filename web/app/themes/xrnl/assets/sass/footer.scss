@@ -40,14 +40,36 @@ footer
 
 .social-nav--footer ul a {
   /* 	padding: 10px; */
-    height: 30px;
-    width: 30px;
-    border-radius: 20px;
-    border: 2px solid #fff;
-  }
-  .donate--footer .btn {
-    background-color: #21a73d;
-  }
-  .donate--footer .btn:hover {
-    opacity: 0.9;
-  }
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  color: #fff;
+	display: block;
+	text-align: center;
+	background-color: #000;
+	padding-top: 5px;
+}
+
+.social-nav--footer {
+	min-width: 100px;
+/* 	background:red; */
+}
+.social-nav--footer ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.social-nav--footer li {
+	display: inline-block;
+}
+.social-nav--footer ul a:hover {
+	opacity: 0.8;
+}
+
+.donate--footer .btn {
+  background-color: #21a73d;
+}
+.donate--footer .btn:hover {
+  opacity: 0.9;
+}
