@@ -21,7 +21,7 @@ the_post();
 			<span class="first">for life</span>
 		</h1>
 	<?php endif; ?>
-	<a href="#details">
+	<a href="#details" class="d-block my-5">
         <i class="fas fa-chevron-down fa-2x text-black"></i>
     </a>
 </div>
@@ -29,21 +29,21 @@ the_post();
 <div class="container-fluid">
     <a name="details"></a>
     <div class="row text-center">
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="col-12 col-md-6 bg-yellow p-4">
-            <i class="fab fa-youtube fa-4x text-black"></i>
-            <h1 class="text-black mt-3"><?php echo (ICL_LANGUAGE_CODE === "nl") ? "Bekijk de Extinction Rebellion Talk" : "Watch de Extinction Rebellion Talk"; ?></h1>
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="col-12 col-xl-6 bg-yellow p-4 py-5">
+            <i class="fab fa-youtube fa-3x text-black"></i>
+            <h2 class="text-black mt-3"><?php echo (ICL_LANGUAGE_CODE === "nl") ? "Bekijk de Extinction Rebellion Talk" : "Watch de Extinction Rebellion Talk"; ?></h2>
         </a>
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/wie-wij-zijn/" class="col-6 col-md-3 bg-blue p-4">
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/wie-wij-zijn/" class="col-6 col-xl-3 bg-blue p-4 py-5">
             <img class="featured-xr-logo img-fluid" src="<?PHP echo get_theme_file_uri("assets/images/XR-symbol.svg"); ?>" />
-            <h1 class="text-black mt-3">
+            <h2 class="text-black mt-3">
                 <?php echo (ICL_LANGUAGE_CODE === "nl") ? "Wie zijn wij" : "Who we are"; ?>
-            </h1>
+            </h2>
         </a>
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/local/" class="col-6 col-md-3 bg-pink p-4">
-            <i class="fas fa-map-marked-alt fa-4x text-black"></i>
-            <h1 class="text-black mt-3">
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/local/" class="col-6 col-xl-3 bg-pink p-4 py-5">
+            <i class="fas fa-map-marked-alt fa-3x text-black"></i>
+            <h2 class="text-black mt-3">
                 <?php echo (ICL_LANGUAGE_CODE === "nl") ? "Lokale Groepen" : "Local Groups"; ?>
-            </h1>
+            </h2>
         </a>
     </div>
 </div>

@@ -1,25 +1,13 @@
-<?PHP
-get_header();
+<?php get_header(); ?>
 
-?>
 <div class="container">
-<?PHP
-
-?>
-
     <div class="row mt-5">
         <div class="col-12">
-    <?PHP
-while(have_posts()){
-    the_post();
-
-    ?><h1><?PHP the_title(); ?></h1><?PHP
-    the_content();
-}
-?>
+            <?php while(have_posts()) { the_post(); ?>
+                <h1><?php the_title(); ?></h1>
+            <?php the_content(); } ?>
         </div>
     </div>
 </div>
-<?PHP
 
-get_footer();
+<?php get_footer(); ?>

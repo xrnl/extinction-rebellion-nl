@@ -1,8 +1,5 @@
 .display-posts-listing {
   .listing-item {
-    //position: relative;
-    //padding-right:
-
     .image {
       display: block;
       float: right;
@@ -26,7 +23,7 @@
 }
 .display-posts-listing .title {
 	display: block;
-	font-family: "FucXed", sans-serif;
+	font-family: $brand-font;
 	text-transform: uppercase;
 	font-size: 14pt;
 	color: #555;

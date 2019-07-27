@@ -1,57 +1,11 @@
 
-
-// Home page
+// Front page page
 
 img.featured-xr-logo {
   height: 64px;
 }
 
-ol {
-  padding-left: 1rem; // pl-3
-  li {
-    padding-left: 2rem; // pl-4
-    margin: 1rem 0;
-  }
-}
-
-.btn {
-	background-color: #000;
-	border-radius: 0;
-	color: #fff;
-	font-family: $brand-font;
-	text-transform: uppercase;
-}
-.btn:hover {
-	background-color: #404040;
-	color: #fff;
-}
-
-h1, h2 {
-  text-transform: uppercase;
-  font-family: FucXed, Montserrat, sans-serif;
-}
-
-
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-
-a u {
-	color: #000;
-	font-family: $brand-font;
-	text-transform: uppercase;
-	font-weight: normal;
-	letter-spacing: 1px;
-	text-decoration: none;
-	border-bottom: 4px solid #000;
-}
-a:hover u {
-	color: #888;
-	border-bottom: 4px solid #888;
-}
+// Front page Jumbotron
 
 .masthead {
 	margin: 0;
@@ -74,10 +28,64 @@ a:hover u {
 	font-size: 90pt;
 	line-height: 90pt;
 }
-.masthead .arrow {
-	margin-top: 50px;
-	width: 50px;
+
+// Front page media
+
+.container-media {
+  padding: 1em 0;
+  iframe {
+      width: 100%;
+  }
 }
+
+// Listing with counters
+
+ol {
+  padding-left: 1rem; // pl-3
+  li {
+    padding-left: 2rem; // pl-4
+    margin: 1rem 0;
+  }
+}
+
+// Buttons
+
+.btn {
+	background-color: #000;
+	border-radius: 0;
+	color: #fff;
+	font-family: $brand-font;
+	text-transform: uppercase;
+}
+
+.btn:hover {
+	background-color: #404040;
+	color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Link with primary font
+
+a u {
+	color: #000;
+	font-family: $brand-font;
+	text-transform: uppercase;
+	font-weight: normal;
+	letter-spacing: 1px;
+	text-decoration: none;
+	border-bottom: 4px solid #000;
+}
+
+a:hover u {
+	color: #888;
+	border-bottom: 4px solid #888;
+}
+
+// Not sure where this applies to
 
 #ir-banner__container a {
 	display: block;
@@ -100,25 +108,13 @@ a:hover u {
 	vertical-align: baseline;
 }
 
-
-.align-right {
-	text-align: right;
-}
+// General
 
 main .container:last-of-type {
 	padding-bottom: 30px;
 }
 
 /* Press */
-
-
-.container-media {
-  padding: 1em 0;
-  iframe {
-      width: 100%;
-  }
-}
-
 
 .wp-caption {
   img {

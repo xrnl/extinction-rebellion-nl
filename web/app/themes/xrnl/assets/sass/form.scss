@@ -1,9 +1,9 @@
 
+/* Form */
+
 label {
   display: block;
 }
-
-
 
 .btn-black {
   background-color: $black;
@@ -17,7 +17,6 @@ form {
     border-radius: 10px;
   }
 }
-
 
 input[type=text], textarea, select {
   width: 100%;
@@ -44,7 +43,6 @@ input[type=submit]:hover {
   background-color: $green;
 }
 
-/* Form */
 #can_embed_form h4 {
 	display: none;
 }
@@ -55,6 +53,6 @@ input[type=submit]:hover {
 	background-color: #000 !important;
 	font-size: 16pt !important;
 	color: #fff;
-	font-family: "FucXed", sans-serif;
+	font-family: $brand-font;
 	text-transform: uppercase;
 }

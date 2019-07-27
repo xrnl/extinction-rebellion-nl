@@ -6,4 +6,14 @@ body > header {
 body {
   background-color: $white;
   font-family: 'Crimson Text', serif;
+  font-size: 20px;
+}
+
+h1, h2 {
+  text-transform: uppercase;
+  font-family: $brand-font;
+}
+
+ul, ol {
+  padding-left: 3rem;
 }
