@@ -41,13 +41,13 @@
                     'walker'          => new WP_Bootstrap_Navwalker(),
                 ] ); ?>
 
-                <ul class="list-unstyled d-flex my-3 my-xl-0">
+                <ul class="list-unstyled d-flex my-3 my-xl-0 align-items-center">
                     <li class="mx-3 mx-lg-2">
-                        <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" class="facebook" aria-label="facebook"><i class="fab fa-2x text-black fa-facebook-f"></i></a></li>
+                        <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" class="facebook" aria-label="facebook"><i class="fab text-black fa-facebook-f"></i></a></li>
                     <li class="mx-3 mx-lg-2">
-                        <a href="https://twitter.com/nlrebellion" class="twitter" target="_blank" aria-label="twitter"><i class="fab fa-2x text-black fa-twitter"></i></a></li>
+                        <a href="https://twitter.com/nlrebellion" class="twitter" target="_blank" aria-label="twitter"><i class="fab text-black fa-twitter"></i></a></li>
                     <li class="mx-3 mx-lg-2">
-                        <a href="https://www.instagram.com/extinctionrebellion/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab fa-2x text-black fa-instagram"></i></a></li>
+                        <a href="https://www.instagram.com/extinctionrebellion/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
                     <li class="mx-3 mx-lg-2">
                         <a href="/donate" class="btn btn--primary-dark"><?php _e('donate'); ?></a>
                     </li>
