@@ -1,8 +1,5 @@
 .display-posts-listing {
   .listing-item {
-    //position: relative;
-    //padding-right:
-
     .image {
       display: block;
       float: right;
@@ -11,7 +8,7 @@
       text-align: center;
     }
     display: block;
-    padding-bottom: 20px;
+    padding: 1rem 0;
     overflow: auto;
     &::after {
       clear: both;
@@ -19,8 +16,19 @@
   }
 }
 
-.wp-caption {
-  img {
-    max-width: calc(100vw - 30px);
-  }
+.display-posts-listing {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.display-posts-listing .title {
+	display: block;
+	font-family: $brand-font;
+	text-transform: uppercase;
+	font-size: 14pt;
+	color: #555;
+}
+.display-posts-listing .date {
+	display: block;
+	color: #aaa;
 }

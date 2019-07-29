@@ -21,43 +21,43 @@ the_post();
 			<span class="first">for life</span>
 		</h1>
 	<?php endif; ?>
-	<img src="https://extinctionrebellion.nl/np_down_2032285_ffffff/" class="arrow" />
+	<a href="#details" class="d-block my-5">
+        <i class="fas fa-chevron-down fa-2x text-black"></i>
+    </a>
 </div>
 
-<div class="row blocks">
-	<a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="block col-12 col-md-6 block_1">
-		<div class="padding">
-            <h1><?php echo (ICL_LANGUAGE_CODE === "nl") ? "Bekijk de Extinction Rebellion Talk" : "Watch de Extinction Rebellion Talk"; ?></h1>
-		</div>
-	</a>
-	<a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/wie-wij-zijn/" class="block col-6 col-md-3 block_2">
-		<div class="padding">
-			<img src="https://extinctionrebellion.nl/app/uploads/2019/04/XR-symbol.svg" class="non-hover" />
-			<h1 style="display: none;" class="hover">
-				<?php echo (ICL_LANGUAGE_CODE === "nl") ? "Wie zijn wij" : "Who we are"; ?>
-			</h1>
-		</div>
-	</a>
-	<a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/local/" class="block col-6 col-md-3 block_3">
-		<div class="padding">
-<i class="fas fa-map-marked-alt non-hover"></i>
-			<h1 style="display: none;" class="hover">
-				<?php echo (ICL_LANGUAGE_CODE === "nl") ? "Lokale Groepen" : "Local Groups"; ?>
-			</h1>
-		</div>
-	</a>
+<div class="container-fluid">
+    <a name="details"></a>
+    <div class="row text-center">
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="col-12 col-xl-6 bg-yellow p-4 py-5">
+            <i class="fab fa-youtube fa-3x text-black"></i>
+            <h2 class="text-black mt-3"><?php echo (ICL_LANGUAGE_CODE === "nl") ? "Bekijk de Extinction Rebellion Talk" : "Watch de Extinction Rebellion Talk"; ?></h2>
+        </a>
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/wie-wij-zijn/" class="col-6 col-xl-3 bg-blue p-4 py-5">
+            <img class="featured-xr-logo img-fluid" src="<?PHP echo get_theme_file_uri("assets/images/XR-symbol.svg"); ?>" />
+            <h2 class="text-black mt-3">
+                <?php echo (ICL_LANGUAGE_CODE === "nl") ? "Wie zijn wij" : "Who we are"; ?>
+            </h2>
+        </a>
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/local/" class="col-6 col-xl-3 bg-pink p-4 py-5">
+            <i class="fas fa-map-marked-alt fa-3x text-black"></i>
+            <h2 class="text-black mt-3">
+                <?php echo (ICL_LANGUAGE_CODE === "nl") ? "Lokale Groepen" : "Local Groups"; ?>
+            </h2>
+        </a>
+    </div>
 </div>
 
-<div class="container">
+<div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-lg-8 demands">
             <h1><?PHP _e('OUR <span class="text-green">DEMANDS</span>', 'theme-xrnl'); ?></h1>
-            <ol>
+            <ol class="pl-3">
                 <?PHP
                 while ( have_rows('demands') ){
                     the_row();
                     ?>
-                    <li>
+                    <li class="pl-4">
                         <?PHP the_sub_field('demand'); ?>
                     </li>
                     <?PHP
@@ -69,7 +69,7 @@ the_post();
 
 </div>
 
-<div class="bg-green">
+<div class="bg-green py-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -200,7 +200,7 @@ EOF;
 ?>
 
 
-<div class="container">
+<div class="container py-5">
 
     <div class="row">
         <div class="col-12">
