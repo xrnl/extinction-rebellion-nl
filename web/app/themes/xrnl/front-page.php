@@ -16,7 +16,7 @@
 			<span class="first">for life</span>
 		</h1>
 	<?php endif; ?>
-	<a href="#details" class="d-block my-5">
+	<a href="#details" class="d-block my-5 ">
         <i class="fas fa-chevron-down fa-2x text-black"></i>
     </a>
 </div>
@@ -66,11 +66,11 @@
 <div class="bg-green py-5">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-lg-8 offset-lg-2">
                 <h2><?php _e('JOIN THE REBELLION', 'theme-xrnl'); ?></h2>
+                <?php the_field('signup_form_code'); ?>
             </div>
         </div>
-        <?php the_field('signup_form_code'); ?>
     </div>
 </div>
 
@@ -115,11 +115,9 @@
 </div>
 
 <?php if(have_rows('media')) { ?>
-    <div class="bg-green">
-        <div class="container container-media">
-            <div class="row">
-                <h2 class="col-12"><?php _e('Media', 'theme-xrnl'); ?></h2>
-            </div>
+    <div class="py-5 bg-green">
+        <div class="container">
+            <h2><?php _e('Media', 'theme-xrnl'); ?></h2>
             <div class="row">
                 <?php
                 while (have_rows('media')) {
@@ -128,7 +126,9 @@
                     if(preg_match('/(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"\'>]+)/', $embed, $matches)){
                         ?>
                         <div class="col-12 col-md-6">
-                            <?php echo $embed; ?>
+                            <div class="embed-responsive embed-responsive-16by9 mb-3">
+                                <?php echo $embed; ?>
+                            </div>
                         </div>
                         <?php
                     }

@@ -14,6 +14,8 @@ $theme-colors: (
 $navbar-light-toggler-border-color: rgba(0,0,0,0);
 $navbar-light-color: #000;
 
-$enable-responsive-font-sizes:  true !default;
+$enable-responsive-font-sizes:  true !default; // responsive font sizes
+$border-radius:                 0rem !default;
 $link-decoration:               underline !default;
 $brand-font:                    'FucXed', Montserrat, sans-serif !default;
+$brand-font-secondary:          'Crimson Text', serif;

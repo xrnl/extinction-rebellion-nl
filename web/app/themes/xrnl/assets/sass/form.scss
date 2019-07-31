@@ -1,58 +1,107 @@
+/* Action Network Form */
 
-/* Form */
-
-label {
-  display: block;
-}
-
-.btn-black {
-  background-color: $black;
-  color: $white;
-}
-
-form {
-  padding: 25px 0;
-  margin-bottom: 0!important;
-  .btn {
-    border-radius: 10px;
+#can_embed_form {
+  h4,
+  #action_info {
+    display: none;
   }
-}
 
-input[type=text], textarea, select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+  #logo_wrap {
+    display: none;
+  }
 
-input[type=submit] {
-  width: 100%;
-  background-color: $green;
-  color: $white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  h2 {
+    font-family: $brand-font-secondary;
+    text-transform: none;
+  }
 
-input[type=submit]:hover {
-  background-color: $green;
-}
+  form {
+    @extend .row;
+    overflow-x: hidden;
 
-#can_embed_form h4 {
-	display: none;
-}
-.can_embed.form #can_embed_form_inner>h2 {
-	border: none !important;
-}
-.can_button, #can_embed_form input[type=submit], #can_embed_form .button, #donate_auto_modal input[type=submit], #donate_auto_modal .button {
-	background-color: #000 !important;
-	font-size: 16pt !important;
-	color: #fff;
-	font-family: $brand-font;
-	text-transform: uppercase;
+    // Unfortunately the html that comes out of actionnetwork is not
+    // customizable at all. Hence a lot of css customization here! :(
+    #form_col1,
+    #form_col2 {
+      @extend .col-12;
+      // @extend .col-lg-6;
+      @include media-breakpoint-down(md) {
+        float: none !important;
+        width: auto !important;
+      }
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      display: block;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .floatlabel-wrapper {
+      @extend .form-group;
+    }
+
+    // hide form labels with texts
+    label.control-label,
+    label.floatlabel-label {
+      display: none !important;
+    }
+
+    // display checkboxes
+    label.checkbox {
+      display: block;
+      @extend .my-2;
+    }
+
+    // bootstrap styling for forms
+    input[type=text],
+    input[type=email],
+    input[type=number],
+    span.block.relative,
+    select,
+    textarea {
+      @extend .form-control;
+
+      // validation feedback
+      &.error_input {
+        @extend .is-invalid;
+      }
+    }
+
+    // checkboxes
+    #d_sharing li,
+    .controls.check_radio_field {
+      @extend .form-check;
+      label {
+        @extend .form-check-label;
+        font-size: 90%;
+        input[type=checkbox] {
+          @extend .form-check-input;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    // hide loading image
+    img.ajax-loading {
+      display: none;
+    }
+
+    // submit button
+    input[type=submit] {
+      @extend .btn;
+      @extend .btn-black;
+      @extend .btn-lg;
+      @extend .btn-block;
+      @extend .font-xr;
+      @extend .text-uppercase;
+      @extend .my-3;
+    }
+  }
 }
