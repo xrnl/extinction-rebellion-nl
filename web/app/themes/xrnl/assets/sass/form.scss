@@ -76,10 +76,14 @@
     select,
     textarea {
       @extend .form-control;
+      border-color: white;
 
       // validation feedback
       &.error_input {
         @extend .is-invalid;
+        &:focus {
+          box-shadow: none;
+        }
       }
     }
 
@@ -111,6 +115,7 @@
       position: static !important;
       @include reset-text();
       @extend .form-control;
+      border-color: white !important;
     }
     .country_drop_wrap select.can_select {
       height: 44px !important;
