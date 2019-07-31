@@ -18,6 +18,7 @@ get_header(); ?>
                 if ( is_singular( 'attachment' ) ) {
                     // Parent post navigation.
                     the_post_navigation( array(
+                        'screen_reader_text' => ' ',
                         'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'theme-xrnl' ),
                     ) );
                 } elseif ( is_singular( 'post' ) ) {
