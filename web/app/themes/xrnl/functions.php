@@ -1,6 +1,7 @@
 <?PHP
 add_theme_support("post-thumbnails");
 add_theme_support("custom-logo");
+add_theme_support( 'title-tag' );
 
 add_filter('upload_mimes', function($mimes) {
     $mimes['svg'] = 'image/svg+xml';
