@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Extinction Rebellion - De Opstand Begint</title>

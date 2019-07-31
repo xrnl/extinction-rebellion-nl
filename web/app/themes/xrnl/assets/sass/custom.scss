@@ -12,21 +12,84 @@ img.featured-xr-logo {
 	text-align: center;
 	background-color: #21a73d;
 	display: inherit !important;
-	padding: 20px 0 40px;
+  span { // first and third
+    display: block;
+    color: #000;
+    font-size: 4rem;
+    line-height: 4rem;
+
+    @media all and (max-width: 374px) {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+  }
+  .second {
+    font-size: 5rem;
+    line-height: 5rem;
+    @media all and (max-width: 374px) {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+  .fourth {
+    font-size: 6rem;
+    line-height: 6rem;
+    @media all and (max-width: 374px) {
+      font-size: 5rem;
+      line-height: 5rem;
+    }
+  }
 }
-.masthead span {
-	display: block;
-	color: #000;
-	font-size: 50pt;
-	line-height: 50pt;
+
+// Listing Excerpt (Search, Blog)
+
+.excerpt > p {
+	margin: 0;
 }
-.masthead .second {
-	font-size: 70pt;
-	line-height: 70pt;
+
+// Sidebar
+
+.sidebar {
+	.widget_recent_entries {
+		ul {
+			padding-left: 1.5rem;
+		}
+
+		a {
+			color: $black;
+		}
+		.post-date {
+			color: #999;
+			display: block;
+		}
+	}
 }
-.masthead .fourth {
-	font-size: 90pt;
-	line-height: 90pt;
+
+// Pagination
+
+nav.pagination.navigation {
+  display: block;
+  ul.page-numbers {
+    @extend .pagination;
+    @extend .justify-content-center;
+    @extend .my-4;
+    @extend .my-sm-5;
+    @extend .pt-sm-4;
+    @extend .pagination-lg;
+
+    > li {
+      @extend .page-item;
+      > span,
+      > a {
+        &.page-numbers {
+          @extend .page-link;
+          &.current {
+            color: #111;
+          }
+        }
+      }
+    }
+  }
 }
 
 // Front page media
@@ -62,6 +125,8 @@ ol {
 	background-color: #404040;
 	color: #fff;
 }
+
+// make all images responsive (.img-fluid from bootstrap)
 
 img {
   max-width: 100%;
@@ -120,56 +185,4 @@ main .container:last-of-type {
   img {
     max-width: calc(100vw - 30px);
   }
-}
-
-// Listing Excerpt (Search, Blog)
-
-.excerpt > p {
-	margin: 0;
-}
-
-// Sidebar
-
-.sidebar {
-	.widget_recent_entries {
-		ul {
-			padding-left: 1.5rem;
-		}
-
-		a {
-			color: $black;
-		}
-		.post-date {
-			color: #999;
-			display: block;
-		}
-	}
-}
-
-// Pagination
-
-nav.pagination.navigation {
-  display: block;
-  ul.page-numbers {
-    @extend .pagination;
-    @extend .justify-content-center;
-    @extend .my-4;
-    @extend .my-sm-5;
-    @extend .pt-sm-4;
-    @extend .pagination-lg;
-
-    > li {
-      @extend .page-item;
-      > span,
-      > a {
-        &.page-numbers {
-          @extend .page-link;
-          &.current {
-            color: #111;
-          }
-        }
-      }
-    }
-  }
-
 }

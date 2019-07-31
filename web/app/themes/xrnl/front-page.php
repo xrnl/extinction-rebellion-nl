@@ -1,13 +1,8 @@
-<?php
-/*
-Theme name: XRNL
- */
-get_header();
+<?php get_header(); ?>
 
-the_post();
-?>
+<?php the_post(); ?>
 
-<div class="masthead">
+<div class="masthead px-3 py-5">
 	<?php if(ICL_LANGUAGE_CODE === "nl"): ?>
 		<h1>
 			<span class="first">Kom in</span>
@@ -16,7 +11,7 @@ the_post();
 			<span class="fourth">leven</span>
 		</h1>
 	<?php else: ?>
-		<h1>
+		<h1 class="my-5">
 			<span class="fourth">Rebel</span>
 			<span class="first">for life</span>
 		</h1>
@@ -66,7 +61,6 @@ the_post();
             </ol>
         </div>
     </div>
-
 </div>
 
 <div class="bg-green py-5">
@@ -76,100 +70,7 @@ the_post();
                 <h2><?php _e('JOIN THE REBELLION', 'theme-xrnl'); ?></h2>
             </div>
         </div>
-        <?php
-
-            the_field('signup_form_code');
-            /*
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $body = <<<EOF
-Name: {$_POST['firstname']} {$_POST['lastname']}
-Email: {$_POST['email']}
-Postcode: {$_POST['postcode']}
-Phone: {$_POST['phone']}
-Newsletter: {$_POST['newsletter']}
-EOF;
-
-            mail('xr-nl-contact@protonmail.com', 'contact form from XR-NL', $body);
-            ?>
-            <div class="row">
-                <div class="col-sm-12 block">
-
-                    <p>Thanks for registering</p>
-                </div>
-            </div>
-            <?php
-        }else{
-        ?>
-        <form class="row" method="post">
-            <div class="col-lg-6 col-md-12">
-                <div class="form-group">
-                    <label for="firstname">Voornaam</label>
-                    <input name="firstname" id="firstname" class="form-control" />
-                </div>
-
-                <div class="form-group">
-                    <label for="lastname">Achternaam</label>
-                    <input name="lastname" id="lastname" class="form-control" />
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input name="email" id="email" class="form-control" />
-                </div>
-
-                <div class="form-group">
-                    <label for="postcode">Postcode</label>
-                    <input name="postcode" id="postcode" class="form-control" />
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Telefoonnummer</label>
-                    <input name="phone" id="phone" class="form-control" />
-                </div>
-
-
-            </div>
-            <div class="col-lg-6 col-md-12">
-
-                <p><br/>
-                    GDPR Toestemming: ik geef hierbij mijn
-                    toestemming aan Extinction Rebellion om contact
-                    met me op te nemen, gebruikmakende van de
-                    informatie die ik heb verstrekt in dit formulier,
-                    voor nieuws, updates en informatie over events.
-                </p>
-
-                <div class="form-check">
-                    <input type="radio" name="gdpr" value="ok" class="form-check-input" id="gdpr-yes" required aria-required="true" />
-                    <label class="form-check-label" for="gdpr-yes">I agree</label>
-                </div>
-
-                <p>Wil je email updates van de Extinction Rebellion
-                    ontvangen?</p>
-
-
-                <div class="form-check">
-                    <input type="radio" name="newsletter" value="yes" class="form-check-input" id="newsletter-yes" />
-                    <label class="form-check-label" for="newsletter-yes">Ja, ik ontvang graag email updates</label>
-                </div>
-
-
-                <div class="form-check">
-                    <input type="radio" name="newsletter" value="no" class="form-check-input" id="newsletter-no" />
-                    <label class="form-check-label" for="newsletter-no">Nee, ik wil geen updates ontvangen</label>
-                </div>
-            </div>
-
-            <div class="col-md-12 col-lg-6 text-center">
-
-                <button type="submit" class="btn btn-black">Doe mee aan de rebellion</button>
-
-            </div>
-
-        </form>
-        <?php }
-            */
-        ?>
+        <?php the_field('signup_form_code'); ?>
     </div>
 </div>
 
@@ -195,35 +96,25 @@ EOF;
             ?>
         </div>
     </div>
-    <?php
-}
-?>
-
+<?php } ?>
 
 <div class="container py-5">
-
     <div class="row">
         <div class="col-12">
-            <h1>
-                <h2><?php _e('WHO IS <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?></h1>
+            <h2><?php _e('WHO IS <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-sm-12 col-lg-6">
             <?php the_content(); ?>
         </div>
-
         <div class="col-12 col-lg-6">
             <?php the_post_thumbnail(); ?>
         </div>
     </div>
 </div>
 
-<?php
-
-if(have_rows('media')) { ?>
+<?php if(have_rows('media')) { ?>
     <div class="bg-green">
         <div class="container container-media">
             <div class="row">
@@ -246,7 +137,6 @@ if(have_rows('media')) { ?>
             </div>
         </div>
     </div>
-    <?php
-}
+<?php } ?>
 
-get_footer();
+<?php get_footer(); ?>
