@@ -121,3 +121,27 @@ main .container:last-of-type {
     max-width: calc(100vw - 30px);
   }
 }
+
+// Listing Excerpt (Search, Blog)
+
+.excerpt > p {
+	margin: 0;
+}
+
+// Sidebar
+
+.sidebar {
+	.widget_recent_entries {
+		ul {
+			padding-left: 1.5rem;
+		}
+
+		a {
+			color: $black;
+		}
+		.post-date {
+			color: #999;
+			display: block;
+		}
+	}
+}

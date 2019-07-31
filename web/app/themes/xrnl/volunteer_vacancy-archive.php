@@ -2,40 +2,34 @@
 /*
 Template name: Volunteer vacancy index
 */
-get_header();
 
-?>
-    <div class="container">
-        <?PHP
+get_header(); ?>
 
-        ?>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <?php the_post(); ?>
+            <h1><?php the_title(); ?></h1>
 
-        <div class="row">
-            <div class="col-12">
-                <?PHP
-                the_post();
+            <?php
+            the_content();
 
-                ?><h1><?PHP the_title(); ?></h1><?PHP
-                the_content();
+            $vacancies = new WP_Query([
+                'post_type' => 'volunteer_vacancy',
+                'posts_per_page' => -1
+            ]);
 
-                $vacancies = new WP_Query([
-                    'post_type' => 'volunteer_vacancy',
-                    'posts_per_page' => -1
-                ]);
+            while($vacancies->have_posts()){
+                $vacancies->the_post();
 
-                while($vacancies->have_posts()){
-                    $vacancies->the_post();
+                ?><h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php
+            }
 
-                    ?><h2><a href="<?PHP the_permalink(); ?>"><?PHP the_title(); ?></a></h2><?PHP
-                }
+            wp_reset_query();
+            ?>
 
-                wp_reset_query();
-
-                ?>
-
-            </div>
         </div>
     </div>
-<?PHP
+</div>
 
-get_footer();
+<?php get_footer();

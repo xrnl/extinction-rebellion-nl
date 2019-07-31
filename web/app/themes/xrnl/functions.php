@@ -118,3 +118,16 @@ add_action('init', function(){
     register_post_type( 'volunteer_vacancy', $args );
 
 });
+
+// Register Sidebars
+function blog_sidebar() {
+
+	register_sidebar( array(
+		'id'            => 'blog_sidebar',
+		'class'         => 'blog_sidebar',
+        'name'          => __( 'Blog Sidebar', 'theme-xrnl' ),
+        'description'   => __( 'Appears on blog posts in the sidebar.', 'theme-xrnl' ),
+	) );
+
+}
+add_action( 'widgets_init', 'blog_sidebar' );

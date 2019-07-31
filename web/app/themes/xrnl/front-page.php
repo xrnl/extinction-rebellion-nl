@@ -1,4 +1,4 @@
-<?PHP
+<?php
 /*
 Theme name: XRNL
  */
@@ -34,7 +34,7 @@ the_post();
             <h2 class="text-black mt-3"><?php echo (ICL_LANGUAGE_CODE === "nl") ? "Bekijk de Extinction Rebellion Talk" : "Watch de Extinction Rebellion Talk"; ?></h2>
         </a>
         <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/wie-wij-zijn/" class="col-6 col-xl-3 bg-blue p-4 py-5">
-            <img class="featured-xr-logo img-fluid" src="<?PHP echo get_theme_file_uri("assets/images/XR-symbol.svg"); ?>" />
+            <img class="featured-xr-logo img-fluid" src="<?php echo get_theme_file_uri("assets/images/XR-symbol.svg"); ?>" />
             <h2 class="text-black mt-3">
                 <?php echo (ICL_LANGUAGE_CODE === "nl") ? "Wie zijn wij" : "Who we are"; ?>
             </h2>
@@ -51,16 +51,16 @@ the_post();
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-lg-8 demands">
-            <h1><?PHP _e('OUR <span class="text-green">DEMANDS</span>', 'theme-xrnl'); ?></h1>
+            <h1><?php _e('OUR <span class="text-green">DEMANDS</span>', 'theme-xrnl'); ?></h1>
             <ol class="pl-3">
-                <?PHP
+                <?php
                 while ( have_rows('demands') ){
                     the_row();
                     ?>
                     <li class="pl-4">
-                        <?PHP the_sub_field('demand'); ?>
+                        <?php the_sub_field('demand'); ?>
                     </li>
-                    <?PHP
+                    <?php
                 }
                 ?>
             </ol>
@@ -73,10 +73,10 @@ the_post();
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2><?PHP _e('JOIN THE REBELLION', 'theme-xrnl'); ?></h2>
+                <h2><?php _e('JOIN THE REBELLION', 'theme-xrnl'); ?></h2>
             </div>
         </div>
-        <?PHP
+        <?php
 
             the_field('signup_form_code');
             /*
@@ -97,7 +97,7 @@ EOF;
                     <p>Thanks for registering</p>
                 </div>
             </div>
-            <?PHP
+            <?php
         }else{
         ?>
         <form class="row" method="post">
@@ -167,35 +167,35 @@ EOF;
             </div>
 
         </form>
-        <?PHP }
+        <?php }
             */
         ?>
     </div>
 </div>
 
-<?PHP if(have_rows('more_info')) { ?>
+<?php if(have_rows('more_info')) { ?>
     <div class="container">
         <div class="row">
-            <h2 class="col-12"><?PHP _e('More <span class="text-green">information</span>', 'theme-xrnl'); ?></h2>
+            <h2 class="col-12"><?php _e('More <span class="text-green">information</span>', 'theme-xrnl'); ?></h2>
         </div>
         <div class="row">
-            <?PHP
+            <?php
             while (have_rows('more_info')) {
                 the_row();
                 ?>
                 <div class="col-md-4 col-12">
-                    <img src="<?PHP the_sub_field('image'); ?>"/>
+                    <img src="<?php the_sub_field('image'); ?>"/>
                     <h3>
-                        <?PHP the_sub_field('title'); ?>
+                        <?php the_sub_field('title'); ?>
                     </h3>
-                    <?PHP the_sub_field('info'); ?>
+                    <?php the_sub_field('info'); ?>
                 </div>
-                <?PHP
+                <?php
             }
             ?>
         </div>
     </div>
-    <?PHP
+    <?php
 }
 ?>
 
@@ -205,48 +205,48 @@ EOF;
     <div class="row">
         <div class="col-12">
             <h1>
-                <h2><?PHP _e('WHO IS <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?></h1>
+                <h2><?php _e('WHO IS <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?></h1>
         </div>
     </div>
 
 
     <div class="row">
         <div class="col-sm-12 col-lg-6">
-            <?PHP the_content(); ?>
+            <?php the_content(); ?>
         </div>
 
         <div class="col-12 col-lg-6">
-            <?PHP the_post_thumbnail(); ?>
+            <?php the_post_thumbnail(); ?>
         </div>
     </div>
 </div>
 
-<?PHP
+<?php
 
 if(have_rows('media')) { ?>
     <div class="bg-green">
         <div class="container container-media">
             <div class="row">
-                <h2 class="col-12"><?PHP _e('Media', 'theme-xrnl'); ?></h2>
+                <h2 class="col-12"><?php _e('Media', 'theme-xrnl'); ?></h2>
             </div>
             <div class="row">
-                <?PHP
+                <?php
                 while (have_rows('media')) {
                     the_row();
                     $embed = get_sub_field('embed_code');
                     if(preg_match('/(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"\'>]+)/', $embed, $matches)){
                         ?>
                         <div class="col-12 col-md-6">
-                            <?PHP echo $embed; ?>
+                            <?php echo $embed; ?>
                         </div>
-                        <?PHP
+                        <?php
                     }
                 }
                 ?>
             </div>
         </div>
     </div>
-    <?PHP
+    <?php
 }
 
 get_footer();
