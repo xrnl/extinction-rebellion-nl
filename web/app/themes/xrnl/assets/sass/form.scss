@@ -1,5 +1,10 @@
 /* Action Network Form */
 
+@mixin reset-text() {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
 #can_embed_form {
   h4,
   #action_info {
@@ -13,6 +18,8 @@
   h2 {
     font-family: $brand-font-secondary;
     text-transform: none;
+    border: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   form {
@@ -29,6 +36,10 @@
         float: none !important;
         width: auto !important;
       }
+
+      // overrides
+      float: none !important;
+      width: auto !important;
     }
 
     ul {
@@ -62,7 +73,6 @@
     input[type=text],
     input[type=email],
     input[type=number],
-    span.block.relative,
     select,
     textarea {
       @extend .form-control;
@@ -79,7 +89,9 @@
       @extend .form-check;
       label {
         @extend .form-check-label;
-        font-size: 90%;
+        font-size: 90% !important;
+        padding: 0px 0 0 8px !important;
+        line-height: inherit !important;
         input[type=checkbox] {
           @extend .form-check-input;
           width: 20px;
@@ -87,10 +99,24 @@
         }
       }
     }
+    .controls.check_radio_field {
+      label {
+        padding: 6px 0 0 8px !important;
+      }
+    }
 
-    // hide loading image
-    img.ajax-loading {
-      display: none;
+    // Select box
+    select {
+      opacity: 1 !important;
+      position: static !important;
+      @include reset-text();
+      @extend .form-control;
+    }
+    .country_drop_wrap select.can_select {
+      height: 44px !important;
+    }
+    span.can_select {
+      display: none !important;
     }
 
     // submit button
@@ -99,6 +125,39 @@
       @extend .btn-lg;
       @extend .btn-block;
       @extend .my-3;
+    }
+
+    // Misc overrides
+    #d_sharing {
+      border: 0;
+      @include reset-text();
+    }
+  }
+
+  @include reset-text();
+
+  // Styling Thank you section after submission
+  // Keep it simple, let's not distract the user even more,
+  // let them browse the site
+  &> .clearfix {
+    display: none;
+  }
+
+  &> #can_thank_you {
+    @extend .mt-4;
+    @extend .mb-3;
+    background-color: $green !important;
+    padding: 0 !important;
+    text-align: left !important;
+
+    h1 {
+      @extend .h3;
+      @extend .font-xr;
+      @extend .text-uppercase;
+    }
+
+    p {
+      @include reset-text();
     }
   }
 }
