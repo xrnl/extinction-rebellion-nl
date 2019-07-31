@@ -5,8 +5,12 @@
 ?>
 
 <section class="no-results not-found">
-	<h1 class="page-title"><?php _e( 'Nothing Found', 'theme-xrnl' ); ?></h1>
-	<div class="mb-5">
+    <header class="entry-header">
+        <h1 class="page-title">
+            <?php _e( 'Nothing Found', 'theme-xrnl' ); ?>
+        </h1>
+    </header>
+    <div class="mb-5">
         <?php if ( is_search() ) : ?>
             <p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'theme-xrnl' ); ?></p>
             <div class="my-3">

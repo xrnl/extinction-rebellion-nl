@@ -47,9 +47,22 @@ img.featured-xr-logo {
 	margin: 0;
 }
 
+// Posts and Pages
+
+article.page,
+article.post {
+  @extend .mb-5;
+}
+article.page {
+  @extend .pb-4;
+}
+
 // Sidebar
 
 .sidebar {
+  &> ul > li {
+    @extend .pb-4;
+  }
 	.widget_recent_entries {
 		ul {
 			padding-left: 1.5rem;
@@ -113,17 +126,18 @@ nav.pagination.navigation {
 // Post navigation
 
 nav.post-navigation {
-  @extend .pt-4;
-  @extend .my-4;
-  @extend .my-sm-5;
+  @extend .mb-4;
+  @extend .mb-sm-5;
 
   .nav-links {
     .nav-previous {
       @extend .pb-4;
-      @extend .border-bottom;
     }
     .nav-next {
       @extend .py-4;
+    }
+    &> :nth-child(2) {
+      @extend .border-top;
     }
     span {
       color: #999;

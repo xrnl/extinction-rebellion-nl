@@ -6,9 +6,12 @@
 
 <article class="my-5">
 	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+        <h2 class="entry-title">
+            <a href="<?php esc_url( the_permalink() ); ?>">
+                <?php the_title(); ?>
+            </a>
+        </h2>
 	</header>
-
     <div class="row">
         <div class="col-12 col-md-8 mb-3">
             <div class="excerpt"><?php the_excerpt(); ?></div>
@@ -25,5 +28,4 @@
             </a>
         </div>
     </div>
-
 </article>
