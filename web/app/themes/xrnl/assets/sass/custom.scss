@@ -145,3 +145,31 @@ main .container:last-of-type {
 		}
 	}
 }
+
+// Pagination
+
+nav.pagination.navigation {
+  display: block;
+  ul.page-numbers {
+    @extend .pagination;
+    @extend .justify-content-center;
+    @extend .my-4;
+    @extend .my-sm-5;
+    @extend .pt-sm-4;
+    @extend .pagination-lg;
+
+    > li {
+      @extend .page-item;
+      > span,
+      > a {
+        &.page-numbers {
+          @extend .page-link;
+          &.current {
+            color: #111;
+          }
+        }
+      }
+    }
+  }
+
+}

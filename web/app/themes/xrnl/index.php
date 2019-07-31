@@ -5,9 +5,7 @@
         <div class="col-12">
             <?php if ( have_posts() ) : ?>
                 <?php if ( is_home() && ! is_front_page() ) : ?>
-                    <header>
-                        <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-                    </header>
+                    <h1 class="page-title"><?php single_post_title(); ?></h1>
                 <?php endif; ?>
 
                 <?php
@@ -24,11 +22,11 @@
                 // End the loop.
                 endwhile;
 
-                // Previous/next page navigation.
+                // Pagination
                 the_posts_pagination( array(
-                    'prev_text'          => __( 'Previous page', 'xrnl' ),
-                    'next_text'          => __( 'Next page', 'xrnl' ),
-                    'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'xrnl' ) . ' </span>',
+                    'format' => '?page=%#%',
+                    'type' => 'list',
+                    'screen_reader_text' => ' '
                 ) );
 
             // If no content, include the "No posts found" template.

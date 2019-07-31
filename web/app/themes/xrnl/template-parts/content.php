@@ -11,14 +11,16 @@
 
     <div class="row">
         <div class="col-12 col-md-4">
-            <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid']); ?>
+            <a href="<?php the_permalink(); ?>">
+                <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid pb-2 pt-0 pt-sm-2']); ?>
+            </a>
         </div>
         <div class="col-12 col-md-8">
             <div class="excerpt"><?php the_excerpt(); ?></div>
 
             <div class="my-2 text-muted"><?php the_date(); ?></div>
 
-            <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="font-xr text-uppercase">
+            <a href="<?php the_permalink(); ?>" rel="bookmark" class="font-xr text-uppercase">
             <?php echo _e( 'Continue reading', 'theme-xrnl'); ?>
             </a>
 

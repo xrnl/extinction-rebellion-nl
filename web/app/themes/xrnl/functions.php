@@ -7,32 +7,23 @@ add_filter('upload_mimes', function($mimes) {
     return $mimes;
 });
 
-
 add_filter('acf/settings/save_json', function( $path ) {
-
     // update path
     $path = get_stylesheet_directory() . '/acf-json';
 
     // return
     return $path;
-
 });
 
-
-
 add_filter('acf/settings/load_json', function( $paths ) {
-
     // remove original path (optional)
     unset($paths[0]);
-
 
     // append path
     $paths[] = get_stylesheet_directory() . '/acf-json';
 
-
     // return
     return $paths;
-
 });
 
 
@@ -58,10 +49,7 @@ add_action( 'pre_get_posts', 'exclude_category' );
 
 require_once(__DIR__. '/class-wp-bootstrap-navwalker.php');
 
-
-
 add_action('init', function(){
-
     $labels = array(
         'name'                  => _x( 'Volunteer Vacancies', 'Post Type General Name', 'text_domain' ),
         'singular_name'         => _x( 'Volunteer Vacancy', 'Post Type Singular Name', 'text_domain' ),
@@ -121,13 +109,11 @@ add_action('init', function(){
 
 // Register Sidebars
 function blog_sidebar() {
-
 	register_sidebar( array(
 		'id'            => 'blog_sidebar',
 		'class'         => 'blog_sidebar',
         'name'          => __( 'Blog Sidebar', 'theme-xrnl' ),
         'description'   => __( 'Appears on blog posts in the sidebar.', 'theme-xrnl' ),
 	) );
-
 }
 add_action( 'widgets_init', 'blog_sidebar' );

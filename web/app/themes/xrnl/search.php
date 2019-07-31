@@ -29,11 +29,11 @@ get_header(); ?>
                 // End the loop.
                 endwhile;
 
-                // Previous/next page navigation.
+                // Pagination
                 the_posts_pagination( array(
-                    'prev_text'          => __( 'Previous page', 'theme-xrnl' ),
-                    'next_text'          => __( 'Next page', 'theme-xrnl' ),
-                    'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'theme-xrnl' ) . ' </span>',
+                    'format' => '?page=%#%',
+                    'type' => 'list',
+                    'screen_reader_text' => ' '
                 ) );
 
             // If no content, include the "No posts found" template.
