@@ -1,58 +1,169 @@
+/* Action Network Form */
 
-/* Form */
-
-label {
-  display: block;
+@mixin reset-text() {
+  font-size: inherit !important;
+  line-height: inherit !important;
 }
 
-.btn-black {
-  background-color: $black;
-  color: $white;
-}
-
-form {
-  padding: 25px 0;
-  margin-bottom: 0!important;
-  .btn {
-    border-radius: 10px;
+#can_embed_form {
+  h4,
+  #action_info {
+    display: none;
   }
-}
 
-input[type=text], textarea, select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+  #logo_wrap {
+    display: none;
+  }
 
-input[type=submit] {
-  width: 100%;
-  background-color: $green;
-  color: $white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  h2 {
+    font-family: $brand-font-secondary;
+    text-transform: none;
+    border: 0 !important;
+    margin-bottom: 0 !important;
+  }
 
-input[type=submit]:hover {
-  background-color: $green;
-}
+  form {
+    @extend .row;
+    overflow-x: hidden;
 
-#can_embed_form h4 {
-	display: none;
-}
-.can_embed.form #can_embed_form_inner>h2 {
-	border: none !important;
-}
-.can_button, #can_embed_form input[type=submit], #can_embed_form .button, #donate_auto_modal input[type=submit], #donate_auto_modal .button {
-	background-color: #000 !important;
-	font-size: 16pt !important;
-	color: #fff;
-	font-family: $brand-font;
-	text-transform: uppercase;
+    // Unfortunately the html that comes out of actionnetwork is not
+    // customizable at all. Hence a lot of css customization here! :(
+    #form_col1,
+    #form_col2 {
+      @extend .col-12;
+      // @extend .col-lg-6;
+      @include media-breakpoint-down(md) {
+        float: none !important;
+        width: auto !important;
+      }
+
+      // overrides
+      float: none !important;
+      width: auto !important;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      display: block;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .floatlabel-wrapper {
+      @extend .form-group;
+    }
+
+    // hide form labels with texts
+    label.control-label,
+    label.floatlabel-label {
+      display: none !important;
+    }
+
+    // display checkboxes
+    label.checkbox {
+      display: block;
+      @extend .my-2;
+    }
+
+    // bootstrap styling for forms
+    input[type=text],
+    input[type=email],
+    input[type=number],
+    select,
+    textarea {
+      @extend .form-control;
+      border-color: white;
+
+      // validation feedback
+      &.error_input {
+        @extend .is-invalid;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
+    // checkboxes
+    #d_sharing li,
+    .controls.check_radio_field {
+      @extend .form-check;
+      label {
+        @extend .form-check-label;
+        font-size: 90% !important;
+        padding: 0px 0 0 8px !important;
+        line-height: inherit !important;
+        input[type=checkbox] {
+          @extend .form-check-input;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    .controls.check_radio_field {
+      label {
+        padding: 6px 0 0 8px !important;
+      }
+    }
+
+    // Select box
+    select {
+      opacity: 1 !important;
+      position: static !important;
+      @include reset-text();
+      @extend .form-control;
+      border-color: white !important;
+    }
+    .country_drop_wrap select.can_select {
+      height: 44px !important;
+    }
+    span.can_select {
+      display: none !important;
+    }
+
+    // submit button
+    input[type=submit] {
+      @extend .btn-block;
+      @extend .btn;
+      @extend .btn-black;
+      @extend .btn-lg;
+      @extend .my-3;
+    }
+
+    // Misc overrides
+    #d_sharing {
+      border: 0;
+      @include reset-text();
+    }
+  }
+
+  @include reset-text();
+
+  // Styling Thank you section after submission
+  // Keep it simple, let's not distract the user even more,
+  // let them browse the site
+  &> .clearfix {
+    display: none;
+  }
+
+  &> #can_thank_you {
+    @extend .mt-4;
+    @extend .mb-3;
+    background-color: $green !important;
+    padding: 0 !important;
+    text-align: left !important;
+
+    h1 {
+      @extend .h3;
+      @extend .font-xr;
+      @extend .text-uppercase;
+    }
+
+    p {
+      @include reset-text();
+    }
+  }
 }

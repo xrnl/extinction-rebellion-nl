@@ -1,16 +1,18 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Extinction Rebellion - De Opstand Begint</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="extinctionrebellion-icon" href="images/favicon.png"/>
-    <link rel="icon" href="images/favicon.png" type="image/x-icon"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="<?PHP echo get_theme_file_uri("dist/fonts/fucxed.css"); ?>" />
-    <link rel="stylesheet" href="<?PHP echo get_theme_file_uri("dist/css/app.css".date("?Ymd")); ?>" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-	<meta name="google-site-verification" content="Oc-GUQaXHiPF-oVpMLzShjKqQTDGGZ3caVsE9t1Y5Kg" />
-    <?PHP wp_head(); ?>
+    <meta charSet="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="google-site-verification" content="Oc-GUQaXHiPF-oVpMLzShjKqQTDGGZ3caVsE9t1Y5Kg" />
+    <link rel="icon" href="<?php echo get_theme_file_uri("assets/images/favicon.png") ?>" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Montserrat" rel="stylesheet" />
+    <link rel="stylesheet" href="<?php echo get_theme_file_uri("dist/fonts/fucxed.css"); ?>" />
+    <link rel="stylesheet" href="<?php echo get_theme_file_uri("dist/css/app.css".date("?Ymd")); ?>" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <?php wp_head(); ?>
 </head>
 <body>
     <header class="bg-green">
@@ -49,7 +51,7 @@
                     <li class="mx-3 mx-lg-2">
                         <a href="https://www.instagram.com/extinctionrebellion/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
                     <li class="mx-3 mx-lg-2">
-                        <a href="/donate" class="btn btn--primary-dark"><?php _e('donate'); ?></a>
+                        <a href="/donate" class="btn btn-black"><?php _e('donate'); ?></a>
                     </li>
                 </ul>
             </div>

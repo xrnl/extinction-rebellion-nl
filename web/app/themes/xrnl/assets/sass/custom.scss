@@ -12,29 +12,139 @@ img.featured-xr-logo {
 	text-align: center;
 	background-color: #21a73d;
 	display: inherit !important;
-	padding: 20px 0 40px;
-}
-.masthead span {
-	display: block;
-	color: #000;
-	font-size: 50pt;
-	line-height: 50pt;
-}
-.masthead .second {
-	font-size: 70pt;
-	line-height: 70pt;
-}
-.masthead .fourth {
-	font-size: 90pt;
-	line-height: 90pt;
+  span { // first and third
+    display: block;
+    color: #000;
+    font-size: 4rem;
+    line-height: 4rem;
+
+    @media all and (max-width: 374px) {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+  }
+  .second {
+    font-size: 5rem;
+    line-height: 5rem;
+    @media all and (max-width: 374px) {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+  .fourth {
+    font-size: 6rem;
+    line-height: 6rem;
+    @media all and (max-width: 374px) {
+      font-size: 5rem;
+      line-height: 5rem;
+    }
+  }
 }
 
-// Front page media
+// Listing Excerpt (Search, Blog)
 
-.container-media {
-  padding: 1em 0;
-  iframe {
-      width: 100%;
+.excerpt > p {
+	margin: 0;
+}
+
+// Posts and Pages
+
+article.page,
+article.post {
+  @extend .mb-5;
+}
+article.page {
+  @extend .pb-4;
+}
+
+// Sidebar
+
+.sidebar {
+  &> ul > li {
+    @extend .pb-4;
+  }
+	.widget_recent_entries {
+		ul {
+			padding-left: 1.5rem;
+		}
+
+		a {
+			color: $black;
+		}
+		.post-date {
+			color: #999;
+			display: block;
+		}
+  }
+
+  // Search form
+
+  .search-form {
+    @extend .mb-4;
+    input[type=text] {
+      @extend .form-control;
+    }
+
+    input[type=submit] {
+      @include button-variant($green, $green);
+      @extend .btn-lg;
+      @extend .btn-block;
+      @extend .my-2;
+      border-radius: 0;
+      border: 0;
+    }
+  }
+}
+
+// Pagination
+
+nav.pagination.navigation {
+  display: block;
+  @extend .my-4;
+  @extend .my-sm-5;
+  ul.page-numbers {
+    @extend .pagination;
+    @extend .justify-content-center;
+    @extend .pt-sm-4;
+    @extend .pagination-lg;
+
+    > li {
+      @extend .page-item;
+      > span,
+      > a {
+        &.page-numbers {
+          @extend .page-link;
+          &.current {
+            color: #111;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Post navigation
+
+nav.post-navigation {
+  @extend .mb-4;
+  @extend .mb-sm-5;
+
+  .nav-links {
+    .nav-previous {
+      @extend .pb-4;
+    }
+    .nav-next {
+      @extend .py-4;
+    }
+    &> :nth-child(2) {
+      @extend .border-top;
+    }
+    span {
+      color: #999;
+    }
+    span.post-title {
+      color: #000;
+    }
   }
 }
 
@@ -48,20 +158,7 @@ ol {
   }
 }
 
-// Buttons
-
-.btn {
-	background-color: #000;
-	border-radius: 0;
-	color: #fff;
-	font-family: $brand-font;
-	text-transform: uppercase;
-}
-
-.btn:hover {
-	background-color: #404040;
-	color: #fff;
-}
+// make all images responsive (.img-fluid from bootstrap)
 
 img {
   max-width: 100%;
@@ -85,6 +182,14 @@ a:hover u {
 	border-bottom: 4px solid #888;
 }
 
+/* Press */
+
+.wp-caption {
+  img {
+    max-width: calc(100vw - 30px);
+  }
+}
+
 // Not sure where this applies to
 
 #ir-banner__container a {
@@ -106,18 +211,4 @@ a:hover u {
 #ir-banner__container img {
 	height: 20px;
 	vertical-align: baseline;
-}
-
-// General
-
-main .container:last-of-type {
-	padding-bottom: 30px;
-}
-
-/* Press */
-
-.wp-caption {
-  img {
-    max-width: calc(100vw - 30px);
-  }
 }
