@@ -10,7 +10,7 @@
 	</header>
 
     <div class="row">
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-8 mb-3">
             <div class="excerpt"><?php the_excerpt(); ?></div>
 
             <div class="my-2 text-muted"><?php the_date(); ?></div>
