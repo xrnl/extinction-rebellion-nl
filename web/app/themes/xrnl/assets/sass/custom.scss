@@ -62,18 +62,36 @@ img.featured-xr-logo {
 			color: #999;
 			display: block;
 		}
-	}
+  }
+
+  // Search form
+
+  .searchform {
+    @extend .mb-4;
+    input[type=text] {
+      @extend .form-control;
+    }
+
+    input[type=submit] {
+      @include button-variant($green, $green);
+      @extend .btn-lg;
+      @extend .btn-block;
+      @extend .my-2;
+      border-radius: 0;
+      border: 0;
+    }
+  }
 }
 
 // Pagination
 
 nav.pagination.navigation {
   display: block;
+  @extend .my-4;
+  @extend .my-sm-5;
   ul.page-numbers {
     @extend .pagination;
     @extend .justify-content-center;
-    @extend .my-4;
-    @extend .my-sm-5;
     @extend .pt-sm-4;
     @extend .pagination-lg;
 
@@ -92,12 +110,27 @@ nav.pagination.navigation {
   }
 }
 
-// Front page media
+// Post navigation
 
-.container-media {
-  padding: 1em 0;
-  iframe {
-      width: 100%;
+nav.post-navigation {
+  @extend .pt-4;
+  @extend .my-4;
+  @extend .my-sm-5;
+
+  .nav-links {
+    .nav-previous {
+      @extend .pb-4;
+      @extend .border-bottom;
+    }
+    .nav-next {
+      @extend .pt-4;
+    }
+    span {
+      color: #999;
+    }
+    span.post-title {
+      color: #000;
+    }
   }
 }
 
@@ -150,6 +183,14 @@ a:hover u {
 	border-bottom: 4px solid #888;
 }
 
+/* Press */
+
+.wp-caption {
+  img {
+    max-width: calc(100vw - 30px);
+  }
+}
+
 // Not sure where this applies to
 
 #ir-banner__container a {
@@ -171,12 +212,4 @@ a:hover u {
 #ir-banner__container img {
 	height: 20px;
 	vertical-align: baseline;
-}
-
-/* Press */
-
-.wp-caption {
-  img {
-    max-width: calc(100vw - 30px);
-  }
 }

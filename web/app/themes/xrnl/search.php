@@ -31,7 +31,7 @@ get_header(); ?>
 
                 // Pagination
                 the_posts_pagination( array(
-                    'format' => '?page=%#%',
+                    // 'format' => '?page=%#%', // todo find out why query params don't work
                     'type' => 'list',
                     'screen_reader_text' => ' '
                 ) );

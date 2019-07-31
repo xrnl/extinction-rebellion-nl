@@ -23,11 +23,10 @@ get_header(); ?>
                 } elseif ( is_singular( 'post' ) ) {
                     // Previous/next post navigation.
                     the_post_navigation( array(
-                        'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'theme-xrnl' ) . '</span> ' .
-                            '<span class="screen-reader-text">' . __( 'Next post:', 'theme-xrnl' ) . '</span> ' .
+                        'screen_reader_text' => ' ',
+                        'next_text' => '<span class="screen-reader-text">' . __( 'Next post:', 'theme-xrnl' ) . '</span> ' .
                             '<span class="post-title">%title</span>',
-                        'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'theme-xrnl' ) . '</span> ' .
-                            '<span class="screen-reader-text">' . __( 'Previous post:', 'theme-xrnl' ) . '</span> ' .
+                        'prev_text' => '<span class="screen-reader-text">' . __( 'Previous post:', 'theme-xrnl' ) . '</span> ' .
                             '<span class="post-title">%title</span>',
                     ) );
                 }
