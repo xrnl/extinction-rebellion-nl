@@ -96,11 +96,8 @@
     // submit button
     input[type=submit] {
       @extend .btn;
-      @extend .btn-black;
       @extend .btn-lg;
       @extend .btn-block;
-      @extend .font-xr;
-      @extend .text-uppercase;
       @extend .my-3;
     }
   }
