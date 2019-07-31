@@ -4,7 +4,7 @@
     <label for="inputPassword2" class="sr-only">Password</label>
     <input type="search" class="form-control" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'theme-xrnl' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
   </div>
-  <button type="submit" class="btn mb-2">
+  <button type="submit" class="btn btn-primary mb-2">
     <?php echo _x( 'Search', 'submit button', 'theme-xrnl' ); ?>
   </button>
 </form>

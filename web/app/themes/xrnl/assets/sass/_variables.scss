@@ -16,6 +16,13 @@ $navbar-light-color: #000;
 
 $enable-responsive-font-sizes:  true !default; // responsive font sizes
 $border-radius:                 0rem !default;
+
+$btn-focus-box-shadow:          none !default;
+$btn-box-shadow:                none !default;
+$btn-focus-width:               0 !default;
+$btn-border-width:              0 !default;
+$btn-border-radius-lg:          0 !default;
+
 $link-decoration:               underline !default;
 $brand-font:                    'FucXed', Montserrat, sans-serif !default;
 $brand-font-secondary:          'Crimson Text', serif;

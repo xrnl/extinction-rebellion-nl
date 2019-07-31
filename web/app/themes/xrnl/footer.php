@@ -36,7 +36,7 @@
                         ] ); ?>
 
                         <div class="donate donate--footer">
-                            <a href="/donate" class="btn btn--primary-dark"><?php _e('donate'); ?></a>
+                            <a href="/donate" class="btn btn-primary"><?php _e('donate'); ?></a>
                         </div>
 
                         <br />

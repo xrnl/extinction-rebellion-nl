@@ -1,0 +1,17 @@
+// Buttons
+
+.btn {
+  font-family: $brand-font;
+  text-transform: uppercase;
+}
+
+.btn-black {
+  @include button-variant($black, $black, lighten($black, 20%), lighten($black, 20%), lighten($black, 10%));
+}
+
+// buttons added in wordpress posts
+article {
+  .btn {
+    @include button-variant($black, $black, lighten($black, 20%), lighten($black, 20%), lighten($black, 10%));
+  }
+}

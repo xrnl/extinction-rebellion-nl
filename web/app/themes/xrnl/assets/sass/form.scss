@@ -121,9 +121,10 @@
 
     // submit button
     input[type=submit] {
-      @extend .btn;
-      @extend .btn-lg;
       @extend .btn-block;
+      @extend .btn;
+      @extend .btn-black;
+      @extend .btn-lg;
       @extend .my-3;
     }
 
