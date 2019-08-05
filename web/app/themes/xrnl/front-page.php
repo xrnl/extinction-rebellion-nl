@@ -24,17 +24,17 @@
 <div class="container-fluid">
     <a name="details"></a>
     <div class="row text-center">
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="col-12 col-xl-6 bg-yellow p-4 py-5">
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="col-12 col-xl-6 bg-yellow p-4 py-5 text-decoration-none">
             <i class="fab fa-youtube fa-3x text-black"></i>
             <h2 class="text-black mt-3"><?php echo (ICL_LANGUAGE_CODE === "nl") ? "Bekijk de Extinction Rebellion Talk" : "Watch de Extinction Rebellion Talk"; ?></h2>
         </a>
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/wie-wij-zijn/" class="col-6 col-xl-3 bg-blue p-4 py-5">
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/wie-wij-zijn/" class="col-6 col-xl-3 bg-blue p-4 py-5 text-decoration-none">
             <img class="featured-xr-logo img-fluid" src="<?php echo get_theme_file_uri("assets/images/XR-symbol.svg"); ?>" />
             <h2 class="text-black mt-3">
                 <?php echo (ICL_LANGUAGE_CODE === "nl") ? "Wie zijn wij" : "Who we are"; ?>
             </h2>
         </a>
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/local/" class="col-6 col-xl-3 bg-pink p-4 py-5">
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/local/" class="col-6 col-xl-3 bg-pink p-4 py-5 text-decoration-none">
             <i class="fas fa-map-marked-alt fa-3x text-black"></i>
             <h2 class="text-black mt-3">
                 <?php echo (ICL_LANGUAGE_CODE === "nl") ? "Lokale Groepen" : "Local Groups"; ?>
@@ -43,10 +43,10 @@
     </div>
 </div>
 
-<div class="container my-5">
+<div class="container my-5 py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8 demands">
-            <h1><?php _e('OUR <span class="text-green">DEMANDS</span>', 'theme-xrnl'); ?></h1>
+            <h1><?php _e('WE <span class="text-green">DEMAND</span> THAT OUR GOVERNMENT', 'theme-xrnl'); ?></h1>
             <ol class="pl-3">
                 <?php
                 while ( have_rows('demands') ){
@@ -63,19 +63,17 @@
     </div>
 </div>
 
-<div class="bg-green py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-8 offset-lg-2">
-                <h2><?php _e('JOIN THE REBELLION', 'theme-xrnl'); ?></h2>
-                <?php the_field('signup_form_code'); ?>
-            </div>
+<div class="container-fluid bg-green py-5">
+    <div class="row my-5">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
+            <h2><?php _e('JOIN THE REBELLION', 'theme-xrnl'); ?></h2>
+            <?php the_field('signup_form_code'); ?>
         </div>
     </div>
 </div>
 
 <?php if(have_rows('more_info')) { ?>
-    <div class="container">
+    <div class="container my-5 py-5">
         <div class="row">
             <h2 class="col-12"><?php _e('More <span class="text-green">information</span>', 'theme-xrnl'); ?></h2>
         </div>
@@ -98,7 +96,7 @@
     </div>
 <?php } ?>
 
-<div class="container py-5">
+<div class="container py-5 my-5">
     <div class="row">
         <div class="col-12">
             <h2><?php _e('WHO IS <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?>
@@ -116,7 +114,7 @@
 
 <?php if(have_rows('media')) { ?>
     <div class="py-5 bg-green">
-        <div class="container">
+        <div class="container my-5">
             <h2><?php _e('Media', 'theme-xrnl'); ?></h2>
             <div class="row">
                 <?php
