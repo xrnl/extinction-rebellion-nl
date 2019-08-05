@@ -21,3 +21,10 @@ ul, ol {
 .font-xr {
   font-family: $brand-font;
 }
+
+main {
+  a {
+    color: $link-color;
+    text-decoration: $link-decoration;
+  }
+}

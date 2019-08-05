@@ -25,6 +25,7 @@
   form {
     @extend .row;
     overflow-x: hidden;
+    width: auto !important;
 
     // Unfortunately the html that comes out of actionnetwork is not
     // customizable at all. Hence a lot of css customization here! :(
