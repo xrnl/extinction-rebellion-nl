@@ -68,6 +68,12 @@
                             </li>
                         </ul>
 
+                        <br />
+
+                        <div class="text-dark">
+                            Thanks to Wordpress and <a href="https://simpleanalytics.com/extinctionrebellion.nl" class="text-reset">SimpleAnalytics</a>
+                        </div>
+
                     </div>
                 </div>
             </div>
