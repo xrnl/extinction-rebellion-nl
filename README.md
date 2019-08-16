@@ -7,7 +7,7 @@
 Run
 ```sh
 cp .env.example .env
-# copy commercial plugins to web/app/plugins directory @todo
+curl -SL0 https://cloud.extinctionrebellion.nl/index.php/s/GwKwW3TcrzZFBN7/download -o plugins.tar.gz && tar -xvf plugins.tar.gz -C web/app/ --strip-components=0 && rm plugins.tar.gz
 docker-compose up -d
 # docker-compose logs -f # to view the logs if you want
 # You may see that in the logs, "sh: npm: not found" this is because
