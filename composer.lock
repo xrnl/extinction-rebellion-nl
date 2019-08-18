@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4242a5d4f553b7d43233fc7a803656e8",
+    "content-hash": "1c0d5fcbb9e63aa8906ff6bdc1b9d093",
     "packages": [
         {
             "name": "composer/installers",
@@ -705,16 +705,34 @@
             "homepage": "https://wordpress.org/plugins/flickr-viewer/"
         },
         {
-            "name": "wpackagist-plugin/open-external-links-in-a-new-window",
-            "version": "1.3.2",
+            "name": "wpackagist-plugin/import-meetup-events",
+            "version": "1.4.1",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/open-external-links-in-a-new-window/",
-                "reference": "tags/1.3.2"
+                "url": "https://plugins.svn.wordpress.org/import-meetup-events/",
+                "reference": "tags/1.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/open-external-links-in-a-new-window.1.3.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/import-meetup-events.1.4.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/import-meetup-events/"
+        },
+        {
+            "name": "wpackagist-plugin/open-external-links-in-a-new-window",
+            "version": "1.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/open-external-links-in-a-new-window/",
+                "reference": "tags/1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/open-external-links-in-a-new-window.1.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
