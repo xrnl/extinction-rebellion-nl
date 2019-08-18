@@ -28,3 +28,14 @@
   color: #fff !important;
   width: 100px !important;
 }
+
+.col-ime-md-6 {
+  margin-bottom: 3% !important;
+  @include media-breakpoint-down(md) {
+    margin-bottom: 5% !important;
+  }
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 6% !important;
+  }
+}
+
