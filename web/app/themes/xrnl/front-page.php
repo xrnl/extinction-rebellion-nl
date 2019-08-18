@@ -43,7 +43,7 @@
 <div class="container-fluid">
     <a name="details"></a>
     <div class="row text-center">
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="col-12 col-xl-6 bg-yellow p-4 py-5 text-decoration-none">
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="col-12 col-xl-6 bg-orange p-4 py-5 text-decoration-none">
             <i class="fab fa-youtube fa-3x text-black"></i>
             <h2 class="text-black mt-3"><?php echo (ICL_LANGUAGE_CODE === "nl") ? "Bekijk de Extinction Rebellion Talk" : "Watch the Extinction Rebellion Talk"; ?></h2>
         </a>
