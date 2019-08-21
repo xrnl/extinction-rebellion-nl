@@ -23,8 +23,11 @@ ul, ol {
 }
 
 main {
-  a {
+  a:not(.btn) {
     color: $link-color;
     text-decoration: $link-decoration;
+    &:hover {
+      color: $link-hover-color;
+    }
   }
 }

@@ -1,0 +1,16 @@
+
+.rwb {
+  font-size: 1.4rem;
+  .rwb-cover-image {
+    min-height: 75vh;
+    background-size: cover !important;
+  }
+
+  .rwb-location {
+    font-size: 1.6rem;
+  }
+
+  #can_embed_form_inner > h2 {
+    display: none;
+  }
+}

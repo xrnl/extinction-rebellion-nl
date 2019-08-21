@@ -139,11 +139,20 @@ nav.post-navigation {
     &> :nth-child(2) {
       @extend .border-top;
     }
-    span {
-      color: #999;
-    }
-    span.post-title {
-      color: #000;
+    a {
+      text-decoration: none;
+      span {
+        color: #999;
+      }
+      span.post-title {
+        color: #000;
+        text-decoration: underline;
+      }
+      &:hover {
+        span.post-title {
+          color: map-get($theme-colors, 'green');
+        }
+      }
     }
   }
 }
@@ -188,27 +197,4 @@ a:hover u {
   img {
     max-width: calc(100vw - 30px);
   }
-}
-
-// Not sure where this applies to
-
-#ir-banner__container a {
-	display: block;
-	padding: 10px 0;
-	background-color: #dc4f00;
-	text-align: center;
-	color: #fff;
-
-	font-family: $brand-font;
-	text-transform: uppercase;
-	font-size: 17pt;
-/* 	line-height: 19pt; */
-}
-#ir-banner__container a:hover {
-	opacity: 0.9;
-	text-decoration: none;
-}
-#ir-banner__container img {
-	height: 20px;
-	vertical-align: baseline;
 }

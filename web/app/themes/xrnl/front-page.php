@@ -15,7 +15,8 @@
 			<span class="fourth">Rebel</span>
 			<span class="first">for life</span>
 		</h1>
-	<?php endif; ?>
+    <?php endif; ?>
+    <?php the_field('home_cta'); ?>
 	<a href="#details" class="d-block my-5 ">
         <i class="fas fa-chevron-down fa-2x text-black"></i>
     </a>
