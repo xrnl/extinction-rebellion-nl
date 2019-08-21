@@ -1,14 +1,15 @@
 
 main {
 
-  ol {
+  ol.counter {
+    @extend .pl-3;
     list-style: none;
     counter-reset: xr-counter;
 
     li {
+      @extend .pl-5;
+      margin: 1rem 0;
       position: relative;
-      // padding-left: 25px;
-      // margin-bottom: 25px;
       counter-increment: xr-counter;
 
       &::before {

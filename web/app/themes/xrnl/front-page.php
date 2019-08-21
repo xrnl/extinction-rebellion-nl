@@ -66,7 +66,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8 demands">
             <h1><?php _e('WE <span class="text-green">DEMAND</span> THAT OUR GOVERNMENT', 'theme-xrnl'); ?></h1>
-            <ol class="pl-3">
+            <ol class="counter pl-3">
                 <?php
                 while ( have_rows('demands') ){
                     the_row();
