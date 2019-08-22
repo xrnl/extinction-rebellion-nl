@@ -129,3 +129,14 @@ function add_og_image() {
     <?php }
 }
 add_action( 'wp_head', 'add_og_image' );
+
+// Make sure events details page has `/events/:slug` url instead of `/meetup-event/:slug`
+
+class CustomMeetupEventCpt extends Import_Meetup_Events_Cpt {
+    public function __construct() {
+        parent::__construct();
+        $this->event_slug = 'events';
+    }
+}
+
+Import_Meetup_Events::instance()->cpt = new CustomMeetupEventCpt();
