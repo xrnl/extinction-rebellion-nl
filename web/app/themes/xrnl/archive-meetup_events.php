@@ -8,8 +8,17 @@ $args = array(
 	'posts_per_page' => 10,
 	'paged' => $paged,
 	'post_type' => 'meetup_events',
-	'orderby' => 'event_start_date',
-	'order' => 'ASC'
+	'orderby' => 'meta_value',
+	'meta_key' => 'event_start_date',
+	'order' => 'ASC',
+	'meta_query' => array(
+		array(
+			'key' => 'event_start_date', // Check the start date field
+			'value' => date("Y-m-d"), // Set today's date (note the similar format)
+			'compare' => '>=', // Return the ones greater than today's date
+			'type' => 'DATE' // Let WordPress know we're working with date
+		)
+	)
 );
 $events = new WP_Query( $args );
 
@@ -27,7 +36,7 @@ get_header(); ?>
 					if( $event_date != '' ){
 						$event_date = strtotime( $event_date );
 					}
-					$event_address = get_post_meta( get_the_ID(), 'venue_name', true );
+					$event_address = get_post_meta( get_the_ID(), 'venue_city', true );
 					$venue_address = get_post_meta( get_the_ID(), 'venue_address', true );
 					if( $event_address != '' && $venue_address != '' ){
 						$event_address .= ' - '.$venue_address;
