@@ -29,3 +29,4 @@ wp-cli.local.yml
 node_modules
 
 db_data
+metabase_data

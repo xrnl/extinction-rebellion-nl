@@ -37,8 +37,21 @@ services:
       - .:/var/www/html
     command: install
 
+  # Database query browser
+  metabase:
+    image: metabase/metabase
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    volumes:
+      - ./metabase_data:/metabase-data
+    environment:
+      MB_DB_FILE: /metabase-data/metabase.db
+
 volumes:
     db_data: {}
+    metabase_data: {}
 
 networks:
   xrnl:
