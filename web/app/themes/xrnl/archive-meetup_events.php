@@ -36,18 +36,18 @@ $args = array(
 	)
 );
 $events = new WP_Query( $args );
-
+$cities = event_cities();
 get_header(); ?>
 
 <div class="container my-5">
 	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city ?></h1>
 
-  <?php if (event_cities()) { ?>
+  <?php if ($cities) { ?>
     <form class="form-inline mt-4" method="get">
       <label class="my-1 mr-2" for="city">City</label>
       <select name="city" class="custom-select my-1 mr-sm-2" id="city">
         <option value=""><?php _e('All') ?></option>
-        <?php foreach(event_cities() as $city) { ?>
+        <?php foreach($cities as $city) { ?>
           <option value="<?php echo $city->meta_value ?>" <?php echo $param_city == $city->meta_value ? 'selected="selected"' : '' ?>>
             <?php echo $city->meta_value ?>
           </option>
