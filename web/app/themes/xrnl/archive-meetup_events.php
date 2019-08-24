@@ -3,7 +3,20 @@
  * Template name: Events
  */
 
+// city query param
+$param_city = get_query_var('city');
+
+// city query
+$query_city = $param_city ? array(
+  'key' => 'venue_city',
+  'value' => $param_city,
+  'compare' => '='
+) : array();
+
+// page query param
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+// Events Query
 $args = array(
 	'posts_per_page' => 10,
 	'paged' => $paged,
@@ -17,7 +30,9 @@ $args = array(
 			'value' => date("Y-m-d"), // Set today's date (note the similar format)
 			'compare' => '>=', // Return the ones greater than today's date
 			'type' => 'DATE' // Let WordPress know we're working with date
-		)
+    ),
+    // adds city filter
+    $query_city
 	)
 );
 $events = new WP_Query( $args );
@@ -25,7 +40,24 @@ $events = new WP_Query( $args );
 get_header(); ?>
 
 <div class="container my-5">
-	<h1 class="page-title"><?php _e('EVENTS'); ?></h1>
+	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city ?></h1>
+
+  <?php if (event_cities()) { ?>
+    <form class="form-inline mt-4" method="get">
+      <label class="my-1 mr-2" for="city">City</label>
+      <select name="city" class="custom-select my-1 mr-sm-2" id="city">
+        <option value=""><?php _e('All') ?></option>
+        <?php foreach(event_cities() as $city) { ?>
+          <option value="<?php echo $city->meta_value ?>" <?php echo $param_city == $city->meta_value ? 'selected="selected"' : '' ?>>
+            <?php echo $city->meta_value ?>
+          </option>
+        <?php } ?>
+      </select>
+      <button type="submit" class="btn btn-black">
+        <?php _e('Apply') ?>
+      </button>
+    </form>
+  <?php } ?>
 
 	<div class="mt-4">
 		<?php if ( $events->have_posts() ) : ?>

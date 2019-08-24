@@ -140,3 +140,21 @@ class CustomMeetupEventCpt extends Import_Meetup_Events_Cpt {
 }
 
 Import_Meetup_Events::instance()->cpt = new CustomMeetupEventCpt();
+
+
+// Get Distinct Event cities
+function event_cities() {
+    global $wpdb;
+    return $wpdb->get_results("
+        select distinct meta_value
+        from $wpdb->postmeta
+        where meta_key = 'venue_city'
+    ");
+}
+
+// Add city query var to filter on events page
+function xrnl_query_vars( $qvars ) {
+    $qvars[] = 'city';
+    return $qvars;
+}
+add_filter( 'query_vars', 'xrnl_query_vars' );
