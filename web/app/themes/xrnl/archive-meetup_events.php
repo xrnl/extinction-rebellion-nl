@@ -138,7 +138,7 @@ get_header(); ?>
 				<?php
 			// If no content, include the "No posts found" template.
 			else :
-				get_template_part( 'template-parts/content', 'none' );
+				_e('Looks like there are no events, try clearing the filter and make sure to check Facebook or Meetup');
 			endif;
 			?>
 	</div>
