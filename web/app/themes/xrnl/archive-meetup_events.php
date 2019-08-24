@@ -43,9 +43,9 @@ get_header(); ?>
 	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city ?></h1>
 
   <?php if ($cities) { ?>
-    <form class="form-inline mt-4" method="get">
+    <form class="form-inline mt-4 flex-nowrap" method="get">
       <label class="my-1 mr-2" for="city">City</label>
-      <select name="city" class="custom-select my-1 mr-sm-2" id="city">
+      <select name="city" class="custom-select my-1" id="city">
         <option value=""><?php _e('All') ?></option>
         <?php foreach($cities as $city) { ?>
           <option value="<?php echo $city->meta_value ?>" <?php echo $param_city == $city->meta_value ? 'selected="selected"' : '' ?>>
@@ -53,7 +53,7 @@ get_header(); ?>
           </option>
         <?php } ?>
       </select>
-      <button type="submit" class="btn btn-black">
+      <button type="submit" class="btn btn-black ml-2">
         <?php _e('Apply') ?>
       </button>
     </form>
