@@ -23,6 +23,11 @@ If you want to install a new plugin
 docker-compose run composer require wpackagist-plugin/{{PLUGIN_NAME}}
 ```
 
+If you want to update a plugin
+```sh
+docker-compose run composer update wpackagist-plugin/{{PLUGIN_NAME}}
+```
+
 ## Sync production data
 
 1. Visit http://localhost:8000 to setup wordpress and login
