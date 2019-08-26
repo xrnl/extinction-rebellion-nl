@@ -1,4 +1,6 @@
 <?PHP
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 add_theme_support("post-thumbnails");
 add_theme_support("custom-logo");
 add_theme_support( 'title-tag' );
@@ -131,16 +133,16 @@ function add_og_image() {
 add_action( 'wp_head', 'add_og_image' );
 
 // Make sure events details page has `/events/:slug` url instead of `/meetup-event/:slug`
-
-class CustomMeetupEventCpt extends Import_Meetup_Events_Cpt {
-    public function __construct() {
-        parent::__construct();
-        $this->event_slug = 'events';
+if (is_plugin_active('import-meetup-events/import-meetup-events.php')) {
+    class CustomMeetupEventCpt extends Import_Meetup_Events_Cpt {
+        public function __construct() {
+            parent::__construct();
+            $this->event_slug = 'events';
+        }
     }
+
+    Import_Meetup_Events::instance()->cpt = new CustomMeetupEventCpt();
 }
-
-Import_Meetup_Events::instance()->cpt = new CustomMeetupEventCpt();
-
 
 // Get Distinct Event cities
 function event_cities() {
