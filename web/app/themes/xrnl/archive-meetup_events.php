@@ -108,39 +108,35 @@ get_header(); ?>
 							</div>
 						</a>
 					</div>
-				<?php endwhile;
-
-				?>
-				</div>
-				<nav class="pages my-5">
-					<?php
-					// Pagination
-					$big = 999999999;
-					$pagination = paginate_links(array(
-						'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-						'current' => max(1, $paged),
-						'total' => $events->max_num_pages,
-						'type' => 'array',
-						'prev_text' => '&laquo; Previous',
-						'next_text' => 'Next &raquo;',
-					));
-					?>
-					<?php if ( ! empty( $pagination ) ) : ?>
-						<ul class="pagination justify-content-center">
-							<?php foreach ( $pagination as $key => $page_link ) : ?>
-								<li class="page-item <?php if ( strpos( $page_link, 'current' ) !== false ) { echo ' active'; } ?>">
-									<?php echo $page_link ?>
-								</li>
-							<?php endforeach ?>
-						</ul>
-					<?php endif ?>
-				</div>
+				<?php endwhile; ?>
+			</div>
+			<nav class="pages my-5">
 				<?php
-			// If no content, include the "No posts found" template.
-			else :
-				_e('Looks like there are no events, try clearing the filter and make sure to check Facebook or Meetup');
-			endif;
-			?>
+				// Pagination
+				$big = 999999999;
+				$pagination = paginate_links(array(
+					'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+					'current' => max(1, $paged),
+					'total' => $events->max_num_pages,
+					'type' => 'array',
+					'prev_text' => '&laquo; Previous',
+					'next_text' => 'Next &raquo;',
+				));
+				?>
+				<?php if ( ! empty( $pagination ) ) : ?>
+					<ul class="pagination justify-content-center">
+						<?php foreach ( $pagination as $key => $page_link ) : ?>
+							<li class="page-item <?php if ( strpos( $page_link, 'current' ) !== false ) { echo ' active'; } ?>">
+								<?php echo $page_link ?>
+							</li>
+						<?php endforeach ?>
+					</ul>
+				<?php endif ?>
+			</nav>
+			<?php _e('Check <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> or <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a> for latest events') ?>.
+		<?php else :
+			_e('Looks like there are no events, try clearing the filter and make sure to check <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> or <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a>');
+		endif; ?>
 	</div>
 </div>
 
