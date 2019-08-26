@@ -1,0 +1,41 @@
+{
+    "key": "group_5d6124db8581e",
+    "title": "Homepage cover image",
+    "fields": [
+        {
+            "key": "field_5d6125d93cf22",
+            "label": "Home Cover Image",
+            "name": "home_cover_image",
+            "type": "url",
+            "instructions": "Add url of the uploaded image",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "wpml_cf_preferences": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "8"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1566647853
+}

@@ -13,4 +13,10 @@
   #can_embed_form_inner > h2 {
     display: none;
   }
+
+  #can_embed_form #can_thank_you {
+    background-color: transparent !important;
+    text-align: center !important;
+    color: #000 !important;
+  }
 }

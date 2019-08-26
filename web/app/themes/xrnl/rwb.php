@@ -41,9 +41,9 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="bg-pink">
+  <div class="bg-pink py-sm-5 py-4">
     <a name="join"></a>
-    <div class="container py-sm-5 py-4">
+    <div class="container">
       <div class="row py-5 text-center">
         <div class="col-12 col-lg-8 mx-auto">
           <h2><?php _e('JOIN REBEL WITHOUT BORDERS', 'theme-xrnl'); ?></h2>
@@ -76,7 +76,7 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="rwb-cover-image my-sm-5 my-4" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('rwb_why_protest_background_url'); ?>') no-repeat; min-height: 45vh;">
+  <div class="rwb-cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('rwb_why_protest_background_url'); ?>') no-repeat; min-height: 45vh;">
     <div class="container">
       <div class="row py-5 text-center text-white">
         <div class="col-12 col-lg-8 mx-auto my-5">

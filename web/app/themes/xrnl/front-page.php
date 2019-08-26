@@ -2,7 +2,19 @@
 
 <?php the_post(); ?>
 
-<div class="masthead px-3 py-5">
+<?php
+    $classes = 'text-black';
+    $chevron_class = 'text-black';
+    $styles = '';
+    if (get_field('home_cover_image')) {
+        $classes = 'cover';
+        $chevron_class = 'text-white';
+        $styles = 'background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('.get_field('home_cover_image').') no-repeat;';
+    }
+
+?>
+
+<div class="masthead px-3 py-5 <?php echo $classes ?>" style="<?php echo $styles ?>">
 	<?php if(ICL_LANGUAGE_CODE === "nl"): ?>
 		<h1>
 			<span class="first">Kom in</span>
@@ -17,8 +29,8 @@
 		</h1>
     <?php endif; ?>
     <?php the_field('home_cta'); ?>
-	<a href="#details" class="d-block my-5 ">
-        <i class="fas fa-chevron-down fa-2x text-black"></i>
+	<a href="#details" class="d-block my-5">
+        <i class="fas fa-chevron-down fa-2x <?php echo $chevron_class ?>"></i>
     </a>
 </div>
 

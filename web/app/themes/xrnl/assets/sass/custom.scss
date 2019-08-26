@@ -8,13 +8,18 @@ img.featured-xr-logo {
 // Front page Jumbotron
 
 .masthead {
+  &.cover {
+    @extend .text-white;
+    background-size: cover !important;
+    min-height: 60vh;
+  }
+
 	margin: 0;
 	text-align: center;
 	background-color: #21a73d;
 	display: inherit !important;
   span { // first and third
     display: block;
-    color: #000;
     font-size: 4rem;
     line-height: 4rem;
 
