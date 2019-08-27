@@ -24,7 +24,6 @@
 
   form {
     @extend .row;
-    overflow-x: hidden;
     width: auto !important;
 
     // Unfortunately the html that comes out of actionnetwork is not
@@ -77,7 +76,7 @@
     select,
     textarea {
       @extend .form-control;
-      border-color: white;
+      border: 0;
 
       // validation feedback
       &.error_input {
@@ -114,7 +113,7 @@
     select {
       opacity: 1 !important;
       position: static !important;
-      @include reset-text();
+      font-size: 1rem !important;
       @extend .form-control;
       border-color: white !important;
     }

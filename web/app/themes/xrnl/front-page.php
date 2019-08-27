@@ -15,18 +15,22 @@
 ?>
 
 <div class="masthead px-3 py-5 <?php echo $classes ?>" style="<?php echo $styles ?>">
-	<?php if(ICL_LANGUAGE_CODE === "nl"): ?>
-		<h1>
-			<span class="first">Kom in</span>
-			<span class="second">opstand</span>
-			<span class="third">voor het</span>
-			<span class="fourth">leven</span>
-		</h1>
-	<?php else: ?>
-		<h1 class="my-5">
-			<span class="fourth">Rebel</span>
-			<span class="first">for life</span>
-		</h1>
+    <?php if(get_field('home_hero_title')): ?>
+        <?php the_field('home_hero_title'); ?>
+    <?php else: ?>
+        <?php if(ICL_LANGUAGE_CODE === "nl"): ?>
+            <h1>
+                <span class="first">Kom in</span>
+                <span class="second">opstand</span>
+                <span class="third">voor het</span>
+                <span class="fourth">leven</span>
+            </h1>
+        <?php else: ?>
+            <h1 class="my-5">
+                <span class="fourth">Rebel</span>
+                <span class="first">for life</span>
+            </h1>
+        <?php endif; ?>
     <?php endif; ?>
     <?php the_field('home_cta'); ?>
 	<a href="#details" class="d-block my-5">
