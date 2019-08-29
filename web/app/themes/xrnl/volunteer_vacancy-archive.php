@@ -19,11 +19,12 @@ get_header(); ?>
         ]);
         ?>
 
-        <ol>
+        <ol class="pl-3 mt-5">
           <?php while($vacancies->have_posts()){
             $vacancies->the_post(); ?>
-            <li>
+            <li class="mb-4">
               <a class="font-xr text-uppercase text-decoration-none" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+              <?php the_excerpt(); ?>
             </li>
           <?php } wp_reset_query(); ?>
         </ol>
