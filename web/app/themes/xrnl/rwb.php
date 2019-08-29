@@ -95,7 +95,7 @@ get_header(); ?>
           <div class="text-left col-lg-10 col-xl-8 mx-auto">
             <?php while ( have_rows('rwb_faqs') ){ the_row(); ?>
               <div class="my-3 border border-yellow">
-                <a class="btn btn-outline-yellow btn-lg btn-block d-flex justify-content-between align-content-center text-left" data-toggle="collapse" href="#faq-<?php echo get_row_index(); ?>" role="button" aria-expanded="false" aria-controls="faq-<?php echo get_row_index(); ?>">
+                <a class="btn btn-yellow btn-lg btn-block d-flex justify-content-between align-content-center text-left" data-toggle="collapse" href="#faq-<?php echo get_row_index(); ?>" role="button" aria-expanded="false" aria-controls="faq-<?php echo get_row_index(); ?>">
                   <span><?php the_sub_field('question'); ?></span>
                   <i class="fas fa-chevron-down pt-1"></i>
                 </a>
