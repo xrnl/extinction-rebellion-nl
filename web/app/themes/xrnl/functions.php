@@ -125,7 +125,7 @@ add_action( 'widgets_init', 'blog_sidebar' );
 function add_og_image() {
     if (is_page('rebel-without-borders')) {
     ?>
-        <meta name="og:image" content="https://extinctionrebellion.nl/app/uploads/2019/08/homepage-video-overlay.jpg" />
+        <meta name="og:image" content="https://extinctionrebellion.nl/app/uploads/2019/08/RWB-OG-IMAGE.png" />
     <?php }
 }
 add_action( 'wp_head', 'add_og_image' );
