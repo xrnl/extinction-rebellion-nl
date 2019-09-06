@@ -56,7 +56,7 @@ get_header(); ?>
     <div class="row py-5">
       <div class="col-12 col-lg-8 mx-auto">
         <h2>
-          <?php _e('WHY ARE WE PROTESTING', 'theme-xrnl'); ?>?
+          <?php _e('WHY ARE WE REBELLING', 'theme-xrnl'); ?>?
         </h2>
         <p><?php the_field('rwb_why_protest'); ?></p>
       </div>
