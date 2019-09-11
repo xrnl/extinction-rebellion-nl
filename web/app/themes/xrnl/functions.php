@@ -150,7 +150,8 @@ function event_cities() {
     return $wpdb->get_results("
         select distinct meta_value
         from $wpdb->postmeta
-        where meta_key = 'venue_city'
+        where meta_key = 'venue_city' and meta_value != ''
+        order by meta_value asc
     ");
 }
 

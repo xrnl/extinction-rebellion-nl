@@ -45,6 +45,7 @@ get_header(); ?>
   <?php if ($cities) { ?>
     <form class="form-inline mt-4 flex-nowrap" method="get">
       <label class="my-1 mr-2" for="city">City</label>
+			<input type="hidden" name="paged" value="1" />
       <select name="city" class="custom-select my-1" id="city">
         <option value=""><?php _e('All') ?></option>
         <?php foreach($cities as $city) { ?>
