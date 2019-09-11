@@ -35,25 +35,27 @@
                     'walker'          => new WP_Bootstrap_Navwalker(),
                 ] ); ?>
 
-                <?php wp_nav_menu( [
-                    'theme_location' => 'language',
-                    'container'       => '',
-                    'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-                    'menu_class'      => 'navbar-nav language-menu ml-auto',
-                    'walker'          => new WP_Bootstrap_Navwalker(),
-                ] ); ?>
+                <div class="ml-auto d-flex">
+                    <?php wp_nav_menu( [
+                        'theme_location' => 'language',
+                        'container'       => '',
+                        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                        'menu_class'      => 'navbar-nav language-menu',
+                        'walker'          => new WP_Bootstrap_Navwalker(),
+                    ] ); ?>
 
-                <ul class="list-unstyled d-flex my-3 my-xl-0 align-items-center">
-                    <li class="mx-3 mx-lg-2">
-                        <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" class="facebook" aria-label="facebook"><i class="fab text-black fa-facebook-f"></i></a></li>
-                    <li class="mx-3 mx-lg-2">
-                        <a href="https://twitter.com/nlrebellion" class="twitter" target="_blank" aria-label="twitter"><i class="fab text-black fa-twitter"></i></a></li>
-                    <li class="mx-3 mx-lg-2">
-                        <a href="https://www.instagram.com/extinctionrebellion/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
-                    <li class="mx-3 mx-lg-2">
-                        <a href="/donate" class="btn btn-black"><?php _e('donate'); ?></a>
-                    </li>
-                </ul>
+                    <ul class="list-unstyled d-flex my-3 my-xl-0 align-items-center">
+                        <li class="mx-3 mx-lg-2">
+                            <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" class="facebook" aria-label="facebook"><i class="fab text-black fa-facebook-f"></i></a></li>
+                        <li class="mx-3 mx-lg-2">
+                            <a href="https://twitter.com/nlrebellion" class="twitter" target="_blank" aria-label="twitter"><i class="fab text-black fa-twitter"></i></a></li>
+                        <li class="mx-3 mx-lg-2">
+                            <a href="https://www.instagram.com/extinctionrebellion/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
+                        <li class="mx-3 mx-lg-2">
+                            <a href="/donate" class="btn btn-black"><?php _e('donate'); ?></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>

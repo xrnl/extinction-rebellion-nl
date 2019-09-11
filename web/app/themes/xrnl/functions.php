@@ -1,4 +1,6 @@
 <?PHP
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 add_theme_support("post-thumbnails");
 add_theme_support("custom-logo");
 add_theme_support( 'title-tag' );
@@ -129,3 +131,33 @@ function add_og_image() {
     <?php }
 }
 add_action( 'wp_head', 'add_og_image' );
+
+// Make sure events details page has `/events/:slug` url instead of `/meetup-event/:slug`
+if (is_plugin_active('import-meetup-events/import-meetup-events.php')) {
+    class CustomMeetupEventCpt extends Import_Meetup_Events_Cpt {
+        public function __construct() {
+            parent::__construct();
+            $this->event_slug = 'events';
+        }
+    }
+
+    Import_Meetup_Events::instance()->cpt = new CustomMeetupEventCpt();
+}
+
+// Get Distinct Event cities
+function event_cities() {
+    global $wpdb;
+    return $wpdb->get_results("
+        select distinct meta_value
+        from $wpdb->postmeta
+        where meta_key = 'venue_city' and meta_value != ''
+        order by meta_value asc
+    ");
+}
+
+// Add city query var to filter on events page
+function xrnl_query_vars( $qvars ) {
+    $qvars[] = 'city';
+    return $qvars;
+}
+add_filter( 'query_vars', 'xrnl_query_vars' );

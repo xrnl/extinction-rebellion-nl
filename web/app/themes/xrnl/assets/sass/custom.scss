@@ -128,8 +128,18 @@ nav.pagination.navigation {
   }
 }
 
-// Post navigation
-
+// Post, page navigation
+nav.pages > ul.pagination > li.page-item {
+  span {
+    @extend .page-link;
+  }
+  a {
+    @extend .page-link;
+    text-decoration: none !important;
+    color: map-get($theme-colors, 'green') !important;
+  }
+}
+nav.pagination,
 nav.post-navigation {
   @extend .mb-4;
   @extend .mb-sm-5;
@@ -144,8 +154,9 @@ nav.post-navigation {
     &> :nth-child(2) {
       @extend .border-top;
     }
-    a {
-      text-decoration: none;
+    a.page-numbers {
+      text-decoration: none !important;
+      color: map-get($theme-colors, 'green') !important;
       span {
         color: #999;
       }

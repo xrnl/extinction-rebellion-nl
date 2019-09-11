@@ -1,0 +1,41 @@
+
+.archive-event .ime_event {
+  height: auto !important;
+}
+
+.event_details {
+  background: map-get($theme-colors, 'yellow') !important;
+}
+
+.img_placeholder {
+  min-height: 230px !important;
+}
+
+.event_desc {
+  padding: 10px 15px !important;
+  width: calc(100% - 100px) !important;
+  a {
+    color: #000 !important;
+    @extend .text-reset;
+    .event_title {
+      color: #000;
+    }
+  }
+}
+
+.event_date {
+  background: #000 !important;
+  color: #fff !important;
+  width: 100px !important;
+}
+
+.col-ime-md-6 {
+  margin-bottom: 3% !important;
+  @include media-breakpoint-down(md) {
+    margin-bottom: 5% !important;
+  }
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 6% !important;
+  }
+}
+
