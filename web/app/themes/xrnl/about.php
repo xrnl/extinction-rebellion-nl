@@ -41,10 +41,12 @@ get_header(); ?>
         </div>
       </div>
     </div>
-    <div class="pb-5">
-      <?php while ( have_rows('images') ){ the_row(); ?>
-        <img src="<?php the_sub_field('image'); ?>" class="img-fluid mb-1" style="height: 170px" />
-      <?php } ?>
+    <div class="pb-5 masonry-container">
+      <div class="masonry">
+        <?php while ( have_rows('images') ){ the_row(); ?>
+          <img src="<?php the_sub_field('image'); ?>" class="img-fluid mb-1 image" />
+        <?php } ?>
+      </div>
     </div>
   </div>
 
