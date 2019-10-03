@@ -12,8 +12,8 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="text-center bg-light">
-    <div class="container py-5 my-sm-5 my-4">
+  <div class="text-center py-5 bg-light">
+    <div class="container my-sm-5 my-4">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
           <h1><?php the_field('why_title'); ?></h1>
@@ -35,26 +35,32 @@ get_header(); ?>
   <div class="text-center my-sm-5 my-4">
     <div class="container py-5">
       <h1><?php the_field('who_we_are_title'); ?></h1>
-      <p><?php the_field('who_we_are_description'); ?></p>
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <p><?php the_field('who_we_are_description'); ?></p>
+        </div>
+      </div>
       <br>
       [gallery / photos]
     </div>
   </div>
 
-  <div class="text-center my-sm-5 my-4">
-    <div class="container py-5">
+  <div class="text-center bg-light py-5">
+    <div class="container my-sm-5 my-4">
       <h1><?php the_field('organisation_title'); ?></h1>
       <p><?php the_field('organisation_description'); ?></p>
 
       <?php while ( have_rows('organisation_topics') ){ the_row(); ?>
-        <div class="row py-3">
-          <div class="col-12 col-lg-6 mx-auto mt-3">
-            <a class="btn btn-yellow btn-lg" data-toggle="collapse" href="#topic-<?php echo get_row_index(); ?>" role="button" aria-expanded="false" aria-controls="topic-<?php echo get_row_index(); ?>">
+        <div class="row py-2">
+          <div class="col-12 col-lg-6 mx-auto">
+            <a class="btn btn-yellow btn-lg btn-block text-left" data-toggle="collapse" href="#topic-<?php echo get_row_index(); ?>" role="button" aria-expanded="false" aria-controls="topic-<?php echo get_row_index(); ?>">
               <?php the_sub_field('topic_tilte') ?>
-              <i class="fas fa-chevron-down"></i>
+              <i class="fas fa-chevron-down float-right pt-1"></i>
             </a>
             <div class="text-left collapse" id="topic-<?php echo get_row_index(); ?>">
-              <?php the_sub_field('topic_description'); ?>
+              <div class="pt-3">
+                <?php the_sub_field('topic_description'); ?>
+              </div>
             </div>
           </div>
         </div>
