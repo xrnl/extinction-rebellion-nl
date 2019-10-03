@@ -33,15 +33,18 @@ get_header(); ?>
   </div>
 
   <div class="text-center my-sm-5 my-4">
-    <div class="container py-5">
+    <div class="container pt-5">
       <h1><?php the_field('who_we_are_title'); ?></h1>
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <p><?php the_field('who_we_are_description'); ?></p>
         </div>
       </div>
-      <br>
-      [gallery / photos]
+    </div>
+    <div class="pb-5">
+      <?php while ( have_rows('images') ){ the_row(); ?>
+        <img src="<?php the_sub_field('image'); ?>" class="img-fluid mb-1" style="height: 170px" />
+      <?php } ?>
     </div>
   </div>
 

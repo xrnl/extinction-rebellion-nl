@@ -121,8 +121,8 @@
         },
         {
             "key": "field_5d8cc875ffb57",
-            "label": "rebel profiles",
-            "name": "rebel_profiles",
+            "label": "images",
+            "name": "images",
             "type": "repeater",
             "instructions": "",
             "required": 1,
@@ -132,77 +132,17 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "collapsed": "",
             "min": 0,
             "max": 0,
             "layout": "table",
             "button_label": "",
-            "wpml_cf_preferences": 0,
             "sub_fields": [
                 {
-                    "key": "field_5d8ccbea4ec52",
-                    "label": "rebel name",
-                    "name": "rebel_name",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 0,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5d8ccc2b4ec53",
-                    "label": "rebel description",
-                    "name": "rebel_description",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 0,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5d8ccc3d4ec54",
-                    "label": "rebel age",
-                    "name": "rebel_age",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 0,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
                     "key": "field_5d8ccc494ec55",
-                    "label": "rebel portrait",
-                    "name": "rebel_portrait",
+                    "label": "image",
+                    "name": "image",
                     "type": "image",
                     "instructions": "",
                     "required": 1,
@@ -212,8 +152,9 @@
                         "class": "",
                         "id": ""
                     },
+                    "wpml_cf_preferences": 0,
                     "return_format": "url",
-                    "preview_size": "thumbnail",
+                    "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -221,8 +162,7 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": "",
-                    "wpml_cf_preferences": 0
+                    "mime_types": ""
                 }
             ]
         },
@@ -530,5 +470,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570107964
+    "modified": 1570127050
 }
