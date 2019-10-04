@@ -56,17 +56,11 @@ get_header(); ?>
   </div>
 
   <div class="text-center">
-    <div class="masonry-container">
-      <div class="masonry">
-        <?php while ( have_rows('images') ){ the_row(); ?>
-          <img src="<?php the_sub_field('image'); ?>" class="img-fluid my-1 image" />
-        <?php } ?>
-      </div>
-    </div>
+    <img src="<?php the_field('image'); ?>" class="img-fluid my-2" />
   </div>
 
   <?php if ( $events->have_posts() ) : ?>
-    <div class="py-sm-5 py-4 bg-yellow mt-1">
+    <div class="py-sm-5 py-4 bg-yellow">
       <div class="container my-5">
         <h1 class="text-center"><?php _e('EVENTS') ?></h1>
         <?php while ( $events->have_posts() ) : $events->the_post(); ?>

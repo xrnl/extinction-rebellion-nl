@@ -94,9 +94,9 @@
         },
         {
             "key": "field_5d967b28ed138",
-            "label": "images",
-            "name": "images",
-            "type": "repeater",
+            "label": "image",
+            "name": "image",
+            "type": "image",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -105,39 +105,17 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "wpml_cf_preferences": 0,
-            "sub_fields": [
-                {
-                    "key": "field_5d967b3eed139",
-                    "label": "Image",
-                    "name": "image",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "wpml_cf_preferences": 0
-                }
-            ]
+            "return_format": "url",
+            "preview_size": "full",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "wpml_cf_preferences": 0
         },
         {
             "key": "field_5d967b71ed13a",
@@ -194,5 +172,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570146080
+    "modified": 1570179344
 }
