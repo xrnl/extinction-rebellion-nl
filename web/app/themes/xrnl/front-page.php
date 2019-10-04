@@ -1,159 +1,132 @@
-<?php get_header(); ?>
-
-<?php the_post(); ?>
-
 <?php
-    $classes = 'text-black';
-    $chevron_class = 'text-black';
-    $styles = '';
-    if (get_field('home_cover_image')) {
-        $classes = 'cover';
-        $chevron_class = 'text-white';
-        $styles = 'background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('.get_field('home_cover_image').') no-repeat;';
-    }
 
-?>
+// city query
+$query_city = array();
+// Events Query
+$args = array(
+	'posts_per_page' => 5,
+	'paged' => 1,
+	'post_type' => 'meetup_events',
+	'orderby' => 'meta_value',
+	'meta_key' => 'event_start_date',
+	'order' => 'ASC',
+	'meta_query' => array(
+		array(
+			'key' => 'event_start_date', // Check the start date field
+			'value' => date("Y-m-d"), // Set today's date (note the similar format)
+			'compare' => '>=', // Return the ones greater than today's date
+			'type' => 'DATE' // Let WordPress know we're working with date
+    ),
+    // adds city filter
+    $query_city
+	)
+);
+$events = new WP_Query( $args );
 
-<div class="masthead px-3 py-5 <?php echo $classes ?>" style="<?php echo $styles ?>">
-    <?php if(get_field('home_hero_title')): ?>
-        <?php the_field('home_hero_title'); ?>
-    <?php else: ?>
-        <?php if(ICL_LANGUAGE_CODE === "nl"): ?>
-            <h1>
-                <span class="first">Kom in</span>
-                <span class="second">opstand</span>
-                <span class="third">voor het</span>
-                <span class="fourth">leven</span>
-            </h1>
-        <?php else: ?>
-            <h1 class="my-5">
-                <span class="fourth">Rebel</span>
-                <span class="first">for life</span>
-            </h1>
-        <?php endif; ?>
-    <?php endif; ?>
-    <?php the_field('home_cta'); ?>
-    <?php if (!get_field('home_cta')) { ?>
-        <a href="#details" class="d-block my-5">
-            <i class="fas fa-chevron-down fa-2x <?php echo $chevron_class ?>"></i>
-        </a>
-    <?php } ?>
-</div>
+get_header(); ?>
 
-<div class="container-fluid">
-    <a name="details"></a>
-    <div class="row text-center">
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/talk" class="col-12 col-xl-6 bg-orange p-4 py-5 text-decoration-none">
-            <i class="fab fa-youtube fa-3x text-black"></i>
-            <h2 class="text-black mt-3"><?php echo (ICL_LANGUAGE_CODE === "nl") ? "Bekijk de Extinction Rebellion Talk" : "Watch the Extinction Rebellion Talk"; ?></h2>
-        </a>
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/wie-wij-zijn/" class="col-6 col-xl-3 bg-blue p-4 py-5 text-decoration-none">
-            <img class="featured-xr-logo img-fluid" src="<?php echo get_theme_file_uri("assets/images/XR-symbol.svg"); ?>" />
-            <h2 class="text-black mt-3">
-                <?php echo (ICL_LANGUAGE_CODE === "nl") ? "Wie zijn wij" : "Who we are"; ?>
-            </h2>
-        </a>
-        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/local/" class="col-6 col-xl-3 bg-pink p-4 py-5 text-decoration-none">
-            <i class="fas fa-map-marked-alt fa-3x text-black"></i>
-            <h2 class="text-black mt-3">
-                <?php echo (ICL_LANGUAGE_CODE === "nl") ? "Lokale Groepen" : "Local Groups"; ?>
-            </h2>
-        </a>
+
+<div class="home">
+  <div class="bg-blue px-3 py-lg-5 pb-5 text-center text-white cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('cover_image'); ?>') no-repeat;">
+    <div class="py-5">
+      <div class="container">
+        <?php the_content(); ?>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="container my-5 py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8 demands">
-            <h1><?php _e('WE <span class="text-green">DEMAND</span> THAT OUR GOVERNMENT', 'theme-xrnl'); ?></h1>
-            <ol class="counter pl-3">
-                <?php
-                while ( have_rows('demands') ){
-                    the_row();
-                    ?>
-                    <li class="pl-4">
-                        <?php the_sub_field('demand'); ?>
-                    </li>
-                    <?php
-                }
-                ?>
-            </ol>
+  <div class="my-sm-5 my-4">
+    <div class="container py-5 text-center">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <?php the_field('about'); ?>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="container-fluid bg-green py-5">
-    <div class="row my-5">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
-            <h2><?php _e('JOIN THE REBELLION', 'theme-xrnl'); ?></h2>
-            <?php the_field('signup_form_code'); ?>
+  <div class="py-sm-5 py-4 text-white" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('join_cover_image'); ?>') no-repeat; min-height: 45vh;">
+    <div class="container">
+      <div class="row py-5 text-center">
+        <div class="col-12 col-lg-8 mx-auto">
+          <?php the_field('join_description'); ?>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<?php if(have_rows('more_info')) { ?>
-    <div class="container my-5 py-5">
-        <div class="row">
-            <h2 class="col-12"><?php _e('More <span class="text-green">information</span>', 'theme-xrnl'); ?></h2>
-        </div>
-        <div class="row">
+  <div class="text-center">
+    <div class="masonry-container">
+      <div class="masonry">
+        <?php while ( have_rows('images') ){ the_row(); ?>
+          <img src="<?php the_sub_field('image'); ?>" class="img-fluid my-1 image" />
+        <?php } ?>
+      </div>
+    </div>
+  </div>
+
+  <?php if ( $events->have_posts() ) : ?>
+    <div class="py-sm-5 py-4 bg-yellow mt-1">
+      <div class="container my-5">
+        <h1 class="text-center"><?php _e('EVENTS') ?></h1>
+        <?php while ( $events->have_posts() ) : $events->the_post(); ?>
+          <div class="row border-bottom border-black pt-3 pb-3">
             <?php
-            while (have_rows('more_info')) {
-                the_row();
-                ?>
-                <div class="col-md-4 col-12">
-                    <img src="<?php the_sub_field('image'); ?>"/>
-                    <h3>
-                        <?php the_sub_field('title'); ?>
-                    </h3>
-                    <?php the_sub_field('info'); ?>
-                </div>
-                <?php
-            }
+              $event_date = get_post_meta( get_the_ID(), 'event_start_date', true );
+              if( $event_date != '' ){
+                $event_date = strtotime( $event_date );
+              }
+              $event_address = get_post_meta( get_the_ID(), 'venue_city', true );
+              $venue_address = get_post_meta( get_the_ID(), 'venue_address', true );
             ?>
-        </div>
-    </div>
-<?php } ?>
-
-<div class="container py-5 my-5">
-    <div class="row">
-        <div class="col-12">
-            <h2><?php _e('WHO IS <span class="text-green">EXTINCTION REBELLION</span>?', 'theme-xrnl'); ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-lg-6">
-            <?php the_content(); ?>
-        </div>
-        <div class="col-12 col-lg-6">
-            <?php the_post_thumbnail(); ?>
-        </div>
-    </div>
-</div>
-
-<?php if(have_rows('media')) { ?>
-    <div class="py-5 bg-green">
-        <div class="container my-5">
-            <h2><?php _e('Media', 'theme-xrnl'); ?></h2>
-            <div class="row">
-                <?php
-                while (have_rows('media')) {
-                    the_row();
-                    $embed = get_sub_field('embed_code');
-                    if(preg_match('/(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"\'>]+)/', $embed, $matches)){
-                        ?>
-                        <div class="col-12 col-md-6">
-                            <div class="embed-responsive embed-responsive-16by9 mb-3">
-                                <?php echo $embed; ?>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                }
-                ?>
+            <div class="col-lg-2 col-sm-12">
+              <div class="text-uppercase font-xr small pt-1">
+                <?php echo date_i18n('M', $event_date) ; ?>
+                <?php echo date_i18n('d', $event_date) ; ?>
+              </div>
+              <small>
+                <strong><em><?php echo $event_address; ?></em></strong>
+                <br>
+                <em><?php echo $venue_address; ?></em>
+              </small>
             </div>
+            <div class="col-lg-8 col-sm-12">
+              <a href="<?php echo esc_url( get_permalink() ) ?>" class="text-reset text-uppercase font-xr text-decoration-none small">
+                <?php the_title(); ?>
+              </a>
+              <div class="small pt-2"><em><?php echo excerpt(30); ?></em></div>
+            </div>
+            <div class="col-lg-2 col-sm-12 text-lg-right">
+              <a class="btn btn-black" href="<?php echo esc_url( get_permalink() ) ?>">
+                <?php _e('VIEW') ?>
+              </a>
+            </div>
+          </div>
+        <?php endwhile; ?>
+        <?php wp_reset_query(); ?>
+        <br>
+        <div class="text-center">
+          <a class="btn btn-lg btn-black" href="/events">
+            <?php _e('VIEW ALL EVENTS') ?>
+          </a>
         </div>
+      </div>
     </div>
-<?php } ?>
+  <?php endif; ?>
+
+  <div class="py-5 my-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-8 mx-auto">
+          <?php the_field('donate') ?>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="embed-responsive embed-responsive-21by9">
+    <?php the_field('video') ?>
+  </div>
+</div>
 
 <?php get_footer(); ?>
