@@ -32,7 +32,7 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="text-center my-sm-5 my-4">
+  <div class="text-center mt-sm-5 mt-4">
     <div class="container pt-5">
       <h1><?php the_field('who_we_are_title'); ?></h1>
       <div class="row">
@@ -41,12 +41,8 @@ get_header(); ?>
         </div>
       </div>
     </div>
-    <div class="pb-5 masonry-container">
-      <div class="masonry">
-        <?php while ( have_rows('images') ){ the_row(); ?>
-          <img src="<?php the_sub_field('image'); ?>" class="img-fluid mb-1 image" />
-        <?php } ?>
-      </div>
+    <div class="text-center">
+      <img src="<?php the_field('image'); ?>" class="img-fluid mb-2" />
     </div>
   </div>
 
