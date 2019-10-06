@@ -1,0 +1,27 @@
+
+$masonry-height: 420px;
+
+.about {
+  font-size: 1.4rem;
+  .cover-image {
+    min-height: 75vh;
+    background-size: cover !important;
+  }
+
+  .masonry-container {
+    min-height: $masonry-height;
+    overflow: hidden;
+  }
+
+  .masonry {
+    height: $masonry-height;
+    overflow: hidden;
+    .image {
+      height: $masonry-height/2;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-left: -20%;
+      width: 1000px;
+    }
+  }
+}
