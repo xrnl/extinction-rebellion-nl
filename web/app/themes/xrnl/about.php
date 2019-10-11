@@ -13,12 +13,14 @@ get_header(); ?>
   </div>
 
   <div class="text-center py-5 bg-light">
-    <div class="container my-sm-5 my-4">
+    <div class="container mt-sm-5 mt-4">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
           <h1><?php the_field('why_title'); ?></h1>
           <?php the_field('why_description'); ?>
         </div>
+      </div>
+      <div class="row">
         <div class="col-12 col-lg-6 mx-auto mt-3">
           <a class="btn btn-yellow btn-lg" data-toggle="collapse" href="#demands" role="button" aria-expanded="false" aria-controls="demands">
             <?php _e('OUR DEMANDS', 'theme-xrnl'); ?>
@@ -27,6 +29,11 @@ get_header(); ?>
           <div class="text-left collapse" id="demands">
             <?php the_field('demands'); ?>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center pt-5">
+          <img src="<?php the_field('logo'); ?>" style="width: 100px;"/>
         </div>
       </div>
     </div>
@@ -42,7 +49,8 @@ get_header(); ?>
       </div>
     </div>
     <div class="text-center">
-      <img src="<?php the_field('image'); ?>" class="img-fluid mb-2" />
+      <img src="<?php the_field('image'); ?>" class="image-desktop img-fluid mb-2" />
+      <img src="<?php the_field('image_mobile'); ?>" class="image-mobile img-fluid mb-2" />
     </div>
   </div>
 
@@ -69,7 +77,7 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat; min-height: 45vh;">
+  <div class="cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('join_cover_image'); ?>') no-repeat; background-position: 50% 90%;">
     <div class="container">
       <div class="row py-5 text-center text-white">
         <div class="col-12 col-lg-8 mx-auto my-5">
@@ -82,5 +90,3 @@ get_header(); ?>
 </div>
 
 <?php get_footer(); ?>
-
-

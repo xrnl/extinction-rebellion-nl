@@ -80,6 +80,31 @@
             "wpml_cf_preferences": 0
         },
         {
+            "key": "field_5da084d683552",
+            "label": "logo",
+            "name": "logo",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_5d8cc85cffb55",
             "label": "who we are title",
             "name": "who_we_are_title",
@@ -143,6 +168,31 @@
             "max_size": "",
             "mime_types": "",
             "wpml_cf_preferences": 0
+        },
+        {
+            "key": "field_5da07ed999227",
+            "label": "image mobile",
+            "name": "image_mobile",
+            "type": "image",
+            "instructions": "Should be a collage",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "return_format": "url",
+            "preview_size": "full",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
             "key": "field_5d8ccd644ec56",
@@ -415,9 +465,9 @@
         },
         {
             "key": "field_5d95ed2e894fd",
-            "label": "join cover image url",
-            "name": "join_cover_image_url",
-            "type": "url",
+            "label": "join cover image",
+            "name": "join_cover_image",
+            "type": "image",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -426,9 +476,17 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "wpml_cf_preferences": 0
+            "wpml_cf_preferences": 0,
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -448,5 +506,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570184052
+    "modified": 1570801966
 }

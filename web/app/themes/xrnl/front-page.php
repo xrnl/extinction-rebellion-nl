@@ -45,7 +45,7 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="py-sm-5 py-4 text-white" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('join_cover_image'); ?>') no-repeat; min-height: 45vh;">
+  <div class="py-sm-5 py-4 text-white cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('join_cover_image'); ?>') no-repeat; background-position: 50% 0%;">
     <div class="container">
       <div class="row py-5 text-center">
         <div class="col-12 col-lg-8 mx-auto">
@@ -56,7 +56,8 @@ get_header(); ?>
   </div>
 
   <div class="text-center">
-    <img src="<?php the_field('image'); ?>" class="img-fluid my-2" />
+    <img src="<?php the_field('image'); ?>" class="image-desktop img-fluid my-2" />
+    <img src="<?php the_field('image_mobile'); ?>" class="image-mobile my-2" />
   </div>
 
   <?php if ( $events->have_posts() ) : ?>
