@@ -26,7 +26,7 @@ get_header(); ?>
             <?php _e('OUR DEMANDS', 'theme-xrnl'); ?>
             <i class="fas fa-chevron-down"></i>
           </a>
-          <div class="text-left collapse" id="demands">
+          <div class="text-left collapse show" id="demands">
             <?php the_field('demands'); ?>
           </div>
         </div>
