@@ -8,7 +8,9 @@
     <header class="entry-header">
         <h1 class="entry-title"><?php the_title(); ?></h1>
     </header>
-    <div class="my-2 text-muted"><?php the_date(); ?></div>
+    <?php if (get_post_type( get_the_ID() ) != 'meetup_events') { ?>
+        <div class="my-2 text-muted"><?php the_date(); ?></div>
+    <?php } ?>
     <div class="entry-content">
         <?php
             the_content();
