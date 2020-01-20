@@ -1,4 +1,4 @@
-version: '3.3'
+version: "3.3"
 
 services:
   db:
@@ -6,8 +6,9 @@ services:
     volumes:
       - ./db_data:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 3306
     restart: always
+    command: "mysqld --innodb-flush-method=fsync"
     environment:
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: xrnl
@@ -50,8 +51,8 @@ services:
       MB_DB_FILE: /metabase-data/metabase.db
 
 volumes:
-    db_data: {}
-    metabase_data: {}
+  db_data: {}
+  metabase_data: {}
 
 networks:
   xrnl:
