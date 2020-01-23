@@ -20,12 +20,12 @@ npm run watch # compiles scss files as you make changes
 
 If you want to install a new plugin
 ```sh
-docker-compose run composer require wpackagist-plugin/{{PLUGIN_NAME}}
+docker-compose exec composer require wpackagist-plugin/{{PLUGIN_NAME}}
 ```
 
 If you want to update a plugin
 ```sh
-docker-compose run composer update wpackagist-plugin/{{PLUGIN_NAME}}
+docker-compose exec composer update wpackagist-plugin/{{PLUGIN_NAME}}
 ```
 
 ## Sync production data
