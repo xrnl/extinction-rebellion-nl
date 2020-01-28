@@ -50,7 +50,7 @@
                         <li class="mx-3 mx-lg-2">
                             <a href="https://twitter.com/nlrebellion" class="twitter" target="_blank" aria-label="twitter"><i class="fab text-black fa-twitter"></i></a></li>
                         <li class="mx-3 mx-lg-2">
-                            <a href="https://www.instagram.com/extinctionrebellion/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
+                            <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
                         <li class="mx-3 mx-lg-2">
                             <a href="/donate" class="btn btn-black"><?php _e('donate'); ?></a>
                         </li>
