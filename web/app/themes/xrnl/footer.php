@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://www.instagram.com/extinctionrebellion/?hl=nl" target="_blank" aria-label="instagram">
+                            <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" aria-label="instagram">
                                 <span class="fa-stack fa-1x text-center">
                                 <i class="fab fa-instagram"></i>
                                 <i class="far fa-circle fa-stack-2x"></i>
