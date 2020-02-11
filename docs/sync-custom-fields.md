@@ -9,7 +9,7 @@ Here's a [PR for about page](https://github.com/xrnl/extinction-rebellion-nl/pul
 
 Once your PR is merged and deployed, you must update the content in production. The fields (content type only) that you generated on your local are now ready to be synced in production. In wordpress admin, if you visit `Custom Fields` in the sidebar and click on "Sync available" you should be able to see something like
 
-<img src="/docs/sync-screenshot.png" width="200" />
+<img src="/docs/sync-screenshot.png" width="300" />
 
 Select the fields you want to sync and then hit apply. Your fields should be ready. Now all you need to do is create the page and use the custom fields you just created.
 
