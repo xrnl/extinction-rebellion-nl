@@ -29,6 +29,7 @@ docker-compose exec composer update wpackagist-plugin/{{PLUGIN_NAME}}
 ```
 
 See [docs](/docs) for more.
+
 ---
 
 # [Bedrock](https://roots.io/bedrock/)
