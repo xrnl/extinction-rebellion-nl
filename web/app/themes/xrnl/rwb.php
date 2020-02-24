@@ -42,7 +42,7 @@ get_header(); ?>
     <div class="container">
       <div class="row py-5 text-center">
         <div class="col-12 col-lg-8 mx-auto">
-          <h2><?php _e('JOIN REBEL WITHOUT BORDERS', 'theme-xrnl'); ?></h2>
+          <h2><?php _e('JOIN', 'theme-xrnl'); ?></h2>
           <?php the_field('rwb_join_description'); ?>
         </div>
         <div class="col-12 col-lg-6 col-md-8 mx-auto mt-4">
