@@ -125,9 +125,9 @@ add_action( 'widgets_init', 'blog_sidebar' );
 // Yoast SEO seems to not render og:image, so we are going to do this
 // hack
 function add_og_image() {
-    if (is_page('rebel-without-borders')) {
+    if (is_page('spring-rebellion-2020') || is_page('lente-rebellie-2020')) {
     ?>
-        <meta name="og:image" content="https://extinctionrebellion.nl/app/uploads/2019/08/RWB-OG-IMAGE-1.png" />
+        <meta name="og:image" content="https://extinctionrebellion.nl/app/uploads/2020/02/seo-image.png" />
     <?php }
 }
 add_action( 'wp_head', 'add_og_image' );
