@@ -20,23 +20,25 @@ get_header(); ?>
         ?>
     </div>
   </div>
-        <div class="mt-5 roles-grid">
+        <div class="d-flex flex-wrap justify-content-center">
           <?php while($vacancies->have_posts()){
-            $vacancies->the_post(); ?>
-            <div>
-              <a class="font-xr text-uppercase text-decoration-none" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            $vacancies->the_post(); ?>            
+            <div class="card role-card" style="width: 300px; height: 200px; cursor: pointer;" onclick="window.location='<?php the_permalink(); ?>'">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title font-xr text-uppercase">
+                <?php the_title(); ?>
+              </h5>
               <?php $role = json_decode(get_the_content()); ?>
-              <p><?php echo $role->title ?></p>
+              <h6 class="card-subtitle text-muted mt-1"><?php echo $role->localGroup ?></h6>
+              <h6 class="card-subtitle text-muted mt-1"><?php echo $role->workingGroup ?></h6>
+              <h6 class="card-subtitle text-muted mt-1">
+                <?php echo $role->timeCommitment->min ?> - <?php echo $role->timeCommitment->max ?> hours / week
+              </h6>
+            </div>
+            <a href="<?php the_permalink(); ?>" class="btn btn-blue">Read more</a>
             </div>
           <?php } wp_reset_query(); ?>
         </div>
-
-    </div>
-  </div>
-
-  <div class="row my-4">
-    <div class="col-12 col-lg-8">
-      <?php the_field('how_to_volunteer') ?>
     </div>
   </div>
 

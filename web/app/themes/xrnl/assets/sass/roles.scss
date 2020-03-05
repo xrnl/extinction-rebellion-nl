@@ -1,8 +1,8 @@
-.roles-grid {
-  display: grid;
-  align-items: start;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fill, "300px");
-  grid-auto-rows: minmax("200px", max-content);
-  grid-gap: 1rem;
+.role-card {
+  margin: 0em 1em 2em 1em;
+  @media (max-width: "550px") {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1em;
+  }
 }
