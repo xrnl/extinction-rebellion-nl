@@ -20,7 +20,7 @@ get_header(); ?>
         ?>
     </div>
   </div>
-        <div class="d-flex flex-wrap justify-content-center">
+        <div class="d-flex flex-wrap justify-content-center mt-3">
           <?php while($vacancies->have_posts()){
             $vacancies->the_post(); ?>            
             <div class="card role-card" style="width: 300px; height: 200px; cursor: pointer;" onclick="window.location='<?php the_permalink(); ?>'">
@@ -32,10 +32,11 @@ get_header(); ?>
               <h6 class="card-subtitle text-muted mt-1"><?php echo $role->localGroup ?></h6>
               <h6 class="card-subtitle text-muted mt-1"><?php echo $role->workingGroup ?></h6>
               <h6 class="card-subtitle text-muted mt-1">
-                <?php echo $role->timeCommitment->min ?> - <?php echo $role->timeCommitment->max ?> hours / week
+                <?php echo $role->timeCommitment->min ?> - <?php echo $role->timeCommitment->max ?> 
+                <?php _e('hours / week', 'theme-xrnl'); ?>
               </h6>
             </div>
-            <a href="<?php the_permalink(); ?>" class="btn btn-blue">Read more</a>
+            <a href="<?php the_permalink(); ?>" class="btn btn-blue"><?php _e('Learn more', 'theme-xrnl'); ?></a>
             </div>
           <?php } wp_reset_query(); ?>
         </div>
