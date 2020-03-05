@@ -18,16 +18,18 @@ get_header(); ?>
           'posts_per_page' => -1
         ]);
         ?>
-
-        <ol class="pl-3 mt-5">
+    </div>
+  </div>
+        <div class="mt-5 roles-grid">
           <?php while($vacancies->have_posts()){
             $vacancies->the_post(); ?>
-            <li class="mb-4">
+            <div>
               <a class="font-xr text-uppercase text-decoration-none" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-              <?php the_excerpt(); ?>
-            </li>
+              <?php $role = json_decode(get_the_content()); ?>
+              <p><?php echo $role->title ?></p>
+            </div>
           <?php } wp_reset_query(); ?>
-        </ol>
+        </div>
 
     </div>
   </div>
