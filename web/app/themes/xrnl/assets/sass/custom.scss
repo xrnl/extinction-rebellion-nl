@@ -1,4 +1,3 @@
-
 // Front page page
 
 img.featured-xr-logo {
@@ -14,11 +13,12 @@ img.featured-xr-logo {
     min-height: 65vh;
   }
 
-	margin: 0;
-	text-align: center;
-	background-color: #21a73d;
-	display: inherit !important;
-  span { // first and third
+  margin: 0;
+  text-align: center;
+  background-color: #21a73d;
+  display: inherit !important;
+  span {
+    // first and third
     display: block;
     font-size: 4rem;
     line-height: 4rem;
@@ -49,7 +49,7 @@ img.featured-xr-logo {
 // Listing Excerpt (Search, Blog)
 
 .excerpt > p {
-	margin: 0;
+  margin: 0;
 }
 
 // Posts and Pages
@@ -65,32 +65,32 @@ article.page {
 // Sidebar
 
 .sidebar {
-  &> ul > li {
+  & > ul > li {
     @extend .pb-4;
   }
-	.widget_recent_entries {
-		ul {
-			padding-left: 1.5rem;
-		}
+  .widget_recent_entries {
+    ul {
+      padding-left: 1.5rem;
+    }
 
-		a {
-			color: $black;
-		}
-		.post-date {
-			color: #999;
-			display: block;
-		}
+    a {
+      color: $black;
+    }
+    .post-date {
+      color: #999;
+      display: block;
+    }
   }
 
   // Search form
 
   .search-form {
     @extend .mb-4;
-    input[type=text] {
+    input[type="text"] {
       @extend .form-control;
     }
 
-    input[type=submit] {
+    input[type="submit"] {
       @include button-variant($green, $green);
       @extend .btn-lg;
       @extend .btn-block;
@@ -136,7 +136,7 @@ nav.pages > ul.pagination > li.page-item {
   a {
     @extend .page-link;
     text-decoration: none !important;
-    color: map-get($theme-colors, 'green') !important;
+    color: map-get($theme-colors, "green") !important;
   }
 }
 nav.pagination,
@@ -151,12 +151,12 @@ nav.post-navigation {
     .nav-next {
       @extend .py-4;
     }
-    &> :nth-child(2) {
+    & > :nth-child(2) {
       @extend .border-top;
     }
     a.page-numbers {
       text-decoration: none !important;
-      color: map-get($theme-colors, 'green') !important;
+      color: map-get($theme-colors, "green") !important;
       span {
         color: #999;
       }
@@ -166,7 +166,7 @@ nav.post-navigation {
       }
       &:hover {
         span.post-title {
-          color: map-get($theme-colors, 'green');
+          color: map-get($theme-colors, "green");
         }
       }
     }
@@ -183,18 +183,18 @@ img {
 // Link with primary font
 
 a u {
-	color: #000;
-	font-family: $brand-font;
-	text-transform: uppercase;
-	font-weight: normal;
-	letter-spacing: 1px;
-	text-decoration: none;
-	border-bottom: 4px solid #000;
+  color: #000;
+  font-family: $brand-font;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-bottom: 4px solid #000;
 }
 
 a:hover u {
-	color: #888;
-	border-bottom: 4px solid #888;
+  color: #888;
+  border-bottom: 4px solid #888;
 }
 
 /* Press */

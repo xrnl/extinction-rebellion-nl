@@ -1,0 +1,13 @@
+.role-card {
+  margin: 0em 1em 2em 1em;
+  @media (max-width: "550px") {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1em;
+  }
+}
+
+.role-section-header {
+  text-decoration: underline;
+  margin-top: 1rem;
+}
