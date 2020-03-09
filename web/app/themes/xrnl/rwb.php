@@ -18,7 +18,7 @@ get_header(); ?>
     </div>
 
     <div class="my-3">
-      <a class="btn btn-lg btn-blue" href="#join">
+      <a class="btn btn-lg btn-pink" href="#join">
         <?php _e('JOIN THE REBELLION', 'theme-xrnl'); ?></a>
     </div>
 
