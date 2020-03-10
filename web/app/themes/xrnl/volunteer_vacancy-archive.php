@@ -20,7 +20,7 @@ get_header(); ?>
         ?>
     </div>
   </div>
-        <div class="d-flex flex-wrap justify-content-center mt-3">
+        <div class="d-flex flex-wrap mt-3">
           <?php while($vacancies->have_posts()){
             $vacancies->the_post(); ?>            
             <div class="card role-card" style="width: 300px; height: 200px; cursor: pointer;" onclick="window.location='<?php the_permalink(); ?>'">
