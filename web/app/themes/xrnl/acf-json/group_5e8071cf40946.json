@@ -105,16 +105,16 @@
             "name": "campaign_cta_url",
             "type": "url",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "default_value": "",
-            "placeholder": "",
-            "wpml_cf_preferences": 0
+            "placeholder": ""
         },
         {
             "key": "field_5e8071cf52f82",
@@ -472,5 +472,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1585476486
+    "modified": 1585477857
 }

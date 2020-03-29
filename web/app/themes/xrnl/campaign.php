@@ -27,7 +27,7 @@ get_header(); ?>
 
     <?php if(get_field('campaign_cta_title') && get_field('campaign_cta_url')): ?>
       <div class="my-3">
-        <a class="btn btn-lg btn-blue" href="<?php the_field('campaign_cta_url'); ?>">
+        <a class="btn btn-lg btn-blue" href="<?php the_field('campaign_cta_url'); ?>" target="_blank">
           <?php the_field('campaign_cta_title'); ?>
         </a>
       </div>
