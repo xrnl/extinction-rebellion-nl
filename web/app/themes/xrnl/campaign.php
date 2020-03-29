@@ -31,6 +31,12 @@ get_header(); ?>
           <?php the_field('campaign_cta_title'); ?>
         </a>
       </div>
+    <?php elseif (get_field('campaign_cta_title')): ?>
+      <div class="my-3">
+        <a class="btn btn-lg btn-blue" href="#details">
+          <?php the_field('campaign_cta_title'); ?>
+        </a>
+      </div>
     <?php endif; ?>
 
     <?php if(get_field('campaign_facebook_event_url')): ?>
