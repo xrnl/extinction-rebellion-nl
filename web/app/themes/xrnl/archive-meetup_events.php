@@ -15,6 +15,13 @@ $query_city = $param_city ? array(
 
 $param_include_cancelled = $_GET['include_cancelled'];
 
+// include cancelled query
+$query_include_cancelled = $param_include_cancelled ? array() : array(
+	'key' => 'venue_address',
+	'value' => 'Online',
+	'compare' => '='
+  );
+
 // page query param
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -26,7 +33,6 @@ $args = array(
 	'orderby' => 'meta_value',
 	'meta_key' => 'event_start_date',
 	'order' => 'ASC',
-	// adds cancelled events filter
 	's' => $param_include_cancelled ? '': '-cancelled -afgelast',
 	'meta_query' => array(
 		array(
@@ -36,7 +42,9 @@ $args = array(
 			'type' => 'DATE' // Let WordPress know we're working with date
     ),
     // adds city filter
-	$query_city
+	$query_city,
+	// adds cancelled events filter
+	$query_include_cancelled
 	)
 );
 $events = new WP_Query( $args );
@@ -44,7 +52,7 @@ $cities = event_cities();
 get_header(); ?>
 
 <div class="container my-5">
-	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city ?> </h1>
+	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city ?></h1>
 
   <?php if ($cities) { ?>
     <form class="form-inline mt-4 flex-nowrap" method="get">
