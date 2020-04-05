@@ -13,6 +13,8 @@ $query_city = $param_city ? array(
   'compare' => '='
 ) : array();
 
+$param_include_cancelled = $_GET['include_cancelled'];
+
 // page query param
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -24,6 +26,8 @@ $args = array(
 	'orderby' => 'meta_value',
 	'meta_key' => 'event_start_date',
 	'order' => 'ASC',
+	// adds cancelled events filter
+	's' => $param_include_cancelled ? '': '-cancelled -afgelast',
 	'meta_query' => array(
 		array(
 			'key' => 'event_start_date', // Check the start date field
@@ -32,7 +36,7 @@ $args = array(
 			'type' => 'DATE' // Let WordPress know we're working with date
     ),
     // adds city filter
-    $query_city
+	$query_city
 	)
 );
 $events = new WP_Query( $args );
@@ -40,7 +44,7 @@ $cities = event_cities();
 get_header(); ?>
 
 <div class="container my-5">
-	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city ?></h1>
+	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city ?> </h1>
 
   <?php if ($cities) { ?>
     <form class="form-inline mt-4 flex-nowrap" method="get">
@@ -54,6 +58,8 @@ get_header(); ?>
           </option>
         <?php } ?>
       </select>
+	  <label class="my-1 mr-2" for="include_cancelled">Show cancelled events</label>
+		<input type="checkbox" id="include_cancelled" name="include_cancelled" <?php echo $param_include_cancelled ? 'checked' : '' ?>/>
       <button type="submit" class="btn btn-black ml-2">
         <?php _e('Apply') ?>
       </button>
