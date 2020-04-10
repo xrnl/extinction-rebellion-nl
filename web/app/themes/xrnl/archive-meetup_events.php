@@ -6,13 +6,6 @@
 // city query param
 $param_city = get_query_var('city');
 
-// city query
-$query_city = $param_city ? array(
-  'key' => 'venue_city',
-  'value' => $param_city,
-  'compare' => '='
-) : array();
-
 $param_include_cancelled = $_GET['include_cancelled'];
 
 // include cancelled query
@@ -41,14 +34,12 @@ $args = array(
 			'compare' => '>=', // Return the ones greater than today's date
 			'type' => 'DATE' // Let WordPress know we're working with date
     ),
-    // adds city filter
-	$query_city,
 	// adds cancelled events filter
 	$query_include_cancelled
 	)
 );
 $events = new WP_Query( $args );
-$cities = event_cities();
+$cities = event_cities($events);
 get_header(); ?>
 
 <div class="container my-5">
@@ -61,8 +52,8 @@ get_header(); ?>
       <select name="city" class="custom-select my-1" id="city">
         <option value=""><?php _e('All') ?></option>
         <?php foreach($cities as $city) { ?>
-          <option value="<?php echo $city->meta_value ?>" <?php echo $param_city == $city->meta_value ? 'selected="selected"' : '' ?>>
-            <?php echo $city->meta_value ?>
+          <option value="<?php echo $city ?>" <?php echo $param_city == $city ? 'selected="selected"' : '' ?>>
+            <?php echo $city ?>
           </option>
         <?php } ?>
       </select>
@@ -84,6 +75,10 @@ get_header(); ?>
 						$event_date = strtotime( $event_date );
 					}
 					$event_address = get_post_meta( get_the_ID(), 'venue_city', true );
+					if ($event_address != $param_city && $param_city != 'All'){
+						continue;
+					}
+
 					$venue_address = get_post_meta( get_the_ID(), 'venue_address', true );
 					if( $event_address != '' && $venue_address != '' ){
 						$event_address .= ' - '.$venue_address;
