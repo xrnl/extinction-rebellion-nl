@@ -147,6 +147,10 @@ function event_cities($events) {
     while ( $events->have_posts() ) { 
         $events->the_post();
         $city = get_post_meta( get_the_ID(), 'venue_city', true );
+        $venue = get_post_meta( get_the_ID(), 'venue_address', true );
+        if ($venue == 'Online'){
+            $city = 'Online';
+        }
         if (array_key_exists($city, $cities)) {
             $cities[$city] = $cities[$city] + 1;
         } elseif ($city != '') {

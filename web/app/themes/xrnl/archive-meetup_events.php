@@ -6,15 +6,6 @@
 // city query param
 $param_city = get_query_var('city');
 
-$param_include_cancelled = $_GET['include_cancelled'];
-
-// include cancelled query
-$query_include_cancelled = $param_include_cancelled ? array() : array(
-	'key' => 'venue_address',
-	'value' => 'Online',
-	'compare' => '='
-  );
-
 // page query param
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -33,7 +24,7 @@ $args = array(
 			'value' => date("Y-m-d"), // Set today's date (note the similar format)
 			'compare' => '>=', // Return the ones greater than today's date
 			'type' => 'DATE' // Let WordPress know we're working with date
-    )
+		)
 	)
 );
 $events = new WP_Query( $args );
@@ -45,7 +36,7 @@ get_header(); ?>
 
   <?php if ($cities) { ?>
     <form class="form-inline mt-4 flex-nowrap" method="get">
-      <label class="my-1 mr-2" for="city">City</label>
+      <label class="my-1 mr-2" for="city">Location</label>
 			<input type="hidden" name="paged" value="1" />
       <select name="city" class="custom-select my-1" id="city">
         <option value=""><?php _e('All') ?></option>
@@ -55,8 +46,6 @@ get_header(); ?>
           </option>
         <?php } ?>
       </select>
-	  <label class="my-1 mr-2" for="include_cancelled">Show cancelled events</label>
-		<input type="checkbox" id="include_cancelled" name="include_cancelled" <?php echo $param_include_cancelled ? 'checked' : '' ?>/>
       <button type="submit" class="btn btn-black ml-2">
         <?php _e('Apply') ?>
       </button>
@@ -73,17 +62,15 @@ get_header(); ?>
 						$event_date = strtotime( $event_date );
 					}
 					$event_address = get_post_meta( get_the_ID(), 'venue_city', true );
-					if ($event_address != $param_city && $param_city != 'All'){
-						continue;
-					}
-
 					$venue_address = get_post_meta( get_the_ID(), 'venue_address', true );
 					if( $event_address != '' && $venue_address != '' ){
 						$event_address .= ' - '.$venue_address;
 					}elseif( $venue_address != '' ){
 						$event_address = $venue_address;
 					}
-
+					if ($event_address != $param_city && $param_city != 'All'){
+						continue;
+					}
 					$image_url =  array();
 					if ( '' !== get_the_post_thumbnail() ){
 						$image_url =  wp_get_attachment_image_src( get_post_thumbnail_id(  get_the_ID() ), 'full' );
