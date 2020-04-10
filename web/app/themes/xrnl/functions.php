@@ -142,15 +142,12 @@ add_filter( 'register_post_type_args', function($args, $post_type){
 
 // Get Distinct Event cities
 function event_cities($events) {
-    $cities = array();
-
+    $cities = [];
     while ( $events->have_posts() ) { 
         $events->the_post();
-        $city = get_post_meta( get_the_ID(), 'venue_city', true );
-        if (array_key_exists($city, $cities)) {
-            $cities[$city] = $cities[$city] + 1;
-        } elseif ($city != '') {
-            $cities[$city] = 1;
+        $event_address = get_post_meta( get_the_ID(), 'venue_city', true );
+        if ($event_address != '') {
+            array_push($cities, $event_address);
         }
     }
 
