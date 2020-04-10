@@ -141,14 +141,27 @@ add_filter( 'register_post_type_args', function($args, $post_type){
 }, 10, 2 );
 
 // Get Distinct Event cities
-function event_cities() {
-    global $wpdb;
-    return $wpdb->get_results("
-        select distinct meta_value
-        from $wpdb->postmeta
-        where meta_key = 'venue_city' and meta_value != ''
-        order by meta_value asc
-    ");
+function event_cities($events) {
+    $cities = array();
+
+    while ( $events->have_posts() ) { 
+        $events->the_post();
+        $city = get_post_meta( get_the_ID(), 'venue_city', true );
+        if (array_key_exists($city, $cities)) {
+            $cities[$city] = $cities[$city] + 1;
+        } elseif ($city != '') {
+            $cities[$city] = 1;
+        }
+    }
+
+    return $cities;
+
+    function is_city($var){
+        if (!is_string($var))
+            return false;
+        return (strpos($var, "http") == false);
+    }
+    return array_filter($venues, "is_city");
 }
 
 // Add city query var to filter on events page
