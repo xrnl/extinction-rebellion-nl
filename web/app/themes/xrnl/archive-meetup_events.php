@@ -26,16 +26,14 @@ $args = array(
 	'orderby' => 'meta_value',
 	'meta_key' => 'event_start_date',
 	'order' => 'ASC',
-	's' => $param_include_cancelled ? '': '-cancelled -afgelast',
+	's' => '-cancelled -afgelast',
 	'meta_query' => array(
 		array(
 			'key' => 'event_start_date', // Check the start date field
 			'value' => date("Y-m-d"), // Set today's date (note the similar format)
 			'compare' => '>=', // Return the ones greater than today's date
 			'type' => 'DATE' // Let WordPress know we're working with date
-    ),
-	// adds cancelled events filter
-	$query_include_cancelled
+    )
 	)
 );
 $events = new WP_Query( $args );
@@ -43,7 +41,7 @@ $cities = event_cities($events);
 get_header(); ?>
 
 <div class="container my-5">
-	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city ?></h1>
+	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city; ?></h1>
 
   <?php if ($cities) { ?>
     <form class="form-inline mt-4 flex-nowrap" method="get">
@@ -51,9 +49,9 @@ get_header(); ?>
 			<input type="hidden" name="paged" value="1" />
       <select name="city" class="custom-select my-1" id="city">
         <option value=""><?php _e('All') ?></option>
-        <?php foreach($cities as $city) { ?>
+        <?php foreach($cities as $city => $count) { ?>
           <option value="<?php echo $city ?>" <?php echo $param_city == $city ? 'selected="selected"' : '' ?>>
-            <?php echo $city ?>
+            <?php echo $city.' ('.$count.')' ?>
           </option>
         <?php } ?>
       </select>
