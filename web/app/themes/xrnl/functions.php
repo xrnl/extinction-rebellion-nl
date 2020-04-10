@@ -141,7 +141,26 @@ add_filter( 'register_post_type_args', function($args, $post_type){
 }, 10, 2 );
 
 // Get Distinct Event cities
-function event_cities($events) {
+function event_cities() {
+    $args = array(
+        'posts_per_page' => 1000,
+        'post_type' => 'meetup_events',
+        'orderby' => 'meta_value',
+        'meta_key' => 'event_start_date',
+        'order' => 'ASC',
+        's' => '-cancelled -afgelast',
+        'meta_query' => array(
+            array(
+                'key' => 'event_start_date', // Check the start date field
+                'value' => date("Y-m-d"), // Set today's date (note the similar format)
+                'compare' => '>=', // Return the ones greater than today's date
+                'type' => 'DATE' // Let WordPress know we're working with date
+            ),
+            $query_city
+        )
+    );
+
+    $events = new WP_Query( $args );
     $cities = array();
 
     while ( $events->have_posts() ) { 
@@ -150,6 +169,8 @@ function event_cities($events) {
         $venue = get_post_meta( get_the_ID(), 'venue_address', true );
         if ($venue == 'Online'){
             $city = 'Online';
+        } elseif ($city == ''){
+            $city = $venue;
         }
         if (array_key_exists($city, $cities)) {
             $cities[$city] = $cities[$city] + 1;

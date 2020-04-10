@@ -6,6 +6,22 @@
 // city query param
 $param_city = get_query_var('city');
 
+// city query
+$query_city = $param_city ? array(
+	'key' => 'venue_city',
+	'value' => $param_city,
+	'compare' => '='
+  ) : array();
+
+
+if ($param_city == 'Online') {
+	$query_city = array(
+		'key' => 'venue_address',
+		'value' => $param_city,
+		'compare' => '='
+	);
+}
+
 // page query param
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -24,11 +40,13 @@ $args = array(
 			'value' => date("Y-m-d"), // Set today's date (note the similar format)
 			'compare' => '>=', // Return the ones greater than today's date
 			'type' => 'DATE' // Let WordPress know we're working with date
-		)
+		),
+		$query_city
 	)
 );
 $events = new WP_Query( $args );
-$cities = event_cities($events);
+
+$cities = event_cities();
 get_header(); ?>
 
 <div class="container my-5">
@@ -63,13 +81,13 @@ get_header(); ?>
 					}
 					$event_address = get_post_meta( get_the_ID(), 'venue_city', true );
 					$venue_address = get_post_meta( get_the_ID(), 'venue_address', true );
+					if ($event_address != $param_city && $venue_address != $param_city && $param_city != 'All'){
+						continue;
+					}
 					if( $event_address != '' && $venue_address != '' ){
 						$event_address .= ' - '.$venue_address;
 					}elseif( $venue_address != '' ){
 						$event_address = $venue_address;
-					}
-					if ($event_address != $param_city && $param_city != 'All'){
-						continue;
 					}
 					$image_url =  array();
 					if ( '' !== get_the_post_thumbnail() ){
