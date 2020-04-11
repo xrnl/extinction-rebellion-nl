@@ -178,6 +178,7 @@ function event_cities() {
             $cities[$city] = 1;
         }
     }
+    ksort($cities);
 
     return $cities;
 }
