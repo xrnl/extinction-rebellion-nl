@@ -58,7 +58,14 @@ get_header(); ?>
 			<input type="hidden" name="paged" value="1" />
       <select name="city" class="custom-select my-1" id="city">
         <option value=""><?php _e('All') ?></option>
-        <?php foreach($cities as $city => $count) { ?>
+		<option disabled>──────────</option>
+		<?php if(array_key_exists('Online', $cities)) { ?>
+			<option value='Online' <?php echo $param_city == 'Online' ? 'selected="selected"' : '' ?>>
+				Online (<?php echo $cities['Online'] ?>)
+			</option>
+			<option disabled>──────────</option>
+		<?php } ?>
+        <?php foreach($cities as $city => $count) { if ($city == 'Online') {continue;} ?>
           <option value="<?php echo $city ?>" <?php echo $param_city == $city ? 'selected="selected"' : '' ?>>
             <?php echo $city.' ('.$count.')' ?>
           </option>
