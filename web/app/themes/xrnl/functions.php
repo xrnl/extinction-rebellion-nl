@@ -143,20 +143,16 @@ add_filter( 'register_post_type_args', function($args, $post_type){
 // Get Distinct Event cities
 function event_cities() {
     $args = array(
-        'posts_per_page' => 1000,
+        'posts_per_page' => 1e9,
         'post_type' => 'meetup_events',
-        'orderby' => 'meta_value',
-        'meta_key' => 'event_start_date',
-        'order' => 'ASC',
-        's' => '-cancelled -afgelast',
+        'fields' => 'ids',
         'meta_query' => array(
             array(
                 'key' => 'event_start_date', // Check the start date field
                 'value' => date("Y-m-d"), // Set today's date (note the similar format)
                 'compare' => '>=', // Return the ones greater than today's date
                 'type' => 'DATE' // Let WordPress know we're working with date
-            ),
-            $query_city
+            )
         )
     );
 
@@ -173,7 +169,7 @@ function event_cities() {
             $city = $venue;
         }
         if (array_key_exists($city, $cities)) {
-            $cities[$city] = $cities[$city] + 1;
+            $cities[$city]++;
         } elseif ($city != '') {
             $cities[$city] = 1;
         }
