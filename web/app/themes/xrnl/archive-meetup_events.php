@@ -88,9 +88,6 @@ get_header(); ?>
 					}
 					$event_address = get_post_meta( get_the_ID(), 'venue_city', true );
 					$venue_address = get_post_meta( get_the_ID(), 'venue_address', true );
-					if ($event_address != $param_city && $venue_address != $param_city && $param_city != 'All'){
-						continue;
-					}
 					if( $event_address != '' && $venue_address != '' ){
 						$event_address .= ' - '.$venue_address;
 					}elseif( $venue_address != '' ){
