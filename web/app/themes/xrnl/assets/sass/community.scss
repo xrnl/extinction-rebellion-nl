@@ -1,0 +1,52 @@
+#community {
+  .group-card {
+    a {
+      text-decoration: none;
+      &:hover {
+        color: map-get($theme-colors, 'primary');
+      }
+      &.btn-black {
+        &:hover {
+          background-color: map-get($theme-colors, 'black');
+        }
+      }
+    }
+    .card-img-top {
+      height: 145px;
+      object-fit: cover;
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    .group-column {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.community-group {
+  .hero-container {
+    position: relative;
+  }
+  .group-cover-image {
+    min-height: 80vh;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  .hero-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+  }
+  .group-slogan {
+    margin-top: 3rem;
+  }
+  .group-social-icons {
+    a {
+      &:hover {
+        color: map-get($theme-colors, 'primary');
+      }
+    }
+  }
+}
