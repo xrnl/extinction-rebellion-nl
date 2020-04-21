@@ -8,10 +8,19 @@ $param_city = get_query_var('city');
 
 // city query
 $query_city = $param_city ? array(
-  'key' => 'venue_city',
-  'value' => $param_city,
-  'compare' => '='
-) : array();
+	'key' => 'venue_city',
+	'value' => $param_city,
+	'compare' => '='
+  ) : array();
+
+
+if ($param_city == 'Online') {
+	$query_city = array(
+		'key' => 'venue_address',
+		'value' => $param_city,
+		'compare' => '='
+	);
+}
 
 // page query param
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -24,33 +33,41 @@ $args = array(
 	'orderby' => 'meta_value',
 	'meta_key' => 'event_start_date',
 	'order' => 'ASC',
+	's' => '-cancelled -afgelast',
 	'meta_query' => array(
 		array(
 			'key' => 'event_start_date', // Check the start date field
 			'value' => date("Y-m-d"), // Set today's date (note the similar format)
 			'compare' => '>=', // Return the ones greater than today's date
 			'type' => 'DATE' // Let WordPress know we're working with date
-    ),
-    // adds city filter
-    $query_city
+		),
+		$query_city
 	)
 );
 $events = new WP_Query( $args );
+
 $cities = event_cities();
 get_header(); ?>
 
 <div class="container my-5">
-	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city ?></h1>
+	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city; ?></h1>
 
   <?php if ($cities) { ?>
     <form class="form-inline mt-4 flex-nowrap" method="get">
-      <label class="my-1 mr-2" for="city">City</label>
+      <label class="my-1 mr-2" for="city">Location</label>
 			<input type="hidden" name="paged" value="1" />
       <select name="city" class="custom-select my-1" id="city">
         <option value=""><?php _e('All') ?></option>
-        <?php foreach($cities as $city) { ?>
-          <option value="<?php echo $city->meta_value ?>" <?php echo $param_city == $city->meta_value ? 'selected="selected"' : '' ?>>
-            <?php echo $city->meta_value ?>
+		<option disabled>──────</option>
+		<?php if(array_key_exists('Online', $cities)) { ?>
+			<option value='Online' <?php echo $param_city == 'Online' ? 'selected="selected"' : '' ?>>
+				Online (<?php echo $cities['Online'] ?>)
+			</option>
+			<option disabled>──────</option>
+		<?php } ?>
+        <?php foreach($cities as $city => $count) { if ($city == 'Online') {continue;} ?>
+          <option value="<?php echo $city ?>" <?php echo $param_city == $city ? 'selected="selected"' : '' ?>>
+            <?php echo $city.' ('.$count.')' ?>
           </option>
         <?php } ?>
       </select>
@@ -76,7 +93,6 @@ get_header(); ?>
 					}elseif( $venue_address != '' ){
 						$event_address = $venue_address;
 					}
-
 					$image_url =  array();
 					if ( '' !== get_the_post_thumbnail() ){
 						$image_url =  wp_get_attachment_image_src( get_post_thumbnail_id(  get_the_ID() ), 'full' );
