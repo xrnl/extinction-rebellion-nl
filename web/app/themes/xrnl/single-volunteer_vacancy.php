@@ -56,6 +56,12 @@ get_header(); ?>
             <?php echo $role->email ?>
             </a>
         </div>
+        <div>
+            <i class="fas fa-comment mr-2"></i>
+            <b>Mattermost: </b><a href="https://organise.earth/xr-netherlands/messages/<?php echo $role->mattermostId ?>" target="_blank">
+            <?php echo $role->mattermostId ?>
+            </a>
+        </div>
         <?php if($role->phone): ?>
         <div>
             <i class="fas fa-phone mr-2"></i>
