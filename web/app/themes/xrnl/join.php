@@ -30,7 +30,7 @@ $events = new WP_Query( $args );
 get_header(); ?>
 
 <div class="join">
-  <div class="bg-blue px-3 py-lg-5 pb-5 text-center text-white join-cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat;">
+  <div class="bg-blue text-center text-white join-cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat;">
     <div class="py-5">
       <h1 class="display-2 text-uppercase font-xr"><?php the_title(); ?></h1>
       <div class="container">
@@ -39,13 +39,6 @@ get_header(); ?>
         </div>
       </div>
     </div>
-
-    <div class="my-3">
-      <a class="btn btn-lg btn-blue" href="#join">
-        <?php _e('JOIN XR', 'theme-xrnl'); ?></a>
-    </div>
-
-    <a href="https://facebook.com/ExtinctionRebellionNL" target="_blank" class="text-white text-reset text-underline">Facebook</a> <?php _e('or', 'theme-xrnl') ?> <a class="text-white text-reset text-underline" href="https://meetup.com/Extinction-Rebellion-NL" target="_blank">Meetup</a>
   </div>
 
   <div class="my-sm-5 my-4">
@@ -59,13 +52,10 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="py-sm-5 py-4 text-white" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('intro_meeting_cover'); ?>') no-repeat; min-height: 45vh;">
-    <div class="container">
-      <div class="row py-5 text-center">
-        <div class="col-12 col-lg-8 mx-auto">
-          <h1><?php the_field('intro_meeting_title'); ?></h1>
-          <?php the_field('intro_meeting_description'); ?>
-        </div>
+  <div class="container-fluid text-center py-sm-5 py-4 bg-pink">
+    <div class="row py-5">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto mt-4">
+        <?php the_field('signup_form'); ?>
       </div>
     </div>
   </div>
@@ -133,19 +123,6 @@ get_header(); ?>
     <div class="mt-5"><?php the_field('local_map'); ?></div>
   </div>
 
-  <div class="container-fluid text-center py-sm-5 py-4 bg-pink">
-    <a name="join"></a>
-    <div class="row py-5">
-      <div class="col-12 col-lg-8 mx-auto">
-        <h1>
-          <?php _e('JOIN', 'theme-xrnl'); ?>
-        </h1>
-      </div>
-      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto mt-4">
-        <?php the_field('signup_form'); ?>
-      </div>
-    </div>
-  </div>
 
   <div class="container-fluid text-center bg-blue py-sm-5 py-4">
     <div class="row pt-5">
