@@ -237,9 +237,34 @@ function event_cities() {
     return $cities;
 }
 
-// Add city query var to filter on events page
+// Get Distinct Vacancy working and local groups
+function vacancy_groups( $vacancies ) {
+    $working_groups = array();
+    $local_groups = array();
+
+    while ( $vacancies->have_posts() ) { 
+        $vacancies->the_post(); 
+        $role = json_decode(get_the_content());
+        $working_groups[] = $role->workingGroup;
+        $local_groups[] = $role->localGroup;
+    }
+
+    function unique_sorted( $array ) {
+        $array = array_unique($array);
+        sort($array);
+        return $array;
+    }
+
+    return array(
+        'local_groups' => unique_sorted($local_groups),
+        'working_groups' => unique_sorted($working_groups)
+    );
+}
+
 function xrnl_query_vars( $qvars ) {
     $qvars[] = 'city';
+    $qvars[] = 'working_group';
+    $qvars[] = 'local_group';
     return $qvars;
 }
 add_filter( 'query_vars', 'xrnl_query_vars' );
