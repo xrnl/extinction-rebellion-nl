@@ -16,7 +16,7 @@ get_header(); ?>
 </style>
 
 <iframe id="xr-academy"
-        src="http://resources.extinctionrebellion.nl"
+        src="https://resources.extinctionrebellion.nl"
         scrolling="no"
         allowfullscreen
         width="100%"
@@ -29,9 +29,9 @@ get_header(); ?>
     jQuery("#xr-academy").attr("src", get_localized_url(window.location.pathname));
       function get_localized_url(path) {
         if (path.match("/en")) {
-          return "http://resources.extinctionrebellion.nl/en";
+          return "https://resources.extinctionrebellion.nl/en";
         } else {
-          return "http://resources.extinctionrebellion.nl/nl";
+          return "https://resources.extinctionrebellion.nl/nl";
         }
       }
   });
