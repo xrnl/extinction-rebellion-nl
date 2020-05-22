@@ -1,4 +1,3 @@
-
 $theme-colors: (
   "primary": #21a73d,
   "green": #21a73d,
@@ -8,23 +7,24 @@ $theme-colors: (
   "orange": #f19631,
   "blue": #75d0f1,
   "black": #000,
-  "white": #fff
+  "navy": #3860aa,
+  "white": #fff,
 ) !default;
 
-$navbar-light-toggler-border-color: rgba(0,0,0,0);
+$navbar-light-toggler-border-color: rgba(0, 0, 0, 0);
 $navbar-light-color: #000;
 
-$enable-responsive-font-sizes:  true !default; // responsive font sizes
-$border-radius:                 0rem !default;
+$enable-responsive-font-sizes: true !default; // responsive font sizes
+$border-radius: 0rem !default;
 
-$btn-focus-box-shadow:          none !default;
-$btn-box-shadow:                none !default;
-$btn-focus-width:               0 !default;
-$btn-border-width:              0 !default;
-$btn-border-radius-lg:          0 !default;
+$btn-focus-box-shadow: none !default;
+$btn-box-shadow: none !default;
+$btn-focus-width: 0 !default;
+$btn-border-width: 0 !default;
+$btn-border-radius-lg: 0 !default;
 
-$link-decoration:               underline !default;
-$link-color:                    #000 !default;
-$link-hover-color:              map-get($theme-colors, 'green') !default;
-$brand-font:                    'FucXed', Montserrat, sans-serif !default;
-$brand-font-secondary:          'Crimson Text', serif;
+$link-decoration: underline !default;
+$link-color: #000 !default;
+$link-hover-color: map-get($theme-colors, "green") !default;
+$brand-font: "FucXed", Montserrat, sans-serif !default;
+$brand-font-secondary: "Crimson Text", serif;

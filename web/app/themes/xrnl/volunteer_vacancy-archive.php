@@ -27,10 +27,9 @@ get_header(); ?>
   $vacancy_groups = vacancy_groups($vacancies);
 ?>
 
-<div class="row p-5 m-2 bg-blue">
-<form class="form-inline" method="get">
-  <label class="mr-2" for="working_group">Working group</label>
-  <select name="working_group" class="custom-select my-1" id="working_group">
+<form class="role-filter" method="get">
+  <label for="working_group">Working group</label>
+  <select name="working_group" class="custom-select" id="working_group">
     <option value=""><?php _e('All') ?></option>
     <option disabled>──────</option>
     <?php foreach($vacancy_groups['working_groups'] as $working_group) { ?>
@@ -39,8 +38,8 @@ get_header(); ?>
       </option>
     <?php } ?>
   </select>
-  <label class="mr-2" for="local_group">Local group</label>
-  <select name="local_group" class="custom-select my-1" id="local_group">
+  <label for="local_group">Local group</label>
+  <select name="local_group" class="custom-select" id="local_group">
     <option value=""><?php _e('All') ?></option>
     <option disabled>──────</option>
     <?php foreach($vacancy_groups['local_groups'] as $local_group) { ?>
@@ -49,11 +48,10 @@ get_header(); ?>
       </option>
     <?php } ?>
   </select>
-  <button type="submit" class="btn btn-black ml-2">
+  <button type="submit" class="btn btn-black mt-2 mt-md-0 ml-md-2">
     <?php _e('Apply') ?>
   </button>
 </form>
-</div>
 
 <?php
 $vacancies = new WP_Query([
@@ -62,37 +60,47 @@ $vacancies = new WP_Query([
 ]);
 ?>
 
-<div class="d-flex flex-wrap mt-3">        
+<div class="d-flex flex-wrap m-1">        
 
-<?php 
-while($vacancies->have_posts()){
-  $vacancies->the_post(); 
-  $role = json_decode(get_the_content()); 
-  if (
-    (
-      $param_working_group and ($role->workingGroup != $param_working_group)
-    ) or (
-      $param_local_group and ($role->localGroup != $param_local_group)
-    )
-) {continue;}
-?>
-    <div class="card role-card" style="width: 300px; height: 200px; cursor: pointer;" onclick="window.location='<?php the_permalink(); ?>'">
-    <div class="card-body d-flex flex-column">
-      <h5 class="card-title font-xr text-uppercase">
-        <?php the_title(); ?>
-      </h5>
-      <h6 class="card-subtitle text-muted mt-1"><?php echo $role->localGroup ?></h6>
-      <h6 class="card-subtitle text-muted mt-1"><?php echo $role->workingGroup ?></h6>
-      <h6 class="card-subtitle text-muted mt-1">
-        <?php echo $role->timeCommitment->min ?> - <?php echo $role->timeCommitment->max ?> 
-        <?php _e('hours / week', 'theme-xrnl'); ?>
-      </h6>
+  <?php 
+  while($vacancies->have_posts()){
+    $vacancies->the_post(); 
+    $role = json_decode(get_the_content()); 
+    if (
+      (
+        $param_working_group and ($role->workingGroup != $param_working_group)
+      ) or (
+        $param_local_group and ($role->localGroup != $param_local_group)
+      )
+  ) {continue;}
+  ?>
+    
+    <div class="role-card d-flex flex-column col-12 col-sm-6 col-lg-4 col-xl-3 p-1" onclick="window.location='<?php the_permalink(); ?>'">
+      <div class="role-header"><h5 class="m-0 font-xr"><?php echo $role->workingGroup ?> | <?php echo $role->localGroup ?></h5>
+      </div>
+      <div class="role-body d-flex flex-column justify-content-between flex-grow-1">
+        <div>
+        <h5 class="role-title">
+          <?php the_title(); ?>
+        </h5>
+        </div>
+        <div class="d-flex justify-content-between align-items-end">
+        <span class="d-flex flex-column justify-content-center">
+          <span class="flex-grow-0" style="line-height: 1rem; font-size: 1.25rem;">
+          <?php echo $role->timeCommitment->min ?> - <?php echo $role->timeCommitment->max ?> 
+          </span>
+          <span class="font-size: 0.625rem">
+          <?php _e('hours / week', 'theme-xrnl'); ?>
+          </span>
+          
+        </span>
+        <a href="<?php the_permalink(); ?>" class="btn btn-black"><?php _e('Learn more', 'theme-xrnl'); ?></a>
+        </div>
+      </div>
     </div>
-    <a href="<?php the_permalink(); ?>" class="btn btn-blue"><?php _e('Learn more', 'theme-xrnl'); ?></a>
-    </div>
+
   <?php } wp_reset_query(); ?>
 </div>
-</div>
-</div>
+
 
 <?php get_footer();

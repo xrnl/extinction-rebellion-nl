@@ -1,13 +1,59 @@
+$xr-navy-lighter: #748cbe;
+
+.role-filter {
+	padding: 3rem;
+	margin: 0.5rem;
+	background-color: map-get($theme-colors,"navy");   
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	@media (min-width: 768px) {
+		flex-direction: row;
+		align-items: center;
+	}
+	> label {
+		color: white;
+		text-transform: uppercase;
+		font-family: $brand-font;
+		margin: 0;
+	}
+	> select {
+		margin: 0.5rem 0rem 1rem 0rem;
+		@media (min-width: 768px) {
+			margin: 0rem 1rem 0rem 0.5rem;
+			width: auto !important;
+		}
+	}
+}
+
 .role-card {
-  margin: 0em 1em 2em 1em;
-  @media (max-width: "550px") {
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 1em;
-  }
+  font-family: $brand-font;
+  text-transform: uppercase;
 }
 
 .role-section-header {
   text-decoration: underline;
   margin-top: 1rem;
+}
+
+.role-header {
+  background-color: map-get($theme-colors,"navy");
+  padding: 0.5rem;
+
+  > h5 {
+    color: white;
+    font-size: 0.9rem;
+  }
+}
+
+.role-body {
+  background-color: $xr-navy-lighter;
+  padding: 0.5rem;
+  color: #000;
+  height: 140px;
+}
+
+.role-title {
+  font-family: $brand-font;
+  text-transform: uppercase;
 }
