@@ -28,7 +28,8 @@ main {
   a:not(.btn) {
     color: $link-color;
     text-decoration: $link-decoration;
-    &:hover {
+    &:hover,
+    &:focus {
       color: $link-hover-color;
     }
   }
