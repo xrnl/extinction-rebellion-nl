@@ -27,7 +27,7 @@ get_header(); ?>
   $vacancy_groups = vacancy_groups($vacancies);
 ?>
 
-<form class="role-filter" method="get">
+<form class="d-flex role-filter" method="get">
   <label for="working_group"><?php _e('Working group') ?></label>
   <select name="working_group" class="custom-select" id="working_group">
     <option value=""><?php _e('All') ?></option>
@@ -80,7 +80,7 @@ $vacancies = new WP_Query([
     
 
 <div class="role-card d-flex flex-column col-12 col-sm-6 col-lg-4 col-xl-3 p-1">
-  <div class="role-header"><h5 class="m-0 font-xr"><?php echo $role->workingGroup ?> | <?php echo $role->localGroup ?></h5>
+  <div class="role-header"><h5 class="m-0 font-xr"><?php echo $role->workingGroup ?>, <?php echo $role->localGroup ?></h5>
   </div>
   <div class="role-body d-flex flex-column justify-content-between flex-grow-1">
 	<div>
@@ -107,7 +107,7 @@ $vacancies = new WP_Query([
 
 } wp_reset_query();
 
-if($n_vacancies_rendered == 0) {
+if($n_vacancies_rendered == 0) :
 ?>
 
 <?php $volunteerPageURL = get_permalink(icl_object_id(51, 'page', true)); ?>
@@ -119,10 +119,7 @@ if($n_vacancies_rendered == 0) {
 </span>
 </div>
 
-<?php 
-}
-?>
-	
+<?php endif; ?>	
 </div>
 
 

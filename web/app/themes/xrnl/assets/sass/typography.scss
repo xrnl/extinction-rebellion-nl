@@ -25,12 +25,24 @@ ol {
 }
 
 main {
-  a:not(.btn) {
-    color: $link-color;
-    text-decoration: $link-decoration;
-    &:hover,
-    &:focus {
-      color: $link-hover-color;
+  :not(.bg-navy) {
+    a:not(.btn) {
+      color: $link-color;
+      text-decoration: $link-decoration;
+      &:hover,
+      &:focus {
+        color: $link-hover-color;
+      }
+    }
+  }
+  .bg-navy {
+    a:not(.btn) {
+      color: white;
+      text-decoration: $link-decoration;
+      &:hover,
+      &:focus {
+        color: map-get($theme-colors, "yellow");
+      }
     }
   }
 }

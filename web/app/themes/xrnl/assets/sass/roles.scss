@@ -1,29 +1,29 @@
 $xr-navy-lighter: #748cbe;
 
 .role-filter {
-	padding: 3rem;
-	margin: 0.5rem;
-	background-color: map-get($theme-colors,"navy");   
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	@media (min-width: 768px) {
-		flex-direction: row;
-		align-items: center;
-	}
-	> label {
-		color: white;
-		text-transform: uppercase;
-		font-family: $brand-font;
-		margin: 0;
-	}
-	> select {
-		margin: 0.5rem 0rem 1rem 0rem;
-		@media (min-width: 768px) {
-			margin: 0rem 1rem 0rem 0.5rem;
-			width: auto !important;
-		}
-	}
+  padding: 3rem;
+  margin: 0.5rem;
+  background-color: map-get($theme-colors, "navy");
+  /* display: flex; // defined using d-flex class to include CSS prefixes */
+  flex-direction: column;
+  align-items: start;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+  > label {
+    color: white;
+    text-transform: uppercase;
+    font-family: $brand-font;
+    margin: 0;
+  }
+  > select {
+    margin: 0.5rem 0rem 1rem 0rem;
+    @media (min-width: 768px) {
+      margin: 0rem 1rem 0rem 0.5rem;
+      width: auto !important;
+    }
+  }
 }
 
 .role-card {
@@ -32,12 +32,15 @@ $xr-navy-lighter: #748cbe;
 }
 
 .role-section-header {
-  text-decoration: underline;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  font-family: $brand-font;
+  text-transform: uppercase;
+  color: white;
 }
 
 .role-header {
-  background-color: map-get($theme-colors,"navy");
+  background-color: map-get($theme-colors, "navy");
   padding: 0.5rem;
 
   > h5 {

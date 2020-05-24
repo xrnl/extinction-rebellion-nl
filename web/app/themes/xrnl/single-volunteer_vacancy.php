@@ -5,23 +5,20 @@
 
 get_header(); ?>
 
-<div class="container mb-4">
-    <?php 
-    $volunteerPage = $translated_page = icl_object_id(51, 'page', true); // 51 is page ID
-    $volunteerPageURL = get_permalink( $volunteerPage );
-    ?>
-<a href="<?php echo $volunteerPageURL ?>" class="btn btn-blue my-4"><i class="fas fa-arrow-left"></i> 
+<?php $volunteerPageURL = get_permalink(icl_object_id(51, 'page', true)); ?>
+<article id="post-<?php the_ID(); ?>" ?>
+<div class="row p-2 pt-4 p-md-5 m-2 bg-navy text-white background-icon-container">  
+<img src="/app/uploads/2019/04/XR-symbol.svg" class="background-icon">
+    <div class="col-12 col-xl-8">
+<a href="<?php echo $volunteerPageURL ?>" class="btn btn-black mb-4"><i class="fas fa-arrow-left"></i> 
 <?php _e('View all roles', 'theme-xrnl'); ?>
 </a>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <header>
-<h2 class="font-xr text-uppercase"><?php the_title(); ?></h2>
+<h2><?php the_title(); ?></h2>
 </header>
 <?php $role = json_decode(get_the_content()); ?>
-<div class="row">
-<div class="col-12">
-    <h4><?php echo $role->localGroup ?>, <?php echo $role->workingGroup ?></h4>
-    <h6 class="text-muted">
+    <h4 class="xr-font text-white"><?php echo $role->workingGroup ?>, <?php echo $role->localGroup ?></h4>
+    <h6>
         <?php _e('Published on', 'theme-xrnl'); ?> 
         <?php the_date(); ?></h6>
     <h5 class="role-section-header">
@@ -44,7 +41,10 @@ get_header(); ?>
     <?php _e('Time commitment', 'theme-xrnl'); ?>
     </h5>
     <p><?php echo $role->timeCommitment->min ?> - <?php echo $role->timeCommitment->max ?> <?php _e('hours / week', 'theme-xrnl'); ?></p>
-    <h4 class="font-xr text-uppercase"><?php _e('Apply', 'theme-xrnl'); ?></h3>
+    </div>
+    </div>
+    <div class="p-5 m-2 bg-navy text-white">
+    <h4 class="role-section-header" style="margin: 0"><?php _e('Apply', 'theme-xrnl'); ?></h3>
     <p>
     <?php _e('Contact the role aide to apply or to learn more about the role.', 'theme-xrnl'); ?>
     </p>
@@ -73,5 +73,6 @@ get_header(); ?>
     </div>
 </div>        
 </div>
-</div> 
+</div>
+        </article> 
 <?php get_footer(); ?>
