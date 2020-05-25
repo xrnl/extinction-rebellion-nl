@@ -227,3 +227,23 @@ a:hover u {
     display: block;
   }
 }
+
+.background-icon-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.background-icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  opacity: 0.055;
+
+  max-width: 600px; // for desktop
+  max-height: 100vw; // for mobile
+  height: 100%;
+
+  pointer-events: none;
+}

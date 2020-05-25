@@ -3,15 +3,30 @@
 .btn {
   font-family: $brand-font;
   text-transform: uppercase;
+  &:focus {
+    outline: 3px solid $link-hover-color;
+  }
 }
 
 .btn-black {
-  @include button-variant($black, $black, lighten($black, 25%), lighten($black, 25%), lighten($black, 15%));
+  @include button-variant(
+    $black,
+    $black,
+    lighten($black, 25%),
+    lighten($black, 25%),
+    lighten($black, 15%)
+  );
 }
 
 // buttons added in wordpress posts
 article {
   .btn {
-    @include button-variant($black, $black, lighten($black, 25%), lighten($black, 25%), lighten($black, 15%));
+    @include button-variant(
+      $black,
+      $black,
+      lighten($black, 25%),
+      lighten($black, 25%),
+      lighten($black, 15%)
+    );
   }
 }

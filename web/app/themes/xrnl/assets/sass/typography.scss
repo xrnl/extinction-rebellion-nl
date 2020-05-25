@@ -1,33 +1,48 @@
-
 body > header {
   position: relative;
 }
 
 body {
   background-color: $white;
-  font-family: 'Crimson Text', serif;
+  font-family: "Crimson Text", serif;
   font-size: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-transform: uppercase;
   font-family: $brand-font;
 }
 
-ul, ol {
+ul,
+ol {
   padding-left: 3rem;
 }
 
 .font-xr {
   font-family: $brand-font;
+  text-transform: uppercase; // required for the XR font fuckxed-caps
 }
 
 main {
-  a:not(.btn) {
-    color: $link-color;
-    text-decoration: $link-decoration;
-    &:hover {
-      color: $link-hover-color;
+  :not(.bg-navy) {
+    a:not(.btn) {
+      color: $link-color;
+      text-decoration: $link-decoration;
+      &:hover,
+      &:focus {
+        color: $link-hover-color;
+      }
+    }
+  }
+  .bg-navy {
+    a:not(.btn) {
+      color: white;
+      text-decoration: $link-decoration;
+      &:hover,
+      &:focus {
+        color: map-get($theme-colors, "yellow");
+      }
     }
   }
 }
