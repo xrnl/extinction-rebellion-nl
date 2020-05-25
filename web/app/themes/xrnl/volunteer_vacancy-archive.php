@@ -91,7 +91,7 @@ $vacancies = new WP_Query([
 	<div class="d-flex justify-content-between align-items-end">
 	<span class="d-flex flex-column justify-content-center">
 	  <span class="flex-grow-0" style="line-height: 1rem; font-size: 1.25rem;">
-	  <?php echo $role->timeCommitment->min ?> - <?php echo $role->timeCommitment->max ?> 
+	  <?php echo $role->timeCommitment->min ?>&ndash;<?php echo $role->timeCommitment->max ?> 
 	  </span>
 	  <span class="font-size: 0.625rem">
 	  <?php _e('hours / week', 'theme-xrnl'); ?>

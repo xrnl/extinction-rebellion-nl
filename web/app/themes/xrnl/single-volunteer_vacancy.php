@@ -40,7 +40,7 @@ get_header(); ?>
     <h5 class="role-section-header">
     <?php _e('Time commitment', 'theme-xrnl'); ?>
     </h5>
-    <p><?php echo $role->timeCommitment->min ?> - <?php echo $role->timeCommitment->max ?> <?php _e('hours / week', 'theme-xrnl'); ?></p>
+    <p><?php echo $role->timeCommitment->min ?>&ndash;<?php echo $role->timeCommitment->max ?> <?php _e('hours / week', 'theme-xrnl'); ?></p>
     </div>
     </div>
     <div class="p-5 m-2 bg-navy text-white">
