@@ -40,7 +40,7 @@ get_header(); ?>
       iFrameResize({
         log: false,
         checkOrigin: true,
-        heightCalculationMethod: 'taggedElement'
+        heightCalculationMethod: 'bodyScroll' 
       }, '#xr-academy'
       );
   });
