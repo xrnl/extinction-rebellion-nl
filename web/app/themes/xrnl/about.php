@@ -5,6 +5,12 @@
 
 get_header(); ?>
 
+<?php
+  function formatElementID($str) {
+    return strtolower(str_replace(array(' ', ' & '), '-', $str));
+  }
+?>
+
 <div class="about">
   <div class="bg-blue px-3 py-lg-5 pb-5 text-center text-white cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('about_cover_image'); ?>') no-repeat;">
     <div class="py-5">
@@ -54,19 +60,19 @@ get_header(); ?>
     </div>
   </div>
 
-  <div class="text-center bg-light py-5">
+  <div id="<?php echo formatElementID(get_field('organisation_title')); ?>" class="text-center bg-light py-5">
     <div class="container my-sm-5 my-4">
       <h1><?php the_field('organisation_title'); ?></h1>
       <p><?php the_field('organisation_description'); ?></p>
 
       <?php while ( have_rows('organisation_topics') ){ the_row(); ?>
         <div class="row py-2">
-          <div class="col-12 col-lg-6 mx-auto">
+          <div id="<?php echo formatElementID(get_sub_field('topic_tilte')); ?>" class="col-12 col-lg-6 mx-auto">
             <a class="btn btn-yellow btn-lg btn-block text-left" data-toggle="collapse" href="#topic-<?php echo get_row_index(); ?>" role="button" aria-expanded="false" aria-controls="topic-<?php echo get_row_index(); ?>">
               <?php the_sub_field('topic_tilte') ?>
               <i class="fas fa-chevron-down float-right pt-1"></i>
             </a>
-            <div class="text-left collapse" id="topic-<?php echo get_row_index(); ?>">
+            <div class="text-left collapse show" id="topic-<?php echo get_row_index(); ?>">
               <div class="pt-3">
                 <?php the_sub_field('topic_description'); ?>
               </div>
