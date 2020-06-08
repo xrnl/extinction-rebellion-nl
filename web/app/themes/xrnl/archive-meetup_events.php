@@ -54,7 +54,7 @@ get_header(); ?>
 
   <?php if ($cities) { ?>
     <form class="form-inline mt-4 flex-nowrap" method="get">
-      <label class="my-1 mr-2" for="city">Location</label>
+      <label class="my-1 mr-2" for="city"><?php _e('Location') ?></label>
 			<input type="hidden" name="paged" value="1" />
       <select name="city" class="custom-select my-1" id="city">
         <option value=""><?php _e('All') ?></option>
@@ -136,8 +136,8 @@ get_header(); ?>
 					'current' => max(1, $paged),
 					'total' => $events->max_num_pages,
 					'type' => 'array',
-					'prev_text' => '&laquo; Previous',
-					'next_text' => 'Next &raquo;',
+					'prev_text' => '&laquo; ' . translate('Previous'),
+					'next_text' => translate('Next') . ' &raquo;',
 				));
 				?>
 				<?php if ( ! empty( $pagination ) ) : ?>
@@ -150,12 +150,11 @@ get_header(); ?>
 					</ul>
 				<?php endif ?>
 			</nav>
-			<?php _e('Check <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> or <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a> for latest events') ?>.
+			<?php _e('Check', 'theme-xrnl') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> <?php _e('or', 'theme-xrnl') ?> <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a> <?php _e('for the latest events', 'theme-xrnl') ?>.
 		<?php else :
-			_e('Looks like there are no events, try clearing the filter and make sure to check <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> or <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a>');
-		endif; ?>
+			_e('Looks like there are no events, try clearing the filter and make sure to check') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> <?php _e('or', 'theme-xrnl') ?> <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a>'.
+		<?php endif; ?>
 	</div>
 </div>
 
 <?php get_footer(); ?>
-
