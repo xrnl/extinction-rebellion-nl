@@ -355,23 +355,6 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_5eccf68f0983c",
-                    "label": "Cover image",
-                    "name": "cover_image",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 0,
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
                     "key": "field_5eccf68f0983d",
                     "label": "Groups",
                     "name": "groups",
@@ -412,10 +395,10 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5ecd917786425",
-                            "label": "Group type",
-                            "name": "type",
-                            "type": "select",
+                            "key": "field_5eed048fec5b8",
+                            "label": "Button link",
+                            "name": "button_link",
+                            "type": "url",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -424,18 +407,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "wpml_cf_preferences": 0,
-                            "choices": {
-                                "local": "Local groups",
-                                "community": "Community groups"
-                            },
-                            "default_value": [],
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
-                            "ajax": 0,
-                            "placeholder": ""
+                            "default_value": "",
+                            "placeholder": "",
+                            "wpml_cf_preferences": 0
                         }
                     ]
                 }
@@ -851,5 +825,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1592507616
+    "modified": 1592593450
 }

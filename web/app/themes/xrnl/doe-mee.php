@@ -10,6 +10,10 @@ get_header(); ?>
   return (object) get_field($section_id);
 } ?>
 
+<?php function insertURL($page_id) {
+  echo get_permalink(icl_object_id($page_id, 'page', true));
+} ?>
+
 <div class="join">
   <div class="bg-blue text-center text-white join-cover-image py-5" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat;">
       <h1 class="display-2 text-uppercase font-xr"><?php the_title(); ?></h1>
@@ -26,7 +30,7 @@ get_header(); ?>
       <div class="row">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
-          <p><?php echo($section->content); ?></p>
+          <?php echo($section->content); ?>
         </div>
       </div>
     </section>
@@ -40,9 +44,11 @@ get_header(); ?>
           <h2><?php echo($section->heading); ?></h2>
           <p><?php echo($section->description); ?></p>
           <div class="join-action-btns">
-            <?php foreach ($section->broadcasts as $broadcast) : ?>
-              <a class="btn btn-pink my-2" href="<?php echo($broadcast['link']); ?>"><?php echo($broadcast['label']); ?></a>
-            <?php endforeach; ?>
+            <?php if (is_array($section->broadcasts)) : ?>
+              <?php foreach ($section->broadcasts as $broadcast) : ?>
+                <a class="btn btn-pink my-2" href="<?php echo($broadcast['link']); ?>"><?php echo($broadcast['label']); ?></a>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -57,9 +63,11 @@ get_header(); ?>
           <h2><?php echo($section->heading); ?></h2>
           <p><?php echo($section->description); ?></p>
           <div class="join-action-btns">
-            <?php foreach ($section->groups as $group) : ?>
-              <a class="btn btn-yellow my-2" href="/<?php echo($group['type']); ?>"><?php echo($group['button_label']); ?></a>
-            <?php endforeach; ?>
+            <?php if(is_array($section->groups)) : ?>
+              <?php foreach ($section->groups as $group) : ?>
+                <a class="btn btn-yellow my-2" href="<?php echo($group['button_link']); ?>"><?php echo($group['button_label']); ?></a>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -73,7 +81,9 @@ get_header(); ?>
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
           <p><?php echo($section->description); ?></p>
-          <a class="btn btn-black" href="/resources"><?php echo($section->button_label); ?></a>
+          <?php if(!empty($section->button_label)) : ?>
+            <a class="btn btn-black" href="<?php insertURL(7221) ?>"><?php echo($section->button_label); ?></a>
+          <?php endif; ?>
         </div>
       </div>
     </section>
@@ -86,7 +96,9 @@ get_header(); ?>
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
           <p><?php echo($section->description); ?></p>
-          <a class="btn btn-blue" href="/events"><?php echo($section->button_label); ?></a>
+          <?php if(!empty($section->button_label)) : ?>
+            <a class="btn btn-blue" href="<?php insertURL(548) ?>"><?php echo($section->button_label); ?></a>
+          <?php endif; ?>
         </div>
       </div>
     </section>
@@ -100,19 +112,21 @@ get_header(); ?>
           <h2><?php echo($section->heading); ?></h2>
           <p><?php echo($section->description); ?></p>
           <div class="row do-more-actions">
-            <?php foreach ($section->actions as $action) : ?>
-              <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto mb-5">
-                <h3><?php echo($action['title']) ?></h3>
-                <p><?php echo($action['description']) ?></p>
-                <?php if(is_array($action['buttons'])) : ?>
-                  <?php foreach ($action['buttons'] as $button) : ?>
-                    <?php if ($button['button_label']): ?>
-                      <a class="btn btn-black mt-1" href="<?php echo($button['button_link']); ?>"><?php echo($button['button_label']); ?></a>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
-                <?php endif; ?>
-              </div>
-            <?php endforeach; ?>
+            <?php if(is_array($section->actions)) : ?>
+              <?php foreach ($section->actions as $action) : ?>
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto mb-5">
+                  <h3><?php echo($action['title']) ?></h3>
+                  <p><?php echo($action['description']) ?></p>
+                  <?php if(is_array($action['buttons'])) : ?>
+                    <?php foreach ($action['buttons'] as $button) : ?>
+                      <?php if ($button['button_label']): ?>
+                        <a class="btn btn-black my-2 mx-2" href="<?php echo($button['button_link']); ?>"><?php echo($button['button_label']); ?></a>
+                      <?php endif; ?>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
+                </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
