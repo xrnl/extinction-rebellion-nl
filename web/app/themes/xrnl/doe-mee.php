@@ -26,7 +26,7 @@ get_header(); ?>
 
   <?php $section = getSection('signup_section'); ?>
   <?php if ($section->enabled) : ?>
-    <section class="join-section container-fluid bg-pink px-2">
+    <section class="join-section container-fluid bg-pink">
       <div class="row">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
@@ -38,7 +38,7 @@ get_header(); ?>
 
   <?php $section = getSection('actions_section'); ?>
   <?php if ($section->enabled) : ?>
-    <section class="join-section bg-blue text-white join-cover-image px-2" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php echo($section->cover_image); ?>') no-repeat;">
+    <section class="join-section bg-blue text-white join-cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php echo($section->cover_image); ?>') no-repeat;">
       <div class="row">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
@@ -57,7 +57,7 @@ get_header(); ?>
 
   <?php $section = getSection('groups_section'); ?>
   <?php if ($section->enabled) : ?>
-    <section class="join-section bg-white px-2">
+    <section class="join-section bg-white">
       <div class="row">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
@@ -76,7 +76,7 @@ get_header(); ?>
 
   <?php $section = getSection('resources_section'); ?>
   <?php if ($section->enabled) : ?>
-    <section class="join-section container-fluid bg-yellow px-2">
+    <section class="join-section container-fluid bg-yellow">
       <div class="row">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
@@ -91,7 +91,7 @@ get_header(); ?>
 
   <?php $section = getSection('events_section'); ?>
   <?php if ($section->enabled) : ?>
-    <section class="join-section bg-blue text-white join-cover-image px-2" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php echo($section->cover_image); ?>') no-repeat;">
+    <section class="join-section bg-blue text-white join-cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php echo($section->cover_image); ?>') no-repeat;">
       <div class="row">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
@@ -106,7 +106,7 @@ get_header(); ?>
 
   <?php $section = getSection('do_more_section'); ?>
   <?php if ($section->enabled) : ?>
-    <section class="join-section container-fluid bg-blue px-2">
+    <section class="join-section container-fluid bg-blue">
       <div class="row">
         <div class="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-8 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
