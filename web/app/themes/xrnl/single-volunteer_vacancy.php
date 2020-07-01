@@ -24,18 +24,18 @@ get_header(); ?>
     <h5 class="role-section-header">
         <?php _e('Responsibilities', 'theme-xrnl'); ?> 
     </h5>
-    <p><?php echo $role->responsibilities ?></p>
+    <p class="preserve-line-breaks"><?php echo $role->responsibilities ?></p>
     <?php if($role->description): ?>
     <h5 class="role-section-header">
         <?php _e('Description', 'theme-xrnl'); ?> 
     </h5>
-    <p><?php echo $role->description ?></p>
+    <p class="preserve-line-breaks"><?php echo $role->description ?></p>
     <?php endif; ?>
     <?php if($role->requirements): ?>
     <h5 class="role-section-header">
     <?php _e('Requirements', 'theme-xrnl'); ?>
     </h5>
-    <p><?php echo $role->requirements ?></p>
+    <p class="preserve-line-breaks"><?php echo $role->requirements ?></p>
     <?php endif; ?>
     <h5 class="role-section-header">
     <?php _e('Time commitment', 'theme-xrnl'); ?>
