@@ -103,7 +103,7 @@ get_header(); ?>
 					?>
 					<div class="col-md-6 my-3">
 						<a href="<?php echo esc_url( get_permalink() ) ?>">
-							<div class="<?php echo $css_class; ?> archive-event">
+							<div class="<?php echo $css_class ?? ''; ?> archive-event">
 								<div class="ime_event" >
 									<div class="img_placeholder" style=" background: url('<?php echo $image_url[0]; ?>') no-repeat left top;"></div>
 									<div class="event_details">
@@ -152,7 +152,7 @@ get_header(); ?>
 			</nav>
 			<?php _e('Check', 'theme-xrnl') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> <?php _e('or', 'theme-xrnl') ?> <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a> <?php _e('for the latest events', 'theme-xrnl') ?>.
 		<?php else :
-			_e('Looks like there are no events, try clearing the filter and make sure to check') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> <?php _e('or', 'theme-xrnl') ?> <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a>'.
+			_e('Looks like there are no events, try clearing the filter and make sure to check') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> <?php _e('or', 'theme-xrnl') ?> <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a>.
 		<?php endif; ?>
 	</div>
 </div>
