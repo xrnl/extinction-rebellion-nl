@@ -5,12 +5,12 @@
 
 get_header(); ?>
 
-<?php $volunteerPageURL = get_permalink(icl_object_id(51, 'page', true)); ?>
+<?php $volunteerPageURL = get_permalink(apply_filters('wpml_object_id', 51, 'page', true)); ?>
 <article id="post-<?php the_ID(); ?>" ?>
-<div class="row p-2 pt-4 p-md-5 m-2 bg-navy text-white background-icon-container">  
+<div class="row p-2 pt-4 p-md-5 m-2 bg-navy text-white background-icon-container">
 <img src="/app/uploads/2019/04/XR-symbol.svg" class="background-icon">
     <div class="col-12 col-xl-8">
-<a href="<?php echo $volunteerPageURL ?>" class="btn btn-black mb-4"><i class="fas fa-arrow-left"></i> 
+<a href="<?php echo $volunteerPageURL ?>" class="btn btn-black mb-4"><i class="fas fa-arrow-left"></i>
 <?php _e('View all roles', 'theme-xrnl'); ?>
 </a>
 <header>
@@ -19,15 +19,15 @@ get_header(); ?>
 <?php $role = json_decode(get_the_content()); ?>
     <h4 class="xr-font text-white"><?php echo $role->workingGroup ?>, <?php echo $role->localGroup ?></h4>
     <h6>
-        <?php _e('Published on', 'theme-xrnl'); ?> 
+        <?php _e('Published on', 'theme-xrnl'); ?>
         <?php the_date(); ?></h6>
     <h5 class="role-section-header">
-        <?php _e('Responsibilities', 'theme-xrnl'); ?> 
+        <?php _e('Responsibilities', 'theme-xrnl'); ?>
     </h5>
     <p class="preserve-line-breaks"><?php echo $role->responsibilities ?></p>
     <?php if($role->description): ?>
     <h5 class="role-section-header">
-        <?php _e('Description', 'theme-xrnl'); ?> 
+        <?php _e('Description', 'theme-xrnl'); ?>
     </h5>
     <p class="preserve-line-breaks"><?php echo $role->description ?></p>
     <?php endif; ?>
@@ -71,8 +71,8 @@ get_header(); ?>
         </div>
         <?php endif; ?>
     </div>
-</div>        
 </div>
 </div>
-        </article> 
+</div>
+        </article>
 <?php get_footer(); ?>

@@ -60,13 +60,13 @@ $vacancies = new WP_Query([
 ]);
 ?>
 
-<div class="d-flex flex-wrap m-1">        
-<?php 
+<div class="d-flex flex-wrap m-1">
+<?php
 	$n_vacancies_rendered = 0;
 
 	while($vacancies->have_posts()){
-	$vacancies->the_post(); 
-	$role = json_decode(get_the_content()); 
+	$vacancies->the_post();
+	$role = json_decode(get_the_content());
 	if (
 	  (
 		$param_working_group and ($role->workingGroup != $param_working_group)
@@ -77,7 +77,7 @@ $vacancies = new WP_Query([
 
 	$n_vacancies_rendered++;
 ?>
-    
+
 
 <div class="role-card d-flex flex-column col-12 col-sm-6 col-lg-4 col-xl-3 p-1">
   <div class="role-header"><h5 class="m-0 font-xr"><?php echo $role->workingGroup ?>, <?php echo $role->localGroup ?></h5>
@@ -91,26 +91,26 @@ $vacancies = new WP_Query([
 	<div class="d-flex justify-content-between align-items-end">
 	<span class="d-flex flex-column justify-content-center">
 	  <span class="flex-grow-0" style="line-height: 1rem; font-size: 1.25rem;">
-	  <?php echo $role->timeCommitment->min ?>&ndash;<?php echo $role->timeCommitment->max ?> 
+	  <?php echo $role->timeCommitment->min ?>&ndash;<?php echo $role->timeCommitment->max ?>
 	  </span>
 	  <span class="font-size: 0.625rem">
 	  <?php _e('hours / week', 'theme-xrnl'); ?>
 	  </span>
-	  
+
 	</span>
 	<a href="<?php the_permalink(); ?>" class="btn btn-black"><?php _e('Learn more', 'theme-xrnl'); ?></a>
 	</div>
   </div>
 </div>
 
-<?php 
+<?php
 
 } wp_reset_query();
 
 if($n_vacancies_rendered == 0) :
 ?>
 
-<?php $volunteerPageURL = get_permalink(icl_object_id(51, 'page', true)); ?>
+<?php $volunteerPageURL = get_permalink(apply_filters('wpml_object_id', 51, 'page', true)); ?>
 <div class="d-flex justify-content-center align-items-center bg-navy m-1 p-5 w-100">
 <span class="font-xr text-white">
 <?php _e('No results found.')?>
@@ -119,7 +119,7 @@ if($n_vacancies_rendered == 0) :
 </span>
 </div>
 
-<?php endif; ?>	
+<?php endif; ?>
 </div>
 
 

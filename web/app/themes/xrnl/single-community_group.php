@@ -6,7 +6,7 @@
 get_header(); ?>
 
 <?php
-$communityPage = $translated_page = icl_object_id(6832, 'page', true); // XRNL: 6832 NL, 6853 EN
+$communityPage = apply_filters('wpml_object_id', 6832, 'page', true); // XRNL: 6832 NL, 6853 EN
 $communityPageURL = get_permalink($communityPage);
 $dark_image_overlay = get_field('group_cover_image_darkened');
 $hero_text_color = $dark_image_overlay ? 'white' : 'black';

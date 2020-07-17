@@ -68,10 +68,10 @@
                         <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
                     <li class="mx-3 mx-lg-2">
                         <?php
-                        $donatePage = icl_object_id(308,'page', true); // 308 is page ID
+                        $donatePage = apply_filters('wpml_object_id', 308, 'page', true); // 308 is page ID
                         $donatePageURL = get_permalink( $donatePage );
                         ?>
-                        <a href="<?php echo $donatePageURL ?>" class="btn btn-black"><?php _e('donate'); ?></a>
+                        <a href="<?php echo $donatePageURL ?>" class="btn btn-black"><?php _e('donate', 'theme-xrnl'); ?></a>
                     </li>
                 </ul>
             </div>

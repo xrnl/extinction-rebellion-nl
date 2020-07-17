@@ -11,7 +11,7 @@ get_header(); ?>
 } ?>
 
 <?php function insertURL($page_id) {
-  echo get_permalink(icl_object_id($page_id, 'page', true));
+  echo get_permalink(apply_filters('wpml_object_id', $page_id, 'page', true));
 } ?>
 
 <div class="join">
