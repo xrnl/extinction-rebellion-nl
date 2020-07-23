@@ -29,7 +29,6 @@
     .nav-link {
       border-bottom: 5px solid $green;
       font-family: $brand-font;
-      text-transform: uppercase;
       white-space: nowrap;      
       font-size: 1.4rem;
       @include media-breakpoint-up(xl) {
