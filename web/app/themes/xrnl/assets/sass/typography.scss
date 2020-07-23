@@ -24,6 +24,15 @@ ol {
   text-transform: uppercase; // required for the XR font fuckxed-caps
 }
 
+header, footer {
+  a {
+    text-decoration: none;
+  }
+}
+.btn {
+  text-decoration: none;
+}
+
 main {
   :not(.bg-navy) {
     a:not(.btn) {

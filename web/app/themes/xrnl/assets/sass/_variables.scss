@@ -24,7 +24,7 @@ $btn-focus-width: 0 !default;
 $btn-border-width: 0 !default;
 $btn-border-radius-lg: 0 !default;
 
-$link-decoration: none !default;
+$link-decoration: underline !default;
 $link-color: #000 !default;
 $link-hover-color: map-get($theme-colors, "green") !default;
 $brand-font: "FucXed", Montserrat, sans-serif !default;
