@@ -10,7 +10,6 @@ body {
 
 h1,
 h2 {
-  text-transform: uppercase;
   font-family: $brand-font;
 }
 
@@ -21,7 +20,15 @@ ol {
 
 .font-xr {
   font-family: $brand-font;
-  text-transform: uppercase; // required for the XR font fuckxed-caps
+}
+
+header, footer {
+  a {
+    text-decoration: none;
+  }
+}
+.btn {
+  text-decoration: none;
 }
 
 main {

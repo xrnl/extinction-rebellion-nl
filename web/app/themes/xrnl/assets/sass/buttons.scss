@@ -2,7 +2,6 @@
 
 .btn {
   font-family: $brand-font;
-  text-transform: uppercase;
   &:focus {
     outline: 3px solid $link-hover-color;
   }

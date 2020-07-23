@@ -13,7 +13,6 @@ $xr-navy-lighter: #748cbe;
   }
   > label {
     color: white;
-    text-transform: uppercase;
     font-family: $brand-font;
     margin: 0;
   }
@@ -28,14 +27,12 @@ $xr-navy-lighter: #748cbe;
 
 .role-card {
   font-family: $brand-font;
-  text-transform: uppercase;
 }
 
 .role-section-header {
   margin-top: 2rem;
   margin-bottom: 0;
   font-family: $brand-font;
-  text-transform: uppercase;
   color: white;
 }
 
@@ -58,5 +55,4 @@ $xr-navy-lighter: #748cbe;
 
 .role-title {
   font-family: $brand-font;
-  text-transform: uppercase;
 }
