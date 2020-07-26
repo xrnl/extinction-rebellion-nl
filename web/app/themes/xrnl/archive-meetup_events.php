@@ -33,7 +33,6 @@ $args = array(
 	'orderby' => 'meta_value',
 	'meta_key' => 'event_start_date',
 	'order' => 'ASC',
-	's' => '-cancelled -afgelast',
 	'meta_query' => array(
 		array(
 			'key' => 'event_start_date', // Check the start date field
