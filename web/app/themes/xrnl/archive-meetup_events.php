@@ -4,7 +4,7 @@
  */
 
 // city query param
-$param_city = get_query_var('city');
+$param_city = stripslashes(get_query_var('city'));
 
 // city query
 $query_city = $param_city ? array(

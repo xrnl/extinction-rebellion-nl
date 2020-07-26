@@ -204,6 +204,7 @@ function event_cities() {
         'posts_per_page' => 1e9,
         'post_type' => 'meetup_events',
         'fields' => 'ids',
+        's' => '-cancelled -afgelast',
         'meta_query' => array(
             array(
                 'key' => 'event_start_date', // Check the start date field
@@ -224,7 +225,7 @@ function event_cities() {
         if ($venue == 'Online'){
             $city = 'Online';
         } elseif ($city == ''){
-            $city = $venue;
+            continue;
         }
         if (array_key_exists($city, $cities)) {
             $cities[$city]++;
