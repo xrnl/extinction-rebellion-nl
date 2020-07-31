@@ -4,7 +4,7 @@
  */
 
 // city query param
-$param_city = get_query_var('city');
+$param_city = stripslashes(get_query_var('city'));
 
 // city query
 $query_city = $param_city ? array(
@@ -33,7 +33,6 @@ $args = array(
 	'orderby' => 'meta_value',
 	'meta_key' => 'event_start_date',
 	'order' => 'ASC',
-	's' => '-cancelled -afgelast',
 	'meta_query' => array(
 		array(
 			'key' => 'event_start_date', // Check the start date field

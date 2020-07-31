@@ -224,7 +224,7 @@ function event_cities() {
         if ($venue == 'Online'){
             $city = 'Online';
         } elseif ($city == ''){
-            $city = $venue;
+            continue;
         }
         if (array_key_exists($city, $cities)) {
             $cities[$city]++;
