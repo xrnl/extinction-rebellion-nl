@@ -67,38 +67,42 @@ get_header(); ?>
 <div class="container my-5">
 	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city; ?></h1>
 
-	<?php if ($cities) { ?>
+	<?php if ($cities || $categories) { ?>
 		<form class="form-inline mt-4 flex-nowrap" method="get">
-			<label class="my-1 mr-2" for="city"><?php _e('Location') ?></label>
-			<input type="hidden" name="paged" value="1" />
-			<select name="city" class="custom-select my-1" id="city">
-				<option value=""><?php _e('All') ?></option>
-				<option disabled>──────</option>
-				<?php if (array_key_exists('Online', $cities)) { ?>
-					<option value='Online' <?php echo $param_city == 'Online' ? 'selected="selected"' : '' ?>>
-						Online (<?php echo $cities['Online'] ?>)
-					</option>
+			<?php if ($cities) { ?>
+				<label class="my-1 mr-2" for="city"><?php _e('Location') ?></label>
+				<input type="hidden" name="paged" value="1" />
+				<select name="city" class="custom-select my-1" id="city">
+					<option value=""><?php _e('All') ?></option>
 					<option disabled>──────</option>
-				<?php } ?>
-				<?php foreach ($cities as $city => $count) {
-					if ($city == 'Online') {
-						continue;
-					} ?>
-					<option value="<?php echo $city ?>" <?php echo $param_city == $city ? 'selected="selected"' : '' ?>>
-						<?php echo $city . ' (' . $count . ')' ?>
-					</option>
-				<?php } ?>
-			</select>
-			<label class="my-1 mx-2" for="category"><?php _e('Category') ?></label>
-			<select name="category" class="custom-select my-1" id="category">
-				<option value=""><?php _e('All') ?></option>
-				<option disabled>──────</option>
-				<?php foreach ($categories as $category => $count) { ?>
-					<option value="<?php echo $category ?>" <?php echo $param_category == $category ? 'selected="selected"' : '' ?>>
-						<?php echo $category . ' (' . $count . ')' ?>
-					</option>
-				<?php } ?>
-			</select>
+					<?php if (array_key_exists('Online', $cities)) { ?>
+						<option value='Online' <?php echo $param_city == 'Online' ? 'selected="selected"' : '' ?>>
+							Online (<?php echo $cities['Online'] ?>)
+						</option>
+						<option disabled>──────</option>
+					<?php } ?>
+					<?php foreach ($cities as $city => $count) {
+						if ($city == 'Online') {
+							continue;
+						} ?>
+						<option value="<?php echo $city ?>" <?php echo $param_city == $city ? 'selected="selected"' : '' ?>>
+							<?php echo $city . ' (' . $count . ')' ?>
+						</option>
+					<?php } ?>
+				</select>
+			<?php } ?>
+			<?php if ($categories) { ?>
+				<label class="my-1 mx-2" for="category"><?php _e('Category') ?></label>
+				<select name="category" class="custom-select my-1" id="category">
+					<option value=""><?php _e('All') ?></option>
+					<option disabled>──────</option>
+					<?php foreach ($categories as $category => $count) { ?>
+						<option value="<?php echo $category ?>" <?php echo $param_category == $category ? 'selected="selected"' : '' ?>>
+							<?php echo $category . ' (' . $count . ')' ?>
+						</option>
+					<?php } ?>
+				</select>
+			<?php } ?>
 			<button type="submit" class="btn btn-black ml-2">
 				<?php _e('Apply') ?>
 			</button>
