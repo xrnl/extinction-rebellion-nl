@@ -1,0 +1,277 @@
+$xr-black:       map-get($theme-colors, 'black');
+$xr-white:       map-get($theme-colors, 'white');
+$xr-primary:     map-get($theme-colors, 'primary');
+$xr-purple:      map-get($theme-colors, 'purple');
+$xr-lemon:       #f7ee6a;
+$xr-bright-pink: #cf6297;
+
+$hero-min-height: 400px;
+$logo-diameter: 200px;
+$logo-bg-diameter: 250px;
+$logo-bottom-shift: -50px;
+$logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diameter)/2 );
+
+.local-group {
+  .lg-hero-container {
+    background: $xr-lemon;
+    color: $xr-black;
+    position: relative;
+    min-height: $hero-min-height;
+    h1 {
+      z-index: 10;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    .lg-logo-bg {
+      width: $logo-bg-diameter;
+      height: $logo-bg-diameter;
+      background-color: $xr-white;
+      border-radius: 50%;
+      margin-top: 5rem;
+      position: absolute;
+      display: block;
+      bottom: $logo-bg-bottom-shift;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    .lg-logo {
+      width: $logo-diameter;
+      height: $logo-diameter;
+      clip-path: circle($logo-diameter/2 at center);
+      position: absolute;
+      bottom: $logo-bottom-shift;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    .bg-symbol {
+      display: block;
+      position: absolute;
+      bottom: 30px;
+      opacity: .9;
+      pointer-events: none;
+
+      svg,path {
+        width: auto;
+        z-index: 1;
+        height: $hero-min-height * .65;
+        @include media-breakpoint-down(lg) {
+          height: $hero-min-height * .5;
+        }
+        @include media-breakpoint-down(md) {
+          height: $hero-min-height * .35;
+        }
+        @include media-breakpoint-down(sm) {
+          display: none;
+        }
+      }
+
+      &.right {
+        right: 20px;
+        transform: scaleX(-1);
+        svg,path {
+          fill: $xr-bright-pink;
+        }
+      }
+      &.left {
+        left: 20px;
+        svg,path {
+          fill: $xr-purple;
+        }
+      }
+    }
+  }
+  #lg-navigation {
+    padding-top: $logo-bg-bottom-shift * -1;
+    background: $xr-white;
+    .nav-link {
+      font-family: $brand-font;
+      text-decoration: none;
+      &.active {
+        color: $xr-white;
+      }
+    }
+  }
+  .lg-section {
+    text-align: center;
+    padding-top: 3rem;
+    p {
+      text-align: justify;
+    }
+  }
+
+  .demands-list {
+    counter-reset: lg-demands-counter;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    .demands-item {
+      counter-increment: lg-demands-counter;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      &::before {
+        content: "0" counter(lg-demands-counter);
+        font-size: 3rem;
+        margin-right: 0.5rem;
+        font-family: $brand-font;
+        line-height: 1;
+      }
+      .demands-item-title {
+        font-family: $brand-font;
+      }
+      .demands-item-desc {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .actions-list {
+    .action-item {
+      margin-top: 1.2rem;
+      .action-item-title {
+        font-family: $brand-font;
+        font-size: 1.4rem;
+      }
+      .action-item-desc {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  #contact {
+    p {
+      text-align: center;
+    }
+  }
+
+  #channels {
+    p {
+      text-align: center;
+    }
+  }
+
+  #events {
+    p {
+      text-align: center;
+    }
+    .events-list {
+      text-align: left;
+      .events-list-item {
+        border-bottom: 1px solid $xr-black;
+        &:last-of-type {
+          border: none;
+          margin-bottom: 3rem;
+        }
+        margin-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        @include media-breakpoint-down(sm) {
+          flex-wrap: wrap;
+        }
+        .event-details {
+          flex-basis: 20%;
+          font-size: 1rem;
+          @include media-breakpoint-down(sm) {
+            flex-basis: 70%;
+            order: 2;
+          }
+          .event-date {
+            font-family: $brand-font;
+          }
+          .event-location {
+            font-size: 1.2rem;
+            .event-place {
+              font-weight: 900;
+            }
+            .event-venue {
+              font-weight: normal;
+              font-style: italic;
+            }
+          }
+
+        }
+        .event-description {
+          flex-basis: 70%;
+          padding: 0 1rem 0 1rem;
+          @include media-breakpoint-down(sm) {
+            flex-basis: 100%;
+            order: 1;
+            padding: 0 0 1rem 0;
+          }
+          .event-title {
+            font-family: $brand-font;
+            text-decoration: none;
+          }
+          .event-excerpt {
+            font-style: italic;
+            font-size: 1.1rem;
+          }
+        }
+        .event-btn {
+          flex-basis: 10%;
+          @include media-breakpoint-down(sm) {
+            flex-basis: 20%;
+            order: 3;
+          }
+        }
+      }
+    }
+  }
+
+  #positions {
+    p {
+      text-align: center;
+    }
+    .positions-list {
+      .positions-list-item {
+        padding: 1rem .2rem .5rem .2rem;
+        text-align: left;
+        border-bottom: 1px solid $xr-black;
+        .positions-info {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-end;
+          .time-commitment {
+            font-weight: 900;
+          }
+        }
+        &:last-of-type {
+          border: none;
+        }
+      }
+    }
+  }
+
+  #pictures {
+    .picture-gallery {
+      min-height: 80vh;
+    }
+    .owl-nav {
+      font-family: $brand-font;
+      font-size: 4rem;
+      .owl-prev, .owl-next {
+        margin: 0 1rem;
+        &:hover {
+          background: inherit;
+          color: $xr-primary;
+        }
+      }
+    }
+  }
+
+  .group-social-icons {
+    a {
+      &:hover {
+        color: $xr-primary;
+      }
+    }
+  }
+}

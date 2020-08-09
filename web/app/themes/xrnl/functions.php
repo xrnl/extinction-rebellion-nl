@@ -119,11 +119,11 @@ add_action('init', function(){
         'archives'              => __( 'Item Archives', 'text_domain' ),
         'attributes'            => __( 'Item Attributes', 'text_domain' ),
         'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
-        'all_items'             => __( 'All Items', 'text_domain' ),
-        'add_new_item'          => __( 'Add New Item', 'text_domain' ),
-        'add_new'               => __( 'Add New', 'text_domain' ),
+        'all_items'             => __( 'All groups', 'text_domain' ),
+        'add_new_item'          => __( 'New Community Group', 'text_domain' ),
+        'add_new'               => __( 'Add new group', 'text_domain' ),
         'new_item'              => __( 'New Item', 'text_domain' ),
-        'edit_item'             => __( 'Edit Item', 'text_domain' ),
+        'edit_item'             => __( 'Edit Group', 'text_domain' ),
         'update_item'           => __( 'Update Item', 'text_domain' ),
         'view_item'             => __( 'View Item', 'text_domain' ),
         'view_items'            => __( 'View Items', 'text_domain' ),
@@ -154,7 +154,8 @@ add_action('init', function(){
         'public'                => true,
         'show_ui'               => true,
         'show_in_menu'          => true,
-        'menu_position'         => 5,
+        'menu_position'         => 7,
+        'menu_icon'             => 'dashicons-heart',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'can_export'            => true,
@@ -165,6 +166,65 @@ add_action('init', function(){
         'capability_type'       => 'page',
     );
     register_post_type( 'community_group', $args );
+
+});
+
+add_action('init', function(){
+    $labels = array(
+        'name'                  => _x( 'Local Groups', 'Post Type General Name', 'text_domain' ),
+        'singular_name'         => _x( 'Local Group', 'Post Type Singular Name', 'text_domain' ),
+        'menu_name'             => __( 'Local Groups', 'text_domain' ),
+        'name_admin_bar'        => __( 'Local Groups', 'text_domain' ),
+        'archives'              => __( 'Item Archives', 'text_domain' ),
+        'attributes'            => __( 'Item Attributes', 'text_domain' ),
+        'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
+        'all_items'             => __( 'All local groups', 'text_domain' ),
+        'add_new_item'          => __( 'New Local Group', 'text_domain' ),
+        'add_new'               => __( 'Add new group', 'text_domain' ),
+        'new_item'              => __( 'New Item', 'text_domain' ),
+        'edit_item'             => __( 'Edit Group', 'text_domain' ),
+        'update_item'           => __( 'Update Item', 'text_domain' ),
+        'view_item'             => __( 'View Item', 'text_domain' ),
+        'view_items'            => __( 'View Items', 'text_domain' ),
+        'search_items'          => __( 'Search Item', 'text_domain' ),
+        'not_found'             => __( 'Not found', 'text_domain' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+        'featured_image'        => __( 'Featured Image', 'text_domain' ),
+        'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+        'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+        'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+        'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+        'items_list'            => __( 'Items list', 'text_domain' ),
+        'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+        'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+    );
+    $rewrite = array(
+        'slug'                  => 'local',
+        'with_front'            => true,
+        'pages'                 => true,
+        'feeds'                 => true,
+    );
+    $args = array(
+        'label'                 => __( 'Local Group', 'text_domain' ),
+        'labels'                => $labels,
+        'supports'              => array('title'),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 6,
+        'menu_icon'             => 'dashicons-groups',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => false,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'rewrite'               => $rewrite,
+        'capability_type'       => 'page',
+    );
+    register_post_type( 'local_group', $args );
 
 });
 
@@ -217,7 +277,7 @@ function event_cities() {
     $events = new WP_Query( $args );
     $cities = array();
 
-    while ( $events->have_posts() ) { 
+    while ( $events->have_posts() ) {
         $events->the_post();
         $city = get_post_meta( get_the_ID(), 'venue_city', true );
         $venue = get_post_meta( get_the_ID(), 'venue_address', true );
@@ -242,8 +302,8 @@ function vacancy_groups( $vacancies ) {
     $working_groups = array();
     $local_groups = array();
 
-    while ( $vacancies->have_posts() ) { 
-        $vacancies->the_post(); 
+    while ( $vacancies->have_posts() ) {
+        $vacancies->the_post();
         $role = json_decode(get_the_content());
         $working_groups[] = $role->workingGroup;
         $local_groups[] = $role->localGroup;
