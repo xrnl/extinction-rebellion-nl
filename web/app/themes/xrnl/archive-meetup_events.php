@@ -134,6 +134,13 @@ get_header(); ?>
 						$event_address = $venue_address;
 					}
 
+					$term_obj_list = get_the_terms(get_the_ID(), 'meetup_category');
+					if ($term_obj_list) {
+						$event_category = wp_list_pluck($term_obj_list, 'name')[0]; // get the primary category
+					} else {
+						$event_category = '';
+					}
+
 					$image_url =  array();
 					if ('' !== get_the_post_thumbnail()) {
 						$image_url =  wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'full');
@@ -156,9 +163,16 @@ get_header(); ?>
 											<a href="<?php echo esc_url(get_permalink()) ?>" rel="bookmark">
 												<?php the_title('<div class="event_title">', '</div>'); ?>
 											</a>
-											<?php if ($event_address != '') { ?>
-												<div class="event_address"><i class="fa fa-map-marker"></i> <?php echo $event_address; ?></div>
-											<?php }	?>
+											<?php if ($event_address || $event_category) { ?>
+												<div class="event_info">
+													<?php if ($event_category) { ?>
+														<span class="float-left"><?php echo $event_category; ?></span>
+													<?php }	?>
+													<?php if ($event_address) { ?>
+														<span class="float-right"><i class="fa fa-map-marker"></i> <?php echo $event_address; ?></span>
+													<?php }	?>
+												</div>
+											<?php } ?>
 										</div>
 										<div style="clear: both"></div>
 									</div>
