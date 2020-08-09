@@ -134,11 +134,11 @@ get_header(); ?>
 						$event_address = $venue_address;
 					}
 
-					$term_obj_list = get_the_terms(get_the_ID(), 'meetup_category');
+					$term_obj_list = get_the_terms(get_the_ID(), 'meetup_category'); //get the categories
 					if ($term_obj_list) {
-						$event_category = wp_list_pluck($term_obj_list, 'name')[0]; // get the primary category
+						$event_categories = join(', ', wp_list_pluck($term_obj_list, 'name')); //turn the categories into a nice string
 					} else {
-						$event_category = '';
+						$event_categories = '';
 					}
 
 					$image_url =  array();
@@ -163,13 +163,13 @@ get_header(); ?>
 											<a href="<?php echo esc_url(get_permalink()) ?>" rel="bookmark">
 												<?php the_title('<div class="event_title">', '</div>'); ?>
 											</a>
-											<?php if ($event_address || $event_category) { ?>
+											<?php if ($event_address || $event_categories) { ?>
 												<div class="event_info">
-													<?php if ($event_category) { ?>
-														<span class="float-left"><?php echo $event_category; ?></span>
+													<?php if ($event_categories) { ?>
+														<?php echo $event_categories; ?> -
 													<?php }	?>
 													<?php if ($event_address) { ?>
-														<span class="float-right"><i class="fa fa-map-marker"></i> <?php echo $event_address; ?></span>
+														<i class="fa fa-map-marker"></i> <?php echo $event_address; ?>
 													<?php }	?>
 												</div>
 											<?php } ?>
