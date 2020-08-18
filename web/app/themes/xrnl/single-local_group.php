@@ -13,10 +13,10 @@ get_header(); ?>
     // In development environment, allow reading from the
     // local filesystem without requiring a signed SSL certificate.
     $dev = $env === 'development';
-    $contextOptions=array(
-      "ssl"=>array(
-          "verify_peer"=> $dev ? false : true,
-          "allow_self_signed"=> $dev ? true : false
+    $contextOptions = array(
+      "ssl" => array(
+          "verify_peer" => $dev ? false : true,
+          "allow_self_signed" => $dev ? true : false
       ),
     );
     return stream_context_create($contextOptions);
@@ -54,25 +54,25 @@ get_header(); ?>
   function getLocalEvents()
   {
     $events_query = array(
-    	'posts_per_page' => 5,
-    	'paged' => 1,
-    	'post_type' => 'meetup_events',
-    	'orderby' => 'meta_value',
-    	'meta_key' => 'event_start_date',
-    	'order' => 'ASC',
-    	'meta_query' => array(
-    		array(
-    			'key' => 'event_start_date',
-    			'value' => date("Y-m-d"),
-    			'compare' => '>=',
-    			'type' => 'DATE'
+      'posts_per_page' => 5,
+      'paged' => 1,
+      'post_type' => 'meetup_events',
+      'orderby' => 'meta_value',
+      'meta_key' => 'event_start_date',
+      'order' => 'ASC',
+      'meta_query' => array(
+        array(
+          'key' => 'event_start_date',
+          'value' => date("Y-m-d"),
+          'compare' => '>=',
+          'type' => 'DATE'
         ),
         array(
-        	'key' => 'venue_city',
-        	'value' => get_field('place'),
-        	'compare' => '='
+          'key' => 'venue_city',
+          'value' => get_field('place'),
+          'compare' => '='
         )
-    	)
+      )
     );
     $events = new WP_Query($events_query);
     wp_reset_query();
@@ -84,12 +84,6 @@ get_header(); ?>
 <script src="/app/themes/xrnl/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css" />
-
-
-<script type="text/javascript">
-  jQuery(document).ready(function(){
-  });
-</script>
 
 <script type="text/javascript">
   const sections = ['about', 'demands', 'actions', 'channels', 'events', 'positions', 'pictures'];
