@@ -217,7 +217,7 @@ function event_cities() {
     $events = new WP_Query( $args );
     $cities = array();
 
-    while ( $events->have_posts() ) { 
+    while ( $events->have_posts() ) {
         $events->the_post();
         $city = get_post_meta( get_the_ID(), 'venue_city', true );
         $venue = get_post_meta( get_the_ID(), 'venue_address', true );
@@ -242,8 +242,8 @@ function vacancy_groups( $vacancies ) {
     $working_groups = array();
     $local_groups = array();
 
-    while ( $vacancies->have_posts() ) { 
-        $vacancies->the_post(); 
+    while ( $vacancies->have_posts() ) {
+        $vacancies->the_post();
         $role = json_decode(get_the_content());
         $working_groups[] = $role->workingGroup;
         $local_groups[] = $role->localGroup;
@@ -280,3 +280,73 @@ function excerpt($limit) {
     $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
     return $excerpt;
 }
+
+
+/**
+ * Grab events from database
+ *
+ * @param array $data None, city, category or both
+ * @return array Of events that satisfy the request
+ */
+function my_awesome_func( $data ) {
+  global $wpdb;
+  $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category, pm_city.meta_value as city, pm_address.meta_value as address
+            FROM {$wpdb->posts} p
+            LEFT JOIN {$wpdb->term_relationships} tr
+            ON tr.object_id = p.ID
+
+            LEFT JOIN {$wpdb->term_taxonomy} tt
+            ON tt.term_taxonomy_id = tr.term_taxonomy_id
+            AND tt.taxonomy = 'meetup_category'
+
+            LEFT JOIN {$wpdb->terms} t
+            ON t.term_id = tt.term_id
+
+            LEFT JOIN {$wpdb->postmeta} pm_city
+            ON p.ID = pm_city.post_id
+
+            LEFT JOIN {$wpdb->postmeta} pm_address
+            ON p.ID = pm_address.post_id
+
+            WHERE p.post_type = 'meetup_events'
+            AND pm_city.meta_key = 'venue_city'
+            AND pm_address.meta_key = 'venue_address'";
+
+    $params = [];
+    if($data['city'] != NULL)  {
+      if ($data['city'] == 'Online') {
+        $query = $query . " AND pm_address.meta_value = %s";
+        array_push($params, $data['city']);
+      } else {
+        $query = $query . " AND pm_city.meta_value = %s";
+        array_push($params, $data['city']);
+      }
+    }
+
+    if($data['category'] != NULL) {
+      $query = $query . " AND t.name = %s";
+      array_push($params, $data['category']);
+    }
+
+  $prepared_sql = $wpdb->prepare($query, ...$params);
+
+  $events = $wpdb->get_results($prepared_sql, OBJECT);
+
+  // $posts = get_posts( array(
+  //   'author' => $data['id'],
+  // ) );
+  //
+  // if ( empty( $posts ) ) {
+  //   return new WP_Error( 'no_author', 'Invalid author', array( 'status' => 404 ) );
+  // }
+  //
+  // return $posts[0]->post_title;
+  return $events;
+}
+
+add_action( 'rest_api_init', function () {
+  register_rest_route( 'events_api/v1', '/events/', array(
+    'methods' => 'GET',
+    'callback' => 'my_awesome_func',
+  ) );
+} );
