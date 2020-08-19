@@ -290,18 +290,48 @@ function excerpt($limit) {
  */
 function events_query( $data ) {
   global $wpdb;
+
+  $params = [];
+  $suffix = "";
+  if($data['city'] != NULL)  {
+    if ($data['city'] == 'Online') {
+      $suffix = $suffix . " AND pm_address.meta_value = %s";
+      //$query = $query . " AND pm_address.meta_value = %s";
+      array_push($params, $data['city']);
+    } else {
+      $suffix = $suffix . " AND pm_city.meta_value = %s";
+      //$query = $query . " AND pm_city.meta_value = %s";
+      array_push($params, $data['city']);
+    }
+  }
+
+  if($data['category'] != NULL) {
+    $suffix = $suffix . " AND t.name = %s";
+    array_push($params, $data['category']);
+  }
+
   $meta_query = "SELECT * FROM {$wpdb->postmeta} pm WHERE pm.post_id IN
-            (SELECT p.ID
-            FROM {$wpdb->posts} p
-            LEFT JOIN {$wpdb->term_relationships} tr
-            ON tr.object_id = p.ID
+                  (SELECT p.ID
+                  FROM {$wpdb->posts} p
+                  LEFT JOIN {$wpdb->term_relationships} tr
+                  ON tr.object_id = p.ID
 
-            LEFT JOIN {$wpdb->term_taxonomy} tt
-            ON tt.term_taxonomy_id = tr.term_taxonomy_id
-            AND tt.taxonomy = 'meetup_category'
+                  LEFT JOIN {$wpdb->term_taxonomy} tt
+                  ON tt.term_taxonomy_id = tr.term_taxonomy_id
+                  AND tt.taxonomy = 'meetup_category'
 
-            LEFT JOIN {$wpdb->terms} t
-            ON t.term_id = tt.term_id)";
+                  LEFT JOIN {$wpdb->terms} t
+                  ON t.term_id = tt.term_id
+
+                  LEFT JOIN {$wpdb->postmeta} pm_city
+                  ON p.ID = pm_city.post_id
+
+                  LEFT JOIN {$wpdb->postmeta} pm_address
+                  ON p.ID = pm_address.post_id
+
+                  WHERE p.post_type = 'meetup_events'
+                  AND pm_city.meta_key = 'venue_city'
+                  AND pm_address.meta_key = 'venue_address' {$suffix})";
 
   $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category
             FROM {$wpdb->posts} p
@@ -321,29 +351,15 @@ function events_query( $data ) {
             LEFT JOIN {$wpdb->postmeta} pm_address
             ON p.ID = pm_address.post_id
 
-            WHERE p.post_type = 'meetup_events'";
+            WHERE p.post_type = 'meetup_events'
+            AND pm_city.meta_key = 'venue_city'
+            AND pm_address.meta_key = 'venue_address'{$suffix}";
 
-
-    $params = [];
-    if($data['city'] != NULL)  {
-      if ($data['city'] == 'Online') {
-        $query = $query . " AND pm_address.meta_value = %s";
-        array_push($params, $data['city']);
-      } else {
-        $query = $query . " AND pm_city.meta_value = %s";
-        array_push($params, $data['city']);
-      }
-    }
-
-    if($data['category'] != NULL) {
-      $query = $query . " AND t.name = %s";
-      array_push($params, $data['category']);
-    }
-
-   $prepared_sql = $wpdb->prepare($query, ...$params);
+  $prepared_sql = $wpdb->prepare($query, ...$params);
+  $prepared_meta = $wpdb->prepare($meta_query, ...$params);
 
   $events = $wpdb->get_results($prepared_sql, OBJECT);
-  $metas = $wpdb->get_results($wpdb->prepare($meta_query));
+  $metas = $wpdb->get_results($prepared_meta, OBJECT);
 
   $metas_by_id = array();
   foreach($metas as $meta) {
@@ -409,7 +425,6 @@ function insert_event($data) {
     'post_author' => 50,
   );
   $err = wp_insert_post($post, true);
-
   return $err;
 }
 
