@@ -324,28 +324,6 @@ function events_query( $data ) {
             WHERE p.post_type = 'meetup_events'";
 
 
-            // $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category, pm_city.meta_value as city, pm_address.meta_value as address
-            //           FROM {$wpdb->posts} p
-            //           LEFT JOIN {$wpdb->term_relationships} tr
-            //           ON tr.object_id = p.ID
-            //
-            //           LEFT JOIN {$wpdb->term_taxonomy} tt
-            //           ON tt.term_taxonomy_id = tr.term_taxonomy_id
-            //           AND tt.taxonomy = 'meetup_category'
-            //
-            //           LEFT JOIN {$wpdb->terms} t
-            //           ON t.term_id = tt.term_id
-            //
-            //           LEFT JOIN {$wpdb->postmeta} pm_city
-            //           ON p.ID = pm_city.post_id
-            //
-            //           LEFT JOIN {$wpdb->postmeta} pm_address
-            //           ON p.ID = pm_address.post_id
-            //
-            //           WHERE p.post_type = 'meetup_events'
-            //           AND pm_city.meta_key = 'venue_city'
-            //           AND pm_address.meta_key = 'venue_address'";
-
     $params = [];
     if($data['city'] != NULL)  {
       if ($data['city'] == 'Online') {
@@ -385,35 +363,35 @@ function events_query( $data ) {
   }
 
   return $events;
-  //return $metas_by_id[$events[0]->id];
 }
 
 
 /**
  * Insert event into  database
+ * For now, all data must be suppplied as form-data
 */
 function insert_event($data) {
-  $start_date = new DateTime($data['start_date']);//new DateTime('2020-09-18 09:00:00');
-  $end_date = new DateTime($data['end_date']);//new DateTime('2020-09-21 18:30:00');
+  $start_date = new DateTime($data['start_date']);
+  $end_date = new DateTime($data['end_date']);
 
   $post = array(
     'post_title' => $data['title'],
-    'post_content' => $data['content'],//<h2>JESSE</h2><p>Allemaal data</p>',
+    'post_content' => $data['content'],
     //'post_date_gmt' => '2020-08-19 00:00:00',
     'post_status' => 'publish',
     'post_type' => 'meetup_events',
     'meta_input' => array(
-      'venue_name' => $data['venue_name'],//'Centraal Station',
-      'venue_city' => $data['venue_city'],//'Enschede',
-      'venue_address' => $data['venue_address'],//'Stationsplein 1',
+      'venue_name' => $data['venue_name'],
+      'venue_city' => $data['venue_city'],
+      'venue_address' => $data['venue_address'],
       'venue_state' => $data['venue_state'],
-      'venue_country' => $data['venue_country'],//'Nederland',
+      'venue_country' => $data['venue_country'],
       'venue_zipcode' => $data['venue_zipcode'],
-      'venue_lat' => $data['venue_lat'],//52.2223649,
-      'venue_lon' => $data['venue_lon'],//6.8897811,
+      'venue_lat' => $data['venue_lat'],
+      'venue_lon' => $data['venue_lon'],
       'venue_url' => $data['venue_url'],
-      'organizer_name' => $data['organizer_name'],//'Jesse',
-      'organizer_email' => $data['organizer_email'],//jesse@xr.nl',
+      'organizer_name' => $data['organizer_name'],
+      'organizer_email' => $data['organizer_email'],
       'organizer_phone' => $data['organizer_phone'],
       'organizer_url' => $data['organizer_url'],
       'event_start_date' => $start_date->format('Y-m-d'),
