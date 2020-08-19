@@ -425,6 +425,10 @@ function insert_event($data) {
     'post_author' => 50,
   );
   $err = wp_insert_post($post, true);
+
+  if(!is_wp_error($err)) {
+    wp_set_object_terms($err, $data['category'], 'meetup_category');
+  }
   return $err;
 }
 
