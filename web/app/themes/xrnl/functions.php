@@ -288,9 +288,22 @@ function excerpt($limit) {
  * @param array $data None, city, category or both
  * @return array Of events that satisfy the request
  */
-function my_awesome_func( $data ) {
+function events_query( $data ) {
   global $wpdb;
-  $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category, pm_city.meta_value as city, pm_address.meta_value as address
+  $meta_query = "SELECT * FROM {$wpdb->postmeta} pm WHERE pm.post_id IN
+            (SELECT p.ID
+            FROM {$wpdb->posts} p
+            LEFT JOIN {$wpdb->term_relationships} tr
+            ON tr.object_id = p.ID
+
+            LEFT JOIN {$wpdb->term_taxonomy} tt
+            ON tt.term_taxonomy_id = tr.term_taxonomy_id
+            AND tt.taxonomy = 'meetup_category'
+
+            LEFT JOIN {$wpdb->terms} t
+            ON t.term_id = tt.term_id)";
+
+  $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category
             FROM {$wpdb->posts} p
             LEFT JOIN {$wpdb->term_relationships} tr
             ON tr.object_id = p.ID
@@ -308,9 +321,30 @@ function my_awesome_func( $data ) {
             LEFT JOIN {$wpdb->postmeta} pm_address
             ON p.ID = pm_address.post_id
 
-            WHERE p.post_type = 'meetup_events'
-            AND pm_city.meta_key = 'venue_city'
-            AND pm_address.meta_key = 'venue_address'";
+            WHERE p.post_type = 'meetup_events'";
+
+
+            // $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category, pm_city.meta_value as city, pm_address.meta_value as address
+            //           FROM {$wpdb->posts} p
+            //           LEFT JOIN {$wpdb->term_relationships} tr
+            //           ON tr.object_id = p.ID
+            //
+            //           LEFT JOIN {$wpdb->term_taxonomy} tt
+            //           ON tt.term_taxonomy_id = tr.term_taxonomy_id
+            //           AND tt.taxonomy = 'meetup_category'
+            //
+            //           LEFT JOIN {$wpdb->terms} t
+            //           ON t.term_id = tt.term_id
+            //
+            //           LEFT JOIN {$wpdb->postmeta} pm_city
+            //           ON p.ID = pm_city.post_id
+            //
+            //           LEFT JOIN {$wpdb->postmeta} pm_address
+            //           ON p.ID = pm_address.post_id
+            //
+            //           WHERE p.post_type = 'meetup_events'
+            //           AND pm_city.meta_key = 'venue_city'
+            //           AND pm_address.meta_key = 'venue_address'";
 
     $params = [];
     if($data['city'] != NULL)  {
@@ -328,25 +362,86 @@ function my_awesome_func( $data ) {
       array_push($params, $data['category']);
     }
 
-  $prepared_sql = $wpdb->prepare($query, ...$params);
+   $prepared_sql = $wpdb->prepare($query, ...$params);
 
   $events = $wpdb->get_results($prepared_sql, OBJECT);
+  $metas = $wpdb->get_results($wpdb->prepare($meta_query));
 
-  // $posts = get_posts( array(
-  //   'author' => $data['id'],
-  // ) );
-  //
-  // if ( empty( $posts ) ) {
-  //   return new WP_Error( 'no_author', 'Invalid author', array( 'status' => 404 ) );
-  // }
-  //
-  // return $posts[0]->post_title;
+  $metas_by_id = array();
+  foreach($metas as $meta) {
+    if($metas_by_id[$meta->post_id]) {
+      $metas_by_id[$meta->post_id][$meta->meta_key] = $meta->meta_value;
+    } else {
+      $metas_by_id[$meta->post_id] = array($meta->meta_key => $meta->meta_value);
+    }
+  }
+
+  foreach($events as $event) {
+    $single_metas = $metas_by_id[$event->id];
+    $event->meta = $single_metas;
+    // foreach($single_metas as $meta_key => $meta_value) {
+    //   $event->{$meta_key} = $meta_value;
+    // }
+  }
+
   return $events;
+  //return $metas_by_id[$events[0]->id];
+}
+
+
+/**
+ * Insert event into  database
+*/
+function insert_event($data) {
+  $start_date = new DateTime($data['start_date']);//new DateTime('2020-09-18 09:00:00');
+  $end_date = new DateTime($data['end_date']);//new DateTime('2020-09-21 18:30:00');
+
+  $post = array(
+    'post_title' => $data['title'],
+    'post_content' => $data['content'],//<h2>JESSE</h2><p>Allemaal data</p>',
+    //'post_date_gmt' => '2020-08-19 00:00:00',
+    'post_status' => 'publish',
+    'post_type' => 'meetup_events',
+    'meta_input' => array(
+      'venue_name' => $data['venue_name'],//'Centraal Station',
+      'venue_city' => $data['venue_city'],//'Enschede',
+      'venue_address' => $data['venue_address'],//'Stationsplein 1',
+      'venue_state' => $data['venue_state'],
+      'venue_country' => $data['venue_country'],//'Nederland',
+      'venue_zipcode' => $data['venue_zipcode'],
+      'venue_lat' => $data['venue_lat'],//52.2223649,
+      'venue_lon' => $data['venue_lon'],//6.8897811,
+      'venue_url' => $data['venue_url'],
+      'organizer_name' => $data['organizer_name'],//'Jesse',
+      'organizer_email' => $data['organizer_email'],//jesse@xr.nl',
+      'organizer_phone' => $data['organizer_phone'],
+      'organizer_url' => $data['organizer_url'],
+      'event_start_date' => $start_date->format('Y-m-d'),
+      'event_start_hour' => $start_date->format('h'),
+      'event_start_minute' => $start_date->format('i'),
+      'event_start_meridian' => $start_date->format('a'),
+      'event_end_date' =>  $end_date->format('Y-m-d'),
+      'event_end_hour' => $end_date->format('h'),
+      'event_end_minute' => $end_date->format('i'),
+      'event_end_meridian' => $end_date->format('a'),
+      'start_ts' => date_timestamp_get($start_date),
+      'end_ts' => date_timestamp_get($end_date),
+      '_thumbnail_id' => $data['thumbnail_id']
+    ),
+    'post_author' => 50,
+  );
+  $err = wp_insert_post($post, true);
+
+  return $err;
 }
 
 add_action( 'rest_api_init', function () {
   register_rest_route( 'events_api/v1', '/events/', array(
     'methods' => 'GET',
-    'callback' => 'my_awesome_func',
+    'callback' => 'events_query',
+  ) );
+  register_rest_route( 'events_api/v1', '/events/', array(
+    'methods' => 'POST',
+    'callback' => 'insert_event',
   ) );
 } );
