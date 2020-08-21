@@ -224,7 +224,7 @@ function event_cities() {
         if ($venue == 'Online'){
             $city = 'Online';
         } elseif ($city == ''){
-            $city = $venue;
+            continue;
         }
         if (array_key_exists($city, $cities)) {
             $cities[$city]++;
@@ -235,6 +235,49 @@ function event_cities() {
     ksort($cities);
 
     return $cities;
+}
+
+// Get Distinct Event categories
+function event_categories() {
+    $args = array(
+        'posts_per_page' => 1e9,
+        'post_type' => 'meetup_events',
+        'fields' => 'ids',
+        'meta_query' => array(
+            array(
+                'key' => 'event_start_date', // Check the start date field
+                'value' => date("Y-m-d"), // Set today's date (note the similar format)
+                'compare' => '>=', // Return the ones greater than today's date
+                'type' => 'DATE' // Let WordPress know we're working with date
+            )
+        )
+    );
+
+    $events = new WP_Query( $args );
+
+    $categories = array();
+    while ( $events->have_posts() ) { 
+        $events->the_post();
+
+        $term_obj_list = get_the_terms(get_the_ID(), 'meetup_category');
+        if($term_obj_list) {
+            $post_categories = wp_list_pluck($term_obj_list, 'name');
+        } else {
+            continue;
+        }
+
+
+        foreach($post_categories as $post_category) {
+            if(array_key_exists($post_category, $categories)) {
+                $categories[$post_category]++;
+            } else {
+                $categories[$post_category] = 1;
+            }
+        }
+    }
+    ksort($categories);
+
+    return $categories;
 }
 
 // Get Distinct Vacancy working and local groups
@@ -263,6 +306,7 @@ function vacancy_groups( $vacancies ) {
 
 function xrnl_query_vars( $qvars ) {
     $qvars[] = 'city';
+    $qvars[] = 'category';
     $qvars[] = 'working_group';
     $qvars[] = 'local_group';
     return $qvars;
