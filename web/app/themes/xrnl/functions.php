@@ -422,7 +422,6 @@ function insert_event($data) {
       'end_ts' => date_timestamp_get($end_date),
       '_thumbnail_id' => $data['thumbnail_id']
     ),
-    'post_author' => 50,
   );
   $err = wp_insert_post($post, true);
 
@@ -432,13 +431,43 @@ function insert_event($data) {
   return $err;
 }
 
+add_filter( 'rest_authentication_errors', function( $result ) {
+    // If a previous authentication check was applied,
+    // pass that result along without modification.
+    if ( true === $result || is_wp_error( $result ) ) {
+        return $result;
+    }
+
+    // No authentication has been performed yet.
+    // Return an error if user is not logged in.
+    if ( ! is_user_logged_in() ) {
+        return new WP_Error(
+            'rest_not_logged_in',
+            __( 'You are not currently logged in.' ),
+            array( 'status' => 401 )
+        );
+    }
+
+    // Our custom authentication check should have no effect
+    // on logged-in requests
+    return $result;
+});
+
 add_action( 'rest_api_init', function () {
   register_rest_route( 'events_api/v1', '/events/', array(
     'methods' => 'GET',
     'callback' => 'events_query',
+    // 'permission_callback' => function () {
+    //   //return current_user_can( 'read_private_posts' );
+    //   return is_user_logged_in();
+    // }
   ) );
   register_rest_route( 'events_api/v1', '/events/', array(
     'methods' => 'POST',
     'callback' => 'insert_event',
+    // 'permission_callback' => function () {
+    //   //return current_user_can( 'publish_posts' );
+    //   return is_user_logged_in();
+    // }
   ) );
 } );
