@@ -110,6 +110,8 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
     text-align: left;
     .demands-item {
       counter-increment: lg-demands-counter;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
       flex-direction: column;
       margin-bottom: 1rem;
@@ -168,6 +170,8 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
         }
         margin-top: 1.5rem;
         padding-bottom: 1.5rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -235,6 +239,8 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
         text-align: left;
         border-bottom: 1px solid $xr-black;
         .positions-info {
+          display: -webkit-box;
+          display: -ms-flexbox;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
