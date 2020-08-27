@@ -47,7 +47,7 @@ $args = array(
 );
 // push the taxonomy search if the category parameter is found:
 if ($param_category) {
-	// $query_category = 
+	// $query_category =
 	$args['tax_query'] = array(
 		array(
 			'taxonomy' => 'meetup_category',
@@ -207,9 +207,9 @@ get_header(); ?>
 					</ul>
 				<?php endif ?>
 			</nav>
-			<?php _e('Check', 'theme-xrnl') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> <?php _e('or', 'theme-xrnl') ?> <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a> <?php _e('for the latest events', 'theme-xrnl') ?>.
+			<?php _e('Check', 'theme-xrnl') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> <?php _e('for the latest events', 'theme-xrnl') ?>.
 		<?php else :
-			_e('Looks like there are no events, try clearing the filter and make sure to check') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> <?php _e('or', 'theme-xrnl') ?> <a href="https://www.meetup.com/Extinction-Rebellion-NL/events/" target="_blank">Meetup</a>.
+			_e('Looks like there are no events, try clearing the filter and make sure to check') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a>.
 		<?php endif; ?>
 	</div>
 </div>
