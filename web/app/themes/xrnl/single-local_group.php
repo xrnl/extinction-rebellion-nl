@@ -16,6 +16,7 @@ get_header(); ?>
     $contextOptions = array(
       "ssl" => array(
           "verify_peer" => $dev ? false : true,
+          "verify_peer_name" => $dev ? false : true,
           "allow_self_signed" => $dev ? true : false
       ),
     );
@@ -23,7 +24,7 @@ get_header(); ?>
   }
 
   $bg_symbol = file_get_contents(get_template_directory_uri() . '/assets/images/bird.svg', false, getContext(WP_ENV));
-  $logo_url = get_field('logo') ?: get_template_directory_uri() . '/assets/images/XR-symbol.svg' ;
+  $logo_url = get_field('logo') ?: get_template_directory_uri() . '/assets/images/XR-symbol.svg';
 
   function getSection($section_id) {
     return (object) get_field($section_id);
@@ -80,7 +81,7 @@ get_header(); ?>
   }
 ?>
 
-<script src="/app/themes/xrnl/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- <script src="/app/themes/xrnl/node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
 <script src="/app/themes/xrnl/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css" />
