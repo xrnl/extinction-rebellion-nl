@@ -311,7 +311,7 @@
                     "key": "field_5f232ff2602e6",
                     "label": "Content",
                     "name": "content",
-                    "type": "wysiwyg",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -321,11 +321,28 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0,
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
                     "wpml_cf_preferences": 0
+                },
+                {
+                    "key": "field_5f478d570a024",
+                    "label": "Picture",
+                    "name": "picture_url",
+                    "type": "url",
+                    "instructions": "Full URL of the picture in the Wordpress media library.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         },
@@ -549,7 +566,7 @@
                             "key": "field_5f24f69e3f410",
                             "label": "Description",
                             "name": "description",
-                            "type": "wysiwyg",
+                            "type": "textarea",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -559,10 +576,27 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0,
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": "",
+                            "new_lines": "",
+                            "wpml_cf_preferences": 0
+                        },
+                        {
+                            "key": "field_5f478e018a629",
+                            "label": "Picture",
+                            "name": "picture_url",
+                            "type": "url",
+                            "instructions": "Full URL of the picture in the Wordpress media library.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
                             "wpml_cf_preferences": 0
                         }
                     ]
@@ -957,5 +991,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598524205
+    "modified": 1598525135
 }

@@ -208,6 +208,9 @@ get_header(); ?>
           <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
             <h1><?php echo($section->heading); ?></h1>
             <p><?php echo($section->content); ?></p>
+            <?php if (!empty($section->picture_url)) : ?>
+              <img src="<?php echo($section->picture_url); ?>" alt="Extinction Rebellion <?php the_field('group_name'); ?>">
+            <?php endif; ?>
           </div>
         </div>
       </section>
@@ -246,6 +249,9 @@ get_header(); ?>
                 <div class="action-item">
                   <h5 class="action-item-title"><?php echo($action['title']); ?></h5>
                   <p class="action-item-desc"><?php echo($action['description']); ?></p>
+                  <?php if (isset($action['picture_url'])) : ?>
+                    <img src="<?php echo($action['picture_url']); ?>" alt="Extinction Rebellion <?php the_field('group_name'); ?>">
+                  <?php endif; ?>
                 </div>
                 <?php endforeach; ?>
               </div>
