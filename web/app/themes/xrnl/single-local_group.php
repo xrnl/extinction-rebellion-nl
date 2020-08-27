@@ -55,7 +55,7 @@ get_header(); ?>
   function getLocalEvents()
   {
     $events_query = array(
-      'posts_per_page' => 5,
+      'posts_per_page' => null,
       'paged' => 1,
       'post_type' => 'meetup_events',
       'orderby' => 'meta_value',
@@ -318,9 +318,6 @@ get_header(); ?>
               </div>
 
               <?php wp_reset_query(); ?>
-              <a class="btn btn-lg btn-black" href="<?php echo get_permalink(apply_filters('wpml_object_id', 548, 'post', true)) ?>">
-                <?php _e('VIEW ALL EVENTS') ?>
-              </a>
             </div>
           </div>
         </section>
