@@ -38,7 +38,7 @@ get_header(); ?>
     ]);
     $local_roles = array();
     $n_local_roles = 0;
-    $group_name = strtolower('XR ' . get_field('place'));
+    $group_name = strtolower('XR ' . get_field('group_name'));
 
     foreach ($vacancies->posts as $post) {
       $role = json_decode($post->post_content);
@@ -81,7 +81,7 @@ get_header(); ?>
   }
 ?>
 
-<!-- <script src="/app/themes/xrnl/node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<script src="/app/themes/xrnl/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/app/themes/xrnl/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css" />
@@ -122,7 +122,7 @@ get_header(); ?>
 <div class="local-group">
 
   <div class="lg-hero-container px-3 py-5 pb-5 text-center">
-    <h1 class="display-2">XR <?php the_field('place'); ?></h1>
+    <h1 class="display-2">XR <?php echo preg_replace('/\//', '/ ', get_field('group_name')); ?></h1>
     <div class="bg-symbol left">
       <?php echo $bg_symbol; ?>
     </div>
@@ -131,7 +131,7 @@ get_header(); ?>
     </div>
     <div class="lg-logo-bg">
     </div>
-    <img class="lg-logo" src="<?php echo $logo_url ?>" alt="Extinction Rebellion <?php the_field('place'); ?> logo">
+    <img class="lg-logo" src="<?php echo $logo_url ?>" alt="Extinction Rebellion <?php the_field('group_name'); ?> logo">
   </div>
 
   <nav id="lg-navigation" role="navigation" aria-label="Local group secondary">
@@ -363,7 +363,7 @@ get_header(); ?>
             <?php if (is_array($section->picture_gallery)) : ?>
               <div class="owl-carousel owl-theme">
                 <?php foreach ($section->picture_gallery as $picture) : ?>
-                  <img src="<?php echo($picture['image_url']); ?>" alt="Extinction Rebellion <?php the_field('place'); ?>">
+                  <img src="<?php echo($picture['image_url']); ?>" alt="Extinction Rebellion <?php the_field('group_name'); ?>">
                 <?php endforeach; ?>
               </div>
             <?php endif; ?>
