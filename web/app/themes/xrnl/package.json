@@ -23,5 +23,7 @@
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.5.21"
     },
-    "dependencies": {}
+    "dependencies": {
+        "owl.carousel": "^2.3.4"
+    }
 }
