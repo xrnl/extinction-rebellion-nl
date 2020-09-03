@@ -207,9 +207,13 @@ get_header(); ?>
 					</ul>
 				<?php endif ?>
 			</nav>
-			<?php _e('Check', 'theme-xrnl') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a> <?php _e('for the latest events', 'theme-xrnl') ?>.
-		<?php else :
-			_e('Looks like there are no events, try clearing the filter and make sure to check') ?> <a href="https://www.facebook.com/ExtinctionRebellionNL/events/" target="_blank">Facebook</a>.
+		<?php else : ?>
+			<div class="text-center mt-5 pt-5">
+				<p>
+					<?php _e('Looks like there are no events, try clearing the filters.', 'theme-xrnl'); ?>
+				</p>
+				<a class="btn btn-black" href="<?php the_permalink(apply_filters('wpml_object_id', 548, 'page', true)) ?>"><?php _e('Clear filters', 'theme-xrnl'); ?></a>
+			</div>
 		<?php endif; ?>
 	</div>
 </div>
