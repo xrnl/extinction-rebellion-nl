@@ -1,5 +1,6 @@
 <?PHP
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+include_once(ABSPATH . 'wp-admin/includes/image.php' );
 
 add_theme_support("post-thumbnails");
 add_theme_support("custom-logo");
@@ -428,6 +429,47 @@ function events_query( $data ) {
 }
 
 
+function get_event($data) {
+  global $wpdb;
+
+  $meta_query = "SELECT * FROM {$wpdb->postmeta} pm WHERE pm.post_id = %s";
+
+  $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category
+            FROM {$wpdb->posts} p
+            LEFT JOIN {$wpdb->term_relationships} tr
+            ON tr.object_id = p.ID
+
+            LEFT JOIN {$wpdb->term_taxonomy} tt
+            ON tt.term_taxonomy_id = tr.term_taxonomy_id
+            AND tt.taxonomy = 'meetup_category'
+
+            LEFT JOIN {$wpdb->terms} t
+            ON t.term_id = tt.term_id
+
+            WHERE p.ID = %s";
+
+  $prepared_sql = $wpdb->prepare($query, $data['id']);
+  $prepared_meta = $wpdb->prepare($meta_query, $data['id']);
+
+  $event = $wpdb->get_results($prepared_sql, OBJECT);
+  $metas = $wpdb->get_results($prepared_meta, OBJECT);
+
+  foreach($metas as $meta) {
+    if($event['meta'] != NULL) {
+      $event['meta'][$meta->meta_key] = $meta->meta_value;
+    } else {
+      $event['meta'] = array($meta->meta_key => $meta->meta_value);
+    }
+  }
+
+
+  // foreach($single_metas as $meta_key => $meta_value) {
+  //   $event->{$meta_key} = $meta_value;
+  // }
+
+  return $event;
+}
+
 /**
  * Insert event into  database
  * For now, all data must be suppplied as form-data
@@ -470,12 +512,56 @@ function insert_event($data) {
       'facebook_id' => $data['facebook_id']
     ),
   );
+
+  if($data['picture_url'] != NULL) {
+    $attach_id = uploadPicture($data['picture_url'], $data['title']);
+    $post['meta_input']['_thumbnail_id'] = $attach_id;
+  }
+
   $err = wp_insert_post($post, true);
 
   if(!is_wp_error($err)) {
     wp_set_object_terms($err, $data['category'], 'meetup_category');
   }
   return $err;
+}
+
+function uploadPicture($url, $title) {
+  $extension = '.png';
+  $mimeType = 'image/png';
+
+  if(strripos($url, '.jpg') > 0) {
+    $extension = '.jpg';
+    $mimeType = 'image/jpeg';
+  }
+
+
+  $filename = $title . '_cover' . $extension;
+  $uploaddir = wp_upload_dir();
+  $uploadfile = $uploaddir['path'] . '/' . $filename;
+  $contents= file_get_contents($url);
+  $savefile = fopen($uploadfile, 'w');
+  fwrite($savefile, $contents);
+  fclose($savefile);
+
+  $attachment = array(
+      'post_mime_type' =>$mimeType,
+      'post_title' => $filename,
+      'post_content' => '',
+      'post_status' => 'inherit'
+  );
+
+  $attach_id = wp_insert_attachment( $attachment, $uploadfile );
+
+  $imagenew = get_post( $attach_id );
+
+  $fullsizepath = get_attached_file( $imagenew->ID );
+
+  //print $fullsizepath;
+   $attach_data = wp_generate_attachment_metadata( $attach_id, $fullsizepath );
+   wp_update_attachment_metadata( $attach_id, $attach_data );
+
+   return $attach_id;
 }
 
 /**
@@ -493,6 +579,11 @@ function update_event($data) {
     'ID' => $data['id'],
     'meta_input' => array()
   );
+
+  if($data['picture_url'] != NULL){
+    $attach_id = uploadPicture($data['picture_url'], $data['title']);
+    $post['meta_input']['_thumbnail_id'] = $attach_id;
+  }
 
   if($data['title'] != NULL) {
     $post['post_title'] = $data['title'];
@@ -594,6 +685,14 @@ add_action( 'rest_api_init', function () {
   register_rest_route( 'events_api/v1', '/events/', array(
     'methods' => 'GET',
     'callback' => 'events_query',
+    // 'permission_callback' => function () {
+    //   //return current_user_can( 'read_private_posts' );
+    //   return is_user_logged_in();
+    // }
+  ) );
+  register_rest_route( 'events_api/v1', '/events/(?P<id>\d+)', array(
+    'methods' => 'GET',
+    'callback' => 'get_event',
     // 'permission_callback' => function () {
     //   //return current_user_can( 'read_private_posts' );
     //   return is_user_logged_in();
