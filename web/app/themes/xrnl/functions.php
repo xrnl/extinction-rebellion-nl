@@ -256,7 +256,7 @@ function event_categories() {
     $events = new WP_Query( $args );
 
     $categories = array();
-    while ( $events->have_posts() ) { 
+    while ( $events->have_posts() ) {
         $events->the_post();
 
         $term_obj_list = get_the_terms(get_the_ID(), 'meetup_category');
@@ -375,7 +375,8 @@ function events_query( $data ) {
 
                   WHERE p.post_type = 'meetup_events'
                   AND pm_city.meta_key = 'venue_city'
-                  AND pm_address.meta_key = 'venue_address' {$suffix})";
+                  AND pm_address.meta_key = 'venue_address' {$suffix}
+                  AND p.post_status = 'publish')";
 
   $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category
             FROM {$wpdb->posts} p
@@ -397,7 +398,8 @@ function events_query( $data ) {
 
             WHERE p.post_type = 'meetup_events'
             AND pm_city.meta_key = 'venue_city'
-            AND pm_address.meta_key = 'venue_address'{$suffix}";
+            AND pm_address.meta_key = 'venue_address'{$suffix}
+            AND p.post_status = 'publish'";
 
   $prepared_sql = $wpdb->prepare($query, ...$params);
   $prepared_meta = $wpdb->prepare($meta_query, ...$params);
@@ -464,12 +466,103 @@ function insert_event($data) {
       'event_end_meridian' => $end_date->format('a'),
       'start_ts' => date_timestamp_get($start_date),
       'end_ts' => date_timestamp_get($end_date),
-      '_thumbnail_id' => $data['thumbnail_id']
+      '_thumbnail_id' => $data['thumbnail_id'],
+      'facebook_id' => $data['facebook_id']
     ),
   );
   $err = wp_insert_post($post, true);
 
   if(!is_wp_error($err)) {
+    wp_set_object_terms($err, $data['category'], 'meetup_category');
+  }
+  return $err;
+}
+
+/**
+ * Update existing event in the  database
+ * For now, all data must be suppplied as form-data
+*/
+function update_event($data) {
+  //$data = $request->get_json_params();
+  // print var_dump($data);
+
+  $start_date = new DateTime($data['start_date']);
+  $end_date = new DateTime($data['end_date']);
+
+  $post = array(
+    'ID' => $data['id'],
+    'meta_input' => array()
+  );
+
+  if($data['title'] != NULL) {
+    $post['post_title'] = $data['title'];
+  }
+  if($data['content'] != NULL) {
+    $post['post_content'] = $data['content'];
+  }
+  if($data['venue_name'] != NULL) {
+    $post['meta_input']['venue_name'] = $data['venue_name'];
+  }
+  if($data['venue_city'] != NULL) {
+    $post['meta_input']['venue_city'] = $data['venue_city'];
+  }
+  if($data['venue_address'] != NULL) {
+    $post['meta_input']['venue_address'] = $data['venue_address'];
+  }
+  if($data['venue_state'] != NULL) {
+    $post['meta_input']['venue_state'] = $data['venue_state'];
+  }
+  if($data['venue_country'] != NULL) {
+    $post['meta_input']['venue_country'] = $data['venue_country'];
+  }
+  if($data['venue_zipcode'] != NULL) {
+    $post['meta_input']['venue_zipcode'] = $data['venue_zipcode'];
+  }
+  if($data['venue_lat'] != NULL) {
+    $post['meta_input']['venue_lat'] = $data['venue_lat'];
+  }
+  if($data['venue_lon'] != NULL) {
+    $post['meta_input']['venue_lon'] = $data['venue_lon'];
+  }
+  if($data['venue_url'] != NULL) {
+    $post['meta_input']['venue_url'] = $data['venue_url'];
+  }
+  if($data['organizer_name'] != NULL) {
+    $post['meta_input']['organizer_name'] = $data['organizer_name'];
+  }
+  if($data['organizer_email'] != NULL) {
+    $post['meta_input']['organizer_email'] = $data['organizer_email'];
+  }
+  if($data['organizer_phone'] != NULL) {
+    $post['meta_input']['organizer_phone'] = $data['organizer_phone'];
+  }
+  if($data['organizer_url'] != NULL) {
+    $post['meta_input']['organizer_url'] = $data['organizer_url'];
+  }
+  if($data['start_date'] != NULL) {
+    $post['meta_input']['event_start_date'] = $start_date->format('Y-m-d');
+    $post['meta_input']['event_start_hour'] = $start_date->format('h');
+    $post['meta_input']['event_start_minute'] = $start_date->format('i');
+    $post['meta_input']['event_start_meridian'] = $start_date->format('a');
+    $post['meta_input']['start_ts'] = date_timestamp_get($start_date);
+  }
+  if($data['end_date'] != NULL) {
+    $post['meta_input']['event_end_date'] = $end_date->format('Y-m-d');
+    $post['meta_input']['event_end_hour'] = $end_date->format('h');
+    $post['meta_input']['event_end_minute'] = $end_date->format('i');
+    $post['meta_input']['event_end_meridian'] = $end_date->format('a');
+    $post['meta_input']['end_ts'] = date_timestamp_get($end_date);
+  }
+  if($data['thumbnail_id'] != NULL) {
+    $post['meta_input']['_thumbnail_id'] = $data['thumbnail_id'];
+  }
+  if($data['facebook_id'] != NULL) {
+    $post['meta_input']['facebook_id'] = $data['facebook_id'];
+  }
+
+  $err = wp_update_post($post, true);
+
+  if(!is_wp_error($err) && $data['category'] != NULL) {
     wp_set_object_terms($err, $data['category'], 'meetup_category');
   }
   return $err;
@@ -509,6 +602,14 @@ add_action( 'rest_api_init', function () {
   register_rest_route( 'events_api/v1', '/events/', array(
     'methods' => 'POST',
     'callback' => 'insert_event',
+    // 'permission_callback' => function () {
+    //   //return current_user_can( 'publish_posts' );
+    //   return is_user_logged_in();
+    // }
+  ) );
+  register_rest_route( 'events_api/v1', '/events/(?P<id>\d+)', array(
+    'methods' => 'PUT',
+    'callback' => 'update_event',
     // 'permission_callback' => function () {
     //   //return current_user_can( 'publish_posts' );
     //   return is_user_logged_in();
