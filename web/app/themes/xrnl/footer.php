@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Extinction Rebellion Nederland is een grassroots beweging geïnspireerd op <a href="https://rebellion.earth" target="_blank">Extinction Rebellion UK</a>.</p>
+                    <p>Extinction Rebellion Nederland is een grassroots beweging geïnspireerd op <a href="https://extinctionrebellion.uk" target="_blank">Extinction Rebellion UK</a>.</p>
                 </div>
 
                 <div class="col-md-4 my-4">
