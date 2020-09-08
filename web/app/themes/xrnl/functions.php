@@ -355,6 +355,16 @@ function events_query( $data ) {
     array_push($params, $data['category']);
   }
 
+  if($data['since_date'] != NULL) {
+    $suffix = $suffix . " AND pm_start_ts.meta_value >= %s";
+    array_push($params, $data['since_date']);
+  }
+
+  if($data['until_date'] != NULL) {
+    $suffix = $suffix . " AND pm_start_ts.meta_value <= %s";
+    array_push($params, $data['until_date']);
+  }
+
   $meta_query = "SELECT * FROM {$wpdb->postmeta} pm WHERE pm.post_id IN
                   (SELECT p.ID
                   FROM {$wpdb->posts} p
@@ -374,9 +384,13 @@ function events_query( $data ) {
                   LEFT JOIN {$wpdb->postmeta} pm_address
                   ON p.ID = pm_address.post_id
 
+                  LEFT JOIN {$wpdb->postmeta} pm_start_ts
+                  ON p.ID = pm_start_ts.post_id
+
                   WHERE p.post_type = 'meetup_events'
                   AND pm_city.meta_key = 'venue_city'
-                  AND pm_address.meta_key = 'venue_address' {$suffix}
+                  AND pm_address.meta_key = 'venue_address'
+                  AND pm_start_ts.meta_key = 'start_ts' {$suffix}
                   AND p.post_status = 'publish')";
 
   $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category
@@ -397,9 +411,13 @@ function events_query( $data ) {
             LEFT JOIN {$wpdb->postmeta} pm_address
             ON p.ID = pm_address.post_id
 
+            LEFT JOIN {$wpdb->postmeta} pm_start_ts
+            ON p.ID = pm_start_ts.post_id
+
             WHERE p.post_type = 'meetup_events'
             AND pm_city.meta_key = 'venue_city'
-            AND pm_address.meta_key = 'venue_address'{$suffix}
+            AND pm_address.meta_key = 'venue_address'
+            AND pm_start_ts.meta_key = 'start_ts' {$suffix}
             AND p.post_status = 'publish'";
 
   $prepared_sql = $wpdb->prepare($query, ...$params);
