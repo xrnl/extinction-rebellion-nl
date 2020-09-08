@@ -1,0 +1,93 @@
+.whydonate {
+  /* Progress bar and button */
+  .appearance-preview {
+    .appearance-preview-card-shortcode {
+      box-shadow: none !important;
+    }
+    .apreview-progress-bar {
+      .apreview-raised-bar {
+        background-color: $xr-primary !important;
+      }
+    }
+    .apreview-donate-btn-div {
+      button {
+        margin: 0.4rem auto;
+        font-family: $brand-font;
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  /* Form */
+  .preview-card {
+    box-shadow: none;
+    border: none;
+    .preview-header {
+      font-family: $brand-font;
+      background-color: $xr-primary !important;
+      label {
+        color: $xr-white !important;
+        font-size: 1.3rem;
+      }
+      .close {
+        text-shadow: none !important;
+        color: $xr-white;
+      }
+    }
+    .preview-period-intervals {
+      label {
+        font-size: 1.2rem !important;
+      }
+    }
+    .preview-intervals-divider {
+      height: 5px;
+      *[class^="preview-intervals-"] {
+        height: 5px;
+      }
+    }
+    .preview-select-amount-s {
+      .preview-select-amount-options {
+        *[class^="amount-boundary-box-"] {
+          border-radius: 0px;
+          border-color: $xr-primary !important;
+        }
+      }
+      .other-amount-div {
+        input {
+          padding-left: 1rem;
+        }
+      }
+    }
+    .preview-user-info-div {
+      input {
+        padding-left: 1rem;
+      }
+    }
+    .tip-box {
+      .custom-select {
+        min-width: 10em;
+        background: none;
+      }
+    }
+    .preview-user-donate-btn-div {
+      button {
+        font-family: $brand-font;
+        font-size: 1.4rem;
+      }
+      .checkbox-if-anonymous-s {
+        .checkbox-if-anonymous-s-div-label {
+          label {
+            margin-left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  &.wd-center {
+    .appearance-preview {
+      .appearance-preview-card-shortcode {
+        margin: 0 auto;
+      }
+    }
+  }
+}
