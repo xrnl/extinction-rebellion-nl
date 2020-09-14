@@ -41,4 +41,17 @@ get_header(); ?>
     </div>
 </div>
 
+<div class="cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('join_cover_image', 94); ?>') no-repeat; background-position: 50% 90%;">
+  <div class="container">
+    <div class="row py-5 text-center text-white">
+      <div class="col-12 col-lg-8 mx-auto my-5">
+        <h1><?php _e('Ready to rebel?', 'theme-xrnl'); ?></h1>
+        <p><?php _e('Join the thousands of people that are already taking real meaningful action with Extinction Rebellion. Whoever you are or however much time you have, there is a place for you within our movement.', 'theme-xrnl'); ?>
+        </p>
+        <p><a class="btn btn-lg btn-blue" href="<?php _e('/join', 'theme-xrnl');?>"><?php _e('Join', 'theme-xrnl'); ?></a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php get_footer(); ?>
