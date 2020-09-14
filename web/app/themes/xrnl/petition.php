@@ -22,7 +22,7 @@ get_header(); ?>
         <div class="col-lg-8 mx-auto">
           <?php the_content(); ?>
             <!--     On click, scroll to the progress bar section. We can later make it smoothly with a JS library/plugin       -->
-            <a class="btn btn-yellow my-2 btn-lg" href="#progress-section">SIGN THE PETITION</a>
+            <a class="btn btn-yellow my-2 btn-lg" href="#progress-section"><?php _e('SIGN THE PETITION', 'theme-xrnl'); ?></a>
         </div>
       </div>
   </div>
@@ -40,14 +40,12 @@ get_header(); ?>
         </section>
     <?php endif; ?>
 
-
     <?php
         function roundUpToNearest($n, $x=500) {
             return ceil( $n / $x ) * $x;
         }
 
-        Env::init();
-        $actionnetwork_api_key = env('ACTION_NETWORK_API_KEY');
+        $actionnetwork_api_key = get_field('actionnetwork_api_key', 'option');
 
         $response_en = wp_remote_get(get_field('api_endpoint_english_form'), [
             'headers' => [
@@ -104,6 +102,8 @@ get_header(); ?>
                         <i class="fas fa-chevron-down"></i>
                     </a>
                     <div class="text-left collapse collapse" id="demands">
+                         <!-- This is some horrible hardcoded code. Must be refactored into an ACF options page, so that the demands can be edit from wordpress and imported in different places (about us, petition...) --> 
+                        <?php if (ICL_LANGUAGE_CODE=='nl') : ?>
                         <div class="mt-4">Wij eisen van de Nederlandse overheid:</div>
                         <ol class="pl-3 counter mt-3">
                             <li class="pl-4"><span class="text-green font-xr">WEES EERLIJK</span> over de klimaatcrisis en de ecologische ramp die ons voortbestaan bedreigen. Maak mensen bewust van de noodzaak voor grootschalige verandering.</li>
@@ -111,6 +111,15 @@ get_header(); ?>
                             <li class="pl-4"><span class="text-green font-xr">LAAT BURGERS BESLISSEN</span> over een rechtvaardige transitie door het oprichten van een Burgerberaad dat een leidende rol speelt in de besluitvorming.</li>
                         </ol>
                         <div class="pt-3 text-center"><a href="/demands">Lees meer</a> over onze eisen</div>
+                        <? else: ?>
+                        <div class="mt-4">We demand from the Dutch government:</div>
+                        <ol class="pl-3 counter mt-3">
+                          <li class="pl-4"><span class="text-green font-xr">TELL THE TRUTH</span> about the climate and ecological crisis that threatens our existence and communicate the urgency for change.</li>
+                          <li class="pl-4"><span class="text-green font-xr">ACT NOW</span> to halt biodiversity loss and reduce greenhouse gas emissions to net zero by 2025 in a just and fair manner.</li>
+                          <li class="pl-4"><span class="text-green font-xr">LET CITIZENS DECIDE</span> by establishing a Citizen’s Assembly which takes the lead on climate and ecological justice.</li>
+                        </ol>
+                        <div class="pt-3 text-center"><a href="/en/demands">Learn more</a> about our demands</div>
+                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
                 </div>
@@ -127,7 +136,7 @@ get_header(); ?>
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
-                    <a class="btn btn-blue btn-lg" href="<?= get_permalink(94) ?>">
+                    <a class="btn btn-blue btn-lg" href="<?= insertURL(94) ?>">
                         <?php _e('ABOUT US', 'theme-xrnl'); ?>
                     </a>
                 </div>

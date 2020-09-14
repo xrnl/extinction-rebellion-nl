@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "wpml_cf_preferences": 1,
             "return_format": "url",
             "preview_size": "full",
             "library": "all",
@@ -352,6 +352,7 @@
                         "class": "",
                         "id": ""
                     },
+                    "wpml_cf_preferences": 1,
                     "return_format": "url",
                     "preview_size": "large",
                     "library": "all",
@@ -361,8 +362,7 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": "",
-                    "wpml_cf_preferences": 0
+                    "mime_types": ""
                 }
             ]
         }
@@ -384,5 +384,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1600092152
+    "modified": 1600097106
 }
