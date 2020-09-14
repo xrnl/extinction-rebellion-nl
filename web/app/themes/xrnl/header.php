@@ -35,9 +35,16 @@
                 <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( "class" => "img-fluid", "width" => "150" )); ?>
             </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div>
+              <?php
+              $donatePage = apply_filters('wpml_object_id', 308, 'page', true); // 308 is page ID
+              $donatePageURL = get_permalink( $donatePage );
+              ?>
+              <a href="<?php echo $donatePageURL ?>" class="btn btn-black hide-xl right-align"><?php _e('donate', 'theme-xrnl'); ?></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
 
             <div class="collapse navbar-collapse" id="main-nav">
                 <?php wp_nav_menu( [
@@ -67,11 +74,7 @@
                     <li class="mx-3 mx-lg-2">
                         <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
                     <li class="mx-3 mx-lg-2">
-                        <?php
-                        $donatePage = apply_filters('wpml_object_id', 308, 'page', true); // 308 is page ID
-                        $donatePageURL = get_permalink( $donatePage );
-                        ?>
-                        <a href="<?php echo $donatePageURL ?>" class="btn btn-black"><?php _e('donate', 'theme-xrnl'); ?></a>
+                        <a href="<?php echo $donatePageURL ?>" class="btn btn-black show-xl"><?php _e('donate', 'theme-xrnl'); ?></a>
                     </li>
                 </ul>
             </div>

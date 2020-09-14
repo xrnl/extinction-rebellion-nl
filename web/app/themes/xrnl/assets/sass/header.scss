@@ -29,11 +29,23 @@
     .nav-link {
       border-bottom: 5px solid $green;
       font-family: $brand-font;
-      white-space: nowrap;      
+      white-space: nowrap;
       font-size: 1.4rem;
       @include media-breakpoint-up(xl) {
         padding: 1.4rem 0.5rem;
       }
     }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .navbar-expand-xl .hide-xl  {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .navbar-expand-xl .show-xl  {
+    display: none;
   }
 }
