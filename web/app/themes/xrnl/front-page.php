@@ -25,7 +25,6 @@ $events = new WP_Query( $args );
 
 get_header(); ?>
 
-
 <div class="home">
   <div class="masthead bg-blue px-3 py-lg-5 pb-5 text-center text-white cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('cover_image'); ?>') no-repeat;">
     <div class="py-5">
@@ -56,8 +55,12 @@ get_header(); ?>
   </div>
 
   <div class="text-center">
-    <img src="<?php the_field('image'); ?>" class="image-desktop img-fluid my-2" />
-    <img src="<?php the_field('image_mobile'); ?>" class="image-mobile my-2" />
+		<?php
+			$image = get_field('image');
+			$image_mobile = get_field('image_mobile');
+		 ?>
+	 <img class="image-desktop img-fluid my-2" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+	 <img class="image-mobile my-2" src="<?php echo esc_url($image_mobile['url']); ?>" alt="<?php echo esc_attr($image_mobile['alt']); ?>">
   </div>
 
   <?php if ( $events->have_posts() ) : ?>
