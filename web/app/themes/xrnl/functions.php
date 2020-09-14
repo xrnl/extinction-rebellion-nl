@@ -406,3 +406,13 @@ add_filter( 'rest_authentication_errors', function( $result ) {
     // on logged-in requests
     return $result;
 });
+
+/* options page for custom fields that reusable across pages and only accessible by admins.
+ * see more at: https://www.advancedcustomfields.com/resources/options-page/
+ *
+ * */ 
+
+
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}
