@@ -48,7 +48,7 @@ get_header(); ?>
         <h1><?php _e('Ready to rebel?', 'theme-xrnl'); ?></h1>
         <p><?php _e('Join the thousands of people that are already taking real meaningful action with Extinction Rebellion. Whoever you are or however much time you have, there is a place for you within our movement.', 'theme-xrnl'); ?>
         </p>
-        <p><a class="btn btn-lg btn-blue" href="<?php _e('/join', 'theme-xrnl');?>"><?php _e('Join', 'theme-xrnl'); ?></a></p>
+        <p><a class="btn btn-lg btn-blue" href="<?php _e('/en/join', 'theme-xrnl');?>"><?php _e('Join', 'theme-xrnl'); ?></a></p>
       </div>
     </div>
   </div>
