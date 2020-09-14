@@ -4,8 +4,7 @@
  */
 
 get_header(); ?>
-
-<div class="container">
+<div class="container-fluid blog-wrapper">
     <div class="row mt-5">
         <div class="col-12 col-lg-8">
             <?php
