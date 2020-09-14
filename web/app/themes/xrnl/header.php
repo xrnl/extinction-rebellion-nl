@@ -40,7 +40,7 @@
               $donatePage = apply_filters('wpml_object_id', 308, 'page', true); // 308 is page ID
               $donatePageURL = get_permalink( $donatePage );
               ?>
-              <a href="<?php echo $donatePageURL ?>" class="btn btn-black hide-xl right-align"><?php _e('donate', 'theme-xrnl'); ?></a>
+              <a href="<?php echo $donatePageURL ?>" class="btn btn-black hide-xl"><?php _e('donate', 'theme-xrnl'); ?></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
