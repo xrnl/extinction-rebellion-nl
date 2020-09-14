@@ -72,7 +72,7 @@ get_header(); ?>
               <?php the_sub_field('topic_tilte') ?>
               <i class="fas fa-chevron-down float-right pt-1"></i>
             </a>
-            <div class="text-left collapse show" id="topic-<?php echo get_row_index(); ?>">
+            <div class="text-left collapse" id="topic-<?php echo get_row_index(); ?>">
               <div class="pt-3">
                 <?php the_sub_field('topic_description'); ?>
               </div>
