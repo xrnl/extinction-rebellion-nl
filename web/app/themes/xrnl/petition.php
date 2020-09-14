@@ -28,7 +28,7 @@ get_header(); ?>
   </div>
 
 
-    <?php $section = getSection('campaign_section'); ?>
+    <?php $section = getSection('about_section'); ?>
     <?php if ($section->enabled) : ?>
         <section class="campaign-section container-fluid text-center">
             <div class="row">
@@ -49,7 +49,7 @@ get_header(); ?>
         Env::init();
         $actionnetwork_api_key = env('ACTION_NETWORK_API_KEY');
 
-        $response = wp_remote_get("https://actionnetwork.org/api/v2/forms/" . get_field('form_id'), [
+        $response = wp_remote_get(get_field('api_endpoint_english_form'), [
             'headers' => [
                 'OSDI-API-Token'=> $actionnetwork_api_key
             ]
@@ -86,6 +86,8 @@ get_header(); ?>
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
+
+                    <?php if ($section->show_demands) : ?>
                     <a class="btn btn-yellow btn-lg" data-toggle="collapse" href="#demands" role="button" aria-expanded="false" aria-controls="demands">
                         <?php _e('OUR DEMANDS', 'theme-xrnl'); ?>
                         <i class="fas fa-chevron-down"></i>
@@ -99,6 +101,7 @@ get_header(); ?>
                         </ol>
                         <div class="pt-3 text-center"><a href="/demands">Lees meer</a> over onze eisen</div>
                     </div>
+                <?php endif; ?>
                 </div>
             </div>
         </section>
