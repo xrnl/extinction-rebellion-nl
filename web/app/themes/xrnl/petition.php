@@ -22,7 +22,7 @@ get_header(); ?>
         <div class="col-lg-8 mx-auto">
           <?php the_content(); ?>
             <!--     On click, scroll to the progress bar section. We can later make it smoothly with a JS library/plugin       -->
-            <a class="btn btn-blue my-2 btn-lg" href="#progress-section"><?php _e('SIGN THE PETITION', 'theme-xrnl'); ?></a>
+            <a class="btn btn-blue my-2 btn-lg" href="#sign"><?php _e('SIGN THE PETITION', 'theme-xrnl'); ?></a>
         </div>
       </div>
   </div>
@@ -71,8 +71,9 @@ get_header(); ?>
     ?>
 
 
-    <section class="progress-section container-fluid bg-yellow" style="padding: 100px 20px;" id="progress-section">
-        <div class="row">
+    <section class="progress-section container-fluid bg-yellow py-sm-5 py-4"  id="sign">
+        <a name="sign"></a>
+        <div class="row py-5">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
                 <h2 class="text-uppercase font-xr">
                     <span class="display-3" id="total-submissions"><?= $total_submissions ?></span> van <span id="max-submissions"><?= $max_submissions ?></span> handtekeningen
@@ -144,5 +145,16 @@ get_header(); ?>
         </section>
     <?php endif; ?>
 </div>
+
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery("a[href='#sign']").click(function(e) {
+      jQuery([document.documentElement, document.body]).animate({
+          scrollTop: jQuery("a[name='sign']").offset().top
+      }, 500);
+      e.preventDefault();
+    });
+  });
+</script>
 
 <?php get_footer(); ?>
