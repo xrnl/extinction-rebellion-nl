@@ -22,7 +22,7 @@ get_header(); ?>
         <div class="col-lg-8 mx-auto">
           <?php the_content(); ?>
             <!--     On click, scroll to the progress bar section. We can later make it smoothly with a JS library/plugin       -->
-            <a class="btn btn-yellow my-2 btn-lg" href="#progress-section"><?php _e('SIGN THE PETITION', 'theme-xrnl'); ?></a>
+            <a class="btn btn-blue my-2 btn-lg" href="#progress-section"><?php _e('SIGN THE PETITION', 'theme-xrnl'); ?></a>
         </div>
       </div>
   </div>
@@ -97,7 +97,7 @@ get_header(); ?>
                     <?php echo($section->content); ?>
 
                     <?php if ($section->show_demands) : ?>
-                    <a class="btn btn-yellow btn-lg" data-toggle="collapse" href="#demands" role="button" aria-expanded="false" aria-controls="demands">
+                    <a class="btn btn-black btn-lg" data-toggle="collapse" href="#demands" role="button" aria-expanded="false" aria-controls="demands">
                         <?php _e('OUR DEMANDS', 'theme-xrnl'); ?>
                         <i class="fas fa-chevron-down"></i>
                     </a>
