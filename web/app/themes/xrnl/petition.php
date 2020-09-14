@@ -49,14 +49,25 @@ get_header(); ?>
         Env::init();
         $actionnetwork_api_key = env('ACTION_NETWORK_API_KEY');
 
-        $response = wp_remote_get(get_field('api_endpoint_english_form'), [
+        $response_en = wp_remote_get(get_field('api_endpoint_english_form'), [
             'headers' => [
                 'OSDI-API-Token'=> $actionnetwork_api_key
             ]
         ]);
 
-        $data = json_decode($response['body'], true);
-        $total_submissions = $data['total_submissions'];
+        $data_en = json_decode($response_en['body'], true);
+        $total_submissions_en = $data_en['total_submissions'];
+
+        $response_nl = wp_remote_get(get_field('api_endpoint_dutch_form'), [
+            'headers' => [
+                'OSDI-API-Token'=> $actionnetwork_api_key
+            ]
+        ]);
+
+        $data_nl = json_decode($response_nl['body'], true);
+        $total_submissions_nl = $data_nl['total_submissions'];
+
+        $total_submissions = $total_submissions_en + $total_submissions_nl;
         $max_submissions = roundUpToNearest($total_submissions, 500);
         $percent = $total_submissions/$max_submissions*100;
     ?>
