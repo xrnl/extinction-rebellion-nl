@@ -1,0 +1,177 @@
+$portrait-diameter: 175px;
+$portrait-diameter-md: 150px;
+$xr-light-gray: lighten($xr-black, 85%);
+
+.why-rebel {
+  .hero {
+    color: $xr-white;
+    padding: 8rem 0 4rem 0;
+    .reading-time {
+      font-style: italic;
+    }
+    p {
+      line-height: 1.3rem;
+    }
+  }
+  .text-section {
+    margin-top: 3rem;
+    h3 {
+      font-family: $brand-font;
+      font-size: 1.4rem;
+    }
+  }
+  #demands {
+    margin: 1.5rem 0 6rem 0;
+  }
+  .demands-toggle {
+    font-family: $brand-font;
+    &.reveal-demands {
+      &::before {
+        content: '\f067';
+        font-family: 'FontAwesome';
+        margin-right: 0.4rem;
+        text-decoration: none;
+        display: inline-block;
+      }
+    }
+    &.hide-demands {
+      &::before {
+        content: '\f068';
+        font-family: 'FontAwesome';
+        margin-right: 0.4rem;
+        text-decoration: none;
+        display: inline-block;
+      }
+    }
+  }
+  #calls-to-action {
+    margin: 2.5rem 0;
+    .ctas {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .cta {
+        color: $xr-black;
+        &.btn {
+          font-size: 1.5rem;
+        }
+        &.link {
+          font-family: $brand-font;
+          margin-left: 1rem;
+          font-size: 1.2rem;
+        } 
+      }
+    }
+  }
+  .do-more-section {
+    padding: 5rem 0;
+  }
+  .do-more-actions {
+    .ctas {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      .btn {
+        margin-right: 0.3rem;
+      }
+    }
+  }
+}
+
+
+
+.quote-section {
+  .quote-container {
+    padding: 3rem 0;
+    border-top: 1px solid $xr-light-gray;
+    border-bottom: 1px solid $xr-light-gray;
+    margin: 4rem 0;
+    &.top {
+      border-top: none;
+      margin-top: 0;
+    }
+  }
+}
+
+.famous-quote {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  min-height: $portrait-diameter;
+  @include media-breakpoint-down(md) {
+    flex-direction: column-reverse;
+  }
+  .quote {
+    font-style: italic;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    padding: 2rem 3rem 0 3.5rem;
+    position: relative;
+    margin: 0;
+    &::before {
+      content: '\f10d';
+      font-family: 'FontAwesome';
+      font-style: normal;
+      position: absolute;
+      top: 0;
+      left: .2rem;
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      color: $xr-light-gray;
+    }
+    &.quote-right {
+      padding: 2rem 3.5rem 0 1rem;
+      &::before {
+        content: none;
+      }
+      &::after {
+        content: '\f10e';
+        font-family: 'FontAwesome';
+        font-style: normal;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+        color: $xr-light-gray;
+      }
+    }
+  }
+
+  &.quote-right {
+    flex-direction: row-reverse;
+    @include media-breakpoint-down(md) {
+      flex-direction: column-reverse;
+    }
+  }
+  .person-details {
+    text-align: right;
+    padding: 0 2rem 0 0;
+    .person-name {
+      font-family: $brand-font;
+      position: relative;
+      &::before {
+        position: absolute;
+        margin-left: -45px;
+        transform: translateY(-5px);
+        content: url('/app/themes/xrnl/assets/images/emn-dash.svg');
+      }
+    }
+    .person-description {
+      font-size: 1.1rem;
+      line-height: 1.2rem;
+    }
+  }
+  .person-portrait {
+    width: $portrait-diameter;
+    height: $portrait-diameter;
+    clip-path: circle($portrait-diameter/2 at center);
+    @include media-breakpoint-down(md) {
+      width: $portrait-diameter-md;
+      height: $portrait-diameter-md;
+      clip-path: circle($portrait-diameter-md/2 at center);
+    }
+  }
+
+}
