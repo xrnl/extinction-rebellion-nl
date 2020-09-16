@@ -14,7 +14,7 @@ get_header(); ?>
 <div class="why-rebel">
 
   <?php $section = getSection('hero_section'); ?>
-  <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php echo $section->image; ?>') no-repeat;">
+  <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php echo $section->image; ?>')  no-repeat center center / cover;">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 mx-auto">
@@ -91,7 +91,7 @@ get_header(); ?>
           <span id="hide-demands-btn" class="demands-toggle hide-demands" style="display: none;"><?php echo $labels->hide_demands_text ?></span>
         </div>
         <div id="demands-list" style="display: none;">
-          <?php $about_id = (apply_filters( 'wpml_current_language', NULL ) === 'nl') ? 94 : 421; ?>
+          <?php $about_id = (apply_filters('wpml_current_language', NULL) === 'nl') ? 94 : 421; ?>
           <?php the_field('demands', $about_id); // Grabbing the demands from the About us page ?>
         </div>
       </div>
