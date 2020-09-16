@@ -22,7 +22,7 @@ get_header(); ?>
         <div class="col-lg-8 mx-auto">
           <?php the_content(); ?>
             <!--     On click, scroll to the progress bar section. We can later make it smoothly with a JS library/plugin       -->
-            <a class="btn btn-blue my-2 btn-lg" href="#sign"><?php _e('SIGN THE PETITION', 'theme-xrnl'); ?></a>
+            <a class="btn btn-yellow my-2 btn-lg" href="#sign"><?php _e('SIGN THE PETITION', 'theme-xrnl'); ?></a>
         </div>
       </div>
   </div>
@@ -71,12 +71,12 @@ get_header(); ?>
     ?>
 
 
-    <section class="progress-section container-fluid bg-yellow py-sm-5 py-4"  id="sign">
+    <section class="progress-section container-fluid bg-yellow py-sm-5 py-4 px-3"  id="sign">
         <a name="sign"></a>
         <div class="row py-5">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
                 <h2 class="text-uppercase font-xr">
-                    <span class="display-3" id="total-submissions"><?= $total_submissions ?></span> van <span id="max-submissions"><?= $max_submissions ?></span> handtekeningen
+                    <span class="display-3" id="total-submissions"><?= $total_submissions ?></span> <?php _e('of', 'theme-xrnl'); ?> <span id="max-submissions"><?= $max_submissions ?></span> <?php _e('signatures', 'theme-xrnl'); ?>
                 </h2>
 
                 <div class="progress" style="height: 20px;border-radius: 5px; margin-bottom: 20px;">
@@ -96,34 +96,17 @@ get_header(); ?>
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
-
-                    <?php if ($section->show_demands) : ?>
-                    <a class="btn btn-black btn-lg" data-toggle="collapse" href="#demands" role="button" aria-expanded="false" aria-controls="demands">
-                        <?php _e('OUR DEMANDS', 'theme-xrnl'); ?>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <div class="text-left collapse collapse" id="demands">
-                         <!-- This is some horrible hardcoded code. Must be refactored into an ACF options page, so that the demands can be edit from wordpress and imported in different places (about us, petition...) --> 
-                        <?php if (ICL_LANGUAGE_CODE=='nl') : ?>
-                        <div class="mt-4">Wij eisen van de Nederlandse overheid:</div>
-                        <ol class="pl-3 counter mt-3">
-                            <li class="pl-4"><span class="text-green font-xr">WEES EERLIJK</span> over de klimaatcrisis en de ecologische ramp die ons voortbestaan bedreigen. Maak mensen bewust van de noodzaak voor grootschalige verandering.</li>
-                            <li class="pl-4"><span class="text-green font-xr">DOE WAT NODIG IS</span> om biodiversiteitsverlies te stoppen en verminder de uitstoot van broeikasgassen naar netto nul in 2025. Doe dit op een rechtvaardige manier.</li>
-                            <li class="pl-4"><span class="text-green font-xr">LAAT BURGERS BESLISSEN</span> over een rechtvaardige transitie door het oprichten van een Burgerberaad dat een leidende rol speelt in de besluitvorming.</li>
-                        </ol>
-                        <div class="pt-3 text-center"><a href="/demands">Lees meer</a> over onze eisen</div>
-                        <? else: ?>
-                        <div class="mt-4">We demand from the Dutch government:</div>
-                        <ol class="pl-3 counter mt-3">
-                          <li class="pl-4"><span class="text-green font-xr">TELL THE TRUTH</span> about the climate and ecological crisis that threatens our existence and communicate the urgency for change.</li>
-                          <li class="pl-4"><span class="text-green font-xr">ACT NOW</span> to halt biodiversity loss and reduce greenhouse gas emissions to net zero by 2025 in a just and fair manner.</li>
-                          <li class="pl-4"><span class="text-green font-xr">LET CITIZENS DECIDE</span> by establishing a Citizen’s Assembly which takes the lead on climate and ecological justice.</li>
-                        </ol>
-                        <div class="pt-3 text-center"><a href="/en/demands">Learn more</a> about our demands</div>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
+              <?php if($section->demands): ?>
+                  <a class="btn btn-black btn-lg mt-3" data-toggle="collapse" href="#demands" role="button" aria-expanded="false" aria-controls="demands">
+                    <?php _e('OUR DEMANDS', 'theme-xrnl'); ?>
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                  <div class="text-left collapse" id="demands">
+                    <?php echo($section->demands); ?>
+                  </div>
                 </div>
+              <?php endif; ?>
+
             </div>
         </section>
     <?php endif; ?>
@@ -137,8 +120,8 @@ get_header(); ?>
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
-                    <a class="btn btn-blue btn-lg" href="<?= insertURL(94) ?>">
-                        <?php _e('ABOUT US', 'theme-xrnl'); ?>
+                    <a class="btn btn-yellow btn-lg" href="<?php echo($section->button_url); ?>">
+                        <?php echo($section->button_text); ?>
                     </a>
                 </div>
             </div>
