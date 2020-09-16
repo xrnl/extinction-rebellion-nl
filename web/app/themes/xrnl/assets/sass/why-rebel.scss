@@ -81,7 +81,7 @@ $portrait-diameter-md: 150px;
     }
   }
   .do-more-section {
-    padding: 5rem 0;
+    padding: 5rem 0 7rem 0;
   }
   .do-more-description {
     margin: 3rem 0 0 0;
@@ -118,9 +118,13 @@ $portrait-diameter-md: 150px;
   align-items: center;
   flex-wrap: nowrap;
   flex-direction: row;
+  // justify-content: space-between;
   min-height: $portrait-diameter;
   @include media-breakpoint-down(md) {
     flex-direction: column-reverse;
+  }
+  .text-blocks {
+    width: 100%;
   }
   .quote {
     font-style: italic;
