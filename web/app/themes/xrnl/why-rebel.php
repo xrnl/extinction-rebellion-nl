@@ -91,7 +91,8 @@ get_header(); ?>
           <span id="hide-demands-btn" class="demands-toggle hide-demands" style="display: none;"><?php echo $labels->hide_demands_text ?></span>
         </div>
         <div id="demands-list" style="display: none;">
-          <?php the_field('demands', 94); // Grabbing the demands from the About us page, which has ID 94 ?>
+          <?php $about_id = (apply_filters( 'wpml_current_language', NULL ) === 'nl') ? 94 : 421; ?>
+          <?php the_field('demands', $about_id); // Grabbing the demands from the About us page ?>
         </div>
       </div>
     </div>
