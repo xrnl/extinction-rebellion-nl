@@ -93,7 +93,7 @@
             "name": "about_section",
             "type": "group",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -171,7 +171,7 @@
             "name": "why_are_we_rebelling_section",
             "type": "group",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -187,7 +187,7 @@
                     "name": "enabled",
                     "type": "true_false",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -242,10 +242,10 @@
                     "wpml_cf_preferences": 0
                 },
                 {
-                    "key": "field_5f5f6d62e6ece",
-                    "label": "Show demands",
-                    "name": "show_demands",
-                    "type": "true_false",
+                    "key": "field_5f61faf982aa2",
+                    "label": "Demands",
+                    "name": "demands",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -254,12 +254,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "wpml_cf_preferences": 0,
-                    "message": "",
-                    "default_value": 1,
-                    "ui": 0,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0,
+                    "wpml_cf_preferences": 0
                 }
             ]
         },
@@ -269,7 +269,7 @@
             "name": "who_is_extinction_rebellion_section",
             "type": "group",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -285,7 +285,7 @@
                     "name": "enabled",
                     "type": "true_false",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -363,6 +363,46 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_5f61f7fa45283",
+                    "label": "Button text",
+                    "name": "button_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f61f82245284",
+                    "label": "Button URL",
+                    "name": "button_url",
+                    "type": "text",
+                    "instructions": "The page to which you want to direct users after signing the petition. Make sure to add the URL to the page of the right language. Also, use a relative URL (\/doe-mee) instead of absolute URL (https:\/\/extinction...).",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "default_value": "",
+                    "placeholder": "\/doe-mee",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -384,5 +424,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1600097106
+    "modified": 1600257080
 }
