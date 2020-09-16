@@ -1,0 +1,53 @@
+
+.petition {
+  font-size: 1.4rem;
+
+  section {
+    padding: 4rem 0.2rem;
+  }
+
+  .petition-cover-image {
+    min-height: 30vh;
+    display: grid;
+    justify-content: flex-end;
+    align-items: center;
+    place-content: center;
+    background-size: cover !important;
+  }
+
+  .petition-section {
+    text-align: center;
+    padding: 6rem 0.2rem;
+  }
+
+  .petition-location {
+    font-size: 1.6rem;
+  }
+
+  #can_embed_form_inner > h2 {
+    display: none;
+  }
+
+  #can_embed_form #can_thank_you {
+    background-color: transparent !important;
+    text-align: center !important;
+    color: #000 !important;
+  }
+
+  #can_embed_form form {
+    input, select {
+      &:focus,
+      &:active {
+        // we use a pink bg, so make the box shadow dark pink
+        box-shadow: 0 0 0.2rem 0.2rem rgba(163, 33, 167, 0.25);
+      }
+    }
+  }
+
+  .do-more-actions {
+    h3 {
+      font-family: $brand-font;
+      margin-top: 2rem;
+    }
+  }
+}
