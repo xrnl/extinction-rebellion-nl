@@ -14,7 +14,7 @@ get_header(); ?>
 <div class="why-rebel">
 
   <?php $section = getSection('hero_section'); ?>
-  <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php echo $section->image; ?>')  no-repeat center center / cover;">
+  <section class="hero" style="background: url('<?php echo $section->image; ?>') no-repeat center center / cover;">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 mx-auto">
@@ -121,35 +121,6 @@ get_header(); ?>
       </div>
     </div>
   </section>
-
-  <?php $section = getSection('do_more_section'); ?>
-    <section class="do-more-section text-section container-fluid bg-blue">
-      <div class="row">
-        <div class="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-8 mx-auto">
-          <h2 class="text-center"><?php echo($section->heading); ?></h2>
-          <p class="do-more-description text-center"><?php echo($section->description); ?></p>
-          <div class="row do-more-actions container-fluid">
-            <?php if(is_array($section->actions)) : ?>
-              <?php foreach ($section->actions as $action) : ?>
-                <div class="col-12 col-sm-10 col-md-10 col-lg-4 col-xl-4 mx-auto mb-5">
-                  <h3><?php echo($action['title']) ?></h3>
-                  <p><?php echo($action['description']) ?></p>
-                  <?php if(is_array($action['buttons'])) : ?>
-                    <div class="ctas">
-                      <?php foreach ($action['buttons'] as $button) : ?>
-                        <?php if ($button['button_label']): ?>
-                          <a class="btn btn-black my-2" href="<?php echo($button['button_link']); ?>"><?php echo($button['button_label']); ?></a>
-                        <?php endif; ?>
-                      <?php endforeach; ?>
-                    </div>
-                  <?php endif; ?>
-                </div>
-              <?php endforeach; ?>
-            <?php endif; ?>
-          </div>
-        </div>
-      </div>
-    </section>
 </div>
 
 <script type="text/javascript">

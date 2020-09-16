@@ -4,7 +4,7 @@ $portrait-diameter-md: 150px;
 .why-rebel {
   .hero {
     color: $xr-white;
-    padding: 8rem 0 4rem 0.7rem;
+    padding: 16rem 0 4rem 0.7rem;
     .reading-time {
       font-style: italic;
     }
@@ -57,7 +57,7 @@ $portrait-diameter-md: 150px;
     }
   }
   #calls-to-action {
-    margin: 2.5rem 0;
+    margin: 2.5rem 0 7rem 0;
     .ctas {
       display: -webkit-flex;
       display: flex;
@@ -77,23 +77,6 @@ $portrait-diameter-md: 150px;
             color: $xr-primary;
           }
         }
-      }
-    }
-  }
-  .do-more-section {
-    padding: 5rem 0 7rem 0;
-  }
-  .do-more-description {
-    margin: 3rem 0 0 0;
-  }
-  .do-more-actions {
-    .ctas {
-      display: -webkit-flex;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      .btn {
-        margin-right: 0.3rem;
       }
     }
   }
