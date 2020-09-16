@@ -1,23 +1,33 @@
 
-.join {
+.petition {
   font-size: 1.4rem;
-  .join-cover-image {
-    // min-height: 60vh;
+
+  section {
+    padding: 4rem 0.2rem;
+  }
+
+  .petition-cover-image {
+    min-height: 30vh;
+    display: grid;
+    justify-content: flex-end;
+    align-items: center;
+    place-content: center;
     background-size: cover !important;
   }
 
-  .join-section {
+  .petition-section {
     text-align: center;
-    padding: 6rem 1rem;
+    padding: 6rem 0.2rem;
   }
 
-  .join-location {
+  .petition-location {
     font-size: 1.6rem;
   }
 
   #can_embed_form_inner > h2 {
     display: none;
   }
+
   #can_embed_form #can_thank_you {
     background-color: transparent !important;
     text-align: center !important;
