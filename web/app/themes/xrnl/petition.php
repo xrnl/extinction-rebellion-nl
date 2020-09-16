@@ -71,7 +71,7 @@ get_header(); ?>
     ?>
 
 
-    <section class="progress-section container-fluid bg-yellow py-sm-5 py-4"  id="sign">
+    <section class="progress-section container-fluid bg-yellow py-sm-5 py-4 px-3"  id="sign">
         <a name="sign"></a>
         <div class="row py-5">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
