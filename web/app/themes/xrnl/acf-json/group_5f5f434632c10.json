@@ -88,7 +88,7 @@
                     "label": "Content",
                     "name": "content",
                     "type": "wysiwyg",
-                    "instructions": "Use &lt;p&gt; tags for separating paragraphs",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -756,5 +756,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1600160446
+    "modified": 1600246643
 }

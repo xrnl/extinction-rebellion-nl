@@ -10,11 +10,6 @@ get_header(); ?>
     return (object) get_field($section_id, $post_id);
   }
 ?>
-<?php function localizedURL($url) {
-  $id = url_to_postid($url);
-  return get_permalink(apply_filters('wpml_object_id', $id, 'page', true));
-}
-?>
 
 <div class="why-rebel">
 
@@ -24,7 +19,7 @@ get_header(); ?>
         <div class="row">
           <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 mx-auto">
             <p class="reading-time"><?php echo $section->reading_time ? $section->reading_time : '' ?></p>
-            <h1 class="display-2 text-uppercase font-xr"><?php the_title(); ?></h1>
+            <h1 class="display-2 text-uppercase font-xr"><?php echo $section->title; ?></h1>
             <p><?php echo $section->content ?></p>
           </div>
         </div>
@@ -36,7 +31,7 @@ get_header(); ?>
     <div class="row">
       <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 mx-auto">
         <div class="quote-container top">
-          <div class="famous-quote">
+          <div class="quote-content">
             <div class="text-blocks">
               <p class="quote"><?php echo $section->quote ?></p>
               <div class="person-details">
@@ -64,7 +59,7 @@ get_header(); ?>
     <div class="row">
       <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 mx-auto">
         <div class="quote-container">
-          <div class="famous-quote quote-right">
+          <div class="quote-content quote-right">
             <div class="text-blocks">
               <p class="quote quote-right"><?php echo $section->quote ?></p>
               <div class="person-details">
@@ -79,7 +74,7 @@ get_header(); ?>
     </div>
   </section>
 
-  <section id="change-is-possible" class="text-section">
+  <section id="change-is-possible" class="text-section container-fluid">
     <div class="row">
       <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 mx-auto">
         <?php the_field('change_section'); ?>
@@ -88,23 +83,21 @@ get_header(); ?>
   </section>
 
   <?php $labels = getSection('demands'); ?>
-  <section id="demands">
+  <section id="demands" class="container-fluid">
     <div class="row">
       <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 mx-auto">
         <div id="demands-btn">
-          <a href="#" id="reveal-demands-btn" class="demands-toggle reveal-demands"><?php echo $labels->show_demands_text ?></a>
-          <a href="#" id="hide-demands-btn" class="demands-toggle hide-demands" style="display: none;"><?php echo $labels->hide_demands_text ?></a>
-          <!-- <button href="#" id="reveal-demands-btn" class="demands-toggle reveal-demands"><?php echo $labels->show_demands_text ?></button>
-          <button href="#" id="hide-demands-btn" class="demands-toggle hide-demands" style="display: none;"><?php echo $labels->hide_demands_text ?></button> -->
+          <span id="reveal-demands-btn" class="demands-toggle reveal-demands"><?php echo $labels->show_demands_text ?></span>
+          <span id="hide-demands-btn" class="demands-toggle hide-demands" style="display: none;"><?php echo $labels->hide_demands_text ?></span>
         </div>
         <div id="demands-list" style="display: none;">
-          <?php the_field('demands', 94); // Grabbing the demands from the About us page (which has ID 94) ?>
+          <?php the_field('demands', 94); // Grabbing the demands from the About us page, which has ID 94 ?>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="why-rebel" class="text-section">
+  <section id="why-rebel" class="text-section container-fluid">
     <div class="row">
       <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 mx-auto">
         <?php the_field('why_rebel_section'); ?>
@@ -113,7 +106,7 @@ get_header(); ?>
   </section>
 
   <?php $section = getSection('ctas'); ?>
-  <section id="calls-to-action">
+  <section id="calls-to-action" class="container-fluid">
     <div class="row">
       <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-7 mx-auto">
         <div class="ctas">
@@ -129,12 +122,12 @@ get_header(); ?>
   </section>
 
   <?php $section = getSection('do_more_section'); ?>
-    <section class="do-more-section container-fluid bg-blue">
+    <section class="do-more-section text-section container-fluid bg-blue">
       <div class="row">
         <div class="col-12 col-sm-10 col-md-9 col-lg-8 col-xl-8 mx-auto">
           <h2 class="text-center"><?php echo($section->heading); ?></h2>
-          <p class="text-center"><?php echo($section->description); ?></p>
-          <div class="row do-more-actions">
+          <p class="do-more-description text-center"><?php echo($section->description); ?></p>
+          <div class="row do-more-actions container-fluid">
             <?php if(is_array($section->actions)) : ?>
               <?php foreach ($section->actions as $action) : ?>
                 <div class="col-12 col-sm-10 col-md-10 col-lg-4 col-xl-4 mx-auto mb-5">
@@ -162,7 +155,7 @@ get_header(); ?>
    jQuery(document).ready(function() {
      jQuery('.demands-toggle').click(function(e) {
        jQuery('.demands-toggle').toggle();
-       jQuery('#demands-list').slideToggle(200);
+       jQuery('#demands-list').slideToggle(300);
        e.preventDefault();
      });
    });
