@@ -87,29 +87,43 @@ get_header(); ?>
                 /* #submission-cta-1 is shown after the form is submitted. */
                 /* #submission-cta-2 is shown after the user clicks on a button ins #submission-cta-1 */
                 ?>
+
+                <?php $section = getSection('petition_details'); ?>
+                <p class="text-center font-italic" id="form-subtext">
+                <?php echo($section->subtext); ?>
+                </p>
                 <div id="submission-cta-1" class="isInvisible">
-                 <p>Here is some html with the donate content</p> 
+                  <div class="text-center">
+                    <h1><?php echo($section->donate_title); ?></h1>
+                    <p>
+                      <?php echo($section->donate_description); ?>
+                    </p>
+                    <a href="<?php echo insertURL(308) ?>" class="btn btn-black btn-lg button-block-centered" target="_blank" id="form-donate"><?php _e('donate', 'theme-xrnl'); ?></a>
+                    <a class="btn my-2 btn-lg" id="form-no-donate" href="#form-share">
+                        <?= _e('NO THANKS', 'theme-xrnl'); ?>
+                    </a>
+                  </div>
                 </div>
                 <div id="submission-cta-2" class="isInvisible">
-                 <p>Here is some html for sharing</p> 
+                  <div class="share-step text-center">
+                      <h1><?php echo($section->share_title); ?></h1>
+                      <div class="text-center">
+                        <?php echo($section->share_description); ?>
+                      </div>
+                      <div class="share-links">
+                        <?php if (is_array($section->sharing_links)) : ?>
+                        <div>
+                          <?php foreach ($section->sharing_links as $link) : ?>
+                            <a class="btn btn-black btn-lg button-block-centered my-2" href="<?php echo($link['link']); ?>"><?php echo($link['label']); ?></a>
+                          <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
+                      </div>
+                  </div>
                 </div>
-            </div>
+              </div>
         </div>
     </section>
-
-<script type="text/javascript">
-jQuery(document).ready(function() {
-    // execute code when form is submitted 
-    jQuery(document).on('can_embed_submitted', function() {
-      console.log('form submitted!')
-      var submissionsField = jQuery('#total-submissions');
-      var nSubmissions = parseInt(submissionsField.text())
-      submissionsField.text(nSubmissions + 1);
-      // this is the section that is automatically shown after the form is submitted
-      jQuery('#submission-cta-1').attr("class","isVisible");
-    });
-});
-</script>
 
     <?php $section = getSection('why_are_we_rebelling_section'); ?>
     <?php if ($section->enabled) : ?>
@@ -152,14 +166,47 @@ jQuery(document).ready(function() {
 </div>
 
 <script type="text/javascript">
-  jQuery(document).ready(function() {
-    jQuery("a[href='#sign']").click(function(e) {
-      jQuery([document.documentElement, document.body]).animate({
-          scrollTop: jQuery("a[name='sign']").offset().top
-      }, 500);
-      e.preventDefault();
-    });
+function increaseSignatures() {
+  var submissionsField = jQuery('#total-submissions');
+  var nSubmissions = parseInt(submissionsField.text())
+    submissionsField.text(nSubmissions + 1);
+}
+
+function showCTA1() {
+    jQuery('#submission-cta-1').attr("class","isVisible");
+    jQuery('#form-subtext').attr("class","isInvisible");
+}
+
+function showCTA2() {
+    jQuery('#submission-cta-1').attr("class","isInvisible");
+    jQuery('#submission-cta-2').attr("class","isVisible");
+}
+
+jQuery(document).ready(function() {
+  // enable smooth scrolling
+  jQuery("a[href='#sign']").click(function(e) {
+    jQuery([document.documentElement, document.body]).animate({
+        scrollTop: jQuery("a[name='sign']").offset().top
+    }, 500);
+    e.preventDefault();
   });
+
+  // show first call to action when form is submitted
+  jQuery(document).on('can_embed_submitted', function() {
+    increaseSignatures();
+    showCTA1();
+  });
+
+  // show second call to action when user interacts with first call to action
+  
+  jQuery("#form-donate").click(function(e) {
+    showCTA2();
+  })
+
+  jQuery("#form-no-donate").click(function(e) {
+    showCTA2();
+  })
+});
 </script>
 
 <?php get_footer(); ?>
