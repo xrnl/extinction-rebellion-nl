@@ -25,22 +25,30 @@
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
+
+
     <!-- End Matomo Code -->
     <?php wp_head(); ?>
 </head>
 <body>
     <header class="bg-green">
+
         <nav class="navbar navbar-light navbar-expand-xl" role="navigation">
             <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/" class="navbar-brand">
-                <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( "class" => "img-fluid", "width" => "150" )); ?>
+                <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( "class" => "img-fluid hide-xxs", "width" => "150" )); ?>
+                <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( "class" => "img-fluid show-xxs", "width" => "80" )); ?>
             </a>
 
             <div>
               <?php
               $donatePage = apply_filters('wpml_object_id', 308, 'page', true); // 308 is page ID
               $donatePageURL = get_permalink( $donatePage );
+
+              $joinPage = apply_filters('wpml_object_id', 7587, 'page', true); // 7587 is page ID
+              $joinPageUrl = get_permalink( $joinPage );
               ?>
-              <a href="<?php echo $donatePageURL ?>" class="btn btn-black hide-xl"><?php _e('donate', 'theme-xrnl'); ?></a>
+              <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert hide-xl"><?php _e('donate', 'theme-xrnl'); ?></a>
+              <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r hide-xl"><?php _e('join us', 'theme-xrnl'); ?></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
@@ -74,7 +82,8 @@
                     <li class="mx-3 mx-lg-2">
                         <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
                     <li class="mx-3 mx-lg-2">
-                        <a href="<?php echo $donatePageURL ?>" class="btn btn-black show-xl"><?php _e('donate', 'theme-xrnl'); ?></a>
+                      <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert show-xl"><?php _e('donate', 'theme-xrnl'); ?></a>
+                      <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r show-xl"><?php _e('join us', 'theme-xrnl'); ?></a>
                     </li>
                 </ul>
             </div>

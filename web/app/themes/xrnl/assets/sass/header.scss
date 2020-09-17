@@ -49,3 +49,15 @@
     display: none;
   }
 }
+
+@media only screen and (max-width: 405px) {
+  .navbar-expand-xl .hide-xxs  {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 406px) {
+  .navbar-expand-xl .show-xxs  {
+    display: none;
+  }
+}
