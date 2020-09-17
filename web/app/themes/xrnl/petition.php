@@ -70,7 +70,6 @@ get_header(); ?>
         $percent = $total_submissions/$max_submissions*100;
     ?>
 
-
     <section class="progress-section container-fluid bg-yellow py-sm-5 py-4 px-3"  id="sign">
         <a name="sign"></a>
         <div class="row py-5">
@@ -84,10 +83,33 @@ get_header(); ?>
                 </div>
 
                 <?= do_shortcode(get_field('actionnetwork_shortcode')) ?>
+                <? 
+                /* #submission-cta-1 is shown after the form is submitted. */
+                /* #submission-cta-2 is shown after the user clicks on a button ins #submission-cta-1 */
+                ?>
+                <div id="submission-cta-1" class="isInvisible">
+                 <p>Here is some html with the donate content</p> 
+                </div>
+                <div id="submission-cta-2" class="isInvisible">
+                 <p>Here is some html for sharing</p> 
+                </div>
             </div>
         </div>
     </section>
 
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    // execute code when form is submitted 
+    jQuery(document).on('can_embed_submitted', function() {
+      console.log('form submitted!')
+      var submissionsField = jQuery('#total-submissions');
+      var nSubmissions = parseInt(submissionsField.text())
+      submissionsField.text(nSubmissions + 1);
+      // this is the section that is automatically shown after the form is submitted
+      jQuery('#submission-cta-1').attr("class","isVisible");
+    });
+});
+</script>
 
     <?php $section = getSection('why_are_we_rebelling_section'); ?>
     <?php if ($section->enabled) : ?>
