@@ -32,7 +32,7 @@ get_header(); ?>
     <?php if ($section->enabled) : ?>
         <section class="campaign-section container-fluid text-center">
             <div class="row">
-                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto px-4">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
                 </div>
@@ -73,7 +73,7 @@ get_header(); ?>
     <section class="progress-section container-fluid bg-yellow py-sm-5 py-4 px-3"  id="sign">
         <a name="sign"></a>
         <div class="row py-5">
-            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto px-2">
                 <h2 class="text-uppercase font-xr">
                     <span class="display-3" id="total-submissions"><?= $total_submissions ?></span> <?php _e('of', 'theme-xrnl'); ?> <span id="max-submissions"><?= $max_submissions ?></span> <?php _e('signatures', 'theme-xrnl'); ?>
                 </h2>
@@ -129,7 +129,7 @@ get_header(); ?>
     <?php if ($section->enabled) : ?>
         <section class="why-are-we-rebelling-section container-fluid text-center">
             <div class="row">
-                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto px-4">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
               <?php if($section->demands): ?>
@@ -153,7 +153,7 @@ get_header(); ?>
         <section class="who-is-extinction-rebellion-section text-white container-fluid text-center"
                  style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?= $section->background_image ?>') no-repeat;">
             <div class="row">
-                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto px-4">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
                     <a class="btn btn-yellow btn-lg" href="<?php echo($section->button_url); ?>">
