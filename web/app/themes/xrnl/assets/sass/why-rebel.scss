@@ -95,6 +95,9 @@ $portrait-diameter-md: 150px;
       border-top: none;
       margin-top: 0;
     }
+    &.bottom {
+      border-bottom: none;
+    }
   }
 }
 
