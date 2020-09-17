@@ -2,6 +2,9 @@ $portrait-diameter: 175px;
 $portrait-diameter-md: 150px;
 
 .why-rebel {
+  .content {
+    max-width: 900px;
+  }
   .hero {
     color: $xr-white;
     padding: 16rem 0 4rem 0.7rem;
@@ -101,7 +104,6 @@ $portrait-diameter-md: 150px;
   align-items: center;
   flex-wrap: nowrap;
   flex-direction: row;
-  // justify-content: space-between;
   min-height: $portrait-diameter;
   @include media-breakpoint-down(md) {
     flex-direction: column-reverse;
