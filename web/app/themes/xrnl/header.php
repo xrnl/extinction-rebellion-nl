@@ -64,28 +64,41 @@
                     'walker'          => new WP_Bootstrap_Navwalker(),
                 ] ); ?>
 
-                <div class="ml-auto d-flex">
-                    <?php wp_nav_menu( [
-                        'theme_location' => 'language',
-                        'container'       => '',
-                        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-                        'menu_class'      => 'navbar-nav language-menu',
-                        'walker'          => new WP_Bootstrap_Navwalker(),
-                    ] ); ?>
-                </div>
 
-                <ul class="list-unstyled d-flex my-3 my-xl-0 align-items-center">
+
+                <ul class="list-unstyled d-flex my-3 my-xl-0 align-items-center ml-auto">
                     <li class="mx-3 mx-lg-2">
                         <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" class="facebook" aria-label="facebook"><i class="fab text-black fa-facebook-f"></i></a></li>
                     <li class="mx-3 mx-lg-2">
                         <a href="https://twitter.com/nlrebellion" class="twitter" target="_blank" aria-label="twitter"><i class="fab text-black fa-twitter"></i></a></li>
                     <li class="mx-3 mx-lg-2">
                         <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
-                    <li class="mx-3 mx-lg-2">
-                      <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert show-xl"><?php _e('donate', 'theme-xrnl'); ?></a>
-                      <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r show-xl"><?php _e('join us', 'theme-xrnl'); ?></a>
+                      <li class="mx-3 mx-lg-2 show-xl">
+                        <?php wp_nav_menu( [
+                            'theme_location' => 'language',
+                            'container'       => '',
+                            'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                            'menu_class'      => 'navbar-nav language-menu',
+                            'walker'          => new WP_Bootstrap_Navwalker(),
+                        ] ); ?>
+                      </li>
+                    <li class="mx-3 mx-lg-2 show-xl">
+                      <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert"><?php _e('donate', 'theme-xrnl'); ?></a>
+                      <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r"><?php _e('join us', 'theme-xrnl'); ?></a>
                     </li>
                 </ul>
+
+                <div class="d-flex">
+                  <div class="hide-xl">
+                      <?php wp_nav_menu( [
+                          'theme_location' => 'language',
+                          'container'       => '',
+                          'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                          'menu_class'      => 'navbar-nav language-menu',
+                          'walker'          => new WP_Bootstrap_Navwalker(),
+                      ] ); ?>
+                  </div>
+              </div>
             </div>
         </nav>
     </header>
