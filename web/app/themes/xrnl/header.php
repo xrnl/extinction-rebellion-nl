@@ -47,7 +47,7 @@
               $joinPage = apply_filters('wpml_object_id', 7587, 'page', true); // 7587 is page ID
               $joinPageUrl = get_permalink( $joinPage );
               ?>
-              <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert hide-xl"><?php _e('donate', 'theme-xrnl'); ?></a>
+              <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert hide-xl" target="_blank"><?php _e('donate', 'theme-xrnl'); ?></a>
               <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r hide-xl"><?php _e('join us', 'theme-xrnl'); ?></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -83,7 +83,7 @@
                         ] ); ?>
                       </li>
                     <li class="mx-3 mx-lg-2 show-xl">
-                      <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert"><?php _e('donate', 'theme-xrnl'); ?></a>
+                      <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert" target="_blank"><?php _e('donate', 'theme-xrnl'); ?></a>
                       <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r"><?php _e('join us', 'theme-xrnl'); ?></a>
                     </li>
                 </ul>

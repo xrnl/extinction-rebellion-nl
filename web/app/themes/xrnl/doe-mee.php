@@ -120,7 +120,7 @@ get_header(); ?>
                   <?php if(is_array($action['buttons'])) : ?>
                     <?php foreach ($action['buttons'] as $button) : ?>
                       <?php if ($button['button_label']): ?>
-                        <a class="btn btn-black my-2 mx-2" href="<?php echo($button['button_link']); ?>"><?php echo($button['button_label']); ?></a>
+                        <a class="btn btn-black my-2 mx-2" href="<?php echo($button['button_link']); ?>" target="_blank"><?php echo($button['button_label']); ?></a>
                       <?php endif; ?>
                     <?php endforeach; ?>
                   <?php endif; ?>
