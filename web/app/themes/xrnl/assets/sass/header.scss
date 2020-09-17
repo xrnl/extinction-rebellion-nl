@@ -35,6 +35,12 @@
         padding: 1.4rem 0.5rem;
       }
     }
+
+    @media only screen and (min-width: 1200px) {
+      .nav-link  {
+        font-size: 1.2rem;
+      }
+    }
   }
 }
 
