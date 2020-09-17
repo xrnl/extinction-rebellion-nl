@@ -16,7 +16,7 @@ get_header(); ?>
 
 <div class="petition">
   <div class="bg-blue text-center text-white petition-cover-image py-5"
-       style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat;">
+       style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat center center / cover;">
       <h1 class="display-2 text-uppercase font-xr"><?php the_title(); ?></h1>
       <div class="container">
         <div class="col-lg-8 mx-auto">
@@ -32,7 +32,7 @@ get_header(); ?>
     <?php if ($section->enabled) : ?>
         <section class="campaign-section container-fluid text-center">
             <div class="row">
-                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto px-4">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
                 </div>
@@ -70,11 +70,10 @@ get_header(); ?>
         $percent = $total_submissions/$max_submissions*100;
     ?>
 
-
     <section class="progress-section container-fluid bg-yellow py-sm-5 py-4 px-3"  id="sign">
         <a name="sign"></a>
         <div class="row py-5">
-            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto px-2">
                 <h2 class="text-uppercase font-xr">
                     <span class="display-3" id="total-submissions"><?= $total_submissions ?></span> <?php _e('of', 'theme-xrnl'); ?> <span id="max-submissions"><?= $max_submissions ?></span> <?php _e('signatures', 'theme-xrnl'); ?>
                 </h2>
@@ -84,16 +83,53 @@ get_header(); ?>
                 </div>
 
                 <?= do_shortcode(get_field('actionnetwork_shortcode')) ?>
-            </div>
+                <? 
+                /* #submission-cta-1 is shown after the form is submitted. */
+                /* #submission-cta-2 is shown after the user clicks on a button ins #submission-cta-1 */
+                ?>
+
+                <?php $section = getSection('petition_details'); ?>
+                <p class="text-center font-italic" id="form-subtext">
+                <?php echo($section->subtext); ?>
+                </p>
+                <div id="submission-cta-1" class="isInvisible">
+                  <div class="text-center">
+                    <h1><?php echo($section->donate_title); ?></h1>
+                    <p>
+                      <?php echo($section->donate_description); ?>
+                    </p>
+                    <a href="<?php echo insertURL(308) ?>" class="btn btn-black btn-lg button-block-centered" target="_blank" id="form-donate"><?php _e('donate', 'theme-xrnl'); ?></a>
+                    <a class="btn my-2 btn-lg" id="form-no-donate" href="#form-share">
+                        <?= _e('NO THANKS', 'theme-xrnl'); ?>
+                    </a>
+                  </div>
+                </div>
+                <div id="submission-cta-2" class="isInvisible">
+                  <div class="share-step text-center">
+                      <h1><?php echo($section->share_title); ?></h1>
+                      <div class="text-center">
+                        <?php echo($section->share_description); ?>
+                      </div>
+                      <div class="share-links">
+                        <?php if (is_array($section->sharing_links)) : ?>
+                        <div>
+                          <?php foreach ($section->sharing_links as $link) : ?>
+                            <a class="btn btn-black btn-lg button-block-centered my-2" href="<?php echo($link['link']); ?>"><?php echo($link['label']); ?></a>
+                          <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
+                      </div>
+                  </div>
+                </div>
+              </div>
         </div>
     </section>
-
 
     <?php $section = getSection('why_are_we_rebelling_section'); ?>
     <?php if ($section->enabled) : ?>
         <section class="why-are-we-rebelling-section container-fluid text-center">
             <div class="row">
-                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto px-4">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
               <?php if($section->demands): ?>
@@ -115,9 +151,9 @@ get_header(); ?>
     ?>
     <?php if ($section->enabled) : ?>
         <section class="who-is-extinction-rebellion-section text-white container-fluid text-center"
-                 style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?= $section->background_image ?>') no-repeat;">
+                 style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?= $section->background_image ?>') no-repeat center center / cover;">
             <div class="row">
-                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto px-4">
                     <h2><?php echo($section->heading); ?></h2>
                     <?php echo($section->content); ?>
                     <a class="btn btn-yellow btn-lg" href="<?php echo($section->button_url); ?>">
@@ -130,14 +166,47 @@ get_header(); ?>
 </div>
 
 <script type="text/javascript">
-  jQuery(document).ready(function() {
-    jQuery("a[href='#sign']").click(function(e) {
-      jQuery([document.documentElement, document.body]).animate({
-          scrollTop: jQuery("a[name='sign']").offset().top
-      }, 500);
-      e.preventDefault();
-    });
+function increaseSignatures() {
+  var submissionsField = jQuery('#total-submissions');
+  var nSubmissions = parseInt(submissionsField.text())
+    submissionsField.text(nSubmissions + 1);
+}
+
+function showCTA1() {
+    jQuery('#submission-cta-1').attr("class","isVisible");
+    jQuery('#form-subtext').attr("class","isInvisible");
+}
+
+function showCTA2() {
+    jQuery('#submission-cta-1').attr("class","isInvisible");
+    jQuery('#submission-cta-2').attr("class","isVisible");
+}
+
+jQuery(document).ready(function() {
+  // enable smooth scrolling
+  jQuery("a[href='#sign']").click(function(e) {
+    jQuery([document.documentElement, document.body]).animate({
+        scrollTop: jQuery("a[name='sign']").offset().top
+    }, 500);
+    e.preventDefault();
   });
+
+  // show first call to action when form is submitted
+  jQuery(document).on('can_embed_submitted', function() {
+    increaseSignatures();
+    showCTA1();
+  });
+
+  // show second call to action when user interacts with first call to action
+  
+  jQuery("#form-donate").click(function(e) {
+    showCTA2();
+  })
+
+  jQuery("#form-no-donate").click(function(e) {
+    showCTA2();
+  })
+});
 </script>
 
 <?php get_footer(); ?>
