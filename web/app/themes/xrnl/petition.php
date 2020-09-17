@@ -16,7 +16,7 @@ get_header(); ?>
 
 <div class="petition">
   <div class="bg-blue text-center text-white petition-cover-image py-5"
-       style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat;">
+       style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat center center / cover;">
       <h1 class="display-2 text-uppercase font-xr"><?php the_title(); ?></h1>
       <div class="container">
         <div class="col-lg-8 mx-auto">
@@ -151,7 +151,7 @@ get_header(); ?>
     ?>
     <?php if ($section->enabled) : ?>
         <section class="who-is-extinction-rebellion-section text-white container-fluid text-center"
-                 style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?= $section->background_image ?>') no-repeat;">
+                 style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?= $section->background_image ?>') no-repeat center center / cover;">
             <div class="row">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto px-4">
                     <h2><?php echo($section->heading); ?></h2>
