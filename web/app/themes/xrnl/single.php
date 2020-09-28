@@ -41,14 +41,15 @@ get_header(); ?>
     </div>
 </div>
 
-<div class="cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('join_cover_image', 94); ?>') no-repeat; background-position: 50% 90%;">
+<div class="cover-image bg-blue">
   <div class="container">
-    <div class="row py-5 text-center text-white">
+    <div class="row py-5 text-center text-black">
       <div class="col-12 col-lg-8 mx-auto my-5">
         <h1><?php _e('Ready to rebel?', 'theme-xrnl'); ?></h1>
         <p><?php _e('Join the thousands of people that are already taking real meaningful action with Extinction Rebellion. Whoever you are or however much time you have, there is a place for you within our movement.', 'theme-xrnl'); ?>
         </p>
-        <p><a class="btn btn-lg btn-blue" href="<?php _e('/en/join', 'theme-xrnl');?>"><?php _e('Join', 'theme-xrnl'); ?></a></p>
+        <?php $joinPageURL = get_permalink(apply_filters('wpml_object_id', 7587, 'page', true)); ?>
+        <p><a class="btn btn-lg btn-black" href="<?php echo $joinPageURL; ?>"><?php _e('Join', 'theme-xrnl'); ?></a></p>
       </div>
     </div>
   </div>
