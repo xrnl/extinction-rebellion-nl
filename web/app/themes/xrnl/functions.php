@@ -420,8 +420,8 @@ function events_query( $data ) {
             AND pm_start_ts.meta_key = 'start_ts' {$suffix}
             AND p.post_status = 'publish'";
 
-  $prepared_sql = $wpdb->prepare($query, ...$params);
-  $prepared_meta = $wpdb->prepare($meta_query, ...$params);
+  $prepared_sql = $wpdb->prepare($query, $params);
+  $prepared_meta = $wpdb->prepare($meta_query, $params);
 
   $events = $wpdb->get_results($prepared_sql, OBJECT);
   $metas = $wpdb->get_results($prepared_meta, OBJECT);
