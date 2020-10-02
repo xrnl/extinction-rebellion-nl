@@ -224,7 +224,7 @@ add_action('init', function(){
         'rewrite'               => $rewrite,
         'capability_type'       => 'page',
     );
-    register_post_type( 'local_group', $args );
+    register_post_type( 'xrnl_local_group', $args );
 
 });
 
@@ -410,7 +410,7 @@ add_filter( 'rest_authentication_errors', function( $result ) {
 /* options page for custom fields that reusable across pages and only accessible by admins.
  * see more at: https://www.advancedcustomfields.com/resources/options-page/
  *
- * */ 
+ * */
 
 
 if( function_exists('acf_add_options_page') ) {
