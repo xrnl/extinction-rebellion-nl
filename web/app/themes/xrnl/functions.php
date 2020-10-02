@@ -391,7 +391,7 @@ function events_query( $data ) {
                   AND pm_city.meta_key = 'venue_city'
                   AND pm_address.meta_key = 'venue_address'
                   AND pm_start_ts.meta_key = 'start_ts' {$suffix}
-                  AND p.post_status = 'publish')";
+                  AND (p.post_status = 'publish' OR p.post_status = 'draft'))";
 
   $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category
             FROM {$wpdb->posts} p
@@ -418,7 +418,7 @@ function events_query( $data ) {
             AND pm_city.meta_key = 'venue_city'
             AND pm_address.meta_key = 'venue_address'
             AND pm_start_ts.meta_key = 'start_ts' {$suffix}
-            AND p.post_status = 'publish'";
+            AND (p.post_status = 'publish' OR p.post_status = 'draft')";
 
   $prepared_sql = $wpdb->prepare($query, $params);
   $prepared_meta = $wpdb->prepare($meta_query, $params);
@@ -499,8 +499,9 @@ function insert_event($data) {
   $post = array(
     'post_title' => $data['title'],
     'post_content' => $data['content'],
+    //'post_author' => 59,
     //'post_date_gmt' => '2020-08-19 00:00:00',
-    'post_status' => 'publish',
+    'post_status' => 'draft',
     'post_type' => 'meetup_events',
     'meta_input' => array(
       'venue_name' => $data['venue_name'],
