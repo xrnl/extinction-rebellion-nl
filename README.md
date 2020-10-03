@@ -24,7 +24,7 @@ First, you must activate Docker. Then:
 ```sh
 # start website
 docker-compose up -d
-# Run this command if you want scss files to recompile as you make changes
+# compile css files and enable hot reloading
 npm run watch 
 ```
 
