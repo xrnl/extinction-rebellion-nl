@@ -617,6 +617,9 @@ function update_event($data) {
   if($data['content'] != NULL) {
     $post['post_content'] = $data['content'];
   }
+  if($data['post_status'] != NULL) {
+    $post['post_status'] = $data['post_status'];
+  }
   if($data['venue_name'] != NULL) {
     $post['meta_input']['venue_name'] = $data['venue_name'];
   }
