@@ -393,7 +393,7 @@ function events_query( $data ) {
                   AND pm_start_ts.meta_key = 'start_ts' {$suffix}
                   AND (p.post_status = 'publish' OR p.post_status = 'draft'))";
 
-  $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category
+  $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, p.post_status as status, t.name as category
             FROM {$wpdb->posts} p
             LEFT JOIN {$wpdb->term_relationships} tr
             ON tr.object_id = p.ID
@@ -452,7 +452,7 @@ function get_event($data) {
 
   $meta_query = "SELECT * FROM {$wpdb->postmeta} pm WHERE pm.post_id = %s";
 
-  $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, t.name as category
+  $query = "SELECT p.ID as id, p.post_title as title, p.post_content as content, p.post_status as status, t.name as category
             FROM {$wpdb->posts} p
             LEFT JOIN {$wpdb->term_relationships} tr
             ON tr.object_id = p.ID
@@ -528,7 +528,14 @@ function insert_event($data) {
       'start_ts' => date_timestamp_get($start_date),
       'end_ts' => date_timestamp_get($end_date),
       '_thumbnail_id' => $data['thumbnail_id'],
-      'facebook_id' => $data['facebook_id']
+      'facebook_id' => $data['facebook_id'],
+      'name_hash' => $data['name_hash'],
+      'description_hash' => $data['description_hash'],
+      'start_time_hash' => $data['start_time_hash'],
+      'end_time_hash' => $data['end_time_hash'],
+      'place_hash' => $data['place_hash'],
+      'owner_hash' => $data['owner_hash'],
+      'cover_hash' => $data['cover_hash']
     ),
   );
 
@@ -668,6 +675,28 @@ function update_event($data) {
   }
   if($data['facebook_id'] != NULL) {
     $post['meta_input']['facebook_id'] = $data['facebook_id'];
+  }
+
+  if($data['name_hash'] != NULL) {
+    $post['meta_input']['name_hash'] = $data['name_hash'];
+  }
+  if($data['description_hash'] != NULL) {
+    $post['meta_input']['description_hash'] = $data['description_hash'];
+  }
+  if($data['start_time_hash'] != NULL) {
+    $post['meta_input']['start_time_hash'] = $data['start_time_hash'];
+  }
+  if($data['end_time_hash'] != NULL) {
+    $post['meta_input']['end_time_hash'] = $data['end_time_hash'];
+  }
+  if($data['place_hash'] != NULL) {
+    $post['meta_input']['place_hash'] = $data['place_hash'];
+  }
+  if($data['owner_hash'] != NULL) {
+    $post['meta_input']['owner_hash'] = $data['owner_hash'];
+  }
+  if($data['cover_hash'] != NULL) {
+    $post['meta_input']['cover_hash'] = $data['cover_hash'];
   }
 
   $err = wp_update_post($post, true);
