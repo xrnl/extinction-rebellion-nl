@@ -334,6 +334,8 @@ function excerpt($limit) {
  * @return array Of events that satisfy the request
  */
 function events_query( $data ) {
+  //if($_SERVER['REMOTE_ADDR'] != '127.0.0.1'){ return "IP " . $_SERVER['REMOTE_ADDR'] . " detected. Only localhost is allowed"; }
+
   global $wpdb;
 
   $params = [];
@@ -562,7 +564,7 @@ function uploadPicture($url, $title) {
   }
 
 
-  $filename = $title . '_cover' . $extension;
+  $filename = hash('md5', $title) . '_cover' . $extension;
   $uploaddir = wp_upload_dir();
   $uploadfile = $uploaddir['path'] . '/' . $filename;
   $contents= file_get_contents($url);
