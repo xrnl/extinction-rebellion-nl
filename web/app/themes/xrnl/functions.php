@@ -668,7 +668,8 @@ function update_event($data) {
   );
 
   if($data['picture_url'] != NULL){
-    $attach_id = uploadPicture($data['picture_url'], $data['title']);
+    $original_post = get_post($data['id']);
+    $attach_id = uploadPicture($data['picture_url'], $original_post->post_title);
     $post['meta_input']['_thumbnail_id'] = $attach_id;
   }
 
