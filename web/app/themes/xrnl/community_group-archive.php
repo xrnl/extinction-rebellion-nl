@@ -17,6 +17,7 @@ get_header(); ?>
 
 <div id="community" class="container py-5">
     <h1 class="mt-5"><?php the_title(); ?></h1>
+    <p><?php the_content(); ?></p>
 
     <div class="row">
       <?php while($groups->have_posts()):$groups->the_post(); ?>

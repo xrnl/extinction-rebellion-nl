@@ -1,4 +1,3 @@
-
 .navbar {
   padding-bottom: 0;
 
@@ -10,6 +9,10 @@
     }
   }
 
+  a.navbar-brand {
+    padding: 0;
+    margin: 0;
+  }
 
   a.navbar-brand > img {
     @include media-breakpoint-down(sm) {
@@ -29,11 +32,46 @@
     .nav-link {
       border-bottom: 5px solid $green;
       font-family: $brand-font;
-      white-space: nowrap;      
+      white-space: nowrap;
       font-size: 1.4rem;
       @include media-breakpoint-up(xl) {
         padding: 1.4rem 0.5rem;
       }
     }
+
+    @media only screen and (min-width: 1200px) {
+      .nav-link  {
+        font-size: 1.2rem;
+      }
+    }
   }
+}
+
+@media only screen and (min-width: 1200px) {
+  .navbar-expand-xl .hide-xl  {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .navbar-expand-xl .show-xl  {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 405px) {
+  .navbar-expand-xl .hide-xxs  {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 406px) {
+  .navbar-expand-xl .show-xxs  {
+    display: none;
+  }
+}
+
+.show-xxs {
+  // quick hack to force that logo to the left
+  margin: 0 -15px;
 }

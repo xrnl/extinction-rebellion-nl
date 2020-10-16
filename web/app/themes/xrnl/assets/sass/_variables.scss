@@ -1,15 +1,36 @@
+// Colors from the XR Brand guide
+$xr-black: #000000;
+$xr-white: #ffffff;
+$xr-green: #14aa37;
+$xr-lemon: #f7ee6a;
+$xr-pink: #ed9bc4;
+$xr-light-green: #bed276;
+$xr-bright-pink: #cf6297;
+$xr-dark-blue: #3860aa;
+$xr-light-blue: #75d0f1;
+$xr-purple: #986297;
+$xr-warm-yellow: #ffc11e;
+$xr-red: #dc4f00;
+$xr-angry: #c80082;
+$xr-primary: $xr-green;
+$xr-light-gray: lighten($xr-black, 85%);
+
 $theme-colors: (
-  "primary": #21a73d,
-  "green": #21a73d,
-  "yellow": #ffc113,
-  "pink": #ed9bc4,
-  "red": #dc4f00,
-  "orange": #f19631,
-  "blue": #75d0f1,
-  "black": #000,
-  "navy": #3860aa,
-  "purple": #906198,
-  "white": #fff,
+  "primary": $xr-primary,
+  "green": $xr-green,
+  "yellow": $xr-warm-yellow,
+  "pink": $xr-pink,
+  "red": $xr-red,
+  "blue": $xr-light-blue,
+  "black": $xr-black,
+  "navy": $xr-dark-blue,
+  "purple": $xr-purple,
+  "white": $xr-white,
+  "lemon": $xr-lemon,
+  "angry": $xr-angry,
+  "light-green": $xr-light-green,
+  "bright-pink": $xr-bright-pink,
+  "light-gray": $xr-light-gray  
 ) !default;
 
 $navbar-light-toggler-border-color: rgba(0, 0, 0, 0);

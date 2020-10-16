@@ -50,7 +50,7 @@
         {
             "key": "field_5d967ad7ed136",
             "label": "join cover image",
-            "name": "cover_image",
+            "name": "join_cover_image",
             "type": "image",
             "instructions": "",
             "required": 1,
@@ -105,7 +105,8 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "wpml_cf_preferences": 0,
+            "return_format": "array",
             "preview_size": "full",
             "library": "all",
             "min_width": "",
@@ -114,11 +115,10 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": "",
-            "wpml_cf_preferences": 0
+            "mime_types": ""
         },
         {
-            "key": "field_5da0827626a7d",
+            "key": "field_5da08ea5bea4d",
             "label": "image mobile",
             "name": "image_mobile",
             "type": "image",
@@ -131,7 +131,7 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "return_format": "url",
+            "return_format": "array",
             "preview_size": "full",
             "library": "all",
             "min_width": "",
@@ -175,9 +175,9 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 1,
             "width": "",
-            "height": "",
-            "wpml_cf_preferences": 0
+            "height": ""
         }
     ],
     "location": [
@@ -197,5 +197,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1570800265
+    "modified": 1599764231
 }
