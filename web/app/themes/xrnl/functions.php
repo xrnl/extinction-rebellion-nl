@@ -633,7 +633,7 @@ function uploadPicture($url, $title) {
 
   $attachment = array(
       'post_mime_type' =>$mimeType,
-      'post_title' => $filename,
+      'post_title' => $title,
       'post_content' => '',
       'post_status' => 'inherit'
   );
@@ -649,6 +649,15 @@ function uploadPicture($url, $title) {
    wp_update_attachment_metadata( $attach_id, $attach_data );
 
    return $attach_id;
+}
+
+function updatePicture($url, $filename) {
+  $uploaddir = wp_upload_dir();
+  $uploadfile = $filename;
+  $contents = file_get_contents($url);
+  $savefile = fopen($uploadfile, 'w');
+  fwrite($savefile, $contents);
+  fclose($savefile);
 }
 
 /**
@@ -669,8 +678,16 @@ function update_event($data) {
 
   if($data['picture_url'] != NULL){
     $original_post = get_post($data['id']);
-    $attach_id = uploadPicture($data['picture_url'], $original_post->post_title);
-    $post['meta_input']['_thumbnail_id'] = $attach_id;
+    $thumbnail_id = get_post_meta($data['id'], '_thumbnail_id', true);
+
+    if($thumbnail_id) {
+      $filename = get_attached_file( $thumbnail_id );
+      //echo "Thumbnail already exists, updating " . $filename
+      updatePicture($data['picture_url'], $filename);
+    } else {
+      $attach_id = uploadPicture($data['picture_url'], $original_post->post_title);
+      $post['meta_input']['_thumbnail_id'] = $attach_id;
+    }
   }
 
   if($data['title'] != NULL) {
