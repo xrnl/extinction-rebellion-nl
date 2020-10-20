@@ -596,7 +596,8 @@ function insert_event($data) {
       'end_time_hash' => $data['end_time_hash'],
       'place_hash' => $data['place_hash'],
       'owner_hash' => $data['owner_hash'],
-      'cover_hash' => $data['cover_hash']
+      'cover_hash' => $data['cover_hash'],
+      '_cover_bytes_hash' => $data['_cover_bytes_hash']
     ),
   );
 
@@ -623,7 +624,7 @@ function uploadPicture($url, $title) {
   }
 
 
-  $filename = hash('md5', $title) . '_cover' . $extension;
+  $filename = hash('md5', $title) . '_cover' . rand() . $extension;
   $uploaddir = wp_upload_dir();
   $uploadfile = $uploaddir['path'] . '/' . $filename;
   $contents= file_get_contents($url);
@@ -779,6 +780,9 @@ function update_event($data) {
   }
   if($data['cover_hash'] != NULL) {
     $post['meta_input']['cover_hash'] = $data['cover_hash'];
+  }
+  if($data['_cover_bytes_hash'] != NULL) {
+    $post['meta_input']['_cover_bytes_hash'] = $data['_cover_bytes_hash'];
   }
 
   $err = wp_update_post($post, true);
