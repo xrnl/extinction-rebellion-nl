@@ -393,7 +393,7 @@ function excerpt($limit) {
  * @return array Of events that satisfy the request
  */
 function events_query( $data ) {
-  //if($_SERVER['REMOTE_ADDR'] != '127.0.0.1'){ return "IP " . $_SERVER['REMOTE_ADDR'] . " detected. Only localhost is allowed"; }
+  //if($_SERVER['REMOTE_ADDR'] != '127.0.0.1'){ return "IP " . $_SERVER['REMOTE_ADDR'] . " detected. Only localhost is allowed " . $_SERVER['SERVER_ADDR']; }
 
   global $wpdb;
 
@@ -794,58 +794,75 @@ function update_event($data) {
 }
 
 add_filter( 'rest_authentication_errors', function( $result ) {
-    // If a previous authentication check was applied,
-    // pass that result along without modification.
-    if ( true === $result || is_wp_error( $result ) ) {
-        return $result;
-    }
+  // If a previous authentication check was applied,
+  // pass that result along without modification.
+  if ( true === $result || is_wp_error( $result ) ) {
+      return $result;
+  }
 
-    // No authentication has been performed yet.
-    // Return an error if user is not logged in.
-    if ( ! is_user_logged_in() ) {
-        return new WP_Error(
-            'rest_not_logged_in',
-            __( 'You are not currently logged in.' ),
-            array( 'status' => 401 )
-        );
+  if(substr($_SERVER['REQUEST_URI'], 0, 19) == '/wp-json/events_api' ) {
+    if($_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR']) {
+      return new WP_Error(
+          'forbidden',
+          __( 'You are not allowed to access this resource' ),
+          array( 'status' => 401 )
+      );
+    } else {
+      return true;
     }
+  }
 
-    // Our custom authentication check should have no effect
-    // on logged-in requests
-    return $result;
+  // No authentication has been performed yet.
+  // Return an error if user is not logged in.
+  if ( ! is_user_logged_in() ) {
+      return new WP_Error(
+          'rest_not_logged_in',
+          __( 'You are not currently logged in.' ),
+          array( 'status' => 401 )
+      );
+  }
+
+  // Our custom authentication check should have no effect
+  // on logged-in requests
+  return $result;
 });
 
 add_action( 'rest_api_init', function () {
   register_rest_route( 'events_api/v1', '/events/', array(
     'methods' => 'GET',
     'callback' => 'events_query',
-    // 'permission_callback' => function () {
-    //   //return current_user_can( 'read_private_posts' );
-    //   return is_user_logged_in();
-    // }
+    'permission_callback' => function ($result) {
+      //return current_user_can( 'read_private_posts' );
+      //return is_user_logged_in();
+      //return $_SERVER['REMOTE_ADDR'] == $_SERVER['SERVER_ADDR'];
+      return $result;
+    }
   ) );
   register_rest_route( 'events_api/v1', '/events/(?P<id>\d+)', array(
     'methods' => 'GET',
     'callback' => 'get_event',
     // 'permission_callback' => function () {
     //   //return current_user_can( 'read_private_posts' );
-    //   return is_user_logged_in();
+    //   //return is_user_logged_in();
+    //   return $_SERVER['REMOTE_ADDR'] == $_SERVER['SERVER_ADDR'];
     // }
   ) );
   register_rest_route( 'events_api/v1', '/events/', array(
     'methods' => 'POST',
     'callback' => 'insert_event',
     // 'permission_callback' => function () {
-    //   //return current_user_can( 'publish_posts' );
-    //   return is_user_logged_in();
+    //   //return current_user_can( 'read_private_posts' );
+    //   //return is_user_logged_in();
+    //   return $_SERVER['REMOTE_ADDR'] == $_SERVER['SERVER_ADDR'];
     // }
   ) );
   register_rest_route( 'events_api/v1', '/events/(?P<id>\d+)', array(
     'methods' => 'PUT',
     'callback' => 'update_event',
     // 'permission_callback' => function () {
-    //   //return current_user_can( 'publish_posts' );
-    //   return is_user_logged_in();
+    //   //return current_user_can( 'read_private_posts' );
+    //   //return is_user_logged_in();
+    //   return $_SERVER['REMOTE_ADDR'] == $_SERVER['SERVER_ADDR'];
     // }
   ) );
 } );
