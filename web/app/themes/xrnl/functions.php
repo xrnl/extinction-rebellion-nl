@@ -108,6 +108,11 @@ add_action('init', function(){
     );
     register_post_type( 'volunteer_vacancy', $args );
 
+    add_filter('user_can_richedit', function( $default ){
+      if( get_post_type() === 'volunteer_vacancy') return false;
+      return $default;
+    });
+
 });
 
 add_action('init', function(){
