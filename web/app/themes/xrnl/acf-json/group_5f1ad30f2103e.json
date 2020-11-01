@@ -235,11 +235,11 @@
             ]
         },
         {
-            "key": "field_5f21f81593393",
-            "label": "Logo",
-            "name": "logo",
-            "type": "url",
-            "instructions": "Full URL of the logo image in the Wordpress media library.\r\nE.g. \"https:\/\/extinctionrebellion.nl\/app\/uploads\/2019\/04\/XR-symbol.svg\"",
+            "key": "field_5f9f10703da60",
+            "label": "Appearance",
+            "name": "appearance",
+            "type": "group",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -247,9 +247,35 @@
                 "class": "",
                 "id": ""
             },
+            "layout": "block",
             "wpml_cf_preferences": 0,
-            "default_value": "",
-            "placeholder": ""
+            "sub_fields": [
+                {
+                    "key": "field_5f9f10bf3da61",
+                    "label": "Logo",
+                    "name": "logo",
+                    "type": "image",
+                    "instructions": "Select the logo image from the Wordpress media library.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
         },
         {
             "key": "field_5f232e0479605",
@@ -331,8 +357,8 @@
                     "key": "field_5f478d570a024",
                     "label": "Picture",
                     "name": "picture_url",
-                    "type": "url",
-                    "instructions": "Full URL of the picture in the Wordpress media library.",
+                    "type": "image",
+                    "instructions": "Select a picture from the Wordpress media library.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -340,9 +366,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "wpml_cf_preferences": 0,
-                    "default_value": "",
-                    "placeholder": ""
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wpml_cf_preferences": 0
                 }
             ]
         },
@@ -950,14 +984,14 @@
                     "min": 0,
                     "max": 0,
                     "layout": "table",
-                    "button_label": "Add image",
+                    "button_label": "Add picture",
                     "sub_fields": [
                         {
                             "key": "field_5f233aa6aa7b5",
-                            "label": "Image URL",
+                            "label": "Picture",
                             "name": "image_url",
-                            "type": "url",
-                            "instructions": "",
+                            "type": "image",
+                            "instructions": "Select pictures from the Wordpress media library.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -965,9 +999,17 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "wpml_cf_preferences": 0
+                            "wpml_cf_preferences": 0,
+                            "return_format": "url",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
                         }
                     ]
                 }
@@ -979,7 +1021,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "local_group"
+                "value": "xrnl_local_group"
             }
         ]
     ],
@@ -991,5 +1033,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598525135
+    "modified": 1604266203
 }

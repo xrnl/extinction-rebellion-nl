@@ -24,7 +24,10 @@ get_header(); ?>
   }
 
   $bg_symbol = file_get_contents(get_template_directory_uri() . '/assets/images/bird.svg', false, getContext(WP_ENV));
-  $logo_url = get_field('logo') ?: get_template_directory_uri() . '/assets/images/XR-symbol.svg';
+  $appearance = get_field('appearance');
+  $logo_url = $appearance['logo'] ?: get_template_directory_uri() . '/assets/images/XR-symbol.svg';
+
+
 
   function getSection($section_id) {
     return (object) get_field($section_id);
