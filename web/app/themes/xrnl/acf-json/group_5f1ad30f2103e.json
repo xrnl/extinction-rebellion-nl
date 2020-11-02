@@ -620,8 +620,8 @@
                             "key": "field_5f478e018a629",
                             "label": "Picture",
                             "name": "picture_url",
-                            "type": "url",
-                            "instructions": "Full URL of the picture in the Wordpress media library.",
+                            "type": "image",
+                            "instructions": "Select a picture from the Wordpress media library.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -629,8 +629,16 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
+                            "return_format": "url",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
                             "wpml_cf_preferences": 0
                         }
                     ]
@@ -1033,5 +1041,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1604266203
+    "modified": 1604309162
 }
