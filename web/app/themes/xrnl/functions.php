@@ -213,7 +213,7 @@ add_action('init', function(){
     $args = array(
         'label'                 => __( 'Local Group', 'text_domain' ),
         'labels'                => $labels,
-        'supports'              => array('title','author'),
+        'supports'              => array('title','author','revisions'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
