@@ -1,0 +1,44 @@
+{
+    "key": "group_5f5f923355ed4",
+    "title": "API keys",
+    "fields": [
+        {
+            "key": "field_5f5f926247bb4",
+            "label": "Action Network API key",
+            "name": "actionnetwork_api_key",
+            "type": "text",
+            "instructions": "Someone with admin access to Action Network can obtain this API key.\r\n\r\nThis API key is necessary for getting the total number of petition signatures.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-admin"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1604523986
+}
