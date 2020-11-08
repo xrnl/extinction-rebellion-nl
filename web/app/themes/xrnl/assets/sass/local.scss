@@ -1,6 +1,7 @@
-$hero-min-height: 400px;
-$logo-diameter: 200px;
-$logo-bg-diameter: 250px;
+$hero-min-height: 250px;
+$logo-diameter: 130px;
+$logo-bg-diameter: 150px;
+
 $logo-bottom-shift: -50px;
 $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diameter)/2 );
 
@@ -20,12 +21,19 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
     color: $xr-black;
     position: relative;
     min-height: $hero-min-height;
-    h1 {
-      z-index: 10;
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin: auto;
+    text-align: center;
+    padding-bottom: $logo-bg-diameter - $logo-bg-bottom-shift *-1;
+    .group-name {
+      padding: 2rem 1rem;
+      min-height: $hero-min-height/2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h1 {
+        z-index: 10;
+        margin: 0 auto;
+        max-width: 75%;
+      }
     }
     .lg-logo-bg {
       width: $logo-bg-diameter;
@@ -54,7 +62,7 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
       display: block;
       position: absolute;
       bottom: 30px;
-      opacity: .6;
+      opacity: .7;
       pointer-events: none;
 
       svg,path {
@@ -62,12 +70,15 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
         z-index: 1;
         height: $hero-min-height * .65;
         @include media-breakpoint-down(lg) {
-          height: $hero-min-height * .5;
+          height: $hero-min-height * .6;
         }
         @include media-breakpoint-down(md) {
-          height: $hero-min-height * .35;
+          height: $hero-min-height * .55;
         }
         @include media-breakpoint-down(sm) {
+          height: $hero-min-height * .45;
+        }
+        @include media-breakpoint-down(xs) {
           display: none;
         }
       }
@@ -147,7 +158,10 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
     }
   }
 
-  #channels {
+  .broadcast-channels {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid $xr-light-gray;
     p {
       text-align: center;
     }
