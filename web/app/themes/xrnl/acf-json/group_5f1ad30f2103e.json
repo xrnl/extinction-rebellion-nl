@@ -274,6 +274,143 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_5f9feb74db7f3",
+                    "label": "Hero background color",
+                    "name": "hero_bg_color",
+                    "type": "select",
+                    "instructions": "Set the background color of the hero section.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "choices": {
+                        "green": "Green",
+                        "yellow": "Warm yellow",
+                        "pink": "Pink",
+                        "red": "Red",
+                        "blue": "Bright blue",
+                        "navy": "Dark blue",
+                        "purple": "Purple",
+                        "lemon": "Lemon",
+                        "angry": "Angry",
+                        "light-green": "Bright green",
+                        "bright-pink": "Bright pink"
+                    },
+                    "default_value": "lemon",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5f9febebdb7f4",
+                    "label": "Symbol",
+                    "name": "symbol",
+                    "type": "select",
+                    "instructions": "Select a background symbol for the hero section",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "choices": {
+                        "bird": "Bird",
+                        "hourglasses": "Hourglass",
+                        "bee2": "Bee",
+                        "butterfly": "Butterfly"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5f9fec21db7f5",
+                    "label": "Left symbol color",
+                    "name": "left_symbol_color",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "choices": {
+                        "green": "Green",
+                        "yellow": "Warm yellow",
+                        "pink": "Pink",
+                        "red": "Red",
+                        "blue": "Bright blue",
+                        "black": "Black",
+                        "navy": "Dark blue",
+                        "purple": "Purple",
+                        "white": "White",
+                        "lemon": "Lemon",
+                        "angry": "Angry",
+                        "light-green": "Bright green",
+                        "bright-pink": "Bright pink"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5f9fec68db7f6",
+                    "label": "Right symbol color",
+                    "name": "right_symbol_color",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "choices": {
+                        "green": "Green",
+                        "yellow": "Warm yellow",
+                        "pink": "Pink",
+                        "red": "Red",
+                        "blue": "Bright blue",
+                        "black": "Black",
+                        "navy": "Dark blue",
+                        "purple": "Purple",
+                        "white": "White",
+                        "lemon": "Lemon",
+                        "angry": "Angry",
+                        "light-green": "Bright green",
+                        "bright-pink": "Bright pink"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         },
@@ -1039,7 +1176,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1604309162
+    "modified": 1604864015
 }

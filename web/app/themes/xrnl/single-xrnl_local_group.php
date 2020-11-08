@@ -23,10 +23,13 @@ get_header(); ?>
     return stream_context_create($contextOptions);
   }
 
-  $bg_symbol = file_get_contents(get_template_directory_uri() . '/assets/images/bird.svg', false, getContext(WP_ENV));
   $appearance = get_field('appearance');
+  $symbol = $appearance['symbol'] ?: 'bird';
+  $hero_bg_color = $appearance['hero_bg_color'] ?: 'lemon';
+  $left_symbol_color = $appearance['left_symbol_color'] ?: 'pink';
+  $right_symbol_color = $appearance['right_symbol_color'] ?: 'purple';
+  $symbol_svg = file_get_contents(get_template_directory_uri() . '/assets/images/' . $symbol . '.svg', false, getContext(WP_ENV));
   $logo_url = $appearance['logo'] ?: get_template_directory_uri() . '/assets/images/XR-symbol.svg';
-
 
 
   function getSection($section_id) {
@@ -124,13 +127,13 @@ get_header(); ?>
 
 <div class="local-group">
 
-  <div class="lg-hero-container px-3 py-5 pb-5 text-center">
+  <div class="lg-hero-container px-3 py-5 pb-5 text-center hero-bg-<?php echo $hero_bg_color ?>">
     <h1 class="display-2">XR <?php echo preg_replace('/\//', '/ ', get_field('group_name')); ?></h1>
-    <div class="bg-symbol left">
-      <?php echo $bg_symbol; ?>
+    <div class="bg-symbol left hero-symbol-<?php echo $left_symbol_color ?>">
+      <?php echo $symbol_svg; ?>
     </div>
-    <div class="bg-symbol right">
-      <?php echo $bg_symbol; ?>
+    <div class="bg-symbol right hero-symbol-<?php echo $right_symbol_color ?>">
+      <?php echo $symbol_svg; ?>
     </div>
     <div class="lg-logo-bg">
     </div>

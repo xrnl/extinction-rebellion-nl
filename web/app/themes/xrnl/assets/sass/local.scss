@@ -4,9 +4,19 @@ $logo-bg-diameter: 250px;
 $logo-bottom-shift: -50px;
 $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diameter)/2 );
 
+@each $color-key, $color-value in $theme-colors {
+  .hero-bg-#{$color-key} {
+    background: $color-value !important;
+  }
+  .hero-symbol-#{$color-key} {
+    svg,path {
+      fill: $color-value !important;
+    }
+  }
+}
+
 .local-group {
   .lg-hero-container {
-    background: $xr-lemon;
     color: $xr-black;
     position: relative;
     min-height: $hero-min-height;
@@ -44,7 +54,7 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
       display: block;
       position: absolute;
       bottom: 30px;
-      opacity: .9;
+      opacity: .6;
       pointer-events: none;
 
       svg,path {
@@ -65,15 +75,9 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
       &.right {
         right: 20px;
         transform: scaleX(-1);
-        svg,path {
-          fill: $xr-bright-pink;
-        }
       }
       &.left {
         left: 20px;
-        svg,path {
-          fill: $xr-purple;
-        }
       }
     }
   }
