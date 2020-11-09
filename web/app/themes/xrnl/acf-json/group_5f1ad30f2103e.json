@@ -48,7 +48,7 @@
             "name": "region",
             "type": "select",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -134,7 +134,7 @@
                     "name": "email",
                     "type": "email",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -255,7 +255,7 @@
                     "label": "Show section",
                     "name": "enabled",
                     "type": "true_false",
-                    "instructions": "",
+                    "instructions": "(The broadcast channels will be shown on the Contacts tab)",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1058,7 +1058,7 @@
                 },
                 {
                     "key": "field_5f9febebdb7f4",
-                    "label": "Symbol",
+                    "label": "Hero symbol",
                     "name": "symbol",
                     "type": "select",
                     "instructions": "Select a background symbol for the hero section",
@@ -1178,5 +1178,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1604870783
+    "modified": 1604871873
 }

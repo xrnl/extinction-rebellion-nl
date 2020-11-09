@@ -172,7 +172,19 @@ get_header(); ?>
 
   <div class="tab-content" id="pills-tabContent">
 
-    <?php $section = getSection('contact'); ?>
+      <?php
+        $section = getSection('contact');
+        // Fallback in case there are no contact details
+        if (
+            empty($section->email) &&
+            empty($section->mastodon) &&
+            empty($section->twitter) &&
+            empty($section->facebook_page) &&
+            empty($section->instagram_page)
+        ) {
+          $section->email = 'info@extinctionrebellion.nl';
+        }
+      ?>
       <section id="contact" class="lg-section container-fluid tab-pane fade show active">
         <div class="row">
           <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
