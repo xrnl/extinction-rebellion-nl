@@ -3,7 +3,20 @@
  * The template for a local group page
  */
 
-get_header(); ?>
+  $appearance = get_field('appearance');
+  $hero_bg_color = $appearance['hero_bg_color'] ?: 'lemon';
+  $hero_accent_color = $hero_bg_color === 'lemon' ? 'green' : 'white';
+  $symbol = $appearance['symbol'] ?: 'bird';
+  $left_symbol_color = $appearance['left_symbol_color'] ?: 'pink';
+  $right_symbol_color = $appearance['right_symbol_color'] ?: 'purple';
+  $symbol_svg = file_get_contents(get_template_directory_uri() . '/assets/images/' . $symbol . '.svg', false, getContext(WP_ENV));
+  $logo_url = $appearance['logo'] ?: get_template_directory_uri() . '/assets/images/XR-symbol.svg';
+
+  get_header(null, array(
+    'bg-color' => $hero_bg_color,
+    'accent-color' => $hero_accent_color
+  ));
+?>
 
 <?php
   $localPage = apply_filters('wpml_object_id', 272, 'page', true);
@@ -23,15 +36,6 @@ get_header(); ?>
     );
     return stream_context_create($contextOptions);
   }
-
-  $appearance = get_field('appearance');
-  $symbol = $appearance['symbol'] ?: 'bird';
-  $hero_bg_color = $appearance['hero_bg_color'] ?: 'lemon';
-  $left_symbol_color = $appearance['left_symbol_color'] ?: 'pink';
-  $right_symbol_color = $appearance['right_symbol_color'] ?: 'purple';
-  $symbol_svg = file_get_contents(get_template_directory_uri() . '/assets/images/' . $symbol . '.svg', false, getContext(WP_ENV));
-  $logo_url = $appearance['logo'] ?: get_template_directory_uri() . '/assets/images/XR-symbol.svg';
-
 
   function getSection($section_id)
   {

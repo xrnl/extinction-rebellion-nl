@@ -25,15 +25,21 @@
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
-
-
     <!-- End Matomo Code -->
     <?php wp_head(); ?>
 </head>
-<body>
-    <header class="bg-green">
 
-        <nav class="navbar navbar-light navbar-expand-xl" role="navigation">
+<?php
+  $args = wp_parse_args($args, array(
+    'bg-color' => 'green', // optional bg-color, defaults to green
+    'accent-color' => 'white' // optional highlight color, defaults to white
+  ));
+?>
+
+<body>
+    <header class="bg-xr-<?php echo $args['bg-color'] ?>">
+
+        <nav class="navbar navbar-light navbar-expand-xl nav-accent-xr-<?php echo $args['accent-color']; ?>" role="navigation">
             <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/" class="navbar-brand">
                 <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( "class" => "img-fluid hide-xxs", "width" => "150" )); ?>
                 <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( "class" => "img-fluid show-xxs", "width" => "80" )); ?>
