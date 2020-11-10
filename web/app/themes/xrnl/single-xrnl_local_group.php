@@ -93,7 +93,6 @@
   }
 ?>
 
-<script src="/app/themes/xrnl/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/app/themes/xrnl/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css" />
