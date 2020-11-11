@@ -98,8 +98,12 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
     .nav-link {
       font-family: $brand-font;
       text-decoration: none;
+      padding: 0;
+      margin: 0 .5rem;
       &.active {
-        color: $xr-white;
+        color: $xr-black;
+        background: inherit;
+        border-bottom: 5px solid $xr-primary;
       }
     }
   }
@@ -109,6 +113,10 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
     p {
       text-align: justify;
     }
+  }
+
+  .tab-content {
+    margin-bottom: 2rem;
   }
 
   .demands-list {
