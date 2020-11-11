@@ -33,7 +33,7 @@
             "wrapper": {
                 "width": "",
                 "class": "",
-                "id": ""
+                "id": "lg-place"
             },
             "wpml_cf_preferences": 0,
             "default_value": "",
@@ -47,7 +47,7 @@
             "label": "Region",
             "name": "region",
             "type": "select",
-            "instructions": "",
+            "instructions": "If in doubt, check the <i>RST Team<\/i> column on <a href=\"https:\/\/wiki.extinctionrebellion.nl\/Main\/OrgLocations\"> this wiki page <\/a>",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -452,7 +452,7 @@
                     "label": "Picture",
                     "name": "picture_url",
                     "type": "image",
-                    "instructions": "Select a picture from the Wordpress media library.",
+                    "instructions": "Select a picture from the Wordpress media library",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -460,6 +460,7 @@
                         "class": "",
                         "id": ""
                     },
+                    "wpml_cf_preferences": 0,
                     "return_format": "url",
                     "preview_size": "thumbnail",
                     "library": "all",
@@ -469,8 +470,7 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": "",
-                    "wpml_cf_preferences": 0
+                    "mime_types": ""
                 }
             ]
         },
@@ -715,7 +715,7 @@
                             "label": "Picture",
                             "name": "picture_url",
                             "type": "image",
-                            "instructions": "Select a picture from the Wordpress media library.",
+                            "instructions": "Select a picture from the Wordpress media library",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -723,6 +723,7 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "wpml_cf_preferences": 0,
                             "return_format": "url",
                             "preview_size": "thumbnail",
                             "library": "all",
@@ -732,8 +733,7 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": "",
-                            "wpml_cf_preferences": 0
+                            "mime_types": ""
                         }
                     ]
                 }
@@ -752,15 +752,15 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
             "wpml_cf_preferences": 0,
+            "layout": "block",
             "sub_fields": [
                 {
                     "key": "field_5f2337dfc70f5",
                     "label": "Show section",
                     "name": "enabled",
                     "type": "true_false",
-                    "instructions": "",
+                    "instructions": "Check to show the vacancy positions tab when there are positions for this group",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -799,8 +799,8 @@
                     "key": "field_5f2337fec70f6",
                     "label": "Message",
                     "name": "message",
-                    "type": "text",
-                    "instructions": "",
+                    "type": "textarea",
+                    "instructions": "Feel free to edit & translate the default message to your needs",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -808,12 +808,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "wpml_cf_preferences": 0,
+                    "default_value": "Dit is slechts een selectie van alles wat er gedaan moet worden om deze beweging op te bouwen. Je kunt contact met ons opnemen voor een oriënterend gesprek zodat we kunnen zien wat je nog meer kunt doen, of gewoon beginnen met naar een evenement of een actie te komen om onze rebellen te ontmoeten!",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
                     "maxlength": "",
-                    "wpml_cf_preferences": 0
+                    "rows": 4,
+                    "new_lines": ""
                 }
             ]
         },
@@ -830,15 +830,15 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
             "wpml_cf_preferences": 0,
+            "layout": "block",
             "sub_fields": [
                 {
                     "key": "field_5f23383ab0310",
                     "label": "Show section",
                     "name": "enabled",
                     "type": "true_false",
-                    "instructions": "",
+                    "instructions": "Shows local events tab if there are any events (for the place that is entered in the <a href=\"#lg-place\">place<\/a> field)",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -956,7 +956,7 @@
                             "label": "Picture",
                             "name": "image_url",
                             "type": "image",
-                            "instructions": "Select pictures from the Wordpress media library.",
+                            "instructions": "Select pictures from the Wordpress media library",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1001,7 +1001,7 @@
                     "label": "Logo",
                     "name": "logo",
                     "type": "image",
-                    "instructions": "Select the logo image from the Wordpress media library.",
+                    "instructions": "Select the logo image from the Wordpress media library",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1026,7 +1026,7 @@
                     "label": "Hero background color",
                     "name": "hero_bg_color",
                     "type": "select",
-                    "instructions": "Set the background color of the hero section.",
+                    "instructions": "Set the background color of the hero section",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1178,5 +1178,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1604871873
+    "modified": 1605130535
 }
