@@ -95,7 +95,9 @@ Config::define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 Config::define('DISALLOW_FILE_EDIT', false);
 // Disable plugin and theme updates and installation from the admin
 Config::define('DISALLOW_FILE_MODS', false);
-Config::define('WP_MAX_MEMORY_LIMIT', '128M');
+Config::define('WP_MAX_MEMORY_LIMIT', '256M');
+Config::define('WP_MEMORY_LIMIT', '256M');
+Config::define('WPML_ST_SYNC_TRANSLATION_FILES', true);
 
 /**
  * Debugging Settings

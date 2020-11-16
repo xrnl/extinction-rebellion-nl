@@ -18,6 +18,14 @@
     @include media-breakpoint-down(sm) {
       height: 55px;
     }
+
+    &.show-xxs {
+      // Make sure the logo doesn't push the buttons off the screen on some mobile devices:
+      max-width: 30vw;
+
+      // quick hack to force that logo to the left
+      margin: 0 -15px;
+    }
   }
 
   .nav-item {
@@ -71,10 +79,6 @@
   }
 }
 
-.show-xxs {
-  // quick hack to force that logo to the left
-  margin: 0 -15px;
-}
 
 @each $color-key, $color-value in $theme-colors {
   .bg-xr-#{$color-key} {
