@@ -33,7 +33,7 @@
             "wrapper": {
                 "width": "",
                 "class": "",
-                "id": ""
+                "id": "lg-place"
             },
             "wpml_cf_preferences": 0,
             "default_value": "",
@@ -47,8 +47,8 @@
             "label": "Region",
             "name": "region",
             "type": "select",
-            "instructions": "",
-            "required": 0,
+            "instructions": "If in doubt, check the <i>RST Team<\/i> column on <a href=\"https:\/\/wiki.extinctionrebellion.nl\/Main\/OrgLocations\"> this wiki page <\/a>",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -93,7 +93,7 @@
                     "label": "Heading",
                     "name": "heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "E.g. \"Contact\"",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -103,7 +103,7 @@
                     },
                     "wpml_cf_preferences": 0,
                     "default_value": "Contact",
-                    "placeholder": "Contact",
+                    "placeholder": "",
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
@@ -134,7 +134,7 @@
                     "name": "email",
                     "type": "email",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -235,9 +235,9 @@
             ]
         },
         {
-            "key": "field_5f9f10703da60",
-            "label": "Appearance",
-            "name": "appearance",
+            "key": "field_5f233264cc348",
+            "label": "Broadcast channels",
+            "name": "broadcast_channels",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -251,11 +251,11 @@
             "wpml_cf_preferences": 0,
             "sub_fields": [
                 {
-                    "key": "field_5f9f10bf3da61",
-                    "label": "Logo",
-                    "name": "logo",
-                    "type": "image",
-                    "instructions": "Select the logo image from the Wordpress media library.",
+                    "key": "field_5f2332e0cc34a",
+                    "label": "Show section",
+                    "name": "enabled",
+                    "type": "true_false",
+                    "instructions": "(The broadcast channels will be shown on the Contacts tab)",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -264,16 +264,110 @@
                         "id": ""
                     },
                     "wpml_cf_preferences": 0,
-                    "return_format": "url",
-                    "preview_size": "thumbnail",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_5f2567a02b051",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f233393cc34b",
+                    "label": "Message",
+                    "name": "message",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "wpml_cf_preferences": 0
+                },
+                {
+                    "key": "field_5f2333c62ce84",
+                    "label": "Channels",
+                    "name": "channels",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "Add Channel",
+                    "sub_fields": [
+                        {
+                            "key": "field_5f2333ef2ce85",
+                            "label": "Button label",
+                            "name": "button_label",
+                            "type": "text",
+                            "instructions": "E.g. \"Join on Signal\"",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 0,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5f23340c2ce86",
+                            "label": "URL",
+                            "name": "url",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "wpml_cf_preferences": 0
+                        }
+                    ]
                 }
             ]
         },
@@ -358,7 +452,7 @@
                     "label": "Picture",
                     "name": "picture_url",
                     "type": "image",
-                    "instructions": "Select a picture from the Wordpress media library.",
+                    "instructions": "Select a picture from the Wordpress media library",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -366,6 +460,7 @@
                         "class": "",
                         "id": ""
                     },
+                    "wpml_cf_preferences": 0,
                     "return_format": "url",
                     "preview_size": "thumbnail",
                     "library": "all",
@@ -375,8 +470,7 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": "",
-                    "wpml_cf_preferences": 0
+                    "mime_types": ""
                 }
             ]
         },
@@ -621,7 +715,7 @@
                             "label": "Picture",
                             "name": "picture_url",
                             "type": "image",
-                            "instructions": "Select a picture from the Wordpress media library.",
+                            "instructions": "Select a picture from the Wordpress media library",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -629,6 +723,7 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "wpml_cf_preferences": 0,
                             "return_format": "url",
                             "preview_size": "thumbnail",
                             "library": "all",
@@ -638,145 +733,7 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": "",
-                            "wpml_cf_preferences": 0
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "key": "field_5f233264cc348",
-            "label": "Broadcast channels",
-            "name": "broadcast_channels",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "wpml_cf_preferences": 0,
-            "sub_fields": [
-                {
-                    "key": "field_5f2332e0cc34a",
-                    "label": "Show section",
-                    "name": "enabled",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 0,
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 0,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
-                    "key": "field_5f2567a02b051",
-                    "label": "Heading",
-                    "name": "heading",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 0,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5f233393cc34b",
-                    "label": "Message",
-                    "name": "message",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "wpml_cf_preferences": 0
-                },
-                {
-                    "key": "field_5f2333c62ce84",
-                    "label": "Channels",
-                    "name": "channels",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 0,
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "table",
-                    "button_label": "Add Channel",
-                    "sub_fields": [
-                        {
-                            "key": "field_5f2333ef2ce85",
-                            "label": "Button label",
-                            "name": "button_label",
-                            "type": "text",
-                            "instructions": "E.g. \"Join on Signal\"",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "wpml_cf_preferences": 0,
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5f23340c2ce86",
-                            "label": "URL",
-                            "name": "url",
-                            "type": "url",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "wpml_cf_preferences": 0
+                            "mime_types": ""
                         }
                     ]
                 }
@@ -795,15 +752,15 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
             "wpml_cf_preferences": 0,
+            "layout": "block",
             "sub_fields": [
                 {
                     "key": "field_5f2337dfc70f5",
                     "label": "Show section",
                     "name": "enabled",
                     "type": "true_false",
-                    "instructions": "",
+                    "instructions": "Check to show the vacancy positions tab when there are positions for this group",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -842,8 +799,8 @@
                     "key": "field_5f2337fec70f6",
                     "label": "Message",
                     "name": "message",
-                    "type": "text",
-                    "instructions": "",
+                    "type": "textarea",
+                    "instructions": "Feel free to edit & translate the default message to your needs",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -851,12 +808,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "wpml_cf_preferences": 0,
+                    "default_value": "Dit is slechts een selectie van alles wat er gedaan moet worden om deze beweging op te bouwen. Je kunt contact met ons opnemen voor een oriënterend gesprek zodat we kunnen zien wat je nog meer kunt doen, of gewoon beginnen met naar een evenement of een actie te komen om onze rebellen te ontmoeten!",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
                     "maxlength": "",
-                    "wpml_cf_preferences": 0
+                    "rows": 4,
+                    "new_lines": ""
                 }
             ]
         },
@@ -873,15 +830,15 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
             "wpml_cf_preferences": 0,
+            "layout": "block",
             "sub_fields": [
                 {
                     "key": "field_5f23383ab0310",
                     "label": "Show section",
                     "name": "enabled",
                     "type": "true_false",
-                    "instructions": "",
+                    "instructions": "Shows local events tab if there are any events (for the place that is entered in the <a href=\"#lg-place\">place<\/a> field)",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -999,7 +956,7 @@
                             "label": "Picture",
                             "name": "image_url",
                             "type": "image",
-                            "instructions": "Select pictures from the Wordpress media library.",
+                            "instructions": "Select pictures from the Wordpress media library",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1022,6 +979,186 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_5f9f10703da60",
+            "label": "Appearance",
+            "name": "appearance",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "wpml_cf_preferences": 0,
+            "sub_fields": [
+                {
+                    "key": "field_5f9f10bf3da61",
+                    "label": "Logo",
+                    "name": "logo",
+                    "type": "image",
+                    "instructions": "Select the logo image from the Wordpress media library",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5f9feb74db7f3",
+                    "label": "Hero background color",
+                    "name": "hero_bg_color",
+                    "type": "select",
+                    "instructions": "Set the background color of the hero section",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "choices": {
+                        "green": "Green",
+                        "yellow": "Warm yellow",
+                        "pink": "Pink",
+                        "red": "Red",
+                        "blue": "Bright blue",
+                        "navy": "Dark blue",
+                        "purple": "Purple",
+                        "lemon": "Lemon",
+                        "angry": "Angry",
+                        "light-green": "Bright green",
+                        "bright-pink": "Bright pink"
+                    },
+                    "default_value": "lemon",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5f9febebdb7f4",
+                    "label": "Hero symbol",
+                    "name": "symbol",
+                    "type": "select",
+                    "instructions": "Select a background symbol for the hero section",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "choices": {
+                        "bird": "Bird",
+                        "hourglasses": "Hourglass",
+                        "bee2": "Bee",
+                        "butterfly": "Butterfly"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5f9fec21db7f5",
+                    "label": "Left symbol color",
+                    "name": "left_symbol_color",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "choices": {
+                        "green": "Green",
+                        "yellow": "Warm yellow",
+                        "pink": "Pink",
+                        "red": "Red",
+                        "blue": "Bright blue",
+                        "black": "Black",
+                        "navy": "Dark blue",
+                        "purple": "Purple",
+                        "white": "White",
+                        "lemon": "Lemon",
+                        "angry": "Angry",
+                        "light-green": "Bright green",
+                        "bright-pink": "Bright pink"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5f9fec68db7f6",
+                    "label": "Right symbol color",
+                    "name": "right_symbol_color",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 0,
+                    "choices": {
+                        "green": "Green",
+                        "yellow": "Warm yellow",
+                        "pink": "Pink",
+                        "red": "Red",
+                        "blue": "Bright blue",
+                        "black": "Black",
+                        "navy": "Dark blue",
+                        "purple": "Purple",
+                        "white": "White",
+                        "lemon": "Lemon",
+                        "angry": "Angry",
+                        "light-green": "Bright green",
+                        "bright-pink": "Bright pink"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -1039,7 +1176,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1604309162
+    "modified": 1605130535
 }
