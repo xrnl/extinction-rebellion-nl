@@ -11,7 +11,7 @@ get_header(); ?>
   }
 ?>
 
-<div class="why-rebel">
+<main class="why-rebel">
 
   <?php $section = getSection('hero_section'); ?>
   <section class="hero" style="background: url('<?php echo $section->image; ?>') no-repeat center center / cover;">
@@ -91,8 +91,7 @@ get_header(); ?>
           <span id="hide-demands-btn" class="demands-toggle hide-demands" style="display: none;"><?php echo $labels->hide_demands_text ?></span>
         </div>
         <div id="demands-list" style="display: none;">
-          <?php $about_id = (apply_filters('wpml_current_language', NULL) === 'nl') ? 94 : 421; ?>
-          <?php the_field('demands', $about_id); // Grabbing the demands from the About us page ?>
+          <?php get_template_part('template-parts/demands-list'); ?>
         </div>
       </div>
     </div>
@@ -121,7 +120,8 @@ get_header(); ?>
       </div>
     </div>
   </section>
-</div>
+
+</main>
 
 <script type="text/javascript">
    jQuery(document).ready(function() {

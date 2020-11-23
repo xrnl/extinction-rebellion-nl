@@ -412,12 +412,39 @@ add_filter( 'rest_authentication_errors', function( $result ) {
     return $result;
 });
 
-/* options page for custom fields that reusable across pages and only accessible by admins.
+/*
+ * Options page for custom fields that reusable across pages.
+ * 'Admin Settings' is only accessible by admins,
+ * 'Editorial content' is accessible by editors also.
  * see more at: https://www.advancedcustomfields.com/resources/options-page/
- *
- * */
-
+ */
 
 if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page();
+
+  $xrnl_settings = acf_add_options_page(array(
+  'page_title' => 'XRNL General Settings',
+  'menu_title' => 'XRNL Settings',
+  'menu_slug' => 'xrnl-general-settings',
+  'capability' => 'edit_others_pages',
+  'icon_url' => 'dashicons-pets',
+  'position' => '9',
+  'redirect' => true
+  ));
+
+  acf_add_options_sub_page(array(
+  'page_title' => 'Editorial Content',
+  'menu_title' => 'Editorial',
+  'parent_slug' => $xrnl_settings['menu_slug'],
+  'capability' => 'edit_others_pages',
+  'update_button' => 'Save content',
+  'updated_message' => 'Content saved'
+  ));
+
+  acf_add_options_sub_page(array(
+  'page_title' => 'Admin Settings',
+  'menu_title' => 'Admin',
+  'parent_slug' => $xrnl_settings['menu_slug'],
+  'capability' => 'manage_options'
+  ));
+
 }
