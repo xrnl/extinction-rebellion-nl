@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 1,
+            "wpml_cf_preferences": 2,
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -28,7 +28,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "acf-options"
+                "value": "acf-options-admin"
             }
         ]
     ],
@@ -38,7 +38,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1600099005
+    "modified": 1606129267
 }
