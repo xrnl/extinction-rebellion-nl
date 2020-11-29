@@ -168,4 +168,15 @@ get_header(); ?>
   <?php endif; ?>
 </div>
 
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery("a[href='#join']").click(function(e) {
+      jQuery([document.documentElement, document.body]).animate({
+          scrollTop: jQuery("a[name='join']").offset().top
+      }, 500);
+      e.preventDefault();
+    });
+  });
+</script>
+
 <?php get_footer(); ?>

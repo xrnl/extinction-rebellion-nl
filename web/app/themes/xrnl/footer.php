@@ -35,7 +35,7 @@
                     ] ); ?>
 
                     <div class="donate donate--footer">
-                        <a href="<?php echo get_locale() === 'en_US' ? '/en/donate' : '/donate' ?>" class="btn btn-primary"><?php _e('donate'); ?></a>
+                        <a href="<?php echo get_locale() === 'en_US' ? '/en/donate' : '/donate' ?>" class="btn btn-primary" target="_blank"><?php _e('donate'); ?></a>
                     </div>
 
                     <br />

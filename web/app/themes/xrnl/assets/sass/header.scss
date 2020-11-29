@@ -1,4 +1,3 @@
-
 .navbar {
   padding-bottom: 0;
 
@@ -10,10 +9,22 @@
     }
   }
 
+  a.navbar-brand {
+    padding: 0;
+    margin: 0;
+  }
 
   a.navbar-brand > img {
     @include media-breakpoint-down(sm) {
       height: 55px;
+    }
+
+    &.show-xxs {
+      // Make sure the logo doesn't push the buttons off the screen on some mobile devices:
+      max-width: 30vw;
+
+      // quick hack to force that logo to the left
+      margin: 0 -15px;
     }
   }
 
@@ -27,12 +38,57 @@
     }
 
     .nav-link {
-      border-bottom: 5px solid $green;
+      border-bottom: 5px solid rgba(0, 0, 0, 0.0);
       font-family: $brand-font;
-      white-space: nowrap;      
+      white-space: nowrap;
       font-size: 1.4rem;
       @include media-breakpoint-up(xl) {
         padding: 1.4rem 0.5rem;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+      .nav-link  {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .navbar-expand-xl .hide-xl  {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .navbar-expand-xl .show-xl  {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 405px) {
+  .navbar-expand-xl .hide-xxs  {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 406px) {
+  .navbar-expand-xl .show-xxs  {
+    display: none;
+  }
+}
+
+
+@each $color-key, $color-value in $theme-colors {
+  .bg-xr-#{$color-key} {
+    background: $color-value !important;
+  }
+  .nav-accent-xr-#{$color-key} {
+    .nav-item {
+      &:hover .nav-link,
+      &.active .nav-link {
+        color: $color-value !important;
       }
     }
   }

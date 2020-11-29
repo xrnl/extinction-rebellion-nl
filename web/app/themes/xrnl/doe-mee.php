@@ -14,6 +14,10 @@ get_header(); ?>
   echo get_permalink(apply_filters('wpml_object_id', $page_id, 'page', true));
 } ?>
 
+<?php function formatElementID($str) {
+    return strtolower(str_replace(' ', '-', $str));
+} ?>
+
 <div class="join">
   <div class="bg-blue text-center text-white join-cover-image py-5" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat;">
       <h1 class="display-2 text-uppercase font-xr"><?php the_title(); ?></h1>
@@ -26,7 +30,7 @@ get_header(); ?>
 
   <?php $section = getSection('signup_section'); ?>
   <?php if ($section->enabled) : ?>
-    <section class="join-section container-fluid bg-pink">
+    <section id="<?php echo formatElementID(__('Sign up','theme-xrnl')); ?>" class="join-section container-fluid bg-pink">
       <div class="row">
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
           <h2><?php echo($section->heading); ?></h2>
@@ -120,7 +124,7 @@ get_header(); ?>
                   <?php if(is_array($action['buttons'])) : ?>
                     <?php foreach ($action['buttons'] as $button) : ?>
                       <?php if ($button['button_label']): ?>
-                        <a class="btn btn-black my-2 mx-2" href="<?php echo($button['button_link']); ?>"><?php echo($button['button_label']); ?></a>
+                        <a class="btn btn-black my-2 mx-2" href="<?php echo($button['button_link']); ?>" target="_blank"><?php echo($button['button_label']); ?></a>
                       <?php endif; ?>
                     <?php endforeach; ?>
                   <?php endif; ?>

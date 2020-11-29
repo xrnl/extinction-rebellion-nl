@@ -1,21 +1,185 @@
-$hero-min-height: 400px;
-$logo-diameter: 200px;
-$logo-bg-diameter: 250px;
+// Local groups archive
+
+.local-groups-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), var(--bg-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 3rem 0;
+  color: $xr-white;
+}
+
+.local-groups-info {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .info-toggle {
+    align-self: flex-end;
+    @include media-breakpoint-down(xs) {
+      align-self: center;
+    }
+    background: $xr-light-blue;
+    display: inline-block;
+    padding: .1rem 1rem .1rem .5rem;
+    cursor: pointer;
+    &::after {
+      font-family: 'FontAwesome';
+      content: '\f068';
+      margin-left: .5rem;
+      font-size: .9rem;
+      display: inline-block;
+    }
+    &.expanded {
+      &::after {
+        content: '\f067';
+      }
+    }
+  }
+
+  .info-expand {
+    align-self: flex-end;
+    background: lighten($xr-light-blue, 10%);
+    padding: 1rem 2rem;
+    max-width: 30rem;
+    text-align: center;
+    a {
+      text-decoration: none !important;
+    }
+  }
+
+}
+
+
+.local-groups-index {
+
+  .index-container {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 1.5rem 8rem 1.5rem;
+  }
+
+    .select-region {
+      padding: 2.2rem 3.8rem 0 0;
+
+      display: flex;
+      flex-direction: column;
+
+      @include media-breakpoint-down(xs) {
+        display: none;
+      }
+
+      position: -webkit-sticky;
+      position: sticky;
+      top: 1rem;
+      align-self: flex-start;
+
+      button {
+        display: none; // will be revealed if javascript is enabled
+
+        background: none;
+        border: none;
+        border-bottom: 4px solid $xr-white;
+        font-family: $brand-font;
+        font-size: 1.4rem;
+        white-space: nowrap;
+        outline: none;
+
+        padding: 0;
+        margin: .5rem;
+        align-self: flex-end;
+        transition: border 200ms ease-in;
+
+        &::before {
+          font-family: 'FontAwesome';
+          content: '\f0a4';
+          color: $xr-white;
+          text-decoration: none;
+          display: inline-block;
+          position: absolute;
+          transform: translateX(-2rem);
+          transition: color 200ms ease-in;
+        }
+        &.active {
+          border-color: $xr-warm-yellow;
+          &::before {
+            color: $xr-warm-yellow;
+          }
+        }
+      }
+
+    }
+
+    .groups-list {
+      flex-grow: 2;
+      padding: 0;
+
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+
+      .initial-letter {
+        font-size: 3rem;
+        color: $xr-green;
+        break-after: avoid-column;
+        border-bottom: 1px solid $xr-light-gray; //$xr-green;
+        margin-top: 0.5rem;
+      }
+
+      li {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+        font-weight: bold;
+        list-style: none;
+        padding-left: 0.5rem;
+        margin-left: .5rem;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+}
+
+
+// Single local group page
+
+$hero-min-height: 250px;
+$logo-diameter: 130px;
+$logo-bg-diameter: 150px;
+
 $logo-bottom-shift: -50px;
 $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diameter)/2 );
 
+@each $color-key, $color-value in $theme-colors {
+  .hero-bg-#{$color-key} {
+    background: $color-value !important;
+  }
+  .hero-symbol-#{$color-key} {
+    svg,path {
+      fill: $color-value !important;
+    }
+  }
+}
+
 .local-group {
   .lg-hero-container {
-    background: $xr-lemon;
     color: $xr-black;
     position: relative;
     min-height: $hero-min-height;
-    h1 {
-      z-index: 10;
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin: auto;
+    text-align: center;
+    padding-bottom: $logo-bg-diameter - $logo-bg-bottom-shift *-1;
+    .group-name {
+      padding: 2rem 1rem;
+      min-height: $hero-min-height/2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h1 {
+        z-index: 10;
+        margin: 0 auto;
+        max-width: 75%;
+      }
     }
     .lg-logo-bg {
       width: $logo-bg-diameter;
@@ -44,7 +208,7 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
       display: block;
       position: absolute;
       bottom: 30px;
-      opacity: .9;
+      opacity: .7;
       pointer-events: none;
 
       svg,path {
@@ -52,12 +216,15 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
         z-index: 1;
         height: $hero-min-height * .65;
         @include media-breakpoint-down(lg) {
-          height: $hero-min-height * .5;
+          height: $hero-min-height * .6;
         }
         @include media-breakpoint-down(md) {
-          height: $hero-min-height * .35;
+          height: $hero-min-height * .55;
         }
         @include media-breakpoint-down(sm) {
+          height: $hero-min-height * .45;
+        }
+        @include media-breakpoint-down(xs) {
           display: none;
         }
       }
@@ -65,15 +232,9 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
       &.right {
         right: 20px;
         transform: scaleX(-1);
-        svg,path {
-          fill: $xr-bright-pink;
-        }
       }
       &.left {
         left: 20px;
-        svg,path {
-          fill: $xr-purple;
-        }
       }
     }
   }
@@ -83,8 +244,12 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
     .nav-link {
       font-family: $brand-font;
       text-decoration: none;
+      padding: 0;
+      margin: 0 .5rem;
       &.active {
-        color: $xr-white;
+        color: $xr-black;
+        background: inherit;
+        border-bottom: 5px solid $xr-primary;
       }
     }
   }
@@ -93,7 +258,12 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
     padding-top: 3rem;
     p {
       text-align: justify;
+      margin-bottom: 3rem;
     }
+  }
+
+  .tab-content {
+    margin-bottom: 2rem;
   }
 
   .demands-list {
@@ -143,7 +313,10 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
     }
   }
 
-  #channels {
+  .broadcast-channels {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid $xr-light-gray;
     p {
       text-align: center;
     }

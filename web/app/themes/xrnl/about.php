@@ -32,8 +32,8 @@ get_header(); ?>
             <?php _e('OUR DEMANDS', 'theme-xrnl'); ?>
             <i class="fas fa-chevron-down"></i>
           </a>
-          <div class="text-left collapse show" id="demands">
-            <?php the_field('demands'); ?>
+          <div class="text-left collapse" id="demands">
+            <?php get_template_part('template-parts/demands-list'); ?>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@ get_header(); ?>
               <?php the_sub_field('topic_tilte') ?>
               <i class="fas fa-chevron-down float-right pt-1"></i>
             </a>
-            <div class="text-left collapse show" id="topic-<?php echo get_row_index(); ?>">
+            <div class="text-left collapse" id="topic-<?php echo get_row_index(); ?>">
               <div class="pt-3">
                 <?php the_sub_field('topic_description'); ?>
               </div>

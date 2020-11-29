@@ -108,6 +108,11 @@ add_action('init', function(){
     );
     register_post_type( 'volunteer_vacancy', $args );
 
+    add_filter('user_can_richedit', function( $default ){
+      if( get_post_type() === 'volunteer_vacancy') return false;
+      return $default;
+    });
+
 });
 
 add_action('init', function(){
@@ -208,7 +213,7 @@ add_action('init', function(){
     $args = array(
         'label'                 => __( 'Local Group', 'text_domain' ),
         'labels'                => $labels,
-        'supports'              => array('title'),
+        'supports'              => array('title','author','revisions'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -224,7 +229,7 @@ add_action('init', function(){
         'rewrite'               => $rewrite,
         'capability_type'       => 'page',
     );
-    register_post_type( 'local_group', $args );
+    register_post_type( 'xrnl_local_group', $args );
 
 });
 
@@ -422,3 +427,40 @@ add_filter( 'rest_authentication_errors', function( $result ) {
     // on logged-in requests
     return $result;
 });
+
+/*
+ * Options page for custom fields that reusable across pages.
+ * 'Admin Settings' is only accessible by admins,
+ * 'Editorial content' is accessible by editors also.
+ * see more at: https://www.advancedcustomfields.com/resources/options-page/
+ */
+
+if( function_exists('acf_add_options_page') ) {
+
+  $xrnl_settings = acf_add_options_page(array(
+  'page_title' => 'XRNL General Settings',
+  'menu_title' => 'XRNL Settings',
+  'menu_slug' => 'xrnl-general-settings',
+  'capability' => 'edit_others_pages',
+  'icon_url' => 'dashicons-pets',
+  'position' => '9',
+  'redirect' => true
+  ));
+
+  acf_add_options_sub_page(array(
+  'page_title' => 'Editorial Content',
+  'menu_title' => 'Editorial',
+  'parent_slug' => $xrnl_settings['menu_slug'],
+  'capability' => 'edit_others_pages',
+  'update_button' => 'Save content',
+  'updated_message' => 'Content saved'
+  ));
+
+  acf_add_options_sub_page(array(
+  'page_title' => 'Admin Settings',
+  'menu_title' => 'Admin',
+  'parent_slug' => $xrnl_settings['menu_slug'],
+  'capability' => 'manage_options'
+  ));
+
+}

@@ -1,0 +1,39 @@
+.petition {
+  font-size: 1.4rem;
+
+  div {
+    transition: visibility 0s, opacity 0.5s linear;
+  }
+  section {
+    padding: 4rem 0.2rem;
+  }
+
+  #can_embed_form_inner > h2 {
+    display: none;
+  }
+
+  .isInvisible {
+    // necessary for it to occupy 0 space in the page
+    display: none;
+    // necessary for transition
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .isVisible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  // default thank you message is hidden because we show a custom message
+  #can_embed_form #can_thank_you {
+    display: none !important;
+  }
+
+  .button-block-centered {
+    display: block;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
