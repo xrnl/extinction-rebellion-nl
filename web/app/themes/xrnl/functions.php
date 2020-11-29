@@ -390,22 +390,6 @@ function excerpt($limit) {
     return $excerpt;
 }
 
-if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page(array(
-		'page_title' 	=> 'Custom blog settings',
-		'menu_title'	=> 'Custom blog settings',
-		'menu_slug' 	=> 'custom-blog-settings',
-		'capability'	=> 'edit_posts',
-	));
-
-  acf_add_options_sub_page(array(
-    'page_title' 	=> 'Blog CTA settings',
-    'menu_title'	=> 'CTA',
-    'parent_slug'	=> 'custom-blog-settings',
-));
-
-}
-
 add_filter( 'rest_authentication_errors', function( $result ) {
     // If a previous authentication check was applied,
     // pass that result along without modification.

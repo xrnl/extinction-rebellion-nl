@@ -41,6 +41,7 @@ get_header(); ?>
     </div>
 </div>
 
+<?php if(get_field('cta_title', 'option') && get_field('cta_button_text', 'option') && get_field('cta_body', 'option') && get_field('cta_cover_image', 'option')): ?>
 <div class="cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('cta_cover_image', 'option'); ?>') no-repeat; background-position: 50% 90%;">
   <div class="container">
     <div class="row py-5 text-center text-white">
@@ -54,5 +55,6 @@ get_header(); ?>
     </div>
   </div>
 </div>
+<?php endif; ?>
 
 <?php get_footer(); ?>
