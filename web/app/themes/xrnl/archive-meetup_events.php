@@ -62,10 +62,36 @@ $events = new WP_Query($args);
 
 $cities = event_cities();
 $categories = event_categories();
+
+$events_page_id = (apply_filters('wpml_current_language', NULL) === 'nl') ? 548 : 567;
+$featured_event = get_field('featured_event', $events_page_id);
+
 get_header(); ?>
 
 <div class="container my-5">
+
+	<?php if ($featured_event['show_featured_event'] === 'yes') : ?>
+		<div class="pb-5 mb-5">
+			<div class="row">
+				<div class="col-12 col-lg-5 mb-5 mb-lg-0">
+					<h2><?php echo($featured_event['title']); ?></h2>
+					<h5 class="font-xr"><?php echo($featured_event['subtitle']); ?></h5>
+					<p class="pr-5">
+						<?php echo($featured_event['description']); ?>
+					</p>
+					<div class="row px-3 mt-5">
+						<a href="<?php echo($featured_event['button_link']); ?>" class="btn btn-lg bg-xr-light-green"><?php echo($featured_event['button_label']); ?></a>
+					</div>
+				</div>
+				<div class="col-12 col-lg-7">
+					<img src="<?php echo($featured_event['picture']['url']); ?>" alt="<?php echo($featured_event['picture']['alt'] ?? 'Extinction Rebellion Nederland' ); ?>">
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+
 	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city; ?></h1>
+	<p><?php the_field('intro_text', $events_page_id); ?></p>
 
 	<?php if ($cities || $categories) { ?>
 		<form class="mt-4 flex-nowrap" method="get">
@@ -108,7 +134,7 @@ get_header(); ?>
 						</select>
 					</div>
 				<?php } ?>
-				<div class="col-auto">
+				<div class="col-auto my-auto">
 					<button type="submit" class="btn btn-black ml-sm-2">
 						<?php _e('Apply') ?>
 					</button>
