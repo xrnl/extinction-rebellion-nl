@@ -24,7 +24,7 @@ First, you must activate Docker. Then:
 ```sh
 # start website
 docker-compose up -d
-# compile css files and enable hot reloading
+# compile css files and enable hot reloading (from within web/app/themes/xrnl)
 npm run watch 
 ```
 
