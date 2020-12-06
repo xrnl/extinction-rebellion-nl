@@ -1,6 +1,6 @@
 ## Requirements
 
-- [Docker](https://www.docker.com/products/docker-desktop)
+- [Docker](https://www.docker.com/products/docker-desktop). If you use Linux, you'll also have to separately install [docker-compose](https://linuxhandbook.com/docker-compose-ubuntu/).
 - [Node.js](https://nodejs.org/en/)
 
 ## Install
