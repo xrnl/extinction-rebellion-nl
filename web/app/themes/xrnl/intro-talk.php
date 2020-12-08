@@ -12,35 +12,35 @@ get_header(); ?>
 <section class="px-3 px-lg-5 py-5">
   <div class="row">
     <h2 class="col-12 text-center"><?php the_field('center_section_heading'); ?></h2>
+    <div class="mt-2 mb-3 col-10 col-md-8 col-lg-7 mx-auto text-center">
+      <span class="px-2 py-1">
+        <span id="countdown-info" class="font-weight-bold"><?php _e('The talk will start in', 'theme-xrnl') ?></span>
+        <?php $date = get_field('date'); ?>
+        <span
+          id="countdown"
+          class="font-xr text-nowrap text-white bg-xr-black px-2 py-1"
+          data-start-day=   "<?php echo $date['day_of_the_week']; ?>"
+          data-start-hours= "<?php echo $date['hours']; ?>"
+          data-start-mins=  "<?php echo $date['min']; ?>"
+          data-duration=    "<?php echo $date['duration']; ?>"
+          data-str-on=      "<?php _e('The talk is on', 'theme-xrnl') ?>"
+          data-str-now=     "<?php _e('now', 'theme-xrnl') ?>"
+          data-str-days=    "<?php _e('days', 'theme-xrnl') ?>"
+          data-str-hours=   "<?php _e('hours', 'theme-xrnl') ?>"
+          data-str-minutes= "<?php _e('minutes', 'theme-xrnl') ?>"
+          data-str-seconds= "<?php _e('seconds', 'theme-xrnl') ?>"
+          data-str-day=     "<?php _e('day', 'theme-xrnl') ?>"
+          data-str-hour=    "<?php _e('hour', 'theme-xrnl') ?>"
+          data-str-minute=  "<?php _e('minute', 'theme-xrnl') ?>"
+          data-str-second=  "<?php _e('second', 'theme-xrnl') ?>"
+        ></span>
+      </span>
+    </div>
     <p class="col-10 col-md-8 col-lg-7 mx-auto text-center"><?php the_field('center_section_top_text') ?></p>
     <div class="col-12 col-sm-10 col-md-10 col-lg-9 py-5 mx-auto row" style="min-height: 30rem; background: url('<?php the_field('screenshot_url') ?>') no-repeat center center/cover;">
       <div class="col-12 align-self-end text-center">
         <?php $view_btn = get_field('view_button'); ?>
         <a href="<?php echo $view_btn['view_button_link']; ?>" class="btn btn-lg btn-yellow"><?php echo $view_btn['view_button_label']; ?></a>
-        <div class="mt-1 text-white bg-xr-black">
-          <span class="px-2 py-1">
-            <span id="countdown-info"><?php _e('The talk will start in', 'theme-xrnl') ?></span>
-            <?php $date = get_field('date'); ?>
-            <span
-              id="countdown"
-              class="font-xr text-nowrap"
-              data-start-day=   "<?php echo $date['day_of_the_week']; ?>"
-              data-start-hours= "<?php echo $date['hours']; ?>"
-              data-start-mins=  "<?php echo $date['min']; ?>"
-              data-duration=    "<?php echo $date['duration']; ?>"
-              data-str-on=      "<?php _e('The talk is on', 'theme-xrnl') ?>"
-              data-str-now=     "<?php _e('now', 'theme-xrnl') ?>"
-              data-str-days=    "<?php _e('days', 'theme-xrnl') ?>"
-              data-str-hours=   "<?php _e('hours', 'theme-xrnl') ?>"
-              data-str-minutes= "<?php _e('minutes', 'theme-xrnl') ?>"
-              data-str-seconds= "<?php _e('seconds', 'theme-xrnl') ?>"
-              data-str-day=     "<?php _e('day', 'theme-xrnl') ?>"
-              data-str-hour=    "<?php _e('hour', 'theme-xrnl') ?>"
-              data-str-minute=  "<?php _e('minute', 'theme-xrnl') ?>"
-              data-str-second=  "<?php _e('second', 'theme-xrnl') ?>"
-            ></span>
-          </span>
-        </div>
       </div>
     </div>
     <p class="col-11 col-md-9 col-lg-8 mx-auto mt-3 text-center"><?php the_field('center_section_top_text') ?></p>
