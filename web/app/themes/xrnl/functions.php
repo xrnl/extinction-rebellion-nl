@@ -205,7 +205,7 @@ add_action('init', function(){
         'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
     );
     $rewrite = array(
-        'slug'                  => 'local',
+        'slug'                  => 'groep',
         'with_front'            => true,
         'pages'                 => true,
         'feeds'                 => true,
@@ -219,7 +219,7 @@ add_action('init', function(){
         'show_ui'               => true,
         'show_in_menu'          => true,
         'menu_position'         => 6,
-        'menu_icon'             => 'dashicons-groups',
+        'menu_icon'             => 'dashicons-location',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'can_export'            => true,
