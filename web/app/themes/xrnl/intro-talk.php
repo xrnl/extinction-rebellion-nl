@@ -43,7 +43,7 @@ get_header(); ?>
         <a href="<?php echo $view_btn['view_button_link']; ?>" class="btn btn-lg btn-yellow"><?php echo $view_btn['view_button_label']; ?></a>
       </div>
     </div>
-    <p class="col-11 col-md-9 col-lg-8 mx-auto mt-3 text-center"><?php the_field('center_section_top_text') ?></p>
+    <p class="col-11 col-md-9 col-lg-8 mx-auto mt-3 text-center"><?php the_field('center_section_bottom_text') ?></p>
   </div>
 </section>
 
