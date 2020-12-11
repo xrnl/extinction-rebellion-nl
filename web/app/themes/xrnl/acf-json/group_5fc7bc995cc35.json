@@ -108,31 +108,6 @@
             "new_lines": ""
         },
         {
-            "key": "field_5fc7de799aaa5",
-            "label": "Center section picture",
-            "name": "screenshot_url",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 0,
-            "return_format": "url",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5fc9fc36fbb7d",
             "label": "Day and time of the talk",
             "name": "date",
@@ -419,5 +394,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607074461
+    "modified": 1607546093
 }

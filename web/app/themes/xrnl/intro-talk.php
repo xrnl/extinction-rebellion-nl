@@ -37,11 +37,9 @@ get_header(); ?>
       </span>
     </div>
     <p class="col-10 col-md-8 col-lg-7 mx-auto text-center"><?php the_field('center_section_top_text') ?></p>
-    <div class="col-12 col-sm-10 col-md-10 col-lg-9 py-5 mx-auto row" style="min-height: 30rem; background: url('<?php the_field('screenshot_url') ?>') no-repeat center center/cover;">
-      <div class="col-12 align-self-end text-center">
-        <?php $view_btn = get_field('view_button'); ?>
-        <a href="<?php echo $view_btn['view_button_link']; ?>" class="btn btn-lg btn-yellow"><?php echo $view_btn['view_button_label']; ?></a>
-      </div>
+    <div class="col-12 text-center mt-2 mb-5">
+      <?php $view_btn = get_field('view_button'); ?>
+      <a href="<?php echo $view_btn['view_button_link']; ?>" class="btn btn-lg btn-yellow"><?php echo $view_btn['view_button_label']; ?></a>
     </div>
     <p class="col-11 col-md-9 col-lg-8 mx-auto mt-3 text-center"><?php the_field('center_section_bottom_text') ?></p>
   </div>
