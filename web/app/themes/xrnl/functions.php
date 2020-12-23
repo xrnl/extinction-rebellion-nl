@@ -801,7 +801,7 @@ add_filter( 'rest_authentication_errors', function( $result ) {
   }
 
   if(substr($_SERVER['REQUEST_URI'], 0, 19) == '/wp-json/events_api' ) {
-    if($_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR']) {
+    if($_SERVER['REMOTE_ADDR'] != '172.22.0.100') {
       return new WP_Error(
           'forbidden',
           __( 'You are not allowed to access this resource' ),
