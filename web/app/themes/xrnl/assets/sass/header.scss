@@ -18,6 +18,14 @@
     @include media-breakpoint-down(sm) {
       height: 55px;
     }
+
+    &.show-xxs {
+      // Make sure the logo doesn't push the buttons off the screen on some mobile devices:
+      max-width: 30vw;
+
+      // quick hack to force that logo to the left
+      margin: 0 -15px;
+    }
   }
 
   .nav-item {
@@ -30,7 +38,7 @@
     }
 
     .nav-link {
-      border-bottom: 5px solid $green;
+      border-bottom: 5px solid rgba(0, 0, 0, 0.0);
       font-family: $brand-font;
       white-space: nowrap;
       font-size: 1.4rem;
@@ -71,7 +79,17 @@
   }
 }
 
-.show-xxs {
-  // quick hack to force that logo to the left
-  margin: 0 -15px;
+
+@each $color-key, $color-value in $theme-colors {
+  .bg-xr-#{$color-key} {
+    background: $color-value !important;
+  }
+  .nav-accent-xr-#{$color-key} {
+    .nav-item {
+      &:hover .nav-link,
+      &.active .nav-link {
+        color: $color-value !important;
+      }
+    }
+  }
 }

@@ -23,6 +23,12 @@
   }
 }
 
+.event_info {
+  line-height: 1.2rem;
+  height: 2.4rem !important;
+  overflow: hidden !important;
+}
+
 .event_date {
   background: #000 !important;
   color: #fff !important;
@@ -38,4 +44,3 @@
     margin-bottom: 6% !important;
   }
 }
-

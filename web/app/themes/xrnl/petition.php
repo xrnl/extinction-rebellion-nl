@@ -83,7 +83,7 @@ get_header(); ?>
                 </div>
 
                 <?= do_shortcode(get_field('actionnetwork_shortcode')) ?>
-                <? 
+                <?
                 /* #submission-cta-1 is shown after the form is submitted. */
                 /* #submission-cta-2 is shown after the user clicks on a button ins #submission-cta-1 */
                 ?>
@@ -138,7 +138,7 @@ get_header(); ?>
                     <i class="fas fa-chevron-down"></i>
                   </a>
                   <div class="text-left collapse" id="demands">
-                    <?php echo($section->demands); ?>
+                    <?php get_template_part('template-parts/demands-list'); ?>
                   </div>
                 </div>
               <?php endif; ?>
@@ -198,7 +198,7 @@ jQuery(document).ready(function() {
   });
 
   // show second call to action when user interacts with first call to action
-  
+
   jQuery("#form-donate").click(function(e) {
     showCTA2();
   })

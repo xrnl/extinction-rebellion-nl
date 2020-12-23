@@ -4,8 +4,7 @@
  */
 
 get_header(); ?>
-
-<div class="container">
+<div class="container-fluid blog-wrapper">
     <div class="row mt-5">
         <div class="col-12 col-lg-8">
             <?php
@@ -41,5 +40,21 @@ get_header(); ?>
         </div>
     </div>
 </div>
+
+<?php if(get_field('cta_title', 'option') && get_field('cta_button_text', 'option') && get_field('cta_body', 'option') && get_field('cta_cover_image', 'option')): ?>
+<div class="cover-image" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.55)), url('<?php the_field('cta_cover_image', 'option'); ?>') no-repeat; background-position: 50% 90%;">
+  <div class="container">
+    <div class="row py-5 text-center text-white">
+      <div class="col-12 col-lg-8 mx-auto my-5">
+        <h1><?php the_field('cta_title', 'option');; ?></h1>
+        <p><?php the_field('cta_body', 'option'); ?>
+        </p>
+        <?php $joinPageURL = get_permalink(apply_filters('wpml_object_id', 7587, 'page', true)); ?>
+        <p><a class="btn btn-lg btn-blue" href="<?php echo $joinPageURL; ?>"><?php the_field('cta_button_text', 'option'); ?></a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
 
 <?php get_footer(); ?>

@@ -109,6 +109,11 @@ add_action('init', function(){
     );
     register_post_type( 'volunteer_vacancy', $args );
 
+    add_filter('user_can_richedit', function( $default ){
+      if( get_post_type() === 'volunteer_vacancy') return false;
+      return $default;
+    });
+
 });
 
 add_action('init', function(){
@@ -201,7 +206,7 @@ add_action('init', function(){
         'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
     );
     $rewrite = array(
-        'slug'                  => 'local',
+        'slug'                  => 'groep',
         'with_front'            => true,
         'pages'                 => true,
         'feeds'                 => true,
@@ -209,13 +214,13 @@ add_action('init', function(){
     $args = array(
         'label'                 => __( 'Local Group', 'text_domain' ),
         'labels'                => $labels,
-        'supports'              => array('title'),
+        'supports'              => array('title','author','revisions'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
         'show_in_menu'          => true,
         'menu_position'         => 6,
-        'menu_icon'             => 'dashicons-groups',
+        'menu_icon'             => 'dashicons-location',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'can_export'            => true,
@@ -867,12 +872,39 @@ add_action( 'rest_api_init', function () {
   ) );
 } );
 
-/* options page for custom fields that reusable across pages and only accessible by admins.
+/*
+ * Options page for custom fields that reusable across pages.
+ * 'Admin Settings' is only accessible by admins,
+ * 'Editorial content' is accessible by editors also.
  * see more at: https://www.advancedcustomfields.com/resources/options-page/
- *
- * */
-
+ */
 
 if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page();
+
+  $xrnl_settings = acf_add_options_page(array(
+  'page_title' => 'XRNL General Settings',
+  'menu_title' => 'XRNL Settings',
+  'menu_slug' => 'xrnl-general-settings',
+  'capability' => 'edit_others_pages',
+  'icon_url' => 'dashicons-pets',
+  'position' => '9',
+  'redirect' => true
+  ));
+
+  acf_add_options_sub_page(array(
+  'page_title' => 'Editorial Content',
+  'menu_title' => 'Editorial',
+  'parent_slug' => $xrnl_settings['menu_slug'],
+  'capability' => 'edit_others_pages',
+  'update_button' => 'Save content',
+  'updated_message' => 'Content saved'
+  ));
+
+  acf_add_options_sub_page(array(
+  'page_title' => 'Admin Settings',
+  'menu_title' => 'Admin',
+  'parent_slug' => $xrnl_settings['menu_slug'],
+  'capability' => 'manage_options'
+  ));
+
 }

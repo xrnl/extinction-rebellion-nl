@@ -3,13 +3,27 @@
  * The template for a local group page
  */
 
-get_header(); ?>
+  $appearance = get_field('appearance');
+  $hero_bg_color = $appearance['hero_bg_color'] ?: 'lemon';
+  $hero_accent_color = $hero_bg_color === 'lemon' ? 'green' : 'white';
+  $symbol = $appearance['symbol'] ?: 'bird';
+  $left_symbol_color = $appearance['left_symbol_color'] ?: 'pink';
+  $right_symbol_color = $appearance['right_symbol_color'] ?: 'purple';
+  $symbol_svg = file_get_contents(get_template_directory_uri() . '/assets/images/' . $symbol . '.svg', false, getContext(WP_ENV));
+  $logo_url = $appearance['logo'] ?: get_template_directory_uri() . '/assets/images/XR-symbol.svg';
+
+  get_header(null, array(
+    'bg-color' => $hero_bg_color,
+    'accent-color' => $hero_accent_color
+  ));
+?>
 
 <?php
-  $localPage = apply_filters('wpml_object_id', 272, 'page', true);
+  $localPage = apply_filters('wpml_object_id', 12054, 'page', true);
   $localPageURL = get_permalink($localPage);
 
-  function getContext($env) {
+  function getContext($env)
+  {
     // In development environment, allow reading from the
     // local filesystem without requiring a signed SSL certificate.
     $dev = $env === 'development';
@@ -23,10 +37,8 @@ get_header(); ?>
     return stream_context_create($contextOptions);
   }
 
-  $bg_symbol = file_get_contents(get_template_directory_uri() . '/assets/images/bird.svg', false, getContext(WP_ENV));
-  $logo_url = get_field('logo') ?: get_template_directory_uri() . '/assets/images/XR-symbol.svg';
-
-  function getSection($section_id) {
+  function getSection($section_id)
+  {
     return (object) get_field($section_id);
   }
 
@@ -81,13 +93,12 @@ get_header(); ?>
   }
 ?>
 
-<script src="/app/themes/xrnl/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/app/themes/xrnl/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
 <link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css" />
 
 <script type="text/javascript">
-  const sections = ['about', 'demands', 'actions', 'channels', 'events', 'positions', 'pictures'];
+  const sections = ['about', 'demands', 'actions', 'events', 'positions', 'pictures'];
 
   function checkSectionExists(section) {
     if (! jQuery('#' + section).length) {
@@ -121,13 +132,15 @@ get_header(); ?>
 
 <div class="local-group">
 
-  <div class="lg-hero-container px-3 py-5 pb-5 text-center">
-    <h1 class="display-2">XR <?php echo preg_replace('/\//', '/ ', get_field('group_name')); ?></h1>
-    <div class="bg-symbol left">
-      <?php echo $bg_symbol; ?>
+  <div class="lg-hero-container hero-bg-<?php echo $hero_bg_color ?>">
+    <div class="group-name">
+      <h1 class="display-2">XR <?php echo preg_replace('/\//', '/ ', get_field('group_name')); ?></h1>
     </div>
-    <div class="bg-symbol right">
-      <?php echo $bg_symbol; ?>
+    <div class="bg-symbol left hero-symbol-<?php echo $left_symbol_color ?>">
+      <?php echo $symbol_svg; ?>
+    </div>
+    <div class="bg-symbol right hero-symbol-<?php echo $right_symbol_color ?>">
+      <?php echo $symbol_svg; ?>
     </div>
     <div class="lg-logo-bg">
     </div>
@@ -149,9 +162,6 @@ get_header(); ?>
         <a class="nav-link" id="actions-nav" href="#actions" data-toggle="pill"><?php _e('Actions', 'theme-xrnl') ?></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="channels-nav" href="#channels" data-toggle="pill"><?php _e('Channels', 'theme-xrnl') ?></a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" id="events-nav" href="#events" data-toggle="pill"><?php _e('Events', 'theme-xrnl') ?></a>
       </li>
       <li class="nav-item">
@@ -165,7 +175,19 @@ get_header(); ?>
 
   <div class="tab-content" id="pills-tabContent">
 
-    <?php $section = getSection('contact'); ?>
+      <?php
+        $section = getSection('contact');
+        // Fallback in case there are no contact details
+        if (
+            empty($section->email) &&
+            empty($section->mastodon) &&
+            empty($section->twitter) &&
+            empty($section->facebook_page) &&
+            empty($section->instagram_page)
+        ) {
+          $section->email = 'info@extinctionrebellion.nl';
+        }
+      ?>
       <section id="contact" class="lg-section container-fluid tab-pane fade show active">
         <div class="row">
           <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
@@ -197,6 +219,20 @@ get_header(); ?>
                 <a href="<?php echo $section->youtube_channel; ?>"  target="_blank" rel="noreferrer noopener" class="btn youtube" aria-label="youtube"><i class="fab fa-2x fa-youtube"></i></a>
               <?php endif; ?>
             </span>
+            <?php $broadcasts = getSection('broadcast_channels'); ?>
+            <?php if ($broadcasts && $broadcasts->enabled) : ?>
+              <div class="broadcast-channels">
+                <h2><?php echo($broadcasts->heading); ?></h2>
+                <p><?php echo($broadcasts->message); ?></p>
+                <?php if (is_array($broadcasts->channels)) : ?>
+                  <div class="broadcast-list">
+                    <?php foreach ($broadcasts->channels as $channel) : ?>
+                      <a class="btn btn-black my-2" href="<?php echo($channel['url']); ?>"><?php echo($channel['button_label']); ?></a>
+                    <?php endforeach; ?>
+                  </div>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
           </div>
         </div>
       </section>
@@ -253,25 +289,6 @@ get_header(); ?>
                     <img src="<?php echo($action['picture_url']); ?>" alt="Extinction Rebellion <?php the_field('group_name'); ?>">
                   <?php endif; ?>
                 </div>
-                <?php endforeach; ?>
-              </div>
-            <?php endif; ?>
-          </div>
-        </div>
-      </section>
-    <?php endif; ?>
-
-    <?php $section = getSection('broadcast_channels'); ?>
-    <?php if ($section->enabled) : ?>
-      <section id="channels" class="lg-section container-fluid tab-pane fade">
-        <div class="row">
-          <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
-            <h1><?php echo($section->heading); ?></h1>
-            <p><?php echo($section->message); ?></p>
-            <?php if (is_array($section->channels)) : ?>
-              <div class="broadcast-list">
-                <?php foreach ($section->channels as $channel) : ?>
-                  <a class="btn btn-black my-2" href="<?php echo($channel['url']); ?>"><?php echo($channel['button_label']); ?></a>
                 <?php endforeach; ?>
               </div>
             <?php endif; ?>

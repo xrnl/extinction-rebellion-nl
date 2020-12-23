@@ -1,6 +1,6 @@
 ## Requirements
 
-- [Docker](https://www.docker.com/products/docker-desktop)
+- [Docker](https://www.docker.com/products/docker-desktop). If you use Linux, you'll also have to separately install [docker-compose](https://linuxhandbook.com/docker-compose-ubuntu/).
 - [Node.js](https://nodejs.org/en/)
 
 ## Install
@@ -24,7 +24,7 @@ First, you must activate Docker. Then:
 ```sh
 # start website
 docker-compose up -d
-# compile css files and enable hot reloading
+# compile css files and enable hot reloading (from within web/app/themes/xrnl)
 npm run watch 
 ```
 

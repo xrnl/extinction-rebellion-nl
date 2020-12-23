@@ -33,7 +33,7 @@ get_header(); ?>
             <i class="fas fa-chevron-down"></i>
           </a>
           <div class="text-left collapse" id="demands">
-            <?php the_field('demands'); ?>
+            <?php get_template_part('template-parts/demands-list'); ?>
           </div>
         </div>
       </div>
