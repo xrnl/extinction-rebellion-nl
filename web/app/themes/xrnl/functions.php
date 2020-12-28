@@ -2,6 +2,8 @@
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 include_once(ABSPATH . 'wp-admin/includes/image.php' );
 
+define('ALLOW_EVENT_REQUEST_FROM_IP', '172.22.0.100');
+
 add_theme_support("post-thumbnails");
 add_theme_support("custom-logo");
 add_theme_support( 'title-tag' );
@@ -806,7 +808,7 @@ add_filter( 'rest_authentication_errors', function( $result ) {
   }
 
   if(substr($_SERVER['REQUEST_URI'], 0, 19) == '/wp-json/events_api' ) {
-    if($_SERVER['REMOTE_ADDR'] != '172.22.0.100') {
+    if($_SERVER['REMOTE_ADDR'] != ALLOW_EVENT_REQUEST_FROM_IP) {
       return new WP_Error(
           'forbidden',
           __( 'You are not allowed to access this resource' ),
