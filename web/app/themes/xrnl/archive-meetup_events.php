@@ -4,15 +4,14 @@
  * Template name: Events
  */
 
-// city query param
-$param_city = stripslashes(get_query_var('city'));
+$param_organizer = stripslashes(get_query_var('organizer'));
 $param_category = stripslashes(get_query_var('category'));
 $param_type = stripslashes(get_query_var('type'));
 
-// city query
-$query_city = $param_city ? array(
-	'key' => 'venue_city',
-	'value' => $param_city,
+// organizer query
+$query_organizer = $param_organizer ? array(
+	'key' => 'organizer_name',
+	'value' => $param_organizer,
 	'compare' => '='
 ) : array();
 
@@ -41,7 +40,7 @@ $args = array(
 			'compare' => '>=', // Return the ones greater than today's date
 			'type' => 'DATE' // Let WordPress know we're working with date
 		),
-		$query_city,
+		$query_organizer,
 		$query_type
 	)
 );
@@ -89,22 +88,22 @@ get_header(); ?>
 		</div>
 	<?php endif; ?>
 
-	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_city; ?></h1>
+	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_organizer; ?></h1>
 	<p><?php the_field('intro_text', $events_page_id); ?></p>
 
-	<?php if ($param_values['cities'] || $param_values['categories'] || $param_values['types']) { ?>
+	<?php if ($param_values['organizers'] || $param_values['categories'] || $param_values['types']) { ?>
 		<form class="mt-4 flex-nowrap" method="get">
 			<div class="form-row">
 				<input type="hidden" name="paged" value="1" />
-				<?php if ($param_values['cities']) { ?>
-					<label class="my-1 mr-sm-2" for="city"><?php _e('Location') ?></label>
+				<?php if ($param_values['organizers']) { ?>
+					<label class="my-1 mr-sm-2" for="organizer"><?php _e('Organizer') ?></label>
 					<div class="col-sm-3">
-						<select name="city" class="custom-select my-1 form-control" id="city">
+						<select name="organizer" class="custom-select my-1 form-control" id="organizer">
 							<option value=""><?php _e('All') ?></option>
 							<option disabled>──────</option>
-							<?php foreach ($param_values['cities'] as $city => $count) { ?>
-								<option value="<?php echo $city ?>" <?php echo $param_city == $city ? 'selected="selected"' : '' ?>>
-									<?php echo $city . ' (' . $count . ')' ?>
+							<?php foreach ($param_values['organizers'] as $organizer => $count) { ?>
+								<option value="<?php echo $organizer ?>" <?php echo $param_organizer == $organizer ? 'selected="selected"' : '' ?>>
+									<?php echo $organizer . ' (' . $count . ')' ?>
 								</option>
 							<?php } ?>
 						</select>

@@ -296,18 +296,18 @@ function event_params() {
     );
 
     $events = new WP_Query( $args );
-    $cities = array();
+    $organizers = array();
     $categories = array();
     $types = array();
 
     while ( $events->have_posts() ) {
         $events->the_post();
-        $city = get_post_meta( get_the_ID(), 'venue_city', true );
-        if ($city != ''){
-            if (array_key_exists($city, $cities)) {
-                $cities[$city]++;
+        $organizer = get_post_meta( get_the_ID(), 'organizer_name', true );
+        if ($organizer != ''){
+            if (array_key_exists($organizer, $organizers)) {
+                $organizers[$organizer]++;
             } else {
-                $cities[$city] = 1;
+                $organizers[$organizer] = 1;
             }
         }
         $venue = get_post_meta( get_the_ID(), 'venue_address', true );
@@ -333,12 +333,12 @@ function event_params() {
             }
         }
     }
-    ksort($cities);
+    ksort($organizers);
     ksort($categories);
     ksort($types);
 
     return array(
-        'cities'  => $cities,
+        'organizers'  => $organizers,
         'categories' => $categories,
         'types' => $types,
     );
@@ -369,7 +369,7 @@ function vacancy_groups( $vacancies ) {
 }
 
 function xrnl_query_vars( $qvars ) {
-    $qvars[] = 'city';
+    $qvars[] = 'organizer';
     $qvars[] = 'category';
     $qvars[] = 'type';
     $qvars[] = 'working_group';
