@@ -93,42 +93,13 @@
   }
 ?>
 
-<script src="/app/themes/xrnl/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
-<link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css" />
-
-<script type="text/javascript">
-  const sections = ['about', 'demands', 'actions', 'events', 'positions', 'pictures'];
-
-  function checkSectionExists(section) {
-    if (! jQuery('#' + section).length) {
-      jQuery('#lg-navigation').find('a[href=\'#' + section + '\']').parent().remove();
-    }
-  }
-
-  jQuery(document).ready(function(){
-
-    // Remove optional sections from the navigation if they don't exist;
-    // If there is only one nav-item left, remove that too.
-    sections.forEach(checkSectionExists);
-    if (jQuery('#lg-navigation .nav .nav-item').length < 2){
-      jQuery('#lg-navigation .nav .nav-item').remove();
-    };
-
-    // If the Over Ons section exists, make it active on page load (instead of Contact).
-    if (jQuery('#about-nav').length) {
-      jQuery('#about-nav').tab('show');
-    }
-
-    // Settings for the picture gallery
-    jQuery(".owl-carousel").owlCarousel({
-      loop:true,
-      margin:5,
-      nav:true,
-      items:1
-    });
-  });
-</script>
+<?php
+  wp_enqueue_style('owl-carousel-css', get_template_directory_uri() . '/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
+  wp_enqueue_style('owl-theme-css', get_template_directory_uri() . '/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
+  wp_enqueue_script('bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js');
+  wp_enqueue_script('owl-carousel-js', get_template_directory_uri() . '/node_modules/owl.carousel/dist/owl.carousel.min.js');
+  wp_enqueue_script('xrnl-local-group-tabs', get_template_directory_uri() . '/assets/js/xrnl-local-group-tabs.js');
+?>
 
 <div class="local-group">
 
