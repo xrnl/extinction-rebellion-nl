@@ -93,14 +93,6 @@
   }
 ?>
 
-<?php
-  wp_enqueue_style('owl-carousel-css', get_template_directory_uri() . '/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
-  wp_enqueue_style('owl-theme-css', get_template_directory_uri() . '/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
-  wp_enqueue_script('bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js');
-  wp_enqueue_script('owl-carousel-js', get_template_directory_uri() . '/node_modules/owl.carousel/dist/owl.carousel.min.js');
-  wp_enqueue_script('xrnl-local-group-tabs', get_template_directory_uri() . '/assets/js/xrnl-local-group-tabs.js');
-?>
-
 <div class="local-group">
 
   <div class="lg-hero-container hero-bg-<?php echo $hero_bg_color ?>">
