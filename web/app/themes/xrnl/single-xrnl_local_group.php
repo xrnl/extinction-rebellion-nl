@@ -93,14 +93,6 @@
   }
 ?>
 
-<?php
-  wp_enqueue_style('owl-carousel-css', get_template_directory_uri() . '/node_modules/owl.carousel/dist/assets/owl.carousel.min.css');
-  wp_enqueue_style('owl-theme-css', get_template_directory_uri() . '/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css');
-  wp_enqueue_script('bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js');
-  wp_enqueue_script('owl-carousel-js', get_template_directory_uri() . '/node_modules/owl.carousel/dist/owl.carousel.min.js');
-  wp_enqueue_script('xrnl-local-group-tabs', get_template_directory_uri() . '/assets/js/xrnl-local-group-tabs.js');
-?>
-
 <div class="local-group">
 
   <div class="lg-hero-container hero-bg-<?php echo $hero_bg_color ?>">
@@ -355,11 +347,30 @@
         <div class="row">
           <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto picture-gallery">
             <?php if (is_array($section->picture_gallery)) : ?>
-              <div class="owl-carousel owl-theme">
+            <div id="lg-carousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <?php for ($i = 0; $i <= count($section->picture_gallery)-1; $i++) : ?>
+                  <li data-target="#lg-carousel" data-slide-to="<?php echo $i ?>"></li>
+                <?php endfor; ?>
+              </ol>
+
+              <div class="carousel-inner">
                 <?php foreach ($section->picture_gallery as $picture) : ?>
-                  <img src="<?php echo($picture['image_url']); ?>" alt="Extinction Rebellion <?php the_field('group_name'); ?>">
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="<?php echo($picture['image_url']); ?>" alt="Extinction Rebellion <?php the_field('group_name'); ?>">
+                  </div>
                 <?php endforeach; ?>
               </div>
+
+              <a class="carousel-control-prev" href="#lg-carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only"><?php _e('Previous', 'theme-xrnl'); ?></span>
+              </a>
+              <a class="carousel-control-next" href="#lg-carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only"><?php _e('Next', 'theme-xrnl'); ?></span>
+              </a>
+            </div>
             <?php endif; ?>
           </div>
         </div>
