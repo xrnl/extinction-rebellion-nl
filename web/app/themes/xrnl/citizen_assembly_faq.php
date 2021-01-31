@@ -11,47 +11,81 @@ get_header(); ?>
   }
 ?>
 
-<div class="citizien-assembly">
-  <div class="py-5">
-    <?php the_content(); ?>
+<div class="join bg-yellow">
+  <div class="text-left pt-3">
+      <a id="back-button" href="/">
+        <h1 id="back-text"class="display-5 text-uppercase font-xr"><i class="fas fa-chevron-left fa-xs px-3"></i></h1>
+      </a>
+  </div>
+  <div class="text-center py-5 mx-auto" style="max-width:80%">
+      <h1 class="display-3 text-uppercase font-xr"><?php the_title(); ?></h1>
   </div>
 </div>
 
-
-<div class="text-center bg-light py-5">
-  <?php while ( have_rows('groups') ){ the_row(); ?>
-  <div class="row py-2">
-    <div id="<?php echo formatElementID(get_sub_field('group_name')); ?>" class="col-12 col-lg-6 mx-auto">
-      <a class="btn btn-yellow btn-lg btn-block text-left" data-toggle="collapse"
-        href="#group-<?php echo get_row_index(); ?>" role="button" aria-expanded="false"
-        aria-controls="group-<?php echo get_row_index(); ?>">
-        <?php the_sub_field('group_name') ?>
-        <i class="fas fa-chevron-down float-right pt-1"></i>
-      </a>
-      <div class="text-left collapse" id="group-<?php echo get_row_index(); ?>">
-        <?php while ( have_rows('group_questions') ){ the_row(); ?>
-          <div class="row py-2">
-            <div id="<?php echo formatElementID(get_sub_field('group_questions')); ?>" class="col-12 col-lg-6 mx-auto">
-              <a class="btn btn-green btn-lg btn-block text-left" data-toggle="collapse"
-                href="#group-questions-<?php echo get_row_index(); ?>" role="button" aria-expanded="false"
-                aria-controls="group-questions-<?php echo get_row_index(); ?>">
+<div class="container py-5 citizen-assembly">
+  <div class="col-lg-12 mb-5 text-justify">
+    <?php the_content(); ?>
+  </div>
+  
+  <div class="row">
+    <?php while ( have_rows('groups') ){ the_row(); 
+      $groupId = "group-" . get_row_index();
+    ?>
+    <div class="col-12 py-2">
+      <div id="<?php echo formatElementID(get_sub_field('group_name')); ?>" class="mx-auto">
+        <a class="btn btn-yellow btn-lg btn-block text-left" data-toggle="collapse"
+          href="#<?php echo $groupId; ?>" role="button" aria-expanded="false"
+          aria-controls="<?php echo $groupId; ?>">
+          <?php the_sub_field('group_name') ?>
+          <i class="fas fa-chevron-down float-right pt-1"></i>
+        </a>
+        <div class="text-left collapse pt-2" id="<?php echo $groupId; ?>">
+          <?php while ( have_rows('group_questions') ){ the_row(); 
+           $groupQuestionsId = "group_questions-" . get_row_index();
+          ?>
+          <div class="col-12 py-2 pr-0">
+            <div id="<?php echo formatElementID(get_sub_field('group_questions')); ?>" class="mx-auto">
+              <a class="btn bg-xr-light-green btn-lg btn-block text-left" data-toggle="collapse"
+                href="#<?php echo $groupId . $groupQuestionsId; ?>" role="button" aria-expanded="false"
+                aria-controls="<?php echo $groupId . $groupQuestionsId; ?>">
                 <?php the_sub_field('question') ?>
                 <i class="fas fa-chevron-down float-right pt-1"></i>
               </a>
-              <div class="text-left collapse" id="group-questions-<?php echo get_row_index(); ?>">
-                <div class="pt-3">
+              <div class="text-left collapse" id="<?php echo $groupId . $groupQuestionsId; ?>">
+                <div class="pt-3 text-justify">
                   <?php the_sub_field('answer'); ?>
                 </div>
               </div>
             </div>
           </div>
-        <?php } ?>
+          <?php } ?>
+        </div>
       </div>
     </div>
+    <?php } ?>
   </div>
-  <?php } ?>
-</div>
 
 </div>
 
 <?php get_footer(); ?>
+
+<script>
+jQuery(document).ready(function(){
+    jQuery("#back-button").attr("href", get_localized_url(window.location.pathname));
+    jQuery("#back-text").append(get_back_button_text(window.location.pathname));
+      function get_localized_url(path) {
+        if (path.match("/en")) {
+          return "/en/citizen-assembly";
+        } else {
+          return "burgerberaad";
+        }
+      }
+      function get_back_button_text(path) {
+        if (path.match("/en")) {
+          return "Back";
+        } else {
+          return "Terug";
+        }
+      }
+  });
+  </script>

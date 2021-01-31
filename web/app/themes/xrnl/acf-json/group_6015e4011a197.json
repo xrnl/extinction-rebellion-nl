@@ -66,7 +66,7 @@
                             "key": "field_6015e5dd34705",
                             "label": "question",
                             "name": "question",
-                            "type": "text",
+                            "type": "textarea",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -75,12 +75,11 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "wpml_cf_preferences": 0,
                             "default_value": "",
+                            "new_lines": "",
+                            "maxlength": "",
                             "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "rows": ""
                         },
                         {
                             "key": "field_6015e5e934706",
@@ -123,5 +122,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1612048569
+    "modified": 1612118741
 }
