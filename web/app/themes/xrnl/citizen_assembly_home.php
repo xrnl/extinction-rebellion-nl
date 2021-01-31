@@ -24,7 +24,7 @@ get_header(); ?>
 
   <div class="row">
     <div class="display-4 text-uppercase font-xr text-center col-12" style="font-size: 2.5rem;">Direct naar:</div>
-    <div class=" d-flex flew-row flex-wrap">
+    <div class=" d-flex flew-row flex-wrap justify-content-center">
       <?php while ( have_rows('tiles') ){ the_row(); ?>
           <div id="<?php echo formatElementID(get_sub_field('tile_text')); ?>" class="bg-yellow mx-autor m-4 p-2" style="flex-basis: 180; max-width: 180px;">
           <a href="<?php echo the_sub_field('tile_url'); ?>" style="text-decoration: none;"><img class="img-fluid p-4" src="<?php the_sub_field('tile_pictogram'); ?>" /></a>
@@ -44,7 +44,7 @@ get_header(); ?>
 
 <div class="container py-5">
   <div class="row">
-    <div class="col-12 mx-auto border border-dark">
+    <div class="col-11 col-md-12 mx-auto border border-dark">
       <?php the_field('end_note'); ?>
     </div>
   </div>
