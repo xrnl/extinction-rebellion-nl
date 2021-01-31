@@ -36,7 +36,7 @@ get_header(); ?>
 </div>
 
 <div class="join">
-  <div class="text-center py-5" style="background-color: #ffedb8;">
+  <div class="text-center py-5 px-3" style="background-color: #ffedb8;">
     <div class="text-uppercase font-xr"><?php the_field('flag_title'); ?></div>
     <div><?php the_field('flag_text'); ?></div>
   </div>
