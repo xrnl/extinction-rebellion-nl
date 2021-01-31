@@ -3,6 +3,26 @@
     "title": "Citizen Assembly - Home",
     "fields": [
         {
+            "key": "field_601694ad9c418",
+            "label": "tiles before text",
+            "name": "tiles_before_text",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6015db8db3284",
             "label": "tiles",
             "name": "tiles",
@@ -167,5 +187,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1612088513
+    "modified": 1612092639
 }
