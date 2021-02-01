@@ -467,14 +467,22 @@ if( function_exists('acf_add_options_page') ) {
 
 
 /**
- * Custom load javascript for citizen-assembly pages.
+ * Custom back button for citizen-assembly pages.
  */
-function citizen_assembly_load_js_script() {
-    if( is_page_template( 'citizen_assembly.php' ) || is_page_template('citizen_assembly_faq.php') ) {
-        wp_enqueue_script('citizen-assembly-back-button', get_theme_file_uri('assets/js/citizen-assembly-back-button.js'), array('jquery'));
+function citizen_assembly_back_button_html(){
+    $current_lang = apply_filters( 'wpml_current_language', NULL );
+
+    if($current_lang == 'en'){
+        $backButtonUrl = '/en/citizen-assembly';
+        $backButtonText = 'Back';
+    } else {
+        $backButtonUrl = '/burgerberaad';
+        $backButtonText = 'Terug';
     }
+    return '<a id="back-button" href="'.$backButtonUrl.'">
+    <h1 id="back-text"class="display-5 text-uppercase font-xr"><i class="fas fa-chevron-left fa-xs px-3"></i>'.$backButtonText.'</h1>
+    </a>';
 }
   
-add_action('wp_enqueue_scripts', 'citizen_assembly_load_js_script');
   
   
