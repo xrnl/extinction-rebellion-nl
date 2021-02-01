@@ -68,24 +68,3 @@ get_header(); ?>
 </div>
 
 <?php get_footer(); ?>
-
-<script>
-jQuery(document).ready(function(){
-    jQuery("#back-button").attr("href", get_localized_url(window.location.pathname));
-    jQuery("#back-text").append(get_back_button_text(window.location.pathname));
-      function get_localized_url(path) {
-        if (path.match("/en")) {
-          return "/en/citizen-assembly";
-        } else {
-          return "burgerberaad";
-        }
-      }
-      function get_back_button_text(path) {
-        if (path.match("/en")) {
-          return "Back";
-        } else {
-          return "Terug";
-        }
-      }
-  });
-  </script>

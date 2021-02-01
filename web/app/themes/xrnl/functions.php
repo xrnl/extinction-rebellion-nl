@@ -464,3 +464,17 @@ if( function_exists('acf_add_options_page') ) {
   ));
 
 }
+
+
+/**
+ * Custom load javascript for citizen-assembly pages.
+ */
+function citizen_assembly_load_js_script() {
+    if( is_page_template( 'citizen_assembly.php' ) || is_page_template('citizen_assembly_faq.php') ) {
+        wp_enqueue_script('citizen-assembly-back-button', get_theme_file_uri('assets/js/citizen-assembly-back-button.js'), array('jquery'));
+    }
+}
+  
+add_action('wp_enqueue_scripts', 'citizen_assembly_load_js_script');
+  
+  
