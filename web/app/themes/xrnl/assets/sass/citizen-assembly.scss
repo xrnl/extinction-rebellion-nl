@@ -1,4 +1,8 @@
 .citizen-assembly {
+  li {
+    text-decoration: none !important;
+  }
+
   .tiles {
     a {
       text-decoration: none !important;
@@ -16,5 +20,13 @@
 
   .flag {
     background-color: #ffedb8;
+  }
+
+  a#back-button{
+    text-decoration: none !important;
+  }
+
+  #back-text{
+    font-size: 1.8rem;
   }
 }

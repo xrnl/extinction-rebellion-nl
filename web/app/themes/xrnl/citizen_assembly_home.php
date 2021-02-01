@@ -11,13 +11,13 @@ get_header(); ?>
   }
 ?>
 
-<div class="join">
-  <div class="bg-yellow text-center py-5">
-    <h1 class="display-3 text-uppercase font-xr"><?php the_title(); ?></h1>
-  </div>
-</div>
-
 <main class="citizen-assembly">
+  <div class="join">
+    <div class="bg-yellow text-center py-5">
+      <h1 class="display-3 text-uppercase font-xr"><?php the_title(); ?></h1>
+    </div>
+  </div>
+
   <div class="container text-center py-5">
     <div class="col-lg-12 mb-5 text-justify">
       <?php the_content(); ?>
