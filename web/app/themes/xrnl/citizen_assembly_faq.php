@@ -17,16 +17,15 @@ get_header(); ?>
   <div class="col-lg-12 mb-5 text-justify">
     <?php the_content(); ?>
   </div>
-  
+
   <div class="row">
     <?php while ( have_rows('groups') ){ the_row(); 
       $groupId = "group-" . get_row_index();
     ?>
     <div class="col-12 py-2">
       <div id="<?php echo formatElementID(get_sub_field('group_name')); ?>" class="mx-auto">
-        <a class="btn btn-yellow btn-lg btn-block text-left" data-toggle="collapse"
-          href="#<?php echo $groupId; ?>" role="button" aria-expanded="false"
-          aria-controls="<?php echo $groupId; ?>">
+        <a class="btn btn-yellow btn-lg btn-block text-left" data-toggle="collapse" href="#<?php echo $groupId; ?>"
+          role="button" aria-expanded="false" aria-controls="<?php echo $groupId; ?>">
           <?php the_sub_field('group_name') ?>
           <i class="fas fa-chevron-down float-right pt-1"></i>
         </a>
