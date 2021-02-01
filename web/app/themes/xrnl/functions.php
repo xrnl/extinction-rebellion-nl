@@ -464,25 +464,5 @@ if( function_exists('acf_add_options_page') ) {
   ));
 
 }
-
-
-/**
- * Custom back button for citizen-assembly pages.
- */
-function citizen_assembly_back_button_html(){
-    $current_lang = apply_filters( 'wpml_current_language', NULL );
-
-    if($current_lang == 'en'){
-        $backButtonUrl = '/en/citizen-assembly';
-        $backButtonText = 'Back';
-    } else {
-        $backButtonUrl = '/burgerberaad';
-        $backButtonText = 'Terug';
-    }
-    return '<a id="back-button" href="'.$backButtonUrl.'">
-    <h1 id="back-text"class="display-5 text-uppercase font-xr"><i class="fas fa-chevron-left fa-xs px-3"></i>'.$backButtonText.'</h1>
-    </a>';
-}
-  
   
   
