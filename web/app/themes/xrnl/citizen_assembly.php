@@ -1,6 +1,6 @@
 <?php
 /**
- * Template name: Citizen Assembly - Global
+ * Template name: Citizen Assembly - Generic
  */
 
 get_header(); ?>
