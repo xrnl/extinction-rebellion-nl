@@ -28,7 +28,7 @@ get_header(); ?>
         <?php the_field("tiles_before_text") ?></div>
       <div class=" d-flex flew-row flex-wrap justify-content-around w-100">
         <?php while ( have_rows('tiles') ){ the_row(); ?>
-        <div id="<?php formatElementID(get_sub_field('tile_text')); ?>" class="bg-yellow mx-autor m-4 p-2 tile-text">
+        <div id="<?php formatElementID(get_sub_field('tile_text')); ?>" class="bg-yellow mx-1 my-2 p-2 tile-text">
           <a href="<?php the_sub_field('tile_url'); ?>"><img class="img-fluid p-4"
               src="<?php the_sub_field('tile_pictogram'); ?>" /></a>
           <a href="<?php the_sub_field('tile_url'); ?>">
