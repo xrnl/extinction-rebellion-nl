@@ -426,17 +426,6 @@ $logo-bg-bottom-shift: $logo-bottom-shift - ( ($logo-bg-diameter - $logo-diamete
     .picture-gallery {
       min-height: 80vh;
     }
-    .owl-nav {
-      font-family: $brand-font;
-      font-size: 4rem;
-      .owl-prev, .owl-next {
-        margin: 0 1rem;
-        &:hover {
-          background: inherit;
-          color: $xr-primary;
-        }
-      }
-    }
   }
 
   .group-social-icons {

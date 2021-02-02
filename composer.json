@@ -59,7 +59,7 @@
     "wpackagist-plugin/wp-action-network": "^1.1",
     "ggamel/wp-sync-db": "dev-master",
     "wpackagist-plugin/events-manager-wpml": "1.2",
-    "wpackagist-plugin/wordpress-seo": "^11.0",
+    "wpackagist-plugin/wordpress-seo": "^12.0",
     "wpackagist-plugin/import-meetup-events": "^1.4",
     "wpackagist-plugin/wp-super-cache": "^1.7"
   },

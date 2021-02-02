@@ -93,43 +93,6 @@
   }
 ?>
 
-<script src="/app/themes/xrnl/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-<link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
-<link rel="stylesheet" href="/app/themes/xrnl/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css" />
-
-<script type="text/javascript">
-  const sections = ['about', 'demands', 'actions', 'events', 'positions', 'pictures'];
-
-  function checkSectionExists(section) {
-    if (! jQuery('#' + section).length) {
-      jQuery('#lg-navigation').find('a[href=\'#' + section + '\']').parent().remove();
-    }
-  }
-
-  jQuery(document).ready(function(){
-
-    // Remove optional sections from the navigation if they don't exist;
-    // If there is only one nav-item left, remove that too.
-    sections.forEach(checkSectionExists);
-    if (jQuery('#lg-navigation .nav .nav-item').length < 2){
-      jQuery('#lg-navigation .nav .nav-item').remove();
-    };
-
-    // If the Over Ons section exists, make it active on page load (instead of Contact).
-    if (jQuery('#about-nav').length) {
-      jQuery('#about-nav').tab('show');
-    }
-
-    // Settings for the picture gallery
-    jQuery(".owl-carousel").owlCarousel({
-      loop:true,
-      margin:5,
-      nav:true,
-      items:1
-    });
-  });
-</script>
-
 <div class="local-group">
 
   <div class="lg-hero-container hero-bg-<?php echo $hero_bg_color ?>">
@@ -384,11 +347,30 @@
         <div class="row">
           <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto picture-gallery">
             <?php if (is_array($section->picture_gallery)) : ?>
-              <div class="owl-carousel owl-theme">
+            <div id="lg-carousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <?php for ($i = 0; $i <= count($section->picture_gallery)-1; $i++) : ?>
+                  <li data-target="#lg-carousel" data-slide-to="<?php echo $i ?>"></li>
+                <?php endfor; ?>
+              </ol>
+
+              <div class="carousel-inner">
                 <?php foreach ($section->picture_gallery as $picture) : ?>
-                  <img src="<?php echo($picture['image_url']); ?>" alt="Extinction Rebellion <?php the_field('group_name'); ?>">
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="<?php echo($picture['image_url']); ?>" alt="Extinction Rebellion <?php the_field('group_name'); ?>">
+                  </div>
                 <?php endforeach; ?>
               </div>
+
+              <a class="carousel-control-prev" href="#lg-carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only"><?php _e('Previous', 'theme-xrnl'); ?></span>
+              </a>
+              <a class="carousel-control-next" href="#lg-carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only"><?php _e('Next', 'theme-xrnl'); ?></span>
+              </a>
+            </div>
             <?php endif; ?>
           </div>
         </div>

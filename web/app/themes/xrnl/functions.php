@@ -36,6 +36,22 @@ add_action('wp_enqueue_scripts', function(){
 });
 
 
+/**
+ * Custom load javascript for local group pages.
+ */
+function xrnl_lg_scripts() {
+
+  if (is_singular('xrnl_local_group')) {
+    wp_deregister_script('xrnl');
+    wp_enqueue_script('popper-js', get_theme_file_uri('node_modules/popper.js/dist/umd/popper.js'));
+    wp_enqueue_script('bootstrap-js', get_theme_file_uri('node_modules/bootstrap/dist/js/bootstrap.min.js'), array('jquery', 'popper-js'));
+    wp_enqueue_script('xrnl-local-group-tabs', get_theme_file_uri('assets/js/xrnl-local-group-tabs.js'), array('bootstrap-js'));
+  }
+
+}
+add_action( 'wp_enqueue_scripts', 'xrnl_lg_scripts' );
+
+
 add_action('init', function() {
     register_nav_menu('primary', 'Main menu');
     register_nav_menu('primary-mobile', 'Main menu mobile');
