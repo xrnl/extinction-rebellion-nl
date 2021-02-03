@@ -8,7 +8,7 @@ get_header(); ?>
 <?php $volunteerPageURL = get_permalink(apply_filters('wpml_object_id', 51, 'page', true)); ?>
 <article id="post-<?php the_ID(); ?>" ?>
 <div class="row p-2 pt-4 p-md-5 m-2 bg-navy text-white background-icon-container">
-<img src="/app/uploads/2019/04/XR-symbol.svg" class="background-icon">
+<img src="<?php echo get_theme_file_uri('dist/images/XR-symbol.svg'); ?>" class="background-icon">
     <div class="col-12 col-xl-8">
 <a href="<?php echo $volunteerPageURL ?>" class="btn btn-black mb-4"><i class="fas fa-arrow-left"></i>
 <?php _e('View all roles', 'theme-xrnl'); ?>

@@ -1,0 +1,32 @@
+.citizen-assembly {
+  .tiles {
+    a {
+      text-decoration: none !important;
+    }
+
+    .before-text {
+      font-size: 2.5rem;
+    }
+
+    .tile-text {
+      flex-basis: 180;
+      max-width: 180px;
+    }
+  }
+
+  .flag {
+    background-color: #ffedb8;
+  }
+
+  a#back-button {
+    text-decoration: none !important;
+  }
+
+  #back-text {
+    font-size: 1.8rem;
+  }
+
+  .header-title {
+    max-width: 80%;
+  }
+}
