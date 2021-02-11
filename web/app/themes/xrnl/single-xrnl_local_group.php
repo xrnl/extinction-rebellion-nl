@@ -66,7 +66,6 @@
 
   function getLocalEvents()
   {
-    $place = get_field('place');
     $events_query = array(
       'posts_per_page' => null,
       'paged' => 1,
@@ -86,12 +85,12 @@
           'relation' => 'OR',
           array(
             'key' => 'venue_city',
-            'value' => $place,
+            'value' => get_field('place'),
             'compare' => '='
           ),
           array(
             'key' => 'organizer_name',
-            'value' => $place,
+            'value' => get_field('group_name'),
             'compare' => 'REGEXP'
           )
         )
