@@ -15,7 +15,7 @@ function query_all($endpoint)
 
     $hasElement = true;
     while ($hasElement) {
-        echo('Querying ' . $url);
+        // echo('Querying ' . $url);
         $response = wp_remote_get($url, [
             'headers' => [
                 'OSDI-API-Token' => $actionnetwork_api_key
@@ -39,12 +39,10 @@ function query_all($endpoint)
 }
 
 //TODO cache
-function query($endpoint)
+function query($url)
 {
-    $API_URL = 'https://actionnetwork.org/api/v2/';
     $actionnetwork_api_key = get_field('actionnetwork_api_key', 'option');
-    $url = $API_URL . $endpoint;
-    echo('Querying ' . $url);
+    // echo('Querying ' . $url);
     $response = wp_remote_get($url, [
     'headers' => [
         'OSDI-API-Token' => $actionnetwork_api_key
@@ -79,14 +77,21 @@ foreach ($an_ag_endpoints as $endpoint) {
 $ags = array();
 foreach ($people_endpoints as $url) { //TODO remove duplicated
     $response = query($url);
-    print_r($response);
-    //   # Format the AG data.
-    //   for field in ["AG_name", "AG_size", "AG_n_non_arrestables", "AG_n_arrestables", "Municipality", "phone_number", "AG_regen_phone", "AG_comment"]:
-    //     if field not in response["custom_fields"]:
-    //         response["custom_fields"][field] = ""
-    //     ag[field] = response["custom_fields"][field]
-    // if "given_name" not in response:
-    //     response["given_name"] = ""
-    // ag["given_name"] = response["given_name"]
-    // ags.append(ag)
+    $ag = array();
+
+    $fields = array("AG_name", "AG_size", "AG_n_non_arrestables", "AG_n_arrestables", "Municipality", "phone_number", "AG_regen_phone", "AG_comment");
+    $customFields = $response["custom_fields"];
+    foreach ($fields as $field) {
+        if (!array_key_exists($field, $customFields)) {
+            $customFields[$field] = "";
+        }
+        $ag[$field] = $customFields[strval($field)];
+    }
+    if (!array_key_exists("given_name", $response)) {
+        $response["given_name"] = "";
+    }
+    $ag["given_name"] = $response["given_name"];
+    array_push($ags, $ag);
 }
+$json_string = json_encode($ags, JSON_PRETTY_PRINT);
+print($json_string);
