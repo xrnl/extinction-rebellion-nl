@@ -1,0 +1,14 @@
+.affinity-group {
+  background-color: white;
+  .ag-picture {
+    background: url("https://static.dezeen.com/uploads/2019/06/extinction-rebellion-boycott-design-museum-news-hero_c.jpg")
+      no-repeat;
+    background-size: cover;
+    min-height: 180px;
+    margin-top: auto;
+  }
+  .ag-info {
+    background-color: $xr-light-gray;
+    min-height: 40px;
+  }
+}
