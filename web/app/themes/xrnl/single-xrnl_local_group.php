@@ -74,6 +74,7 @@
       'meta_key' => 'event_start_date',
       'order' => 'ASC',
       'meta_query' => array(
+        'relation' => 'AND',
         array(
           'key' => 'event_start_date',
           'value' => date("Y-m-d"),
@@ -81,9 +82,17 @@
           'type' => 'DATE'
         ),
         array(
-          'key' => 'venue_city',
-          'value' => get_field('place'),
-          'compare' => '='
+          'relation' => 'OR',
+          array(
+            'key' => 'venue_city',
+            'value' => get_field('place'),
+            'compare' => '='
+          ),
+          array(
+            'key' => 'organizer_name',
+            'value' => get_field('group_name'),
+            'compare' => 'REGEXP'
+          )
         )
       )
     );
