@@ -11,12 +11,12 @@ $param_type = stripslashes(get_query_var('type'));
 // organizer query
 $query_organizer = $param_organizer ? array(
 	'key' => 'organizer_name',
-	'value' => $param_organizer,
-	'compare' => '='
+	'value' => array($param_organizer, 'Extinction Rebellion NL'),
+	'compare' => 'IN'
 ) : array();
 
 // type query
-$query_type = $param_type ? array(
+$query_type = $param_type ? array( 
 	'key' => 'venue_address',
 	'value' => 'Online',
 	'compare' => ($param_type == 'Online') ? '=' : '!='

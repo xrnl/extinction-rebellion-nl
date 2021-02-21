@@ -333,6 +333,15 @@ function event_params() {
             }
         }
     }
+    if (array_key_exists('Extinction Rebellion NL', $organizers)) {
+        $n_national_events = $organizers['Extinction Rebellion NL'];
+        foreach ($organizers as $organizer => $count) {
+            if ($organizer != 'Extinction Rebellion NL'){
+                $organizers[$organizer] += $n_national_events;
+            }
+        }
+    }
+
     ksort($organizers);
     ksort($categories);
     ksort($types);
