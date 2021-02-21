@@ -6,20 +6,12 @@
 
 $param_organizer = stripslashes(get_query_var('organizer'));
 $param_category = stripslashes(get_query_var('category'));
-$param_type = stripslashes(get_query_var('type'));
 
 // organizer query
 $query_organizer = $param_organizer ? array(
 	'key' => 'organizer_name',
-	'value' => array($param_organizer, 'Extinction Rebellion NL'),
-	'compare' => 'IN'
-) : array();
-
-// type query
-$query_type = $param_type ? array( 
-	'key' => 'venue_address',
-	'value' => 'Online',
-	'compare' => ($param_type == 'Online') ? '=' : '!='
+	'value' => $param_organizer,
+	'compare' => '='
 ) : array();
 
 // page query param
@@ -40,8 +32,7 @@ $args = array(
 			'compare' => '>=', // Return the ones greater than today's date
 			'type' => 'DATE' // Let WordPress know we're working with date
 		),
-		$query_organizer,
-		$query_type
+		$query_organizer
 	)
 );
 // push the taxonomy search if the category parameter is found:
@@ -91,7 +82,7 @@ get_header(); ?>
 	<h1 class="page-title"><?php _e('EVENTS'); ?> <?php echo $param_organizer; ?></h1>
 	<p><?php the_field('intro_text', $events_page_id); ?></p>
 
-	<?php if ($param_values['organizers'] || $param_values['categories'] || $param_values['types']) { ?>
+	<?php if ($param_values['organizers'] || $param_values['categories']) { ?>
 		<form class="mt-4 flex-nowrap" method="get">
 			<div class="form-row">
 				<input type="hidden" name="paged" value="1" />
@@ -118,20 +109,6 @@ get_header(); ?>
 							<?php foreach ($param_values['categories'] as $category => $count) { ?>
 								<option value="<?php echo $category ?>" <?php echo $param_category == $category ? 'selected="selected"' : '' ?>>
 									<?php echo $category . ' (' . $count . ')' ?>
-								</option>
-							<?php } ?>
-						</select>
-					</div>
-				<?php } ?>
-				<?php if ($param_values['types']) { ?>
-					<label class="my-1 mx-sm-2" for="type"><?php _e('Online/Offline') ?></label>
-					<div class="col-sm-3">
-						<select name="type" class="custom-select my-1 form-control" id="type">
-							<option value=""><?php _e('All') ?></option>
-							<option disabled>──────</option>
-							<?php foreach ($param_values['types'] as $type => $count) { ?>
-								<option value="<?php echo $type ?>" <?php echo $param_type == $type ? 'selected="selected"' : '' ?>>
-									<?php echo $type . ' (' . $count . ')' ?>
 								</option>
 							<?php } ?>
 						</select>

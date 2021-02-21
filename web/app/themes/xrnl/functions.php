@@ -298,7 +298,6 @@ function event_params() {
     $events = new WP_Query( $args );
     $organizers = array();
     $categories = array();
-    $types = array();
 
     while ( $events->have_posts() ) {
         $events->the_post();
@@ -311,12 +310,6 @@ function event_params() {
             }
         }
         $venue = get_post_meta( get_the_ID(), 'venue_address', true );
-        $type = ($venue == 'Online') ? 'Online' : 'Offline';
-        if (array_key_exists($type, $types)) {
-            $types[$type]++;
-        } else {
-            $types[$type] = 1;
-        }
 
         $term_obj_list = get_the_terms(get_the_ID(), 'meetup_category');
         if($term_obj_list) {
@@ -333,23 +326,13 @@ function event_params() {
             }
         }
     }
-    if (array_key_exists('Extinction Rebellion NL', $organizers)) {
-        $n_national_events = $organizers['Extinction Rebellion NL'];
-        foreach ($organizers as $organizer => $count) {
-            if ($organizer != 'Extinction Rebellion NL'){
-                $organizers[$organizer] += $n_national_events;
-            }
-        }
-    }
 
     ksort($organizers);
     ksort($categories);
-    ksort($types);
 
     return array(
         'organizers'  => $organizers,
-        'categories' => $categories,
-        'types' => $types,
+        'categories' => $categories
     );
 }
 
