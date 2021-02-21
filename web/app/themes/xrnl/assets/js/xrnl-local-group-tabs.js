@@ -23,6 +23,12 @@ jQuery(document).ready(function($){
     $('#lg-navigation .nav .nav-item').remove();
   };
 
+  // See if a specific tab was requested in the URL
+  let URLParam = window.location.hash.substring(1);
+  if (sections.includes(URLParam)) {
+    var navID = ['#', URLParam, '-nav'].join('');
+  }
+
   // If the About Us section exists, make it active on page load (instead of Contact).
   if ($('#about-nav').length) {
     $('#about-nav').tab('show');
