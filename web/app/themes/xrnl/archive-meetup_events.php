@@ -11,7 +11,8 @@ $param_category = stripslashes(get_query_var('category'));
 $query_organizer = $param_organizer ? array(
 	'key' => 'organizer_name',
 	'value' => $param_organizer,
-	'compare' => '='
+	'compare' => '=',
+	'sentence' => true
 ) : array();
 
 // page query param
