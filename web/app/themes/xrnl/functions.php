@@ -279,8 +279,8 @@ add_filter( 'register_post_type_args', function($args, $post_type){
     return $args;
 }, 10, 2 );
 
-// Get Distinct Event cities
-function event_cities() {
+// Get Distinct Event params
+function event_params() {
     $args = array(
         'posts_per_page' => 1e9,
         'post_type' => 'meetup_events',
@@ -296,49 +296,20 @@ function event_cities() {
     );
 
     $events = new WP_Query( $args );
-    $cities = array();
-
-    while ( $events->have_posts() ) {
-        $events->the_post();
-        $city = get_post_meta( get_the_ID(), 'venue_city', true );
-        $venue = get_post_meta( get_the_ID(), 'venue_address', true );
-        if ($venue == 'Online'){
-            $city = 'Online';
-        } elseif ($city == ''){
-            continue;
-        }
-        if (array_key_exists($city, $cities)) {
-            $cities[$city]++;
-        } elseif ($city != '') {
-            $cities[$city] = 1;
-        }
-    }
-    ksort($cities);
-
-    return $cities;
-}
-
-// Get Distinct Event categories
-function event_categories() {
-    $args = array(
-        'posts_per_page' => 1e9,
-        'post_type' => 'meetup_events',
-        'fields' => 'ids',
-        'meta_query' => array(
-            array(
-                'key' => 'event_start_date', // Check the start date field
-                'value' => date("Y-m-d"), // Set today's date (note the similar format)
-                'compare' => '>=', // Return the ones greater than today's date
-                'type' => 'DATE' // Let WordPress know we're working with date
-            )
-        )
-    );
-
-    $events = new WP_Query( $args );
-
+    $organizers = array();
     $categories = array();
+
     while ( $events->have_posts() ) {
         $events->the_post();
+        $organizer = get_post_meta( get_the_ID(), 'organizer_name', true );
+        if ($organizer != ''){
+            if (array_key_exists($organizer, $organizers)) {
+                $organizers[$organizer]++;
+            } else {
+                $organizers[$organizer] = 1;
+            }
+        }
+        $venue = get_post_meta( get_the_ID(), 'venue_address', true );
 
         $term_obj_list = get_the_terms(get_the_ID(), 'meetup_category');
         if($term_obj_list) {
@@ -346,7 +317,6 @@ function event_categories() {
         } else {
             continue;
         }
-
 
         foreach($post_categories as $post_category) {
             if(array_key_exists($post_category, $categories)) {
@@ -356,9 +326,14 @@ function event_categories() {
             }
         }
     }
+
+    ksort($organizers);
     ksort($categories);
 
-    return $categories;
+    return array(
+        'organizers'  => $organizers,
+        'categories' => $categories
+    );
 }
 
 // Get Distinct Vacancy working and local groups
@@ -386,8 +361,9 @@ function vacancy_groups( $vacancies ) {
 }
 
 function xrnl_query_vars( $qvars ) {
-    $qvars[] = 'city';
+    $qvars[] = 'organizer';
     $qvars[] = 'category';
+    $qvars[] = 'type';
     $qvars[] = 'working_group';
     $qvars[] = 'local_group';
     return $qvars;
