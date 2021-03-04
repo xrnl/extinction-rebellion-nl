@@ -40,6 +40,9 @@ hesitate to [contact us](/SUPPORT.md).
 ## Install
 
 ```sh
+# clone the repository
+git clone https://github.com/xrnl/extinction-rebellion-nl/
+cd extinction-rebellion-nl
 # create environment variables with required configurations
 cp .env.example .env
 # add wordpress plugins
