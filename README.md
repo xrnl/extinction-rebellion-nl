@@ -47,6 +47,8 @@ curl -SL0 https://cloud.extinctionrebellion.nl/index.php/s/QCENwJwpbCoqoNB/downl
 cd web/app/themes/xrnl
 # install npm packages
 npm install
+# compile scss files
+npm run development
 ```
 
 Lastly, follow the next step to run the website and then [pull the production
@@ -57,9 +59,10 @@ database](/docs/sync-production-data.md)
 First, you must activate Docker. Then:
 
 ```sh
-# start website
+# start website (from the project root: extinction-rebellion-nl/)
 docker-compose up -d
-# compile css files and enable hot reloading (from within web/app/themes/xrnl)
+# optional: enable hot reloading to always show latest code changes
+cd web/app/themes/xrnl
 npm run watch 
 ```
 
@@ -68,6 +71,7 @@ The website should be active at `http://localhost:8000`
 ## Shutdown
 
 ```sh
+# (from the project root: extinction-rebellion-nl/)
 docker-compose down
 ```
 
