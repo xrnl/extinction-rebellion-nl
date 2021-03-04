@@ -4,7 +4,7 @@
 
 ## Purpose
 
-We are developers, designers and content creators who have joined Extinction Rebellion because we feel a moral duty to use our knowledge and skills to solve the Climate and Ecological Emergency. This emergency is a present reality for the families who are labelled climate refugees, the indigenous communities whose land has been destroyed, and the countless species that are forced into extinction every day. Governments have failed to act and are driving us towards social and ecollogical collapse. We joined Extinction Rebellion because it is our best and last hope to protect life on Earth.
+We are developers, designers and content creators who have joined Extinction Rebellion because we feel a moral duty to use our knowledge and skills to solve the Climate and Ecological Emergency. This emergency is a present reality for the families who are labelled climate refugees, the indigenous communities whose land has been destroyed, and the countless species that are forced into extinction every day. Governments have failed to act and are driving us towards social and ecological collapse. We joined Extinction Rebellion because it is our best and last hope to protect life on Earth.
 
 We are working on the [website of Extinction Rebellion Netherlands](https://extinctionrebellion.nl) because it is a crucial tool for growing Extinction Rebellion and having a better chance at mitigating the worst effects of the climate crisis. But we cannot do it alone; No matter who you are, what skills you have or how much time you can dedicate, we need your help. In the [contributing guidelines](/CONTRIBUTING.md) you can learn how you can contribute to the project.
 
@@ -18,7 +18,7 @@ If you want to learn more about the project or have any questions, do not hesita
 ## Install
 
 ```sh
-# create environment variables with required configuraitons
+# create environment variables with required configurations
 cp .env.example .env
 # add wordpress plugins
 curl -SL0 https://cloud.extinctionrebellion.nl/index.php/s/QCENwJwpbCoqoNB/download -o plugins.tar.gz && tar -xvf plugins.tar.gz -C web/app/plugins/ && rm plugins.tar.gz
