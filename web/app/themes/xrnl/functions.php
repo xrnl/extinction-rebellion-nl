@@ -623,6 +623,13 @@ function insert_event($data) {
     ),
   );
 
+  // if no author is specified, it defaults to the first available user
+  // so specifying a user is better
+  $syncerUser = get_user_by('login', 'fb-events-syncer');
+  if($syncerUser) {
+    $post['post_author'] = $syncerUser->id;
+  }
+
   // When a picture_url is supplied, the following code creates a new attachment
   // for the picture and uses the id of that attachment as _thumbnail_id
   // Supplying an existing picture id as _thumbnail_id is enough to add that picture to the event
