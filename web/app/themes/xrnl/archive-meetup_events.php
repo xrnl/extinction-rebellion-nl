@@ -88,7 +88,7 @@ get_header(); ?>
 			<div class="form-row">
 				<input type="hidden" name="paged" value="1" />
 				<?php if ($param_values['organizers']) { ?>
-					<label class="my-1 mr-sm-2" for="organizer"><?php _e('Organizer') ?></label>
+					<label class="my-1 mr-sm-2" for="organizer"><?php _e('Organizer', 'theme-xrnl') ?></label>
 					<div class="col-sm-3">
 						<select name="organizer" class="custom-select my-1 form-control" id="organizer">
 							<option value=""><?php _e('All') ?></option>
@@ -102,7 +102,7 @@ get_header(); ?>
 					</div>
 				<?php } ?>
 				<?php if ($param_values['categories']) { ?>
-					<label class="my-1 mx-sm-2" for="category"><?php _e('Category') ?></label>
+					<label class="my-1 mx-sm-2" for="category"><?php _e('Category', 'theme-xrnl') ?></label>
 					<div class="col-sm-3">
 						<select name="category" class="custom-select my-1 form-control" id="category">
 							<option value=""><?php _e('All') ?></option>
