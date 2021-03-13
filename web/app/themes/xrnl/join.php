@@ -27,6 +27,9 @@ $args = array(
 );
 $events = new WP_Query( $args );
 
+// TODO: remove. Testing email functionality from wordpress
+wp_mail( 'samxr@protonmail.com', 'test subject', 'test message');
+
 get_header(); ?>
 
 <div class="join">
