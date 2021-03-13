@@ -18,6 +18,18 @@ get_header(); ?>
     return strtolower(str_replace(' ', '-', $str));
 } ?>
 
+<?php
+// TODO: remove. Testing email functionality from wordpress
+$to = 'samxr@protonmail.com';
+$subject = 'test subject';
+$message = 'test message';
+$email_success = wp_mail( $to, $subject, $message );
+print "email code printed";
+echo "email code echoed";
+if($email_success){ echo 'mail sent sucessfully'; } else { echo 'mail not sent :('; } 
+?>
+
+
 <div class="join">
   <div class="bg-blue text-center text-white join-cover-image py-5" style="background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45)), url('<?php the_field('join_cover_image_url'); ?>') no-repeat;">
       <h1 class="display-2 text-uppercase font-xr"><?php the_title(); ?></h1>
