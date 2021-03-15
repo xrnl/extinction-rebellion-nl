@@ -170,7 +170,17 @@ Ideally, most text and images can be edited from the WordPress admin panel, so
 that we don't need to change the code for minor content changes. You can achieve
 this by using [Advanced Custom Fields](https://www.advancedcustomfields.com/resources/).
 
-So instead
+So instead of writing (translated) text into the code, you add some code to
+render the data that is entered through Wordpress. 
+
+```html
+<p>
+  <?php the_field('about'); ?>
+</p>
+```
+
+The easiest way to understand how to use these custom fields is to see existing
+pages that use them.
 
 #### 4: Make a pull request
 
