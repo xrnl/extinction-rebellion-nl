@@ -57,6 +57,10 @@ npm run development
 Lastly, follow the next step to run the website and then [pull the production
 database](/docs/sync-production-data.md)
 
+If you have any issues with the installation, run the command `docker logs
+extinction-rebellion-nl_composer_1` to see error messages and identify what went
+wrong. If you need more support make sure to [contact us](/SUPPORT.md).
+
 ## Run
 
 First, you must activate Docker. Then:
