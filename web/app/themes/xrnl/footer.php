@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Extinction Rebellion Nederland is een grassroots beweging geïnspireerd op <a href="https://extinctionrebellion.uk" target="_blank">Extinction Rebellion UK</a>.</p>
+                    <p>Extinction Rebellion Nederland is een grassroots beweging geïnspireerd op <a href="https://extinctionrebellion.uk" target="_blank" onclick="<?php register_button_click('XR UK link', 'footer') ?>">Extinction Rebellion UK</a>.</p>
                 </div>
 
                 <div class="col-md-4 my-4">
@@ -35,14 +35,14 @@
                     ] ); ?>
 
                     <div class="donate donate--footer">
-                        <a href="<?php echo get_locale() === 'en_US' ? '/en/donate' : '/donate' ?>" class="btn btn-primary" target="_blank"><?php _e('donate'); ?></a>
+                        <a href="<?php echo get_locale() === 'en_US' ? '/en/donate' : '/donate' ?>" class="btn btn-primary" target="_blank" onclick="<?php register_button_click('donate', 'footer') ?>"><?php _e('donate'); ?></a>
                     </div>
 
                     <br />
 
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" aria-label="facebook">
+                            <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" aria-label="facebook" onclick="<?php register_button_click('Facebook icon', 'footer') ?>">
                                 <span class="fa-stack fa-1x text-center">
                                 <i class="fab fa-facebook-f"></i>
                                 <i class="far fa-circle fa-stack-2x"></i>
@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://twitter.com/nlrebellion" target="_blank" aria-label="twitter">
+                            <a href="https://twitter.com/nlrebellion" target="_blank" aria-label="twitter" onclick="<?php register_button_click('Twitter icon', 'footer') ?>">
                                 <span class="fa-stack fa-1x text-center">
                                 <i class="fab fa-twitter"></i>
                                 <i class="far fa-circle fa-stack-2x"></i>
@@ -58,7 +58,7 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" aria-label="instagram">
+                            <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" aria-label="instagram" onclick="<?php register_button_click('Instagram icon', 'footer') ?>">
                                 <span class="fa-stack fa-1x text-center">
                                 <i class="fab fa-instagram"></i>
                                 <i class="far fa-circle fa-stack-2x"></i>

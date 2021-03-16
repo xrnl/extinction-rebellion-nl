@@ -104,7 +104,7 @@ get_header(); ?>
         <?php wp_reset_query(); ?>
         <br>
         <div class="text-center">
-          <a class="btn btn-lg btn-black" href="/events">
+          <a class="btn btn-lg btn-black" href="/events" onclick="<?php register_button_click('view all events') ?>">
             <?php _e('VIEW ALL EVENTS') ?>
           </a>
         </div>

@@ -40,7 +40,7 @@
     <header class="bg-xr-<?php echo $args['bg-color'] ?>">
 
         <nav class="navbar navbar-light navbar-expand-xl nav-accent-xr-<?php echo $args['accent-color']; ?>" role="navigation">
-            <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/" class="navbar-brand">
+        <a href="<?php echo (ICL_LANGUAGE_CODE === "nl") ? "" : "/en"; ?>/" class="navbar-brand" onclick="<?php register_button_click('logo', 'header'); ?>">
                 <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( "class" => "img-fluid hide-xxs", "width" => "150" )); ?>
                 <?PHP echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( "class" => "img-fluid show-xxs", "width" => "80" )); ?>
             </a>
@@ -53,8 +53,8 @@
               $joinPage = apply_filters('wpml_object_id', 7587, 'page', true); // 7587 is page ID
               $joinPageUrl = get_permalink( $joinPage );
               ?>
-              <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert hide-xl" target="_blank"><?php _e('donate', 'theme-xrnl'); ?></a>
-              <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r hide-xl"><?php _e('join us', 'theme-xrnl'); ?></a>
+              <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert hide-xl" target="_blank" onclick="<?php register_button_click('donate (mobile)', 'header'); ?>"><?php _e('donate', 'theme-xrnl'); ?></a>
+              <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r hide-xl" onclick="<?php register_button_click('join us (mobile)', 'header'); ?>"><?php _e('join us', 'theme-xrnl'); ?></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
@@ -74,11 +74,11 @@
 
                 <ul class="list-unstyled d-flex my-3 my-xl-0 align-items-center ml-auto">
                     <li class="mx-3 mx-lg-2">
-                        <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" class="facebook" aria-label="facebook"><i class="fab text-black fa-facebook-f"></i></a></li>
+                        <a href="https://www.facebook.com/ExtinctionRebellionNL/" target="_blank" class="facebook" aria-label="facebook" onclick="<?php register_button_click('Facebook icon', 'header'); ?>"><i class="fab text-black fa-facebook-f"></i></a></li>
                     <li class="mx-3 mx-lg-2">
-                        <a href="https://twitter.com/nlrebellion" class="twitter" target="_blank" aria-label="twitter"><i class="fab text-black fa-twitter"></i></a></li>
+                        <a href="https://twitter.com/nlrebellion" class="twitter" target="_blank" aria-label="twitter" onclick="<?php register_button_click('Twitter icon', 'header'); ?>"><i class="fab text-black fa-twitter"></i></a></li>
                     <li class="mx-3 mx-lg-2">
-                        <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" class="insta" aria-label="instagram"><i class="fab text-black fa-instagram"></i></a></li>
+                        <a href="https://www.instagram.com/extinctionrebellionnl/?hl=nl" target="_blank" class="insta" aria-label="instagram" onclick="<?php register_button_click('Instagram icon', 'header'); ?>"><i class="fab text-black fa-instagram"></i></a></li>
                       <li class="mx-3 mx-lg-2 show-xl">
                         <?php wp_nav_menu( [
                             'theme_location' => 'language',
@@ -89,8 +89,8 @@
                         ] ); ?>
                       </li>
                     <li class="mx-3 mx-lg-2 show-xl">
-                      <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert" target="_blank"><?php _e('donate', 'theme-xrnl'); ?></a>
-                      <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r"><?php _e('join us', 'theme-xrnl'); ?></a>
+                      <a href="<?php echo $donatePageURL ?>" class="btn btn-black-r-invert" target="_blank" onclick="<?php register_button_click('donate (desktop)', 'header'); ?>"><?php _e('donate', 'theme-xrnl'); ?></a>
+                      <a href="<?php echo $joinPageUrl ?>" class="btn btn-black-r" onclick="<?php register_button_click('join us (desktop)', 'header'); ?>"><?php _e('join us', 'theme-xrnl'); ?></a>
                     </li>
                 </ul>
 
