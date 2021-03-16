@@ -964,3 +964,29 @@ if( function_exists('acf_add_options_page') ) {
   ));
 
 }
+
+/*
+ * register button click in Matomo analytics.
+ * The analytics code on each button follows this convention:
+ * https://wiki.extinctionrebellion.nl/Main/Tracking
+ * @param string $button_identifier text of the clicked button.
+ *        If there are 2 items with the same name on the same page,
+ *        the second item on the page should contain a 2 in the name, or another
+ *        identifier that helps distinguish it.
+ * @param string $page_identifier name of the template where the button is used.
+ *        this should only be used on templates that are reused among multiple
+ *        pages, such as the header and footer. By default the relative URL path
+ *        is used for the page identifier.
+ * @return analytic code to enter in the onclick property of <a> tags
+ */
+function register_button_click($button_identifier, $page_identifier = NULL)
+{
+  if (is_null($page_identifier)) {
+    $url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+    $escaped_url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+    $url_path = parse_url($escaped_url)['path'];
+    $page_identifier = $url_path;
+  }
+  $onclick = "_paq.push(['trackEvent', 'Button', 'Clicked', '" . $page_identifier . " - ". $button_identifier . "']);";
+  echo $onclick;
+}
